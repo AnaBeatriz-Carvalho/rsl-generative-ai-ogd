@@ -1,0 +1,298 @@
+Quando o objetivo central de uma pesquisa é construir e avaliar um artefato computacional — e não apenas observar ou descrever um fenômeno —, a escolha metodológica deve refletir essa natureza construtiva. É nesse sentido que se adota o \textit{Design Science Research} (DSR), um paradigma consolidado em Ciência da Computação que orienta não apenas a construção do artefato, mas a geração de conhecimento científico a partir do processo de design, implementação e avaliação \cite{Peffers2007}. O risco de trabalhos dessa natureza é reduzir-se a um relatório técnico de desenvolvimento de software; a DSR evita isso ao exigir que cada decisão de design seja justificada teoricamente e que os resultados sejam avaliados com rigor comparável ao de pesquisas empíricas \cite{Runeson2020, Pimentel2020}. As seis fases que estruturam esta pesquisa são descritas a seguir.
+
+\section{Abordagem Metodológica: Design Science Research}
+
+A metodologia foi estruturada seguindo o ciclo de processo proposto por Peffers et al. \cite{Peffers2007}, adaptado para o contexto deste trabalho em seis fases principais, conforme ilustrado na Figura \ref{fig:fluxo_trabalho_projeto}:
+
+\begin{enumerate}
+    \item Identificação do Problema e Motivação
+    \item Definição dos Objetivos da Solução
+    \item Design e Desenvolvimento do Artefato
+    \item Demonstração
+    \item Avaliação
+    \item Reflexão e Aprendizados
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \caption{Fluxo metodológico baseado em Design Science Research (adaptado de Peffers et al. 2007)}
+    \label{fig:fluxo_trabalho_projeto}
+    \includegraphics[width=0.8\textwidth]{imagens/fluxo_trabalho_projeto.png}
+    \fonte{Adaptado de Peffers et al. (2007).}
+\end{figure}
+
+\section{Fases da Pesquisa}
+
+\subsection{Fase 1: Identificação do Problema e Motivação}
+
+A primeira etapa consistiu no reconhecimento da opacidade prática dos dados parlamentares. Embora disponíveis em formato aberto através da API do Senado Federal, a complexidade técnica e o volume massivo desses dados impedem que cidadãos comuns exerçam controle social efetivo. Segundo Oliveira e Ckagnazaroff \cite{OliveiraCkagnazaroff2022}, para que a transparência seja efetiva, os dados devem ser não apenas públicos, mas também claros, contextualizados e utilizáveis.
+
+Conforme apontado por Lee et al. \cite{Lee2017} através do VLAT, nem todos conseguem interpretar visualizações gráficas complexas. Complementarmente, Hornung et al. \cite{Hornung2015} demonstram que usuários sem formação estatística frequentemente não conseguem analisar dados de forma autônoma. Consequentemente, a mera disponibilização de dados não garante compreensão ou participação democrática.
+
+Esta fase foi fundamentada em revisão de literatura e análise exploratória da API do Senado Federal, identificando-se a lacuna entre disponibilidade técnica de dados e acessibilidade cognitiva para cidadãos.
+
+\subsection{Fase 2: Definição dos Objetivos da Solução}
+
+Definiu-se que o artefato a ser construído deveria reduzir as barreiras cognitivas de acesso aos dados parlamentares. Para isso, estabeleceu-se que a solução deveria:
+
+\begin{enumerate}
+    \item \textbf{Automatizar a extração de dados brutos:} Implementar pipeline de ETL para processar dados da API do Senado, convertendo formatos não estruturados (XML/JSON) em estruturas tabulares otimizadas para análise.
+
+    \item \textbf{Traduzir linguagem parlamentar:} Utilizar IA Generativa para categorizar e resumir discursos parlamentares complexos, tornando-os compreensíveis para cidadãos sem expertise na área.
+
+    \item \textbf{Permitir interação em linguagem natural:} Implementar interface conversacional que permita ao usuário formular perguntas em linguagem comum, dispensando conhecimento técnico de queries ou programação.
+
+    \item \textbf{Oferecer múltiplas modalidades de exploração:} Combinar Dashboard visual (para exploração livre) com Chatbot conversacional (para consultas diretas), atendendo diferentes estilos cognitivos de usuários.
+\end{enumerate}
+
+\section{Fase 3: Design e Desenvolvimento do Artefato}
+
+Nesta fase, correspondente à construção técnica da solução, a aplicação foi desenvolvida em Python sob uma arquitetura modular, visando garantir manutenibilidade e escalabilidade. A solução foi segmentada em três camadas principais:
+
+\subsection{Coleta e Processamento de Dados (Camada de Dados)}
+
+A coleta foi efetuada via API de Dados Abertos do Senado Federal \cite{SenadoFederal_s_d}. O processo de ETL (\textit{Extract, Transform, Load}) incluiu:
+
+\begin{itemize}
+    \item \textbf{Requisição:} Uso da biblioteca \textit{Requests} \cite{RequestsLib} para extração de dados brutos (XML/JSON) dos \textit{endpoints} mapeados via Swagger (Figura \ref{fig:senado_swagger}).
+    \item \textbf{Estruturação:} Conversão e limpeza dos dados utilizando \textit{Pandas} \cite{PandasLib}, organizando discursos e votações em estruturas tabulares otimizadas para análise.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \caption{Interface Swagger da API de Dados Abertos do Senado Federal}
+    \label{fig:senado_swagger}
+    \includegraphics[width=0.9\textwidth]{imagens/senado_swagger.png}
+    \fonte{Senado Federal.}
+\end{figure}
+
+\subsection{Análise com IA Generativa (Camada de Inteligência)}
+
+O núcleo analítico utiliza o modelo Mistral 7B Instruct \cite{MistralAI2024}, que roda em ambiente local. Diferente de abordagens que dependem de APIs proprietárias, esta etapa emprega engenharia de \textit{prompts} para duas funções críticas:
+
+\begin{itemize}
+    \item \textbf{Classificação Temática:} Categorização automática de discursos em temas (ex: "Saúde", "Educação", "Infraestrutura") utilizando \textit{prompts} estruturados e exemplos de Few-Shot Learning.
+
+    \item \textbf{Motor de Resposta (RAG Simplificado):} O módulo recebe perguntas do usuário em linguagem natural, recupera dados relevantes do banco de dados estruturado e instrui o modelo Mistral 7B a gerar respostas contextualizadas e didáticas que sejam compreensíveis para cidadãos não-especialistas.
+\end{itemize}
+
+A escolha de Mistral 7B em ambiente local oferece vantagens críticas para pesquisa científica: replicabilidade total (código aberto), soberania de dados (não transmite informações legislativas para servidores externos) e sustentabilidade operacional.
+
+\subsection{Interface Interativa (Camada de Apresentação)}
+
+Para materializar o acesso democrático aos dados, desenvolveu-se uma interface \textit{web} utilizando o \textit{framework Streamlit} \cite{Streamlit2024}, oferecendo dois modos de interação complementares:
+
+\begin{itemize}
+    \item \textbf{\textit{Dashboard} Visual:} Gráficos interativos gerados com \textit{Plotly} \cite{Plotly2024} para exploração de tendências legislativas. O dashboard permite que usuários visualizem panoramicamente os dados, seguindo o princípio de Shneiderman \cite{Shneiderman1996} de "zoom and filter" (Figura \ref{fig:tela_aplicacao}).
+
+    \item \textbf{Agente Conversacional:} Interface de \textit{chat} que abstrai a complexidade dos dados, permitindo consultas diretas em linguagem natural como "Como votou o Senador X sobre educação?" ou "Qual foi o tema mais debatido em 2025?" (Figura \ref{fig:tela_aplicacao}).
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \caption{Interface da Aplicação}
+    \label{fig:tela_aplicacao}
+    \includegraphics[width=0.9\textwidth]{imagens/tela_aplicacao.png}
+    \fonte{Produção da autora.}
+\end{figure}
+
+\section{Fundamentos Teóricos para as Escolhas de Design}
+
+A combinação de Dashboard e Chatbot não é arbitrária, mas fundamentada em teorias de Interação Humano-Computador e Acessibilidade de Dados. Esta seção justifica essas escolhas.
+
+\subsection{Por que Dashboard?}
+
+Dashboards e visualizações de dados oferecem exploração livre e visão holística de um corpus de dados. Contudo, conforme Lee et al. \cite{Lee2017} demonstram através do VLAT, nem todos os usuários possuem "visualization literacy" — a capacidade de compreender visualizações gráficas complexas.
+
+Apesar desta limitação, dashboards permitem que usuários:
+
+\begin{itemize}
+    \item Obtenham visão panorâmica dos dados (principal → detalhe, conforme Shneiderman \cite{Shneiderman1996})
+    \item Explorem dados autonomamente sem intermediário
+    \item Identifiquem padrões visuais (tendências, anomalias)
+    \item Filtem e segmentem dados interativamente
+\end{itemize}
+
+Portanto, a solução proposta inclui um Dashboard que prioriza:
+
+\begin{itemize}
+    \item Paleta de cores intuitiva e acessível
+    \item Títulos e rótulos em linguagem comum (não jargão legislativo)
+    \item Representações visuais simples (barras, linhas) preferidas sobre heatmaps ou scatter plots
+    \item Interatividade básica (filtros, hover para detalhe)
+\end{itemize}
+
+\subsection{Por que Chatbot?}
+
+Interfaces conversacionais, especialmente aquelas alimentadas por Modelos de Linguagem Generativa, reduzem significativamente a barreira de entrada cognitiva. Um usuário sem expertise estatística pode formular perguntas em linguagem natural em vez de construir queries SQL ou manipular dados brutos.
+
+Conforme pesquisa em HCI e Interação Humano-Dados \cite{Hornung2015, Brito2024}, interfaces conversacionais oferecem:
+
+\begin{itemize}
+    \item \textbf{Redução de barreira de entrada:} Usuário não precisa saber estrutura de dados ou linguagem de queries
+    \item \textbf{Interface familiar:} Conversação é natural para humanos
+    \item \textbf{Customização por usuário:} Cada usuário pode formular perguntas de formas diferentes
+    \item \textbf{Mediação de compreensão:} IA pode traduzir resultados técnicos em explicações compreensíveis
+\end{itemize}
+
+Limitações conhecidas de chatbots com LLMs incluem risco de alucinação (respostas factualmente incorretas) e opacidade. Para mitigar, a implementação proposta:
+
+\begin{itemize}
+    \item Utiliza o Mistral 7B Instruct \cite{Jiang2023}, cujo porte paramétrico reduz a incidência de alucinações em relação a modelos de menor escala
+    \item Implementa validação de respostas contra dados reais
+    \item Fornece rastreabilidade: chatbot cita quais dados foram utilizados na resposta
+\end{itemize}
+
+\subsection{Complementaridade: Dashboard + Chatbot}
+
+A literatura em Interação Humano-Dados distingue dois padrões primários de uso em sistemas de informação pública: a exploração orientada à descoberta, em que o usuário navega pelo corpus sem uma pergunta pré-definida, e a consulta orientada a objetivos, em que há uma pergunta específica a ser respondida \cite{Shneiderman1996}. Esses padrões raramente são atendidos com igual eficácia por uma única modalidade de interface.
+
+O \textit{Dashboard} atende principalmente o primeiro padrão: permite ao usuário identificar tendências, comparar parlamentares e detectar anomalias por navegação visual, sem exigir que ele formule uma pergunta antes de começar. O \textit{Chatbot}, por sua vez, é mais adequado ao segundo padrão: reduz a carga cognitiva de quem sabe o que quer perguntar mas não sabe como navegar em dados estruturados. A integração de ambos em um único sistema não busca cobrir todos os perfis de usuário possíveis — uma afirmação que exigiria validação empírica — mas reconhece que restringir a interação a uma única modalidade excluiria sistematicamente parte dos potenciais usuários. Essa decisão de design será discutida nas considerações finais à luz dos resultados da avaliação.
+
+\section{Fase 4: Demonstração}
+
+Nesta fase, o artefato foi colocado em ambiente de homologação, processando dados reais da API do Senado Federal. A demonstração inclui:
+
+\begin{itemize}
+    \item Processamento automático de sessões legislativas reais
+    \item Classificação temática de discursos
+    \item Resposta a consultas em linguagem natural
+    \item Visualização de tendências legislativas
+\end{itemize}
+
+A aplicação encontra-se estável e funcional, habilitando o início imediato da fase de avaliação rigorosa.
+
+\section{Fase 5: Avaliação do Artefato}
+
+A fase de avaliação será conduzida sem entrevistas, questionários, observação comportamental ou qualquer coleta de dados com participantes humanos. A avaliação incidirá sobre o artefato computacional, os dados públicos processados e as respostas geradas pelo modelo. Dessa forma, a pesquisa utiliza exclusivamente dados abertos, informações de domínio público e análises técnicas do sistema.
+
+A avaliação foi organizada em quatro frentes complementares: qualidade da coleta e estruturação dos dados, classificação temática, qualidade factual das respostas e rastreabilidade das informações apresentadas pelo agente conversacional.
+
+\subsection{Avaliação da Coleta e Estruturação dos Dados}
+
+\subsubsection{Pergunta}
+Em que medida o pipeline de coleta e processamento estrutura corretamente os dados parlamentares obtidos da API do Senado Federal?
+
+\subsubsection{Método}
+Será selecionado um conjunto de endpoints e períodos de coleta definidos no escopo do estudo. Os dados retornados pela API serão comparados com as estruturas armazenadas localmente pelo AgentAI, verificando se os campos essenciais foram preservados e se o processo de transformação não introduziu inconsistências.
+
+\subsubsection{Métricas}
+\begin{itemize}
+    \item \textbf{Completude:} proporção de registros coletados e armazenados com campos essenciais preenchidos.
+    \item \textbf{Consistência:} ausência de duplicidades, datas inválidas, campos incompatíveis ou vínculos incorretos entre parlamentar, discurso, votação e matéria.
+    \item \textbf{Reprodutibilidade:} capacidade de reexecutar o pipeline e obter uma base equivalente para o mesmo recorte temporal.
+\end{itemize}
+
+\subsection{Avaliação da Classificação Temática}
+
+\subsubsection{Pergunta}
+Em que medida o modelo Mistral 7B Instruct classifica corretamente os temas dos discursos parlamentares?
+
+\subsubsection{Método}
+Será construída uma amostra de discursos reais do Senado Federal (mínimo de 150 registros, distribuídos entre as categorias temáticas definidas) para compor o gabarito de referência. A anotação será realizada de forma independente por dois avaliadores — a pesquisadora e o orientador —, com base em critérios documentados explicitamente antes do início da anotação. O nível de concordância entre os avaliadores será medido pelo coeficiente Kappa de Cohen \cite{Cohen1960}; casos de discordância serão resolvidos por discussão e registrados como subcategoria de análise qualitativa. A classificação gerada pelo modelo será então comparada com o gabarito final consensuado.
+
+\subsubsection{Métricas}
+\begin{itemize}
+    \item \textbf{Acurácia:} proporção de classificações coincidentes com o gabarito de referência.
+    \item \textbf{Precisão:} proporção de discursos classificados em um tema que efetivamente pertencem a esse tema no gabarito.
+    \item \textbf{Revocação:} proporção de discursos de um tema que foram corretamente identificados pelo modelo.
+    \item \textbf{F1-Score:} média harmônica entre precisão e revocação.
+\end{itemize}
+
+\subsubsection{Critério de Interpretação}
+Os resultados serão interpretados comparativamente em relação a um \textit{baseline} de referência: uma classificação por correspondência de palavras-chave temáticas predefinidas (abordagem clássica sem LLM). Essa comparação permite dimensionar o ganho — ou ausência de ganho — que o Mistral 7B Instruct oferece em relação a uma solução mais simples. A análise qualitativa complementará os números, identificando os tipos de discurso que geram maior ambiguidade e os casos em que o modelo produz classificações inconsistentes com o gabarito.
+
+\subsection{Avaliação Factual das Respostas do Agente Conversacional}
+
+\subsubsection{Pergunta}
+As respostas geradas pelo agente conversacional são coerentes com os dados públicos recuperados da base local?
+
+\subsubsection{Método}
+Será elaborado um conjunto de cenários representativos de consulta, contemplando perguntas sobre votações, discursos, parlamentares, temas e períodos. Para cada cenário, será definida uma resposta esperada com base nos dados oficiais coletados da API do Senado Federal. As respostas geradas pelo AgentAI serão classificadas em: correta, parcialmente correta, incorreta ou não respondida.
+
+\subsubsection{Métricas}
+\begin{itemize}
+    \item Percentual de respostas corretas.
+    \item Percentual de respostas parcialmente corretas.
+    \item Percentual de respostas incorretas ou sem respaldo nos dados.
+    \item Tipos de erro observados, como omissão, generalização indevida, interpretação incorreta ou ausência de evidência recuperada.
+\end{itemize}
+
+\subsection{Avaliação de Rastreabilidade}
+
+\subsubsection{Pergunta}
+As respostas do agente conversacional permitem identificar os dados utilizados para sua geração?
+
+\subsubsection{Método}
+Cada resposta gerada pelo agente será analisada quanto à presença de elementos de rastreabilidade, como parlamentar, data, sessão, matéria, votação, discurso ou trecho de dados recuperado. Essa análise busca verificar se o sistema evita respostas genéricas e se mantém ligação explícita com a base de dados consultada.
+
+\subsubsection{Métricas}
+\begin{itemize}
+    \item Percentual de respostas com referência explícita aos dados utilizados.
+    \item Percentual de respostas sem rastreabilidade suficiente.
+    \item Frequência de respostas em que o modelo extrapola além do contexto recuperado.
+\end{itemize}
+
+\subsection{Avaliação de Cenários de Uso}
+
+A avaliação final consolidará os resultados das etapas anteriores em cenários de uso definidos pela pesquisadora. Esses cenários não envolvem participantes externos; funcionam como casos de teste do artefato. Exemplos incluem: consultar o posicionamento de um parlamentar em uma votação, identificar temas recorrentes em discursos de um período e solicitar uma síntese de votações relacionadas a uma área temática.
+\section{Fase 6: Reflexão e Aprendizados}
+
+A fase final documenta o conhecimento científico gerado através da pesquisa. Não se trata apenas de documentar que o artefato funciona tecnicamente, mas de analisar sistematicamente:
+
+\begin{itemize}
+    \item O que aprendemos sobre design de interfaces para acessibilidade de dados?
+    \item Que padrões emergiram dos cenários de avaliação técnica?
+    \item Quais são as limitações da abordagem com IA Generativa?
+    \item Que contribuições esta pesquisa oferece para a comunidade científica?
+\end{itemize}
+
+\section{Cronograma de Execução}
+
+O planejamento para os próximos 12 meses foca na execução das Fases 5 e 6 (Avaliação e Reflexão) e na produção textual. O Quadro \ref{quad:cronograma_metodologia} detalha as atividades previstas até a defesa final.
+
+\begin{quadro}[H]
+    \centering
+    \caption{Cronograma de Execução e Finalização da Dissertação}
+    \label{quad:cronograma_metodologia}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|p{8cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{2cm}|}
+        \hline
+        \textbf{Atividades (Fase Final)} & \textbf{Trim. 1 2026} & \textbf{Trim. 2 2026} & \textbf{Trim. 3 2026} & \textbf{Trim. 4 2026} \\
+        \hline
+        Ajustes pós-Qualificação (Metodologia DSR) & X & & & \\
+        \hline
+        Preparação do Gabarito Ouro (Classificação Manual) & X & X & & \\
+        \hline
+        Execução do Experimento de Acurácia (IA) & X & X & & \\
+        \hline
+        Avaliação factual das respostas geradas & & X & X & \\
+        \hline
+        Avaliação de rastreabilidade e cenários de consulta & & X & X & \\
+        \hline
+        Análise Estatística e Qualitativa dos Resultados & & X & X & \\
+        \hline
+        Escrita de Artigo Científico (PROPOR 2026) & & X & X & \\
+        \hline
+        Escrita Final da Dissertação (Resultados + Conclusão) & & & X & X \\
+        \hline
+        Revisão e Depósito & & & & X \\
+        \hline
+        Defesa da Dissertação & & & & X \\
+        \hline
+    \end{tabular}%
+    }
+    \fonte{Produção da autora.}
+\end{quadro}
+
+As atividades estão distribuídas da seguinte forma:
+
+\begin{itemize}
+    \item \textbf{1º Trimestre 2026:} Refinamento do texto da proposta conforme feedback da banca, implementação de melhorias metodológicas, preparação do dataset de controle (Gabarito Ouro) para experimento de acurácia.
+
+    \item \textbf{2º Trimestre 2026:} Execução dos testes técnicos para validação de acurácia, avaliação factual das respostas, verificação de rastreabilidade e execução de cenários representativos de consulta. Início paralelo da escrita de artigo científico visando a conferência PROPOR 2026.
+
+    \item \textbf{3º Trimestre 2026:} Consolidação estatística e qualitativa dos dados obtidos na avaliação, redação dos capítulos finais da dissertação (Análise de Resultados e Conclusão), finalização e submissão do artigo científico.
+
+    \item \textbf{4º Trimestre 2026:} Revisão final do texto completo da dissertação, submissão para a banca examinadora, defesa pública.
+\end{itemize}

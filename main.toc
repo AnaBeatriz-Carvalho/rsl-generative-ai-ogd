@@ -1,0 +1,100 @@
+\changetocdepth {4}
+\babel@toc {brazil}{}\relax 
+\contentsline {chapter}{\chapternumberline {1}Introdução}{9}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contexto}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Motivação}{10}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Problemática, Questão de Pesquisa e Hipótese}{10}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Problemática}{10}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Questão de Pesquisa}{11}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Hipótese de Pesquisa}{11}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}Objetivos}{11}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Objetivo Geral}{11}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Objetivos Específicos}{11}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Estrutura do Documento}{12}{section.1.5}%
+\contentsline {chapter}{\chapternumberline {2}Fundamentação Teórica}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Dados Abertos}{13}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}As 5 Estrelas dos Dados Abertos}{14}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Processamento de Linguagem Natural (PLN) e Modelos de Linguagem}{15}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Inteligência Artificial Generativa}{16}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Recuperação Aumentada por Geração}{17}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Mistral 7B Instruct vs. Alternativas}{17}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Design Science Research}{18}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Fases da Design Science Research}{18}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}DSR no Contexto desta Pesquisa}{19}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}Interação Humano-Dados e Acessibilidade de Informação}{19}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Desafios de Visualização de Dados}{19}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Barreiras Cognitivas para Usuários Não-Especialistas}{19}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Interfaces Conversacionais como Estratégia de Acessibilidade}{20}{subsection.2.5.3}%
+\contentsline {chapter}{\chapternumberline {3}Metodologia}{22}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Abordagem Metodológica: Design Science Research}{22}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Fases da Pesquisa}{23}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Fase 1: Identificação do Problema e Motivação}{23}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Fase 2: Definição dos Objetivos da Solução}{24}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Fase 3: Design e Desenvolvimento do Artefato}{24}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Coleta e Processamento de Dados (Camada de Dados)}{24}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Análise com IA Generativa (Camada de Inteligência)}{25}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Interface Interativa (Camada de Apresentação)}{25}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Fundamentos Teóricos para as Escolhas de Design}{26}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Por que Dashboard?}{26}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Por que Chatbot?}{27}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Complementaridade: Dashboard + Chatbot}{28}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Fase 4: Demonstração}{28}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Fase 5: Avaliação do Artefato}{28}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Avaliação da Coleta e Estruturação dos Dados}{29}{subsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.1.1}Pergunta}{29}{subsubsection.3.6.1.1}%
+\contentsline {subsubsection}{\numberline {3.6.1.2}Método}{29}{subsubsection.3.6.1.2}%
+\contentsline {subsubsection}{\numberline {3.6.1.3}Métricas}{29}{subsubsection.3.6.1.3}%
+\contentsline {subsection}{\numberline {3.6.2}Avaliação da Classificação Temática}{29}{subsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.2.1}Pergunta}{29}{subsubsection.3.6.2.1}%
+\contentsline {subsubsection}{\numberline {3.6.2.2}Método}{29}{subsubsection.3.6.2.2}%
+\contentsline {subsubsection}{\numberline {3.6.2.3}Métricas}{30}{subsubsection.3.6.2.3}%
+\contentsline {subsubsection}{\numberline {3.6.2.4}Critério de Interpretação}{30}{subsubsection.3.6.2.4}%
+\contentsline {subsection}{\numberline {3.6.3}Avaliação Factual das Respostas do Agente Conversacional}{30}{subsection.3.6.3}%
+\contentsline {subsubsection}{\numberline {3.6.3.1}Pergunta}{30}{subsubsection.3.6.3.1}%
+\contentsline {subsubsection}{\numberline {3.6.3.2}Método}{30}{subsubsection.3.6.3.2}%
+\contentsline {subsubsection}{\numberline {3.6.3.3}Métricas}{30}{subsubsection.3.6.3.3}%
+\contentsline {subsection}{\numberline {3.6.4}Avaliação de Rastreabilidade}{31}{subsection.3.6.4}%
+\contentsline {subsubsection}{\numberline {3.6.4.1}Pergunta}{31}{subsubsection.3.6.4.1}%
+\contentsline {subsubsection}{\numberline {3.6.4.2}Método}{31}{subsubsection.3.6.4.2}%
+\contentsline {subsubsection}{\numberline {3.6.4.3}Métricas}{31}{subsubsection.3.6.4.3}%
+\contentsline {subsection}{\numberline {3.6.5}Avaliação de Cenários de Uso}{31}{subsection.3.6.5}%
+\contentsline {section}{\numberline {3.7}Fase 6: Reflexão e Aprendizados}{31}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Cronograma de Execução}{32}{section.3.8}%
+\contentsline {chapter}{\chapternumberline {4}Estado da Arte}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Protocolo do Mapeamento Sistemático}{33}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Planejamento}{34}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Execução e Resultados}{37}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Análise Temática dos Resultados}{39}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Tema 1: IA Generativa para Estruturação de Dados Legislativos}{39}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Tema 2: Interfaces Conversacionais para Acessibilidade}{39}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Tema 3: Análise de Dados Legislativos com PLN Clássico}{40}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Tema 4: Desafios e Lacunas na Literatura}{40}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Lacunas Identificadas e Contribuições Desta Pesquisa}{41}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Conclusões do Mapeamento Sistemático}{42}{section.4.4}%
+\contentsline {chapter}{\chapternumberline {5}Desenvolvimento e Resultados Preliminares}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Estágio Atual do Desenvolvimento}{43}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Arquitetura e Componentes do Artefato}{44}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Camada de Dados: Coleta e Processamento}{44}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Camada de Inteligência: Análise com Mistral 7B}{44}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Camada de Apresentação: Interfaces Acessíveis}{45}{subsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.3.1}Dashboard Visual}{45}{subsubsection.5.2.3.1}%
+\contentsline {subsubsection}{\numberline {5.2.3.2}Chatbot Conversacional}{46}{subsubsection.5.2.3.2}%
+\contentsline {section}{\numberline {5.3}Fluxo de Funcionamento do Sistema}{46}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Dados Legislativos Utilizados}{47}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Status de Conclusão das Fases DSR}{47}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Cronograma de Execução da Dissertação}{48}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Próximas Ações Imediatas (Próximas 8 Semanas)}{49}{section.5.7}%
+\contentsline {chapter}{\chapternumberline {6}Considerações Parciais e Trabalhos Futuros}{50}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Progresso do Ciclo de Design Science Research}{50}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Resultados Preliminares do Artefato}{51}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Viabilidade Técnica}{51}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Verificação Funcional Preliminar}{51}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Desafios e Limitações Identificadas}{52}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Desafios Técnicos}{52}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Desafios Metodológicos}{52}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Contribuições Esperadas da Pesquisa}{53}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Contribuições Científicas}{53}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Contribuições Práticas}{53}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.5}Trabalhos Futuros: Fases de Avaliação e Conclusão}{54}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Perspectivas de Conclusão}{54}{section.6.6}%
+\contentsline {chapter}{Refer\^encias}{56}{chapter*.8}%

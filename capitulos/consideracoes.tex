@@ -1,0 +1,125 @@
+Este capítulo apresenta uma avaliação honesta do estágio atual da pesquisa: o que foi concluído, o que permanece em aberto, quais desafios emergiram durante o desenvolvimento e o que se espera produzir na fase final. O objetivo não é apenas reportar progresso, mas identificar onde os riscos metodológicos ainda precisam ser mitigados antes da defesa.
+
+\section{Progresso do Ciclo de Design Science Research}
+
+Conforme a metodologia DSR adotada, o ciclo de pesquisa estrutura-se em seis fases. À data desta proposta (maio de 2026), quatro fases encontram-se concluídas ou em conclusão avançada:
+
+\begin{enumerate}
+    \item \textbf{Fase 1 - Identificação do Problema:} \textbf{Concluída}. Mapeamento das dificuldades de acesso aos dados parlamentares e definição da relevância para transparência e participação cívica foram estabelecidas.
+
+    \item \textbf{Fase 2 - Objetivos da Solução:} \textbf{Concluída}. Especificação clara dos objetivos que o artefato deve atingir (redução de barreiras cognitivas, interface acessível, múltiplas modalidades) foi documentada.
+
+    \item \textbf{Fase 3 - Design e Desenvolvimento:} \textbf{Concluída}. O artefato AgentAI encontra-se tecnicamente funcional, integrando coleta de dados (API Senado), processamento com IA Generativa (Mistral 7B local), e interfaces acessíveis (Dashboard + Chatbot).
+
+    \item \textbf{Fase 4 - Demonstração:} \textbf{Concluída}. A aplicação encontra-se em ambiente de homologação, processando dados reais da API do Senado Federal e respondendo a consultas em linguagem natural.
+
+    \item \textbf{Fase 5 - Avaliação:} \textbf{Em Execução}. Conforme cronograma (Capítulo \ref{cap:metodologia}, Quadro \ref{quad:cronograma_metodologia}), iniciaram-se preparações para testes técnicos, avaliação factual das respostas e verificação de rastreabilidade.
+
+    \item \textbf{Fase 6 - Reflexão e Aprendizados:} \textbf{Planejada para Q3/Q4 2026}. Documentação do conhecimento científico gerado será realizada após conclusão dos testes.
+\end{enumerate}
+
+\section{Resultados Preliminares do Artefato}
+
+Do ponto de vista técnico e funcional, o artefato demonstrou viabilidade nas seguintes dimensões:
+
+\subsection{Viabilidade Técnica}
+
+A solução computacional materializa-se como uma aplicação \textit{web} funcional que integra:
+
+\begin{itemize}
+    \item \textbf{Coleta de Dados:} Pipeline de ETL automatizado que processa dados da API do Senado Federal com sucesso, utilizando Python e \textit{Pandas} para estruturação.
+
+    \item \textbf{Processamento com IA:} Modelo Mistral 7B Instruct, rodando localmente, consegue executar classificação temática de discursos legislativos e gerar respostas em linguagem natural alinhadas aos dados reais.
+
+    \item \textbf{Interfaces:} Aplicação Streamlit com Dashboard interativo (\textit{Plotly}) e Chatbot conversacional funcionam de forma estável em ambiente de homologação.
+
+    \item \textbf{Performance:} O sistema processa um corpus legislativo realista (sessões do Senado de 2024-2026) em ambiente local, com latência preliminarmente adequada ao estágio de prototipação.
+\end{itemize}
+
+\subsection{Verificação Funcional Preliminar}
+
+Antes da fase de avaliação formal, o artefato passou por uma verificação funcional conduzida pela pesquisadora e pelo orientador, com foco exclusivo em identificar falhas de execução — não em medir desempenho. Nessa etapa, confirmou-se que: o pipeline de ETL processa e armazena dados da API sem perda de campos essenciais; o modelo Mistral 7B Instruct gera classificações temáticas para os discursos ingeridos; e a interface Streamlit responde a consultas sem erros de execução em ambiente local.
+
+É importante distinguir essa verificação funcional da avaliação científica planejada para as próximas etapas. Saber que o sistema funciona não é o mesmo que saber se ele funciona bem o suficiente para o propósito declarado. A avaliação sistemática — com gabarito de referência anotado por dois avaliadores, métricas quantitativas e comparação com baseline — é o que determinará se a hipótese formulada se sustenta ou não.
+
+\section{Desafios e Limitações Identificadas}
+
+A execução das fases anteriores revelou desafios que constituem ameaças à validade da pesquisa e que serão tratados ou documentados nas próximas etapas:
+
+\subsection{Desafios Técnicos}
+
+\begin{itemize}
+    \item \textbf{Ambiguidade Semântica em Jargões Legislativos:} O modelo Mistral 7B, apesar de competente em tarefas genéricas, demonstrou limitações na interpretação de termos específicos do domínio legislativo (ex: "desarquivamento", "tramitação em urgência", "voto por delegação"). Em alguns casos, isso resultou em classificações genéricas ou imprecisas.
+
+    \textbf{Plano de Mitigação:} Engenharia de \textit{prompt} avançada com Few-Shot Learning (fornecer exemplos ao modelo de cada jargão) e possível fine-tuning limitado do modelo.
+
+    \item \textbf{Alucinações e Opacidade dos LLMs:} A natureza "caixa preta" (\textit{black box}) de modelos de linguagem impõe um desafio para confiabilidade das respostas. Observou-se ocasionalmente que o Chatbot gera informações que parecem plausíveis mas não estão fundamentadas nos dados reais.
+
+    \textbf{Plano de Mitigação:} Implementação de mecanismo de rastreabilidade: toda resposta do Chatbot cita quais dados (senador, data, votação) foram utilizados, permitindo verificação humana.
+
+    \item \textbf{Limitações de Infraestrutura:} Restrições de memória e processamento em ambiente local impactam volume de dados que podem ser processados simultaneamente. Em alguns casos, há lentidão quando processando sessões legislativas muito longas.
+
+    \textbf{Plano de Mitigação:} Otimização de código, caching de resultados, e possível upgrade de hardware.
+\end{itemize}
+
+\subsection{Desafios Metodológicos}
+
+\begin{itemize}
+    \item \textbf{Construção de Gabaritos de Referência:} Avaliar classificação temática e respostas em linguagem natural exige a construção de conjuntos de referência consistentes. Há risco de subjetividade na definição das categorias e respostas esperadas.
+
+    \textbf{Plano de Mitigação:} Documentação explícita dos critérios de anotação, revisão pelo orientador e registro dos casos ambíguos encontrados durante a avaliação.
+
+    \item \textbf{Validade dos Cenários de Consulta:} Os cenários usados para avaliar o agente conversacional precisam representar perguntas relevantes sobre dados parlamentares, sem depender de participantes externos.
+
+    \textbf{Plano de Mitigação:} Definição de cenários com base nas funcionalidades reais do artefato, nos dados disponíveis na API do Senado e nas lacunas identificadas no mapeamento sistemático.
+\end{itemize}
+
+\section{Contribuições Esperadas da Pesquisa}
+
+Conforme apontado pelo Mapeamento Sistemático da Literatura (Capítulo 4), esta pesquisa posiciona-se para fazer contribuições em áreas onde há lacunas identificadas:
+
+\subsection{Contribuições Científicas}
+
+\begin{enumerate}
+    \item \textbf{Conhecimento sobre Design de Interfaces para Acessibilidade de Dados Legislativos:} Investigação empiricamente fundamentada de como combinar múltiplas modalidades (Dashboard visual + Chatbot conversacional) melhora acesso democrático a informação.
+
+    \item \textbf{Compreensão de Efetividade Técnica de IA Generativa em Contextos Cívicos:} Avaliação rigorosa de como IA Generativa local pode apoiar classificação temática, consulta em linguagem natural e geração de respostas rastreáveis sobre dados parlamentares.
+
+    \item \textbf{Metodologia para Validação de Confiabilidade de LLMs em Contextos Críticos:} Documentação de estratégia de validação de respostas IA contra dados reais, aplicável a outros domínios além legislação.
+
+    \item \textbf{Conhecimento Localizado (Brasil/Português):} Investigação situada no contexto brasileiro, em língua portuguesa, contribuindo para uma lacuna ainda pouco explorada na literatura sobre IA Generativa e dados parlamentares.
+\end{enumerate}
+
+\subsection{Contribuições Práticas}
+
+\begin{enumerate}
+    \item \textbf{Artefato Funcional:} Protótipo funcional que pode subsidiar futuras aplicações por pesquisadores, organizações civis e instituições interessadas em transparência legislativa.
+
+    \item \textbf{Código Aberto:} Publicação do código-fonte no GitHub permite que outros pesquisadores repliquem, modifiquem e estendam a solução.
+
+    \item \textbf{Guidelines de Design:} Recomendações práticas para design de interfaces cívicas que combinam IA com acessibilidade.
+\end{enumerate}
+
+\section{Trabalhos Futuros: Fases de Avaliação e Conclusão}
+
+As fases restantes do ciclo DSR — Avaliação e Reflexão — constituem o núcleo científico da dissertação. É nelas que a hipótese será testada e o conhecimento gerado. O cronograma detalhado das atividades está descrito no Capítulo \ref{cap:metodologia}, Quadro \ref{quad:cronograma_metodologia}; registra-se aqui apenas a priorização das atividades críticas:
+
+A construção do protocolo de anotação e do gabarito de referência precede qualquer execução de experimento — sem um gabarito metodologicamente sólido, as métricas de acurácia e F1 carecem de validade. Em seguida, a execução dos testes de classificação com baseline comparativo permitirá dimensionar o real ganho do uso do LLM. Por fim, a avaliação de rastreabilidade e os cenários de consulta fecharão o ciclo de evidências sobre a hipótese central.
+
+\section{Perspectivas de Conclusão}
+
+A fase que determina o valor científico desta dissertação ainda está por ser executada: a avaliação rigorosa do artefato. O desenvolvimento do AgentAI demonstrou viabilidade técnica, mas viabilidade não é o mesmo que efetividade — e é exatamente a distinção entre essas duas condições que a fase de avaliação precisa endereçar.
+
+O principal risco no horizonte imediato é a construção do gabarito de referência: se os critérios de anotação não forem documentados com precisão antes do início da classificação, a avaliação perde credibilidade metodológica. Por isso, a primeira atividade do próximo trimestre é a elaboração do protocolo de anotação — incluindo definição operacional das categorias temáticas, exemplos de casos limítrofes e regras de desempate — antes que qualquer discurso seja anotado.
+
+Se as fases de Avaliação e Reflexão forem executadas com o rigor descrito neste documento, o trabalho poderá contribuir com dois resultados concretos para a comunidade: um protocolo replicável para avaliação de sistemas RAG sobre dados parlamentares em português, e um conjunto de dados anotados sobre discursos do Senado Federal que pode ser disponibilizado para pesquisas futuras. Esses resultados têm valor independente do desempenho absoluto do modelo — porque documentam tanto o que funciona quanto o que não funciona, e ambos são contribuições científicas legítimas.
+
+\textbf{Próximas Ações Imediatas:}
+
+\begin{enumerate}
+    \item Refinamento final do documento de proposta conforme feedback da banca examinadora
+    \item Preparação do dataset de controle (Gabarito Ouro) para experimento de acurácia
+    \item Preparação de cenários representativos de consulta
+    \item Implementação de melhorias metodológicas apontadas por este parecer
+    \item Execução da primeira rodada de avaliação técnica (próximas 8 semanas)
+\end{enumerate}

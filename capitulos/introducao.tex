@@ -1,0 +1,55 @@
+A crescente abertura de dados governamentais no Brasil criou um paradoxo pouco discutido: os dados estão tecnicamente disponíveis, mas permanecem inacessíveis para a maior parte da população. Esta dissertação parte desse problema concreto para investigar se — e em que medida — a Inteligência Artificial Generativa pode reduzir essa distância entre disponibilidade técnica e acesso efetivo à informação parlamentar.
+
+\section{Contexto}
+A busca por um governo transparente é um pilar fundamental da democracia, onde a visibilidade do poder legitima as instituições \cite{Bobbio1986}. No século XXI, essa premissa é potencializada pelo movimento de dados abertos (Open Data), que defende que os dados governamentais devam ser livremente utilizados, reutilizados e redistribuídos \cite{OKBrasil2024}. Contudo, a simples disponibilização das informações sobre as atividades parlamentares não assegura, por si só, a efetividade da transparência. A proliferação de dados brutos, como os debates e discursos políticos, requer métodos de organização, recuperação e análise para que a informação pública possa ser consultada de modo inteligível — pois, como argumentam \citeonline{OliveiraCkagnazaroff2022}, a transparência efetiva exige que os dados sejam não apenas públicos, mas também claros, contextualizados e utilizáveis. Quando essa mediação não se realiza, o fosso entre o que está formalmente disponível e o que é efetivamente acessível contribui para aprofundar o distanciamento entre representados e representantes — condição que \citeonline{LevitskyZiblatt2018} identificam como uma das precursoras do enfraquecimento das instituições democráticas. Nesse cenário, a Inteligência Artificial (IA), com destaque para a IA Generativa, apresenta potencial para processar, classificar e sintetizar grandes volumes de dados textuais, apoiando novas formas de consulta à informação pública.
+
+\section{Motivação}
+A motivação central deste trabalho está na distância entre o que os dados parlamentares abertos prometem e o que efetivamente entregam. A API do Senado Federal disponibiliza volumes crescentes de informações sobre sessões, discursos e votações, mas consultá-la exige familiaridade com estruturas técnicas (endpoints, formatos XML/JSON) que escapam ao repertório da maioria dos cidadãos. Não se trata de um problema de vontade política na abertura dos dados — trata-se de um problema de mediação entre dado bruto e informação compreensível. A aplicação da IA Generativa nesse contexto não é uma solução trivial: ela carrega consigo riscos conhecidos de imprecisão factual e viés algorítmico que precisam ser investigados antes de qualquer uso em contextos cívicos. É exatamente essa tensão — potencial de democratização versus riscos de desinformação — que motiva a pesquisa aqui proposta.
+
+O artefato desenvolvido nesta dissertação, denominado \textit{AgentAI}, é uma aplicação web que integra coleta automatizada de dados parlamentares via API do Senado Federal, classificação temática de discursos com IA Generativa executada localmente, visualizações interativas e um agente conversacional para consultas em linguagem natural. A escolha por execução local — em vez de APIs proprietárias — responde a critérios científicos concretos: replicabilidade do experimento, soberania dos dados e independência de custos operacionais.
+
+\section{Problemática, Questão de Pesquisa e Hipótese}
+
+\subsection{Problemática}
+A principal problemática abordada decorre do fato de que o volume e a complexidade dos dados parlamentares abertos, embora publicamente disponíveis, representam uma barreira significativa para consulta e análise. Como discutido por \citeonline{OliveiraCkagnazaroff2022}, para que a transparência seja efetiva, os dados devem ser não apenas públicos, mas também claros, contextualizados e utilizáveis. Atualmente, a análise proficiente desses dados exige conhecimentos técnicos, familiaridade com as estruturas das APIs e o dispêndio de tempo considerável.
+
+Complementarmente, \citeonline{Lee2017}, através do VLAT (\textit{Visualization Literacy Assessment Test}), demonstraram que a interpretação das visualizações gráficas pode variar conforme a literacia visual dos usuários. \citeonline{Hornung2015} apontam que as pessoas sem formação em estatística ou ciência de dados podem enfrentar barreiras cognitivas ao analisar os dados complexos. Portanto, a mera disponibilização dos dados legislativos não garante, por si só, que essas informações sejam facilmente consultáveis ou compreensíveis.
+
+Nesse contexto, a Inteligência Artificial Generativa, exemplificada pelos modelos como o Mistral 7B Instruct \cite{MistralAI2024}, apresenta-se como uma abordagem promissora para apoiar a organização e a consulta dos dados legislativos textuais. Diferentemente das técnicas tradicionais de Processamento de Linguagem Natural (PLN) que dependem de palavras-chave rígidas, os modelos de linguagem podem apoiar tarefas de classificação temática, sumarização e geração de respostas em linguagem natural. A execução local do modelo também contribui para a privacidade, replicabilidade e independência das APIs proprietárias.
+
+\subsection{Questão de Pesquisa}
+Diante desse cenário, este trabalho norteia-se pela seguinte questão de pesquisa central:
+
+\begin{citacao}
+\textbf{QP:} Em que medida um artefato computacional baseado em \textit{dashboard} visual e agente conversacional com IA Generativa local pode estruturar, classificar e tornar consultáveis os dados parlamentares abertos do Senado Federal?
+\end{citacao}
+
+\subsection{Hipótese de Pesquisa}
+Para responder a esta questão, foi formulada a seguinte hipótese de trabalho:
+
+\begin{citacao}
+\textbf{Hipótese:} A combinação do processamento dos dados abertos, classificação temática com o Mistral 7B Instruct e interface visual/conversacional é capaz de estruturar e tornar consultáveis dados parlamentares abertos, de modo que: (a) a classificação temática automática dos discursos apresente acurácia superior à de um classificador por palavras-chave utilizado como linha de base; (b) as respostas do agente conversacional sejam factualmente coerentes com os dados recuperados em pelo menos 70\% dos cenários de consulta avaliados; e (c) as respostas apresentem rastreabilidade explícita — isto é, possam ser associadas aos registros de origem — em pelo menos 80\% dos casos. Caso esses limiares não sejam alcançados, a hipótese será refutada e as causas do insucesso constituirão o principal resultado científico da dissertação.
+\end{citacao}
+
+\section{Objetivos}
+
+\subsection{Objetivo Geral}
+Investigar como a aplicação da Inteligência Artificial Generativa local nos dados legislativos abertos pode apoiar a estruturação, classificação e consulta das informações parlamentares, mediante o design, implementação e avaliação técnica de um artefato computacional interativo que integra interface visual e conversacional.
+
+\subsection{Objetivos Específicos}
+Para que o objetivo geral seja alcançado, foram definidos os seguintes objetivos específicos, alinhados às etapas da metodologia \textit{Design Science Research}:
+
+\begin{itemize}
+\item Realizar um mapeamento sistemático da literatura para identificar os fundamentos teóricos sobre os dados abertos, IA Generativa em contextos cívicos, interação humano-dados e consulta aos dados legislativos.
+\item Descrever e justificar os fundamentos teóricos para as escolhas de design do artefato, especificamente a combinação do \textit{dashboard} visual e agente conversacional baseado na IA Generativa local.
+\item Implementar um protótipo funcional (\textit{artefato computacional}) capaz de processar os dados legislativos abertos da API do Senado Federal, classificar tematicamente os discursos e responder às perguntas em linguagem natural utilizando o modelo Mistral 7B Instruct.
+\item Avaliar a eficácia técnica do artefato, verificando a qualidade da coleta e estruturação dos dados, a acurácia da classificação temática e a qualidade factual das respostas geradas em comparação com os dados oficiais.
+\item Avaliar a rastreabilidade das respostas geradas pelo agente conversacional, verificando se as informações apresentadas podem ser associadas aos dados recuperados, como discurso, votação, data, parlamentar ou matéria legislativa.
+\item Documentar o conhecimento científico gerado sobre o design e a avaliação dos artefatos computacionais para consulta aos dados parlamentares abertos com IA Generativa local.
+\end{itemize}
+
+\section{Estrutura do Documento}
+
+O documento está organizado em seis capítulos. A Fundamentação Teórica (Cap. 2) apresenta os conceitos de dados abertos, PLN, IA Generativa, RAG, DSR e interação humano-dados. A Metodologia (Cap. 3) detalha as seis fases DSR e o protocolo de avaliação do artefato. O Estado da Arte (Cap. 4) mapeia sistematicamente a literatura existente e posiciona esta pesquisa em relação ao campo. O Desenvolvimento (Cap. 5) descreve a arquitetura do AgentAI e os resultados preliminares. As Considerações Parciais (Cap. 6) analisam o progresso alcançado, os desafios identificados e as perspectivas de conclusão.
+
+A adjacência intencional entre os capítulos de Metodologia e Estado da Arte permite que o leitor conheça primeiro as decisões metodológicas adotadas — inclusive o protocolo de avaliação — para então confrontá-las com as práticas documentadas pela literatura, tornando explícita a contribuição original desta dissertação.
