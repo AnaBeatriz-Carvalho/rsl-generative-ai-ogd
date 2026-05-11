@@ -23,7 +23,7 @@
 \contentsline {subsection}{\numberline {2.4.2}DSR no Contexto desta Pesquisa}{19}{subsection.2.4.2}%
 \contentsline {section}{\numberline {2.5}Interação Humano-Dados e Acessibilidade de Informação}{19}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Desafios de Visualização de Dados}{19}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Barreiras Cognitivas para Usuários Não-Especialistas}{19}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.2}Barreiras Cognitivas para Usuários Não-Especialistas}{20}{subsection.2.5.2}%
 \contentsline {subsection}{\numberline {2.5.3}Interfaces Conversacionais como Estratégia de Acessibilidade}{20}{subsection.2.5.3}%
 \contentsline {chapter}{\chapternumberline {3}Metodologia}{22}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Abordagem Metodológica: Design Science Research}{22}{section.3.1}%
