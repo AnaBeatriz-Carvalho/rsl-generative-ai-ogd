@@ -27,7 +27,7 @@ A coleta de dados é efetuada via API de Dados Abertos do Senado Federal \cite{S
 
     \item \textbf{Transformação:} Conversão e limpeza dos dados utilizando \textit{Pandas} \cite{PandasLib}, normalizando formatos, removendo duplicatas, preenchendo valores ausentes e estruturando informações em tabelas relacionais otimizadas para análise.
 
-    \item \textbf{Carregamento:} Armazenamento em banco de dados local (SQLite) para consulta rápida durante operações de Chatbot e Dashboard.
+    \item \textbf{Carregamento:} Os dados transformados são mantidos em memória durante a sessão, com mecanismo de cache que evita requisições repetidas à API quando o mesmo período legislativo já foi consultado anteriormente.
 \end{itemize}
 
 Este pipeline é executado em intervalos regulares (por exemplo, diariamente) para manter dados atualizados.
@@ -51,7 +51,7 @@ O modelo é utilizado para duas funções críticas:
 \begin{itemize}
     \item \textbf{Classificação Temática:} Engenharia de \textit{prompts} estruturados instrui o modelo a categorizar discursos legislativos em temas predefinidos (Saúde, Educação, Infraestrutura, Segurança, etc.). A classificação permite organização e análise dos debates por assunto.
 
-    \item \textbf{Motor de Resposta (RAG Simplificado):} O módulo recebe perguntas do usuário em linguagem natural via Chatbot, recupera dados relevantes do banco de dados estruturado (usando busca estruturada por palavras-chave sobre a base local), e instrui o Mistral 7B a gerar respostas contextualizadas, didáticas e alinhadas aos dados reais.
+    \item \textbf{Motor de Resposta (RAG Simplificado):} O módulo recebe perguntas do usuário em linguagem natural via Chatbot, recupera dados relevantes da base em memória (usando busca estruturada por palavras-chave sobre os dados mantidos em cache de sessão), e instrui o Mistral 7B a gerar respostas contextualizadas, didáticas e alinhadas aos dados reais.
 \end{itemize}
 
 \subsection{Camada de Apresentação: Interfaces Acessíveis}
@@ -89,7 +89,7 @@ Interface de \textit{chat} que abstrai a complexidade dos dados legislativos, pe
     \item "Qual senador votou diferente de seu partido nesta votação?"
 \end{itemize}
 
-O Chatbot traduz perguntas em linguagem comum para operações sobre o banco de dados, recupera as informações relevantes e retorna respostas em linguagem natural acessível a cidadãos sem expertise legislativa ou tecnológica. A Figura \ref{fig:tela_chatbot} ilustra a interface conversacional em operação com dados reais do Senado Federal.
+O Chatbot traduz perguntas em linguagem comum para operações sobre a base de dados em memória, recupera as informações relevantes e retorna respostas em linguagem natural acessível a cidadãos sem expertise legislativa ou tecnológica. A Figura \ref{fig:tela_chatbot} ilustra a interface conversacional em operação com dados reais do Senado Federal.
 
 \begin{figure}[H]
     \centering
@@ -104,7 +104,7 @@ O Chatbot traduz perguntas em linguagem comum para operações sobre o banco de 
 O sistema opera conforme descrito abaixo:
 
 \begin{enumerate}
-    \item \textbf{Inicialização:} Aplicação \textit{Streamlit} carrega dados pré-processados do banco de dados local.
+    \item \textbf{Inicialização:} Aplicação \textit{Streamlit} carrega dados pré-processados da API do Senado Federal, mantendo-os em memória com cache de sessão.
 
     \item \textbf{Interação Usuário - Dashboard:} Usuário pode explorar Dashboard sem necessidade de entrada, aplicando filtros interativos para ver visualizações customizadas.
 
@@ -188,7 +188,7 @@ O planejamento para os próximos 12 meses foca na fase de \textbf{Avaliação ri
         \hline
         Análise Estatística e Qualitativa dos Resultados & & X & X & \\
         \hline
-        Escrita de Artigo Científico (PROPOR 2026) & & X & X & \\
+        Artigo Científico: PROPOR 2026 (retorno negativo, fev/2026); ERBASE 2026 (submetido) & X & X & & \\
         \hline
         Escrita Final da Dissertação (Resultados + Conclusão) & & & X & X \\
         \hline
@@ -206,7 +206,7 @@ As atividades estão distribuídas da seguinte forma:
 \begin{itemize}
     \item \textbf{1º Trimestre 2026 (Abr-Jun):} Refinamento do texto da proposta conforme feedback da banca examinadora, implementação de melhorias metodológicas (conforme críticas do parecer), preparação do \textit{dataset} de controle (Gabarito Ouro) para o experimento de acurácia.
 
-    \item \textbf{2º Trimestre 2026 (Jul-Set):} Execução dos testes técnicos de acurácia, avaliação factual das respostas do agente conversacional, verificação de rastreabilidade e execução de cenários representativos de consulta. Início paralelo da escrita de artigo científico visando a conferência PROPOR 2026.
+    \item \textbf{2º Trimestre 2026 (Jul-Set):} Execução dos testes técnicos de acurácia, avaliação factual das respostas do agente conversacional, verificação de rastreabilidade e execução de cenários representativos de consulta. Registra-se que um artigo científico foi submetido ao PROPOR 2026, tendo recebido retorno negativo em fevereiro de 2026; o trabalho foi revisado e submetido ao ERBASE 2026.
 
     \item \textbf{3º Trimestre 2026 (Out-Dez):} Consolidação estatística e qualitativa dos dados obtidos na avaliação, redação dos capítulos de Análise de Resultados e Discussão, finalização e submissão de artigo científico.
 

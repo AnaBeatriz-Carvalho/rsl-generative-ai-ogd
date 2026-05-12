@@ -73,7 +73,7 @@ O núcleo analítico utiliza o modelo Mistral 7B Instruct \cite{MistralAI2024}, 
 \begin{itemize}
     \item \textbf{Classificação Temática:} Categorização automática de discursos em temas (ex: "Saúde", "Educação", "Infraestrutura") utilizando \textit{prompts} estruturados e exemplos de Few-Shot Learning.
 
-    \item \textbf{Motor de Resposta (RAG Simplificado):} O módulo recebe perguntas do usuário em linguagem natural, recupera dados relevantes do banco de dados estruturado e instrui o modelo Mistral 7B a gerar respostas contextualizadas e didáticas que sejam compreensíveis para cidadãos não-especialistas.
+    \item \textbf{Motor de Resposta (RAG Simplificado):} O módulo recebe perguntas do usuário em linguagem natural, recupera dados relevantes da base em memória (cache de sessão) e instrui o modelo Mistral 7B a gerar respostas contextualizadas e didáticas que sejam compreensíveis para cidadãos não-especialistas.
 \end{itemize}
 
 A escolha de Mistral 7B em ambiente local oferece vantagens críticas para pesquisa científica: replicabilidade total (código aberto), soberania de dados (não transmite informações legislativas para servidores externos) e sustentabilidade operacional.
@@ -272,7 +272,7 @@ O planejamento para os próximos 12 meses foca na execução das Fases 5 e 6 (Av
         \hline
         Análise Estatística e Qualitativa dos Resultados & & X & X & \\
         \hline
-        Escrita de Artigo Científico (PROPOR 2026) & & X & X & \\
+        Artigo Científico: PROPOR 2026 (retorno negativo, fev/2026); ERBASE 2026 (submetido) & X & X & & \\
         \hline
         Escrita Final da Dissertação (Resultados + Conclusão) & & & X & X \\
         \hline
@@ -290,7 +290,7 @@ As atividades estão distribuídas da seguinte forma:
 \begin{itemize}
     \item \textbf{1º Trimestre 2026:} Refinamento do texto da proposta conforme feedback da banca, implementação de melhorias metodológicas, preparação do dataset de controle (Gabarito Ouro) para experimento de acurácia.
 
-    \item \textbf{2º Trimestre 2026:} Execução dos testes técnicos para validação de acurácia, avaliação factual das respostas, verificação de rastreabilidade e execução de cenários representativos de consulta. Início paralelo da escrita de artigo científico visando a conferência PROPOR 2026.
+    \item \textbf{2º Trimestre 2026:} Execução dos testes técnicos para validação de acurácia, avaliação factual das respostas, verificação de rastreabilidade e execução de cenários representativos de consulta. Registra-se que um artigo científico foi submetido ao PROPOR 2026, tendo recebido retorno negativo em fevereiro de 2026; o trabalho foi revisado e submetido ao ERBASE 2026.
 
     \item \textbf{3º Trimestre 2026:} Consolidação estatística e qualitativa dos dados obtidos na avaliação, redação dos capítulos finais da dissertação (Análise de Resultados e Conclusão), finalização e submissão do artigo científico.
 
