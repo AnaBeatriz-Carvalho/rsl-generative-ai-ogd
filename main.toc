@@ -57,44 +57,46 @@
 \contentsline {subsubsection}{\numberline {3.6.4.1}Pergunta}{31}{subsubsection.3.6.4.1}%
 \contentsline {subsubsection}{\numberline {3.6.4.2}Método}{31}{subsubsection.3.6.4.2}%
 \contentsline {subsubsection}{\numberline {3.6.4.3}Métricas}{31}{subsubsection.3.6.4.3}%
-\contentsline {subsection}{\numberline {3.6.5}Avaliação de Cenários de Uso}{31}{subsection.3.6.5}%
-\contentsline {section}{\numberline {3.7}Fase 6: Reflexão e Aprendizados}{31}{section.3.7}%
+\contentsline {subsubsection}{\numberline {3.6.4.4}Limitações e Refinamento Previsto}{31}{subsubsection.3.6.4.4}%
+\contentsline {subsection}{\numberline {3.6.5}Avaliação de Cenários de Uso}{32}{subsection.3.6.5}%
+\contentsline {section}{\numberline {3.7}Fase 6: Reflexão e Aprendizados}{32}{section.3.7}%
 \contentsline {section}{\numberline {3.8}Cronograma de Execução}{32}{section.3.8}%
-\contentsline {chapter}{\chapternumberline {4}Estado da Arte}{33}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Protocolo do Mapeamento Sistemático}{33}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Planejamento}{34}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Execução e Resultados}{37}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Análise Temática dos Resultados}{39}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Tema 1: IA Generativa para Estruturação de Dados Legislativos}{39}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Tema 2: Interfaces Conversacionais para Acessibilidade}{39}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Tema 3: Análise de Dados Legislativos com PLN Clássico}{40}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Tema 4: Desafios e Lacunas na Literatura}{40}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Lacunas Identificadas e Contribuições Desta Pesquisa}{41}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Conclusões do Mapeamento Sistemático}{42}{section.4.4}%
-\contentsline {chapter}{\chapternumberline {5}Desenvolvimento e Resultados Preliminares}{43}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Estágio Atual do Desenvolvimento}{43}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Arquitetura e Componentes do Artefato}{44}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Camada de Dados: Coleta e Processamento}{44}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Camada de Inteligência: Análise com Mistral 7B}{44}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Camada de Apresentação: Interfaces Acessíveis}{45}{subsection.5.2.3}%
-\contentsline {subsubsection}{\numberline {5.2.3.1}Dashboard Visual}{45}{subsubsection.5.2.3.1}%
-\contentsline {subsubsection}{\numberline {5.2.3.2}Chatbot Conversacional}{46}{subsubsection.5.2.3.2}%
-\contentsline {section}{\numberline {5.3}Fluxo de Funcionamento do Sistema}{46}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Dados Legislativos Utilizados}{47}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Status de Conclusão das Fases DSR}{47}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Cronograma de Execução da Dissertação}{48}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Próximas Ações Imediatas (Próximas 8 Semanas)}{49}{section.5.7}%
-\contentsline {chapter}{\chapternumberline {6}Considerações Parciais e Trabalhos Futuros}{50}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Progresso do Ciclo de Design Science Research}{50}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Resultados Preliminares do Artefato}{51}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Viabilidade Técnica}{51}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Verificação Funcional Preliminar}{51}{subsection.6.2.2}%
-\contentsline {section}{\numberline {6.3}Desafios e Limitações Identificadas}{52}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Desafios Técnicos}{52}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Desafios Metodológicos}{52}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}Contribuições Esperadas da Pesquisa}{53}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Contribuições Científicas}{53}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Contribuições Práticas}{53}{subsection.6.4.2}%
-\contentsline {section}{\numberline {6.5}Trabalhos Futuros: Fases de Avaliação e Conclusão}{54}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Perspectivas de Conclusão}{54}{section.6.6}%
-\contentsline {chapter}{Refer\^encias}{56}{chapter*.8}%
+\contentsline {chapter}{\chapternumberline {4}Estado da Arte}{34}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Protocolo do Mapeamento Sistemático}{34}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Planejamento}{35}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Execução e Resultados}{38}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Análise Temática dos Resultados}{40}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Tema 1: IA Generativa para Estruturação de Dados Legislativos}{40}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Tema 2: Interfaces Conversacionais para Acessibilidade}{40}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Tema 3: Análise de Dados Legislativos com PLN Clássico}{41}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Tema 4: Desafios e Lacunas na Literatura}{41}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Lacunas Identificadas e Contribuições Desta Pesquisa}{42}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Conclusões do Mapeamento Sistemático}{43}{section.4.4}%
+\contentsline {chapter}{\chapternumberline {5}Desenvolvimento e Resultados Preliminares}{44}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Estágio Atual do Desenvolvimento}{44}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Arquitetura e Componentes do Artefato}{45}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Camada de Dados: Coleta e Processamento}{45}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Camada de Inteligência: Análise com Mistral 7B}{45}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Camada de Apresentação: Interfaces Acessíveis}{46}{subsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.3.1}Dashboard Visual}{46}{subsubsection.5.2.3.1}%
+\contentsline {subsubsection}{\numberline {5.2.3.2}Chatbot Conversacional}{47}{subsubsection.5.2.3.2}%
+\contentsline {subsection}{\numberline {5.2.4}Rastreabilidade das Respostas}{47}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3}Fluxo de Funcionamento do Sistema}{48}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Dados Legislativos Utilizados}{49}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Status de Conclusão das Fases DSR}{49}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Cronograma de Execução da Dissertação}{49}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Próximas Ações Imediatas (Próximas 8 Semanas)}{50}{section.5.7}%
+\contentsline {chapter}{\chapternumberline {6}Considerações Parciais e Trabalhos Futuros}{52}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Progresso do Ciclo de Design Science Research}{52}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Resultados Preliminares do Artefato}{53}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Viabilidade Técnica}{53}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Verificação Funcional Preliminar}{53}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Desafios e Limitações Identificadas}{54}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Desafios Técnicos}{54}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Desafios Metodológicos}{54}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Contribuições Esperadas da Pesquisa}{55}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Contribuições Científicas}{55}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Contribuições Práticas}{55}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.5}Trabalhos Futuros: Fases de Avaliação e Conclusão}{56}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Perspectivas de Conclusão}{56}{section.6.6}%
+\contentsline {chapter}{Refer\^encias}{58}{chapter*.8}%

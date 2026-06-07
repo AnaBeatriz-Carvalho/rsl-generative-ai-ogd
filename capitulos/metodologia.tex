@@ -73,7 +73,7 @@ O núcleo analítico utiliza o modelo Mistral 7B Instruct \cite{MistralAI2024}, 
 \begin{itemize}
     \item \textbf{Classificação Temática:} Categorização automática de discursos em temas (ex: "Saúde", "Educação", "Infraestrutura") utilizando \textit{prompts} estruturados e exemplos de Few-Shot Learning.
 
-    \item \textbf{Motor de Resposta (RAG Simplificado):} O módulo recebe perguntas do usuário em linguagem natural, recupera dados relevantes da base em memória (cache de sessão) e instrui o modelo Mistral 7B a gerar respostas contextualizadas e didáticas que sejam compreensíveis para cidadãos não-especialistas.
+    \item \textbf{Motor de Resposta (RAG Simplificado):} O módulo recebe perguntas do usuário em linguagem natural, recupera da base em memória (cache de sessão) um subconjunto de registros relevantes e instrui o modelo Mistral 7B a gerar respostas contextualizadas e didáticas, compreensíveis para cidadãos não-especialistas, fundamentadas nesses registros e citando-os por identificador estável, de modo a preservar a rastreabilidade entre resposta e dados.
 \end{itemize}
 
 A escolha de Mistral 7B em ambiente local oferece vantagens críticas para pesquisa científica: replicabilidade total (código aberto), soberania de dados (não transmite informações legislativas para servidores externos) e sustentabilidade operacional.
@@ -140,7 +140,7 @@ Limitações conhecidas de chatbots com LLMs incluem risco de alucinação (resp
 \begin{itemize}
     \item Utiliza o Mistral 7B Instruct \cite{Jiang2023}, cujo porte paramétrico reduz a incidência de alucinações em relação a modelos de menor escala
     \item Implementa validação de respostas contra dados reais
-    \item Fornece rastreabilidade: chatbot cita quais dados foram utilizados na resposta
+    \item Fornece rastreabilidade: o chatbot recupera um subconjunto de registros da base, cita-os na resposta por identificador estável e expõe, na interface, o painel de fontes utilizadas
 \end{itemize}
 
 \subsection{Complementaridade: Dashboard + Chatbot}
@@ -224,14 +224,17 @@ Será elaborado um conjunto de cenários representativos de consulta, contemplan
 As respostas do agente conversacional permitem identificar os dados utilizados para sua geração?
 
 \subsubsection{Método}
-Cada resposta gerada pelo agente será analisada quanto à presença de elementos de rastreabilidade, como parlamentar, data, sessão, matéria, votação, discurso ou trecho de dados recuperado. Essa análise busca verificar se o sistema evita respostas genéricas e se mantém ligação explícita com a base de dados consultada.
+O artefato já implementa rastreabilidade em dois níveis --- na resposta ao usuário e na instrumentação de medição (Capítulo~\ref{cap:desenvolvimento}). A avaliação apoia-se nessa instrumentação: cada consulta é registrada em \textit{log} estruturado (\texttt{qa\_trace.jsonl}) contendo a pergunta, os identificadores das fontes recuperadas e a resposta gerada, e um módulo de avaliação processa esse registro para quantificar o vínculo entre resposta e dados. Sobre um conjunto de cenários representativos de consulta, a análise verificará se a resposta cita as fontes efetivamente recuperadas e se evita referenciar dados fora do contexto recuperado. A instrumentação encontra-se pronta e validada de ponta a ponta; a medição sobre uma amostra estatisticamente significativa constitui a etapa em execução desta fase.
 
 \subsubsection{Métricas}
 \begin{itemize}
-    \item Percentual de respostas com referência explícita aos dados utilizados.
-    \item Percentual de respostas sem rastreabilidade suficiente.
-    \item Frequência de respostas em que o modelo extrapola além do contexto recuperado.
+    \item \textbf{Cobertura de recuperação:} proporção de consultas para as quais o sistema recupera ao menos um registro da base como fonte da resposta.
+    \item \textbf{Cobertura de citação:} proporção de respostas que citam explicitamente, por identificador, ao menos uma das fontes recuperadas.
+    \item \textbf{Precisão de citação:} proporção de identificadores citados nas respostas que de fato correspondem a registros presentes no conjunto de fontes recuperado.
 \end{itemize}
+
+\subsubsection{Limitações e Refinamento Previsto}
+Reconhece-se que esses indicadores, em sua forma atual, medem a consistência do vínculo formal entre resposta e fontes, não a sua adequação semântica. Em particular, a precisão de citação verifica se o identificador citado existe entre as fontes recuperadas, mas não se o registro citado de fato sustenta a afirmação correspondente. Além disso, perguntas de natureza agregada (por exemplo, "quantos senadores discursaram sobre saúde?") podem ser respondidas corretamente sem citar uma fonte específica, deprimindo a cobertura de citação sem que haja perda de qualidade. Por isso, está previsto para a fase de avaliação o refinamento desses indicadores, incluindo a verificação de suporte semântico da citação e a segmentação das métricas por tipo de pergunta.
 
 \subsection{Avaliação de Cenários de Uso}
 

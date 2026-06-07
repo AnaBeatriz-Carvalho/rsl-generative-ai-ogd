@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.11)  11 MAY 2026 17:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.11)  6 JUN 2026 22:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1436,7 +1436,7 @@ Cap\'{\i }tulo 2.
 (capitulos/fundamentacao.tex [13
 
 ]
-<imagens/publicacao.png, id=364, 249.93375pt x 234.37563pt>
+<imagens/publicacao.png, id=368, 249.93375pt x 234.37563pt>
 File: imagens/publicacao.png Graphic file (type png)
 <use imagens/publicacao.png>
 Package pdftex.def Info: imagens/publicacao.png  used on input line 13.
@@ -1449,12 +1449,12 @@ has been already used, duplicate ignored
 l.26 \item \textbf
                   {5 estrelas:} Como 4 estrelas, mais ligação (link) com o...
  <./imagens/publicacao.png>]
-<imagens/estrelas.png, id=374, 316.18124pt x 179.67125pt>
+<imagens/estrelas.png, id=378, 316.18124pt x 179.67125pt>
 File: imagens/estrelas.png Graphic file (type png)
 <use imagens/estrelas.png>
 Package pdftex.def Info: imagens/estrelas.png  used on input line 33.
 (pdftex.def)             Requested size: 364.00139pt x 206.85883pt.
-<imagens/abordagem_pln.png, id=378, 508.14844pt x 40.65187pt>
+<imagens/abordagem_pln.png, id=382, 508.14844pt x 40.65187pt>
 File: imagens/abordagem_pln.png Graphic file (type png)
 <use imagens/abordagem_pln.png>
 Package pdftex.def Info: imagens/abordagem_pln.png  used on input line 45.
@@ -1472,13 +1472,13 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.50 
       <./imagens/estrelas.png> <./imagens/abordagem_pln.png>]
-<imagens/abordagem_generativa.png, id=387, 4948.4875pt x 727.71875pt>
+<imagens/abordagem_generativa.png, id=391, 4948.4875pt x 727.71875pt>
 File: imagens/abordagem_generativa.png Graphic file (type png)
 <use imagens/abordagem_generativa.png>
 Package pdftex.def Info: imagens/abordagem_generativa.png  used on input line 5
 5.
 (pdftex.def)             Requested size: 364.00139pt x 53.52165pt.
-<imagens/llm.png, id=393, 470.50781pt x 121.95563pt>
+<imagens/llm.png, id=397, 470.50781pt x 121.95563pt>
 File: imagens/llm.png Graphic file (type png)
 <use imagens/llm.png>
 Package pdftex.def Info: imagens/llm.png  used on input line 69.
@@ -1497,7 +1497,7 @@ has been already used, duplicate ignored
 l.75 \subsection
                 {Recuperação Aumentada por Geração} <./imagens/abordagem_ge
 nerativa.png> <./imagens/llm.png>] [17] [18] [19]
-<imagens/arquitetura_aplicacao.png, id=456, 2831.57875pt x 3166.83125pt>
+<imagens/arquitetura_aplicacao.png, id=460, 2831.57875pt x 3166.83125pt>
 File: imagens/arquitetura_aplicacao.png Graphic file (type png)
 <use imagens/arquitetura_aplicacao.png>
 Package pdftex.def Info: imagens/arquitetura_aplicacao.png  used on input line 
@@ -1512,7 +1512,7 @@ l.86 \chapter
              {Metodologia} <./imagens/arquitetura_aplicacao.png>]
 Cap\'{\i }tulo 3.
 (capitulos/metodologia.tex
-<imagens/fluxo_trabalho_projeto.png, id=477, 3811.23875pt x 4060.16875pt>
+<imagens/fluxo_trabalho_projeto.png, id=481, 3811.23875pt x 4060.16875pt>
 File: imagens/fluxo_trabalho_projeto.png Graphic file (type png)
 <use imagens/fluxo_trabalho_projeto.png>
 Package pdftex.def Info: imagens/fluxo_trabalho_projeto.png  used on input line
@@ -1527,7 +1527,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.31 
       <./imagens/fluxo_trabalho_projeto.png>] [24]
-<imagens/senado_swagger.png, id=519, 470.50781pt x 130.98938pt>
+<imagens/senado_swagger.png, id=523, 470.50781pt x 130.98938pt>
 File: imagens/senado_swagger.png Graphic file (type png)
 <use imagens/senado_swagger.png>
 Package pdftex.def Info: imagens/senado_swagger.png  used on input line 65.
@@ -1541,7 +1541,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.87 
       <./imagens/senado_swagger.png>]
-<imagens/tela_aplicacao.png, id=540, 1488.31032pt x 615.80063pt>
+<imagens/tela_aplicacao.png, id=542, 1488.31032pt x 615.80063pt>
 File: imagens/tela_aplicacao.png Graphic file (type png)
 <use imagens/tela_aplicacao.png>
 Package pdftex.def Info: imagens/tela_aplicacao.png  used on input line 95.
@@ -1554,13 +1554,26 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.9})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.119     \item P
-                 aleta de cores intuitiva e acessível{C:/Users/Nitro 5/AppData
-/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./imagens/te
-la_aplicacao.png>] [27] [28] [29] [30] [31]
+l.114 \end{itemize}
+                   {C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fonts/enc/dv
+ips/cm-super/cm-super-ts1.enc} <./imagens/tela_aplicacao.png>] [27] [28]
+[29] [30]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+27.
+
+(C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+[31{C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc
+}] [32]
 LaTeX Font Info:    Font shape `TS1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 291.
-) [32
+(Font)              scaled to size 12.0pt on input line 294.
+) [33
 pdfTeX warning (ext4): destination with the same identifier (name{quadro.3.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1569,12 +1582,12 @@ l.90 \chapter
              {Estado da Arte}]
 Cap\'{\i }tulo 4.
 (capitulos/estado_arte.tex
-<imagens/fase_rsl.png, id=599, 1244.65pt x 2629.825pt>
+<imagens/fase_rsl.png, id=609, 1244.65pt x 2629.825pt>
 File: imagens/fase_rsl.png Graphic file (type png)
 <use imagens/fase_rsl.png>
 Package pdftex.def Info: imagens/fase_rsl.png  used on input line 15.
 (pdftex.def)             Requested size: 227.5pt x 480.65135pt.
- [33
+ [34
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
@@ -1614,13 +1627,13 @@ Missing character: There is no � in font lmsy10!
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.3pt on input line 19.
 Missing character: There is no � in font lmsy10!
-[34
+[35
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.10})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.41 
-      <./imagens/fase_rsl.png>] [35
+      <./imagens/fase_rsl.png>] [36
 pdfTeX warning (ext4): destination with the same identifier (name{quadro.4.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1643,7 +1656,7 @@ Underfull \hbox (badness 1946) in paragraph at lines 131--131
 []|\T1/ntxtlf/m/n/12 CI4: In-ves-tiga in-te-ra-��o humano-
  []
 
-[36
+[37
 pdfTeX warning (ext4): destination with the same identifier (name{quadro.4.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1656,69 +1669,67 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.136 
       ]
-<imagens/fluxograma_execucao.png, id=633, 497.86pt x 1264.725pt>
+<imagens/fluxograma_execucao.png, id=643, 497.86pt x 1264.725pt>
 File: imagens/fluxograma_execucao.png Graphic file (type png)
 <use imagens/fluxograma_execucao.png>
 Package pdftex.def Info: imagens/fluxograma_execucao.png  used on input line 14
 7.
 (pdftex.def)             Requested size: 227.5pt x 577.94025pt.
- [37
+ [38
 pdfTeX warning (ext4): destination with the same identifier (name{quadro.4.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.150 
-      ] [38
+      ] [39
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.11})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.154 
-       <./imagens/fluxograma_execucao.png>] [39] [40] [41]) [42]
+       <./imagens/fluxograma_execucao.png>] [40] [41] [42]) [43]
 Cap\'{\i }tulo 5.
-(capitulos/desenvolvimento.tex [43
+(capitulos/desenvolvimento.tex [44
 
-] [44] [45]
-<imagens/tela_chatbot.png, id=727, 470.50781pt x 136.25906pt>
+] [45] [46]
+<imagens/tela_chatbot.png, id=737, 470.50781pt x 136.25906pt>
 File: imagens/tela_chatbot.png Graphic file (type png)
 <use imagens/tela_chatbot.png>
 Package pdftex.def Info: imagens/tela_chatbot.png  used on input line 98.
 (pdftex.def)             Requested size: 409.49722pt x 118.59015pt.
- [46
+ [47
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.12})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.111     \item \textbf
-                       {Interação Usuário - Chatbot:} Usuário digita per...
- <./imagens/tela_chatbot.png>] [47] [48
+l.108 
+       <./imagens/tela_chatbot.png>] [48] [49
 pdfTeX warning (ext4): destination with the same identifier (name{quadro.5.7}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.209     \item \textbf
-                       {2º Trimestre 2026 (Jul-Set):} Execução dos testes...
-
+l.213 
+      ] [50
 pdfTeX warning (ext4): destination with the same identifier (name{quadro.5.8}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.209     \item \textbf
-                       {2º Trimestre 2026 (Jul-Set):} Execução dos testes...
-]) [49]
+l.232     \item E
+                 xecutar primeira rodada de teste técnico (IA vs. Gabarito)])
+[51]
 Cap\'{\i }tulo 6.
-(capitulos/consideracoes.tex [50
+(capitulos/consideracoes.tex [52
 
-] [51] [52] [53] [54]) (main.bbl (main.brf)
+] [53] [54] [55] [56]) (main.bbl (main.brf)
 \tf@brf=\write4
 \openout4 = `main.brf'.
 
 
-[55]
+[57]
 bibitemlist
-[56
+[58
 
-] [57]) [58]
+] [59]) [60]
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
@@ -1736,28 +1747,29 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: 7F3BDB2D774F96791307F97B2781FF03;3875.
+(rerunfilecheck)             Checksum: 146FEC548B2296C5C1D5B62215623422;3875.
  ) 
 Here is how much of TeX's memory you used:
- 25529 strings out of 467691
- 409789 string characters out of 5413983
- 968732 words of memory out of 5000000
- 53830 multiletter control sequences out of 15000+600000
- 703608 words of font info for 106 fonts, out of 8000000 for 9000
+ 25590 strings out of 467691
+ 410771 string characters out of 5413983
+ 965943 words of memory out of 5000000
+ 53881 multiletter control sequences out of 15000+600000
+ 703926 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,11n,121p,1578b,812s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/q
-tmb.pfb><C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-
-gyre/qtmr.pfb><C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/cm-super/sfrm1200.pfb><C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/urw/ncntrsbk/uncb8a.pfb><C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/newtx/ztmb.pfb><C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/newtx/ztmbi.pfb><C:/Users/Nitro 5/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/Nitro 5/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (59 pages, 1945121 bytes).
+<C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.
+pfb><C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre
+/qtmb.pfb><C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fonts/type1/public/te
+x-gyre/qtmr.pfb><C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/cm-super/sfrm1200.pfb><C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/fonts
+/type1/urw/ncntrsbk/uncb8a.pfb><C:/Users/Nitro 5/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/newtx/ztmb.pfb><C:/Users/Nitro 5/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/newtx/ztmbi.pfb><C:/Users/Nitro 5/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/Nitro 5/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
+Output written on main.pdf (61 pages, 1973173 bytes).
 PDF statistics:
- 1293 PDF objects out of 1440 (max. 8388607)
- 286 named destinations out of 1000 (max. 500000)
- 14211 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 1321 PDF objects out of 1440 (max. 8388607)
+ 290 named destinations out of 1000 (max. 500000)
+ 14739 words of extra memory for PDF output out of 17280 (max. 10000000)
 

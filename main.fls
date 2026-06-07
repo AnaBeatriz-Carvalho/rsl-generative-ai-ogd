@@ -475,6 +475,11 @@ INPUT .\imagens\tela_aplicacao.png
 INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1200.tfm
 INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
 INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\cm-super\cm-super-ts1.enc
+INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt12.tfm
+INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-ec.enc
 INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmb.tfm
 INPUT .\capitulos\estado_arte.tex
 INPUT .\capitulos\estado_arte.tex
@@ -550,6 +555,8 @@ OUTPUT main.toc
 INPUT main.aux
 INPUT .\main.brf
 INPUT .\main.brf
+INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb
+INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb
 INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmb.pfb
 INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmb.pfb
 INPUT C:\Users\Nitro 5\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmr.pfb

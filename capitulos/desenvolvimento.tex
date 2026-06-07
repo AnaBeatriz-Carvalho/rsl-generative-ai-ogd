@@ -51,7 +51,7 @@ O modelo é utilizado para duas funções críticas:
 \begin{itemize}
     \item \textbf{Classificação Temática:} Engenharia de \textit{prompts} estruturados instrui o modelo a categorizar discursos legislativos em temas predefinidos (Saúde, Educação, Infraestrutura, Segurança, etc.). A classificação permite organização e análise dos debates por assunto.
 
-    \item \textbf{Motor de Resposta (RAG Simplificado):} O módulo recebe perguntas do usuário em linguagem natural via Chatbot, recupera dados relevantes da base em memória (usando busca estruturada por palavras-chave sobre os dados mantidos em cache de sessão), e instrui o Mistral 7B a gerar respostas contextualizadas, didáticas e alinhadas aos dados reais.
+    \item \textbf{Motor de Resposta (RAG Simplificado):} O módulo recebe perguntas do usuário em linguagem natural via Chatbot, recupera da base em memória um subconjunto de registros relevantes à pergunta (busca estruturada por palavras-chave sobre os dados mantidos em cache de sessão) e instrui o Mistral 7B a gerar respostas contextualizadas e didáticas, fundamentadas nesses registros e citando-os por identificador estável (por exemplo, \texttt{[D1]} para discursos e \texttt{[V1]} para votações).
 \end{itemize}
 
 \subsection{Camada de Apresentação: Interfaces Acessíveis}
@@ -99,6 +99,16 @@ O Chatbot traduz perguntas em linguagem comum para operações sobre a base de d
     \fonte{Produção da autora.}
 \end{figure}
 
+\subsection{Rastreabilidade das Respostas}
+
+Para que o agente conversacional não opere como uma "caixa-preta", o artefato foi instrumentado de modo a tornar explícita a ligação entre cada resposta e os dados que a fundamentaram. Esse mecanismo, já implementado no protótipo, opera em dois níveis complementares:
+
+\begin{itemize}
+    \item \textbf{No artefato (rastreabilidade para o usuário):} a etapa de \textit{retrieval} seleciona, para cada pergunta, um subconjunto de registros da base e atribui a eles identificadores curtos e estáveis (\texttt{[D1]}, \texttt{[D2]}, \ldots\ para discursos; \texttt{[V1]}, \texttt{[V2]}, \ldots\ para votações). O \textit{prompt} instrui o modelo a fundamentar a resposta exclusivamente nesses registros e a citá-los por identificador, sendo vedado referenciar identificadores fora da lista recuperada. A interface exibe, junto a cada resposta, um painel "Fontes utilizadas" com a tabela dos registros efetivamente recuperados, preservando também o código oficial do Senado de cada item. O mecanismo aplica-se tanto ao \textit{chat} de discursos quanto ao de votações.
+
+    \item \textbf{Para avaliação (instrumentação de medição):} cada consulta gera um registro estruturado em \textit{log} (arquivo \texttt{qa\_trace.jsonl}) contendo a pergunta, os identificadores das fontes recuperadas, os códigos oficiais correspondentes e a resposta gerada. Sobre esse \textit{log}, um módulo de avaliação calcula indicadores de rastreabilidade, também acessíveis por um painel dedicado na própria interface. Esse encadeamento --- recuperação, citação, registro e medição --- funciona de ponta a ponta; a medição sobre uma amostra estatisticamente significativa, contudo, integra a fase de avaliação ainda em execução, detalhada no Capítulo~\ref{cap:metodologia}.
+\end{itemize}
+
 \section{Fluxo de Funcionamento do Sistema}
 
 O sistema opera conforme descrito abaixo:
@@ -117,9 +127,9 @@ O sistema opera conforme descrito abaixo:
         \item Instrui Mistral 7B com \textit{prompt} que inclui: pergunta do usuário, contexto de dados e instruções para responder de forma didática
     \end{itemize}
 
-    \item \textbf{Resposta:} Mistral 7B gera resposta em linguagem natural, citando quais dados foram utilizados.
+    \item \textbf{Resposta:} Mistral 7B gera resposta em linguagem natural, citando por identificador (\texttt{[D1]}, \texttt{[V1]}, etc.) quais registros recuperados foram utilizados.
 
-    \item \textbf{Exibição:} Resposta é exibida no Chatbot. Usuário pode fazer pergunta de acompanhamento.
+    \item \textbf{Exibição:} A resposta é exibida no Chatbot, acompanhada do painel "Fontes utilizadas" que lista os registros recuperados. O usuário pode fazer pergunta de acompanhamento.
 \end{enumerate}
 
 \section{Dados Legislativos Utilizados}
