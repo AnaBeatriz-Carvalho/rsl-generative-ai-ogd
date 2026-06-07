@@ -27,31 +27,23 @@ A coleta de dados é efetuada via API de Dados Abertos do Senado Federal \cite{S
 
     \item \textbf{Transformação:} Conversão e limpeza dos dados utilizando \textit{Pandas} \cite{PandasLib}, normalizando formatos, removendo duplicatas, preenchendo valores ausentes e estruturando informações em tabelas relacionais otimizadas para análise.
 
-    \item \textbf{Carregamento:} Os dados transformados são mantidos em memória durante a sessão, com mecanismo de cache que evita requisições repetidas à API quando o mesmo período legislativo já foi consultado anteriormente.
+    \item \textbf{Carregamento:} Os dados transformados são mantidos em memória durante a execução e persistidos em um \textit{cache} em arquivo (\texttt{outputs/materias\_cache.json}), que funciona como \textit{snapshot} local: requisições repetidas à API são evitadas quando o mesmo período legislativo já foi coletado, e esse \textit{snapshot} pode ser versionado para assegurar a reprodutibilidade da avaliação sobre um corpus congelado.
 \end{itemize}
 
-Este pipeline é executado em intervalos regulares (por exemplo, diariamente) para manter dados atualizados.
+A atualização do corpus ocorre sob demanda, mediante reexecução do \textit{pipeline} para o período desejado; neste estágio de prototipação não há um agendamento automático em produção. Para fins de avaliação científica, adota-se deliberadamente um \textit{snapshot} congelado e versionado dos dados, de modo que os experimentos sejam reproduzíveis sobre exatamente o mesmo conjunto --- condição necessária para que o gabarito de referência permaneça estável entre execuções.
 
 \subsection{Camada de Inteligência: Análise com Mistral 7B}
 
-O núcleo analítico utiliza o modelo Mistral 7B Instruct \cite{MistralAI2024}, executado em ambiente local. A escolha de Mistral 7B em vez de APIs proprietárias (como Google Gemini ou OpenAI GPT-4) justifica-se por:
+O núcleo analítico utiliza o modelo Mistral 7B Instruct \cite{MistralAI2024}, executado em ambiente local. A justificativa dessa escolha --- privacidade e soberania de dados, replicabilidade, custo e adequação de desempenho ---, bem como a comparação com modelos proprietários e com outros modelos abertos, foi apresentada na fundamentação teórica (Seção~\ref{subsec:escolha_modelo}) e não é aqui repetida.
 
-\begin{enumerate}
-    \item \textbf{Privacidade e Soberania:} O modelo roda localmente, garantindo que dados legislativos brasileiros não sejam transmitidos para servidores externos de terceiros.
-
-    \item \textbf{Replicabilidade:} Por ser \textit{open-source}, permite que outros pesquisadores reproduzam exatamente a pesquisa e validem os resultados de forma independente.
-
-    \item \textbf{Custo:} Elimina custos operacionais de API, tornando a solução sustentável para pesquisa acadêmica e possível adoção por organizações civis.
-
-    \item \textbf{Performance Adequada:} Apesar de menor em parâmetros que os grandes modelos proprietários, o Mistral 7B Instruct apresenta desempenho competitivo em tarefas de compreensão e geração de linguagem \cite{Jiang2023}; sua adequação ao domínio legislativo em português é uma das questões que esta dissertação se propõe a avaliar.
-\end{enumerate}
+Do ponto de vista de implementação, o modelo é servido localmente por um \textit{runtime} de inferência que expõe uma API compatível com o padrão OpenAI em \texttt{localhost} (na configuração de referência, o LM Studio em \texttt{http://localhost:1234/v1}). O artefato comunica-se com o modelo exclusivamente por essa interface local: nenhum dado legislativo é transmitido a servidores externos, de modo que a soberania de dados é preservada mesmo havendo uma camada de \textit{serving} compatível com OpenAI. Essa padronização da interface é também o que torna o componente de linguagem modular e substituível por outro modelo sem alteração dos demais estágios.
 
 O modelo é utilizado para duas funções críticas:
 
 \begin{itemize}
     \item \textbf{Classificação Temática:} Engenharia de \textit{prompts} estruturados instrui o modelo a categorizar discursos legislativos em temas predefinidos (Saúde, Educação, Infraestrutura, Segurança, etc.). A classificação permite organização e análise dos debates por assunto.
 
-    \item \textbf{Motor de Resposta (RAG Simplificado):} O módulo recebe perguntas do usuário em linguagem natural via Chatbot, recupera da base em memória um subconjunto de registros relevantes à pergunta (busca estruturada por palavras-chave sobre os dados mantidos em cache de sessão) e instrui o Mistral 7B a gerar respostas contextualizadas e didáticas, fundamentadas nesses registros e citando-os por identificador estável (por exemplo, \texttt{[D1]} para discursos e \texttt{[V1]} para votações).
+    \item \textbf{Motor de Resposta (Recuperação Estruturada com Geração Aumentada):} O módulo recebe perguntas do usuário em linguagem natural via Chatbot, recupera da base em memória um subconjunto de registros relevantes à pergunta (busca estruturada por palavras-chave sobre os dados mantidos em cache de sessão) e instrui o Mistral 7B a gerar respostas contextualizadas e didáticas, fundamentadas nesses registros e citando-os por identificador estável (por exemplo, \texttt{[D1]} para discursos e \texttt{[V1]} para votações).
 \end{itemize}
 
 \subsection{Camada de Apresentação: Interfaces Acessíveis}
@@ -106,7 +98,7 @@ Para que o agente conversacional não opere como uma "caixa-preta", o artefato f
 \begin{itemize}
     \item \textbf{No artefato (rastreabilidade para o usuário):} a etapa de \textit{retrieval} seleciona, para cada pergunta, um subconjunto de registros da base e atribui a eles identificadores curtos e estáveis (\texttt{[D1]}, \texttt{[D2]}, \ldots\ para discursos; \texttt{[V1]}, \texttt{[V2]}, \ldots\ para votações). O \textit{prompt} instrui o modelo a fundamentar a resposta exclusivamente nesses registros e a citá-los por identificador, sendo vedado referenciar identificadores fora da lista recuperada. A interface exibe, junto a cada resposta, um painel "Fontes utilizadas" com a tabela dos registros efetivamente recuperados, preservando também o código oficial do Senado de cada item. O mecanismo aplica-se tanto ao \textit{chat} de discursos quanto ao de votações.
 
-    \item \textbf{Para avaliação (instrumentação de medição):} cada consulta gera um registro estruturado em \textit{log} (arquivo \texttt{qa\_trace.jsonl}) contendo a pergunta, os identificadores das fontes recuperadas, os códigos oficiais correspondentes e a resposta gerada. Sobre esse \textit{log}, um módulo de avaliação calcula indicadores de rastreabilidade, também acessíveis por um painel dedicado na própria interface. Esse encadeamento --- recuperação, citação, registro e medição --- funciona de ponta a ponta; a medição sobre uma amostra estatisticamente significativa, contudo, integra a fase de avaliação ainda em execução, detalhada no Capítulo~\ref{cap:metodologia}.
+    \item \textbf{Para avaliação (instrumentação de medição):} cada consulta gera um registro estruturado em \textit{log} (arquivo \texttt{qa\_trace.jsonl}) contendo a pergunta, os identificadores das fontes recuperadas, os códigos oficiais correspondentes e a resposta gerada. Sobre esse \textit{log}, um módulo de avaliação calcula indicadores de rastreabilidade, também acessíveis por um painel dedicado na própria interface. Esse encadeamento --- recuperação, citação, registro e medição --- funciona de ponta a ponta; a medição sobre o conjunto de cenários definido, incluindo a verificação de suporte semântico das citações, integra a fase de avaliação ainda em execução, detalhada no Capítulo~\ref{cap:metodologia}.
 \end{itemize}
 
 \section{Fluxo de Funcionamento do Sistema}
@@ -175,53 +167,7 @@ Conforme a metodologia Design Science Research (Cap.\ \ref{cap:metodologia}), o 
 
 \section{Cronograma de Execução da Dissertação}
 
-O planejamento para os próximos 12 meses foca na fase de \textbf{Avaliação rigorosa} (garantir rigor científico) e na produção textual final. O Quadro \ref{quad:cronograma_execucao} detalha as atividades previstas até a defesa final, planejada para janeiro de 2027.
-
-\begin{quadro}[H]
-    \centering
-    \caption{Status e Planejamento das Fases Finais da Dissertação}
-    \label{quad:cronograma_execucao}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|p{8cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{2cm}|}
-        \hline
-        \textbf{Atividades (Fase Final)} & \textbf{Trim. 1 2026} & \textbf{Trim. 2 2026} & \textbf{Trim. 3 2026} & \textbf{Trim. 4 2026} \\
-        \hline
-        Ajustes pós-Qualificação (Metodologia DSR) & X & & & \\
-        \hline
-        Preparação do Gabarito Ouro (Classificação Manual) & X & X & & \\
-        \hline
-        Execução do Experimento de Acurácia (IA) & X & X & & \\
-        \hline
-        Avaliação factual das respostas geradas & & X & X & \\
-        \hline
-        Avaliação de rastreabilidade e cenários de consulta & & X & X & \\
-        \hline
-        Análise Estatística e Qualitativa dos Resultados & & X & X & \\
-        \hline
-        Artigo Científico: PROPOR 2026 (retorno negativo, fev/2026); ERBASE 2026 (submetido) & X & X & & \\
-        \hline
-        Escrita Final da Dissertação (Resultados + Conclusão) & & & X & X \\
-        \hline
-        Revisão e Depósito & & & & X \\
-        \hline
-        Defesa da Dissertação & & & & X \\
-        \hline
-    \end{tabular}%
-    }
-    \fonte{Produção da autora.}
-\end{quadro}
-
-As atividades estão distribuídas da seguinte forma:
-
-\begin{itemize}
-    \item \textbf{1º Trimestre 2026 (Abr-Jun):} Refinamento do texto da proposta conforme feedback da banca examinadora, implementação de melhorias metodológicas (conforme críticas do parecer), preparação do \textit{dataset} de controle (Gabarito Ouro) para o experimento de acurácia.
-
-    \item \textbf{2º Trimestre 2026 (Jul-Set):} Execução dos testes técnicos de acurácia, avaliação factual das respostas do agente conversacional, verificação de rastreabilidade e execução de cenários representativos de consulta. Registra-se que um artigo científico foi submetido ao PROPOR 2026, tendo recebido retorno negativo em fevereiro de 2026; o trabalho foi revisado e submetido ao ERBASE 2026.
-
-    \item \textbf{3º Trimestre 2026 (Out-Dez):} Consolidação estatística e qualitativa dos dados obtidos na avaliação, redação dos capítulos de Análise de Resultados e Discussão, finalização e submissão de artigo científico.
-
-    \item \textbf{4º Trimestre 2026-Q1 2027 (Jan):} Revisão final do texto completo da dissertação, submissão para a banca examinadora, realização de defesa pública.
-\end{itemize}
+O planejamento temporal das fases finais --- com foco na Avaliação rigorosa (Fase 5) e na produção textual até a defesa, prevista para janeiro de 2027 --- é apresentado de forma consolidada no Capítulo~\ref{cap:metodologia} (Quadro~\ref{quad:cronograma_metodologia}), evitando-se aqui a duplicação do cronograma. Esta seção registra apenas o encadeamento das próximas atividades imediatas, detalhado a seguir.
 
 \section{Próximas Ações Imediatas (Próximas 8 Semanas)}
 

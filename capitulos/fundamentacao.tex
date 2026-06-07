@@ -76,9 +76,10 @@ No contexto desta pesquisa, a IA Generativa é empregada para classificar discur
 
 Além da geração textual, este trabalho adota uma estratégia de Recuperação Aumentada por Geração (\textit{Retrieval-Augmented Generation} -- RAG). Em linhas gerais, RAG combina uma etapa de recuperação de informações relevantes em uma base de dados ou coleção documental com uma etapa de geração de resposta por modelo de linguagem \cite{Lewis2020}. Essa abordagem é adequada para domínios em que a resposta deve permanecer ancorada em fontes verificáveis, pois o modelo não responde apenas com base em seus parâmetros internos: ele recebe, no \textit{prompt}, um contexto recuperado previamente.
 
-No AgentAI, adota-se uma versão simplificada de RAG: em vez de indexação vetorial densa com modelos de \textit{embedding} e operações de similaridade semântica, o sistema recupera registros legislativos a partir de busca estruturada na base local — filtrando por parlamentar, período, tema ou palavras presentes no texto — e fornece esse contexto diretamente ao Mistral 7B Instruct para geração da resposta. Essa escolha implica um \textit{trade-off} explícito: perde-se a capacidade de recuperar documentos por paráfrase ou sinônimo (limitação que será documentada na avaliação), mas ganha-se rastreabilidade total — cada resposta pode ser associada aos registros exatos que a fundamentaram. Para o objetivo desta dissertação, que é justamente investigar a qualidade factual e a rastreabilidade das respostas em contexto legislativo, essa abordagem é metodologicamente coerente.
+No AgentAI, a etapa de recuperação não emprega indexação vetorial densa com modelos de \textit{embedding} e operações de similaridade semântica, mas sim \textbf{busca estruturada} sobre a base local --- filtrando registros por parlamentar, período, tema ou palavras presentes no texto --- e fornece esse contexto diretamente ao Mistral 7B Instruct para a geração da resposta. Por rigor terminológico, esta dissertação refere-se a tal estratégia como \textit{recuperação estruturada com geração aumentada} (uma abordagem inspirada em RAG), reservando o termo RAG, em sentido estrito \cite{Lewis2020}, para arquiteturas que realizam recuperação por similaridade semântica densa. Essa escolha implica um \textit{trade-off} explícito: perde-se a capacidade de recuperar documentos por paráfrase ou sinônimo (limitação que será documentada na avaliação), mas ganha-se rastreabilidade direta --- cada resposta pode ser associada aos registros exatos que a fundamentaram. Para o objetivo desta dissertação, que é justamente investigar a qualidade factual e a rastreabilidade das respostas em contexto legislativo, essa abordagem é metodologicamente coerente.
 
 \subsection{Mistral 7B Instruct vs. Alternativas}
+\label{subsec:escolha_modelo}
 
 A escolha do modelo Mistral 7B Instruct justifica-se por múltiplos aspectos técnicos e científicos. Diferentemente de APIs proprietárias como Google Gemini, Mistral 7B oferece:
 
@@ -90,6 +91,8 @@ A escolha do modelo Mistral 7B Instruct justifica-se por múltiplos aspectos té
 \end{itemize}
 
 Este trade-off entre capacidade absoluta (modelos proprietários maiores) e replicabilidade (modelo local open-source) representa uma escolha metodológica consciente que prioriza a sustentabilidade e transparência da pesquisa.
+
+Reconhece-se que o Mistral 7B Instruct, lançado em 2023, não é o modelo aberto mais recente disponível ao tempo de conclusão desta dissertação. A escolha, contudo, prioriza deliberadamente a \textbf{replicabilidade} sobre a recência: um modelo congelado, amplamente documentado e de pesos abertos permite que o experimento seja reproduzido de forma idêntica por terceiros --- garantia que não se obtém com modelos sujeitos a atualizações frequentes ou a descontinuação. Trata-se, portanto, de uma limitação assumida, e não de uma afirmação de superioridade do modelo. Essa opção é viabilizada pela arquitetura modular do artefato quanto ao componente de linguagem: o LLM é acessado por uma interface de inferência padronizada, de modo que a substituição por um modelo mais recente constitui trabalho futuro de baixo custo de integração, sem alteração dos demais estágios de coleta, recuperação e avaliação.
 
 \section{Design Science Research}
 
@@ -120,23 +123,11 @@ Um dos desafios fundamentais na democratização de dados é garantir que os cid
 
 \subsection{Desafios de Visualização de Dados}
 
-Lee et al. \cite{Lee2017}, através do desenvolvimento do VLAT (\textit{Visualization Literacy Assessment Test}), demonstraram que nem todos os usuários conseguem interpretar visualizações gráficas complexas. Especificamente, o estudo aponta que:
-
-\begin{itemize}
-\item Usuários com pouca exposição a gráficos estatísticos frequentemente cometem erros na leitura de eixos, escalas e representações multidimensionais.
-\item Visualizações sofisticadas (heatmaps, scatter plots 3D) podem confundir mais do que esclarecer para usuários sem expertise.
-\item A compreensão visual de dados é uma competência que varia significativamente entre indivíduos.
-\end{itemize}
+Lee et al. \cite{Lee2017}, através do desenvolvimento do VLAT (\textit{Visualization Literacy Assessment Test}), demonstraram que nem todos os usuários conseguem interpretar visualizações gráficas complexas. O estudo evidencia que usuários com pouca exposição a gráficos estatísticos cometem com frequência erros na leitura de eixos, escalas e representações multidimensionais, e que visualizações sofisticadas --- como \textit{heatmaps} e \textit{scatter plots} tridimensionais --- podem confundir mais do que esclarecer para quem não domina a linguagem gráfica. A compreensão visual de dados configura-se, assim, como uma competência que varia significativamente entre indivíduos, e não como um pressuposto universal.
 
 \subsection{Barreiras Cognitivas para Usuários Não-Especialistas}
 
-Hornung et al. \cite{Hornung2015} apontam que usuários sem formação em estatística ou ciência de dados frequentemente enfrentam barreiras cognitivas significativas ao tentar analisar dados complexos. Especificamente:
-
-\begin{itemize}
-\item Falta de familiaridade com conceitos como mediana, distribuição, correlação etc.
-\item Dificuldade em construir hipóteses e validá-las contra dados.
-\item Sobrecarga cognitiva ao lidar simultaneamente com múltiplas dimensões de informação.
-\end{itemize}
+Hornung et al. \cite{Hornung2015} apontam que usuários sem formação em estatística ou ciência de dados frequentemente enfrentam barreiras cognitivas significativas ao tentar analisar dados complexos. Essas barreiras manifestam-se na falta de familiaridade com conceitos como mediana, distribuição e correlação, na dificuldade de formular hipóteses e validá-las contra os dados e na sobrecarga cognitiva decorrente de lidar simultaneamente com múltiplas dimensões de informação.
 
 Consequentemente, a mera disponibilização de dados e interfaces visuais não garante compreensão ou participação democrática efetiva. Conforme Brito et al. \cite{Brito2024}, em seu trabalho sobre "Literacia de Dados para Todos", a solução requer abordagens múltiplas que reduzam progressivamente barreiras de entrada.
 

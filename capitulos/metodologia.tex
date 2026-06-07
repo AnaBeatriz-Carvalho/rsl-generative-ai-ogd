@@ -73,10 +73,10 @@ O núcleo analítico utiliza o modelo Mistral 7B Instruct \cite{MistralAI2024}, 
 \begin{itemize}
     \item \textbf{Classificação Temática:} Categorização automática de discursos em temas (ex: "Saúde", "Educação", "Infraestrutura") utilizando \textit{prompts} estruturados e exemplos de Few-Shot Learning.
 
-    \item \textbf{Motor de Resposta (RAG Simplificado):} O módulo recebe perguntas do usuário em linguagem natural, recupera da base em memória (cache de sessão) um subconjunto de registros relevantes e instrui o modelo Mistral 7B a gerar respostas contextualizadas e didáticas, compreensíveis para cidadãos não-especialistas, fundamentadas nesses registros e citando-os por identificador estável, de modo a preservar a rastreabilidade entre resposta e dados.
+    \item \textbf{Motor de Resposta (Recuperação Estruturada com Geração Aumentada):} O módulo recebe perguntas do usuário em linguagem natural, recupera da base em memória (cache de sessão) um subconjunto de registros relevantes e instrui o modelo Mistral 7B a gerar respostas contextualizadas e didáticas, compreensíveis para cidadãos não-especialistas, fundamentadas nesses registros e citando-os por identificador estável, de modo a preservar a rastreabilidade entre resposta e dados.
 \end{itemize}
 
-A escolha de Mistral 7B em ambiente local oferece vantagens críticas para pesquisa científica: replicabilidade total (código aberto), soberania de dados (não transmite informações legislativas para servidores externos) e sustentabilidade operacional.
+A justificativa detalhada para a escolha do Mistral 7B em ambiente local --- replicabilidade, soberania de dados e sustentabilidade operacional ---, bem como a comparação com modelos proprietários e com outros modelos abertos contemporâneos, encontra-se na fundamentação teórica (Seção~\ref{subsec:escolha_modelo}). Aqui interessa registrar apenas que essa decisão de design condiciona o protocolo de avaliação descrito adiante, em especial a comparação da classificação temática com uma linha de base sem LLM.
 
 \subsection{Interface Interativa (Camada de Apresentação)}
 
@@ -104,44 +104,15 @@ A combinação de Dashboard e Chatbot não é arbitrária, mas fundamentada em t
 
 Dashboards e visualizações de dados oferecem exploração livre e visão holística de um corpus de dados. Contudo, conforme Lee et al. \cite{Lee2017} demonstram através do VLAT, nem todos os usuários possuem "visualization literacy" — a capacidade de compreender visualizações gráficas complexas.
 
-Apesar desta limitação, dashboards permitem que usuários:
-
-\begin{itemize}
-    \item Obtenham visão panorâmica dos dados (principal → detalhe, conforme Shneiderman \cite{Shneiderman1996})
-    \item Explorem dados autonomamente sem intermediário
-    \item Identifiquem padrões visuais (tendências, anomalias)
-    \item Filtem e segmentem dados interativamente
-\end{itemize}
-
-Portanto, a solução proposta inclui um Dashboard que prioriza:
-
-\begin{itemize}
-    \item Paleta de cores intuitiva e acessível
-    \item Títulos e rótulos em linguagem comum (não jargão legislativo)
-    \item Representações visuais simples (barras, linhas) preferidas sobre heatmaps ou scatter plots
-    \item Interatividade básica (filtros, hover para detalhe)
-\end{itemize}
+Apesar dessa limitação, os \textit{dashboards} oferecem benefícios concretos: permitem ao usuário obter uma visão panorâmica dos dados antes de descer ao detalhe --- seguindo o princípio de Shneiderman \cite{Shneiderman1996} ---, explorar o corpus de forma autônoma e sem intermediário, identificar padrões visuais como tendências e anomalias e, ainda, filtrar e segmentar a informação interativamente. Por isso, o \textit{dashboard} proposto adota decisões de design voltadas à acessibilidade: paleta de cores intuitiva, títulos e rótulos em linguagem comum em vez de jargão legislativo, preferência por representações simples --- barras e linhas --- em detrimento de \textit{heatmaps} ou \textit{scatter plots}, e interatividade básica baseada em filtros e em detalhamento sob demanda.
 
 \subsection{Por que Chatbot?}
 
 Interfaces conversacionais, especialmente aquelas alimentadas por Modelos de Linguagem Generativa, reduzem significativamente a barreira de entrada cognitiva. Um usuário sem expertise estatística pode formular perguntas em linguagem natural em vez de construir queries SQL ou manipular dados brutos.
 
-Conforme pesquisa em HCI e Interação Humano-Dados \cite{Hornung2015, Brito2024}, interfaces conversacionais oferecem:
+Conforme a pesquisa em Interação Humano-Computador e Interação Humano-Dados \cite{Hornung2015, Brito2024}, as interfaces conversacionais reduzem a barreira de entrada --- o usuário não precisa conhecer a estrutura dos dados nem uma linguagem de consulta ---, apoiam-se em um formato de interação familiar, acomodam formulações distintas para uma mesma necessidade de informação e podem mediar a compreensão, traduzindo resultados técnicos em explicações acessíveis.
 
-\begin{itemize}
-    \item \textbf{Redução de barreira de entrada:} Usuário não precisa saber estrutura de dados ou linguagem de queries
-    \item \textbf{Interface familiar:} Conversação é natural para humanos
-    \item \textbf{Customização por usuário:} Cada usuário pode formular perguntas de formas diferentes
-    \item \textbf{Mediação de compreensão:} IA pode traduzir resultados técnicos em explicações compreensíveis
-\end{itemize}
-
-Limitações conhecidas de chatbots com LLMs incluem risco de alucinação (respostas factualmente incorretas) e opacidade. Para mitigar, a implementação proposta:
-
-\begin{itemize}
-    \item Utiliza o Mistral 7B Instruct \cite{Jiang2023}, cujo porte paramétrico reduz a incidência de alucinações em relação a modelos de menor escala
-    \item Implementa validação de respostas contra dados reais
-    \item Fornece rastreabilidade: o chatbot recupera um subconjunto de registros da base, cita-os na resposta por identificador estável e expõe, na interface, o painel de fontes utilizadas
-\end{itemize}
+Essas vantagens convivem com limitações conhecidas dos \textit{chatbots} baseados em LLMs, sobretudo o risco de alucinação (respostas factualmente incorretas) e a opacidade do processo de geração. Para mitigá-las, a implementação proposta utiliza o Mistral 7B Instruct \cite{Jiang2023}, cujo porte paramétrico reduz a incidência de alucinações em relação a modelos de menor escala; valida as respostas contra os dados reais; e --- ponto central deste trabalho --- garante rastreabilidade, pois o agente recupera um subconjunto de registros da base, cita-os na resposta por identificador estável e expõe, na interface, o painel de fontes utilizadas.
 
 \subsection{Complementaridade: Dashboard + Chatbot}
 
@@ -151,22 +122,37 @@ O \textit{Dashboard} atende principalmente o primeiro padrão: permite ao usuár
 
 \section{Fase 4: Demonstração}
 
-Nesta fase, o artefato foi colocado em ambiente de homologação, processando dados reais da API do Senado Federal. A demonstração inclui:
-
-\begin{itemize}
-    \item Processamento automático de sessões legislativas reais
-    \item Classificação temática de discursos
-    \item Resposta a consultas em linguagem natural
-    \item Visualização de tendências legislativas
-\end{itemize}
-
-A aplicação encontra-se estável e funcional, habilitando o início imediato da fase de avaliação rigorosa.
+Em DSR, a Demonstração distingue-se da Avaliação: enquanto esta confronta o artefato com critérios pré-definidos, aquela evidencia a viabilidade do artefato em uso, por meio de ao menos um cenário representativo documentado de ponta a ponta. Nesta fase, o AgentAI foi colocado em ambiente de homologação, processando dados reais da API do Senado Federal, e sua operação foi demonstrada em um fluxo completo: a partir de uma pergunta em linguagem natural (entrada), o sistema recupera os registros pertinentes da base (processamento), gera uma resposta fundamentada (saída) e exibe os registros que a embasam (fontes). Esse fluxo abrange o processamento automático de sessões legislativas reais, a classificação temática dos discursos, a resposta a consultas em linguagem natural e a visualização de tendências legislativas, confirmando a viabilidade técnica que habilita a fase de avaliação rigorosa. A verificação funcional preliminar correspondente é reportada no Capítulo~\ref{cap:desenvolvimento}.
 
 \section{Fase 5: Avaliação do Artefato}
 
 A fase de avaliação será conduzida sem entrevistas, questionários, observação comportamental ou qualquer coleta de dados com participantes humanos. A avaliação incidirá sobre o artefato computacional, os dados públicos processados e as respostas geradas pelo modelo. Dessa forma, a pesquisa utiliza exclusivamente dados abertos, informações de domínio público e análises técnicas do sistema.
 
-A avaliação foi organizada em quatro frentes complementares: qualidade da coleta e estruturação dos dados, classificação temática, qualidade factual das respostas e rastreabilidade das informações apresentadas pelo agente conversacional.
+A avaliação foi organizada em quatro frentes complementares: qualidade da coleta e estruturação dos dados, classificação temática, qualidade factual das respostas e rastreabilidade das informações apresentadas pelo agente conversacional. O Quadro~\ref{quad:matriz_rastreabilidade} explicita o alinhamento entre os objetivos específicos, as frentes de avaliação, as métricas e as cláusulas da hipótese, tornando rastreável a cadeia que liga a questão de pesquisa aos critérios de avaliação.
+
+\begin{quadro}[H]
+    \centering
+    \caption{Matriz de rastreabilidade entre objetivos, frentes de avaliação, métricas e cláusulas da hipótese}
+    \label{quad:matriz_rastreabilidade}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|p{4.2cm}|p{3.4cm}|p{5.0cm}|p{2.4cm}|}
+        \hline
+        \textbf{Objetivo específico} & \textbf{Frente de avaliação} & \textbf{Métricas principais} & \textbf{Cláusula da hipótese} \\
+        \hline
+        Processar e estruturar os dados da API do Senado & Coleta e estruturação & Completude, consistência, reprodutibilidade & Premissa (estruturar) \\
+        \hline
+        Classificar tematicamente os discursos & Classificação temática & Acurácia, precisão, revocação e F1 \textit{vs.} \textit{baseline} sem LLM & (a) \\
+        \hline
+        Responder em linguagem natural sobre os dados & Avaliação factual & \% de respostas corretas/parciais/incorretas \textit{vs.} configuração sem recuperação & (b) \\
+        \hline
+        Avaliar a rastreabilidade das respostas & Rastreabilidade & Cobertura de recuperação e de citação, precisão e suporte semântico da citação & (c) \\
+        \hline
+        Consolidar o uso do artefato & Cenários de uso & Síntese qualitativa dos casos de teste & Premissa (consultar) \\
+        \hline
+    \end{tabular}%
+    }
+    \fonte{Produção da autora.}
+\end{quadro}
 
 \subsection{Avaliação da Coleta e Estruturação dos Dados}
 
@@ -189,7 +175,7 @@ Será selecionado um conjunto de endpoints e períodos de coleta definidos no es
 Em que medida o modelo Mistral 7B Instruct classifica corretamente os temas dos discursos parlamentares?
 
 \subsubsection{Método}
-Será construída uma amostra de discursos reais do Senado Federal (mínimo de 150 registros, distribuídos entre as categorias temáticas definidas) para compor o gabarito de referência. A anotação será realizada de forma independente por dois avaliadores — a pesquisadora e o orientador —, com base em critérios documentados explicitamente antes do início da anotação. O nível de concordância entre os avaliadores será medido pelo coeficiente Kappa de Cohen \cite{Cohen1960}; casos de discordância serão resolvidos por discussão e registrados como subcategoria de análise qualitativa. A classificação gerada pelo modelo será então comparada com o gabarito final consensuado.
+As categorias temáticas serão definidas \textit{a priori}, antes de qualquer anotação, a partir das áreas recorrentes na atividade legislativa, fixando-se um número mínimo de instâncias por categoria (ao menos 20) para assegurar a estabilidade das métricas por classe. Sobre essa base, será construída uma amostra de discursos reais do Senado Federal (mínimo de 150 registros, distribuídos entre as categorias) para compor o gabarito de referência. A anotação será realizada de forma independente por dois avaliadores, guiada por um protocolo documentado explicitamente antes do início --- com a definição operacional de cada categoria e exemplos de casos limítrofes. O nível de concordância entre os avaliadores será medido pelo coeficiente Kappa de Cohen \cite{Cohen1960}, adotando-se, antes da anotação, o limiar de concordância substancial ($\kappa \geq 0{,}61$) da escala de Landis e Koch \cite{LandisKoch1977} como critério mínimo aceitável; abaixo desse valor, o protocolo será revisado e a anotação refeita. Para reduzir o risco de viés compartilhado, os casos de discordância remanescentes serão resolvidos por um terceiro anotador independente, e não por discussão entre os dois anotadores iniciais; a concordância será reportada também por classe. A classificação gerada pelo modelo será então comparada com o gabarito final.
 
 \subsubsection{Métricas}
 \begin{itemize}
@@ -208,7 +194,7 @@ Os resultados serão interpretados comparativamente em relação a um \textit{ba
 As respostas geradas pelo agente conversacional são coerentes com os dados públicos recuperados da base local?
 
 \subsubsection{Método}
-Será elaborado um conjunto de cenários representativos de consulta, contemplando perguntas sobre votações, discursos, parlamentares, temas e períodos. Para cada cenário, será definida uma resposta esperada com base nos dados oficiais coletados da API do Senado Federal. As respostas geradas pelo AgentAI serão classificadas em: correta, parcialmente correta, incorreta ou não respondida.
+Será elaborado um conjunto de cenários representativos de consulta, definido \textit{a priori} e dimensionado para cobrir todas as classes de pergunta previstas (votações, discursos, parlamentares, temas e períodos) com múltiplas instâncias por classe, totalizando ao menos 30 cenários. Para cada cenário, será definida uma resposta esperada com base nos dados oficiais coletados da API do Senado Federal. As respostas geradas pelo AgentAI serão classificadas em quatro categorias com definição operacional explícita: \textit{correta} (todas as afirmações verificáveis conferem com os dados e nada essencial é omitido); \textit{parcialmente correta} (afirmações corretas convivem com omissões ou imprecisões não centrais); \textit{incorreta} (há ao menos uma afirmação factualmente errada ou sem respaldo nos dados); e \textit{não respondida} (o sistema não responde ou declara não dispor da informação). Para reduzir a subjetividade, a classificação será conduzida por dois avaliadores de forma independente, com a concordância medida pelo Kappa de Cohen \cite{Cohen1960} e as divergências resolvidas por um terceiro avaliador; sempre que a comparação envolver as configurações com e sem recuperação contextual, o avaliador será cegado quanto à origem da resposta. O protocolo será fixado antes da execução.
 
 \subsubsection{Métricas}
 \begin{itemize}
@@ -224,17 +210,18 @@ Será elaborado um conjunto de cenários representativos de consulta, contemplan
 As respostas do agente conversacional permitem identificar os dados utilizados para sua geração?
 
 \subsubsection{Método}
-O artefato já implementa rastreabilidade em dois níveis --- na resposta ao usuário e na instrumentação de medição (Capítulo~\ref{cap:desenvolvimento}). A avaliação apoia-se nessa instrumentação: cada consulta é registrada em \textit{log} estruturado (\texttt{qa\_trace.jsonl}) contendo a pergunta, os identificadores das fontes recuperadas e a resposta gerada, e um módulo de avaliação processa esse registro para quantificar o vínculo entre resposta e dados. Sobre um conjunto de cenários representativos de consulta, a análise verificará se a resposta cita as fontes efetivamente recuperadas e se evita referenciar dados fora do contexto recuperado. A instrumentação encontra-se pronta e validada de ponta a ponta; a medição sobre uma amostra estatisticamente significativa constitui a etapa em execução desta fase.
+O artefato já implementa rastreabilidade em dois níveis --- na resposta ao usuário e na instrumentação de medição (Capítulo~\ref{cap:desenvolvimento}). A avaliação apoia-se nessa instrumentação: cada consulta é registrada em \textit{log} estruturado (\texttt{qa\_trace.jsonl}) contendo a pergunta, os identificadores das fontes recuperadas e a resposta gerada, e um módulo de avaliação processa esse registro para quantificar o vínculo entre resposta e dados. Sobre o mesmo conjunto de cenários da avaliação factual, a análise verificará se a resposta cita as fontes efetivamente recuperadas e se evita referenciar dados fora do contexto recuperado. Além da verificação do vínculo formal --- a existência do identificador entre as fontes ---, o protocolo incorpora a verificação de \textbf{suporte semântico} da citação, isto é, se o registro citado de fato sustenta a afirmação a que está associado, combinando uma checagem automática de sobreposição entre os termos da afirmação e o conteúdo da fonte com a anotação manual de uma amostra. A instrumentação encontra-se pronta e validada de ponta a ponta; o que constitui a etapa em execução desta fase é a medição sobre o conjunto de cenários definido.
 
 \subsubsection{Métricas}
 \begin{itemize}
     \item \textbf{Cobertura de recuperação:} proporção de consultas para as quais o sistema recupera ao menos um registro da base como fonte da resposta.
     \item \textbf{Cobertura de citação:} proporção de respostas que citam explicitamente, por identificador, ao menos uma das fontes recuperadas.
     \item \textbf{Precisão de citação:} proporção de identificadores citados nas respostas que de fato correspondem a registros presentes no conjunto de fontes recuperado.
+    \item \textbf{Suporte semântico da citação:} proporção de citações em que a fonte referenciada efetivamente sustenta a afirmação a que está associada, verificada automaticamente por sobreposição de termos e confirmada por anotação manual em uma amostra.
 \end{itemize}
 
-\subsubsection{Limitações e Refinamento Previsto}
-Reconhece-se que esses indicadores, em sua forma atual, medem a consistência do vínculo formal entre resposta e fontes, não a sua adequação semântica. Em particular, a precisão de citação verifica se o identificador citado existe entre as fontes recuperadas, mas não se o registro citado de fato sustenta a afirmação correspondente. Além disso, perguntas de natureza agregada (por exemplo, "quantos senadores discursaram sobre saúde?") podem ser respondidas corretamente sem citar uma fonte específica, deprimindo a cobertura de citação sem que haja perda de qualidade. Por isso, está previsto para a fase de avaliação o refinamento desses indicadores, incluindo a verificação de suporte semântico da citação e a segmentação das métricas por tipo de pergunta.
+\subsubsection{Limitações Assumidas}
+A noção \textit{formal} de rastreabilidade --- a mera existência do identificador citado entre as fontes --- é insuficiente, pois uma resposta poderia citar um registro que não sustenta a afirmação. Por isso, conforme descrito no método, esta avaliação não se limita ao vínculo formal: incorpora a verificação de suporte semântico da citação, o que torna a cláusula (c) da hipótese efetivamente testável. Permanecem como limitações assumidas: (i) perguntas de natureza agregada (por exemplo, ``quantos senadores discursaram sobre saúde?'') podem ser respondidas corretamente sem citar uma fonte específica, razão pela qual a cobertura de citação será reportada de forma segmentada por tipo de pergunta; e (ii) a verificação automática de suporte semântico, baseada em sobreposição lexical, é aproximada, sendo por isso complementada pela anotação manual de uma amostra.
 
 \subsection{Avaliação de Cenários de Uso}
 
@@ -250,9 +237,25 @@ A fase final documenta o conhecimento científico gerado através da pesquisa. N
     \item Que contribuições esta pesquisa oferece para a comunidade científica?
 \end{itemize}
 
+\section{Ameaças à Validade}
+
+A avaliação proposta está sujeita a ameaças à validade que, seguindo a categorização clássica adotada na pesquisa empírica em Engenharia de Software \cite{Runeson2020}, organizam-se em quatro dimensões. Explicitá-las é condição para interpretar corretamente os resultados.
+
+\subsection{Validade de Construto}
+Refere-se a se as métricas medem aquilo que afirmam medir. A principal ameaça está na rastreabilidade: uma métrica puramente formal --- a existência do identificador citado --- não captura se a fonte sustenta a afirmação. Essa ameaça é mitigada pela métrica de suporte semântico e pela anotação manual de uma amostra. Ademais, a cobertura de recuperação tende a 100\% por construção, pois o mecanismo sempre retorna algum registro; por isso ela é interpretada como verificação de funcionamento, e não como evidência de qualidade.
+
+\subsection{Validade Interna}
+Diz respeito a fatores que podem distorcer a relação entre o artefato e os resultados observados. O principal risco é o viés de anotação --- critérios subjetivos na construção dos gabaritos e eventual não-independência entre anotadores. Mitiga-se com protocolo de anotação definido \textit{a priori}, dupla anotação independente, limiar de Kappa pré-fixado, terceiro anotador para desempate e cegamento do avaliador quanto à origem da resposta nas comparações com a linha de base.
+
+\subsection{Validade Externa}
+Refere-se à generalização dos resultados. O corpus restringe-se ao Senado Federal e ao recorte temporal de 2024 a 2026, de modo que os achados podem não se transferir para outras casas legislativas, períodos ou idiomas; do mesmo modo, conclusões obtidas com o Mistral 7B Instruct não se estendem automaticamente a outros modelos. Essas fronteiras são declaradas, e a arquitetura modular do artefato é apontada como caminho para replicação em outros contextos.
+
+\subsection{Validade de Conclusão}
+Relaciona-se à solidez das inferências. Como a avaliação se baseia em um conjunto finito de cenários definidos pela pesquisadora, sem participantes humanos, evita-se afirmar significância estatística: os resultados são reportados de forma descritiva e caracterizadora, com o número de cenários e de instâncias por classe declarados e comparados a \textit{baselines}. Limitações de tamanho de amostra são tratadas como restrição assumida, e não como achado conclusivo.
+
 \section{Cronograma de Execução}
 
-O planejamento para os próximos 12 meses foca na execução das Fases 5 e 6 (Avaliação e Reflexão) e na produção textual. O Quadro \ref{quad:cronograma_metodologia} detalha as atividades previstas até a defesa final.
+O planejamento para o período que se estende até a defesa, prevista para janeiro de 2027, foca na execução das Fases 5 e 6 (Avaliação e Reflexão) e na produção textual. O Quadro \ref{quad:cronograma_metodologia} detalha as atividades previstas até a defesa final.
 
 \begin{quadro}[H]
     \centering
