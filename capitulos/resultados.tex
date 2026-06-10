@@ -1,0 +1,72 @@
+Este capítulo reporta os resultados da avaliação de geração do AgentAI, executada conforme o protocolo da Fase 5 detalhado no Capítulo~\ref{cap:metodologia} (Metodologia). A avaliação cobre as cláusulas (b) --- coerência factual das respostas --- e (c) --- rastreabilidade --- da hipótese de pesquisa. A cláusula (a), relativa à classificação temática comparada a uma linha de base por palavras-chave, ainda não foi avaliada: essa frente permanece planejada e sua execução integra o cronograma (Quadro~\ref{quad:cronograma_metodologia}), constituindo limitação assumida desta versão dos resultados e não um achado a omitir.
+
+Adianta-se o argumento central, que não é a eleição de um modelo vencedor: as métricas automáticas \textit{saturam} nos quatro modelos avaliados --- integridade referencial $1{,}00$ e taxa de alucinação $0{,}00$ em todos ---, de modo que o \textbf{suporte semântico}, obtido por anotação humana, é o único eixo capaz de discriminar a qualidade das respostas. O caso da pergunta Q04 (Seção~\ref{sec:res_q04}) demonstra concretamente que uma resposta com métrica automática perfeita pode ter suporte semântico baixo. Como esse fenômeno se sustenta nos quatro modelos, o resultado é melhor lido como evidência da \textit{robustez do protocolo de avaliação} do que como ranqueamento de geradores.
+
+\section{Configuração Experimental}
+
+\subsection{Corpus de Avaliação}
+A avaliação recaiu sobre um \textit{snapshot} congelado de 152 discursos do Senado Federal, coletados entre 5 e 16 de maio de 2025 (nove datas distintas). Cada registro contém o resumo do discurso e o tema atribuído (categoria fechada), sem o texto integral. Sobre esse corpus, definiu-se \textit{a priori} um conjunto de 40 perguntas estratificadas em cinco classes: 14 factuais diretas, 8 de agregação/contagem, 6 de comparação, 4 de busca por tema e 8 sem resposta no corpus. Estas últimas testam a robustez do gerador --- isto é, se ele reconhece a ausência de informação em vez de fabricá-la. O congelamento do corpus, da recuperação e dos hiperparâmetros assegura que qualquer diferença observada seja atribuível ao modelo gerador.
+
+Cabe registrar que o motor de resposta emprega \textbf{recuperação estruturada com geração aumentada} por correspondência de palavra-chave, e não recuperação vetorial densa. As referências apresentadas nas respostas na forma \texttt{[D1]}, \texttt{[D2]} etc. são identificadores locais e posicionais por consulta --- isto é, apontam para a $k$-ésima fonte recuperada naquela pergunta ---, e não os identificadores de discurso originais do corpus; a conferência de suporte das citações foi feita contra a evidência \textit{gold} da pergunta.
+
+\subsection{Modelos, Hardware e Quantização}
+Foram avaliados quatro modelos de linguagem abertos, todos executados localmente no \textit{runtime} LM Studio: Mistral 7B Instruct v0.3 \cite{Jiang2023}, Qwen2.5 7B Instruct, Llama 3.1 8B Instruct e Gemma 2 9B Instruct. Mantém-se o Mistral 7B como o modelo do artefato por razões de replicabilidade, soberania de dados e sustentabilidade operacional já justificadas na fundamentação (Seção~\ref{subsec:escolha_modelo}); os demais entram aqui como termos de comparação sob condição idêntica.
+
+Todos os quatro modelos foram executados na mesma quantização \textbf{Q4\_K\_M} (paridade confirmada pelos arquivos \texttt{.gguf}) e no mesmo equipamento: CPU AMD Ryzen 7 5700X (8 núcleos), 32~GB de RAM e GPU NVIDIA RTX 4060 Ti de 8~GB, sob Windows de 64 bits. A identidade de \textit{hardware} e de quantização entre as coletas é a condição que torna as métricas de latência e \textit{throughput} comparáveis entre os modelos; registre-se, contudo, que o consumo efetivo de VRAM e o regime de \textit{offload} de cada execução não foram instrumentados.
+
+Um quinto modelo, o Sabiá-7B, foi \textbf{excluído} da comparação por incompatibilidade de janela de contexto: ele aceita no máximo 2048 \textit{tokens}, ao passo que os \textit{prompts} da tarefa (trechos recuperados, pergunta e instruções) ultrapassam 4000 \textit{tokens}. Incluí-lo exigiria truncar pela metade o contexto recuperado, violando o princípio de manter tudo fixo exceto o modelo e confundindo o efeito do gerador com o do \textit{handicap} de contexto. A janela de contexto é, portanto, um critério de elegibilidade anterior à avaliação de qualidade.
+
+\subsection{Condição de Geração}
+As gerações foram realizadas com temperatura $0{,}1$. Quanto à \textit{seed}, embora o \textit{script} de coleta envie o valor 42 no \textit{payload}, o LM Studio manteve o \textit{toggle} de \textit{seed} aleatória ativo nas quatro coletas, de modo que esse valor foi sobrescrito e a \textit{seed} \textbf{não foi efetivamente controlada} no \textit{runtime} de inferência. Não se afirma, portanto, determinismo por \textit{seed} fixa nem reprodutibilidade \textit{byte}-idêntica --- que o \textit{runtime} local não garante mesmo com \textit{seed} fixa, por não-determinismo de GPU. O que se assegura é a \textbf{uniformidade da condição}: os quatro modelos foram executados sob a mesma configuração (temperatura $0{,}1$ e \textit{seed} não controlada), o que preserva a validade da comparação. Por essa razão, métricas sensíveis à variação entre execuções --- sobretudo a recusa em perguntas sem resposta --- são reportadas em agregado sobre o conjunto de perguntas, nunca a partir de uma única pergunta.
+
+\section{Resultados Quantitativos Agregados}
+
+O Quadro~\ref{tab:comparativo_modelos} consolida as métricas por modelo ($n = 40$ perguntas por modelo, 160 anotações ao todo). As médias de suporte semântico, completude, português formal e a contagem de recusa correta provêm da anotação humana cega; integridade referencial, taxa de alucinação e \textit{throughput} provêm da instrumentação automática.
+
+\begin{quadro}[H]
+    \centering
+    \caption{Avaliação comparativa dos quatro modelos geradores ($n = 40$ por modelo; quantização Q4\_K\_M)}
+    \label{tab:comparativo_modelos}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lccccccc}
+        \toprule
+        \textbf{Modelo} & \textbf{Suporte sem.} & \textbf{Recusa} & \textbf{PT formal} & \textbf{Completude} & \textbf{Tokens/s} & \textbf{Integ. ref.} & \textbf{Alucinação} \\
+         & \textbf{(1--4)} & \textbf{(/8)} & \textbf{(1--5)} & \textbf{(1--5)} & \textbf{(mediana)} & & \\
+        \midrule
+        Mistral 7B Instruct v0.3 & 2,62 & 6/8 & 4,72 & 4,20 & 29,6 & 1,00 & 0,00 \\
+        Qwen2.5 7B Instruct      & 2,90 & 5/8 & 4,85 & 4,12 & 23,1 & 1,00 & 0,00 \\
+        Llama 3.1 8B Instruct    & 2,73 & 7/8 & 4,90 & 4,00 & 29,6 & 1,00 & 0,00 \\
+        Gemma 2 9B Instruct      & 3,17 & 6/8 & 4,95 & 3,95 & 4,15 & 1,00 & 0,00 \\
+        \bottomrule
+    \end{tabular}%
+    }
+    \fonte{Produção da autora.}
+\end{quadro}
+
+\section{Saturação das Métricas Automáticas e o Suporte Semântico como Eixo Discriminante}
+
+A integridade referencial e a taxa de alucinação atingiram o teto nos quatro modelos: todas as citações apontavam para fontes efetivamente recuperadas (integridade $1{,}00$) e nenhuma referenciava registro fora da janela recuperada (alucinação $0{,}00$). Esse resultado \textbf{valida o \textit{pipeline}} de recuperação e citação, mas, por saturar, não discrimina a qualidade das respostas: as duas métricas automáticas não distinguem os modelos entre si. A adequação ao português formal comporta-se de modo análogo, concentrada na faixa $4{,}72$--$4{,}95$, alta e pouco discriminante.
+
+A discriminação recai, assim, sobre o suporte semântico anotado, no qual os modelos se ordenam como Gemma~2 ($3{,}17$), Qwen2.5 ($2{,}90$), Llama~3.1 ($2{,}73$) e Mistral ($2{,}62$). É preciso enfatizar que essas \textbf{diferenças são modestas}: todas se situam na faixa entre ``correta no núcleo, com lacunas'' e ``integralmente sustentada''. Como a anotação foi conduzida por avaliador único e sem cálculo de concordância interanotador (Kappa de Cohen), \textbf{não se afirma significância estatística nem dominância} de qualquer modelo; os valores caracterizam tendências, não um veredito. O ponto metodológico que se sustenta com robustez é outro: a distinção entre uma integridade referencial que satura e um suporte semântico que varia revela que a primeira mede a integridade da \textit{referência} (o identificador existe na janela?), enquanto o segundo mede a integridade do \textit{conteúdo} (a fonte sustenta o que foi dito?).
+
+\section{O Caso Q04: Métrica Automática Perfeita com Suporte Semântico Baixo}
+\label{sec:res_q04}
+
+A pergunta Q04 --- ``Qual senador discursou sobre o aniversário de 35 anos da Conab?'' --- ilustra de forma concreta a insuficiência das métricas automáticas. Na resposta do Mistral, todas as referências citadas estavam dentro da janela recuperada, resultando em integridade referencial $1{,}00$ e alucinação $0{,}00$. A resposta, porém, continha erro semântico relevante: associava contagens fabricadas (``duas sessões''; outro parlamentar com ``três discursos sobre a Conab'') e grafava incorretamente o nome do parlamentar. Na anotação cega, recebeu \textbf{suporte semântico~2} --- erro relevante --- apesar da pontuação automática perfeita.
+
+O contraste na mesma pergunta torna o argumento robusto entre modelos: o Qwen2.5 identificou corretamente o parlamentar e obteve \textbf{suporte~4}, enquanto Llama~3.1 e Gemma~2 ficaram em suporte~3 (corretos no núcleo, mas com imprecisões ou resposta genérica). Ou seja, sob métricas automáticas idênticas ($1{,}00$ / $0{,}00$ para os quatro), o suporte semântico separou uma resposta incorreta de uma correta. O caso demonstra empiricamente por que a anotação humana é indispensável e por que a avaliação de qualidade não pode se apoiar apenas na integridade referencial.
+
+\section{Recusa Correta nas Perguntas sem Resposta no Corpus}
+
+Nas 8 perguntas sem resposta no corpus, a recusa correta --- o reconhecimento explícito da ausência de dados --- foi de 7/8 para o Llama~3.1, 6/8 para Mistral e Gemma~2 e 5/8 para o Qwen2.5. Esses valores só emergem da leitura humana: o proxy automático de recusa (heurística ``ausência de citação $=$ recusa'') subestima sistematicamente a robustez, pois os modelos costumam reconhecer a ausência em prosa (``não foi registrado nos discursos analisados'') e, ainda assim, citar uma fonte de contexto, o que faz o proxy contabilizar indevidamente uma não-recusa. No caso do Mistral, por exemplo, o proxy automático marcou apenas 1/8, contra os 6/8 confirmados pela anotação humana. Reporta-se, portanto, a recusa automática como um piso, e a robustez real como aquela aferida por leitura humana.
+
+\section{Discussão}
+
+\subsection{Robustez do Achado entre Modelos}
+O fato de os quatro modelos saturarem as métricas automáticas e de o fenômeno do caso Q04 se reproduzir independentemente do gerador confere robustez ao achado central: a avaliação de respostas ancoradas em dados não pode se apoiar em métricas de integridade de referência, que tendem a saturar, sendo necessária a verificação de suporte semântico do conteúdo. Esse resultado é uma propriedade do protocolo de avaliação, sustentada em quatro arquiteturas distintas, e não uma característica de um modelo isolado.
+
+\subsection{Custo de Inferência e o \textit{Trade-off} Qualidade--Custo}
+A leitura conjunta de qualidade e custo de inferência revela uma tensão. O Gemma~2, que lidera o suporte semântico, foi também o mais lento na geração por ampla margem: $4{,}15$ \textit{tokens}/s observados, contra $23$--$30$ \textit{tokens}/s dos modelos 7--8B, sob o mesmo \textit{hardware} e a mesma quantização Q4\_K\_M. Reporta-se essa diferença de forma descritiva: como o consumo de VRAM e o regime de \textit{offload} não foram instrumentados, não se isola aqui a causa do custo mais alto --- que pode refletir o maior porte do modelo, características de sua arquitetura ou o comportamento do \textit{runtime} local. A escolha de modelo configura-se, ainda assim, como um \textit{trade-off} entre qualidade e custo, e não como dominância simples: o ganho modesto de suporte semântico do Gemma vem acompanhado de um custo de geração várias vezes maior. As implicações dessa tensão para a eventual seleção de outro gerador --- viabilizada pela arquitetura modular do artefato --- são discutidas entre os trabalhos futuros, no capítulo de considerações, permanecendo o Mistral 7B como o modelo do artefato por replicabilidade.
+
+\subsection{Limitações}
+Reconhecem-se as seguintes limitações desta avaliação. Primeiro, a anotação foi conduzida por \textbf{anotador único}, em condição cega quanto ao modelo, sem cálculo de concordância interanotador (Kappa de Cohen); as médias refletem o julgamento de um único avaliador e podem conter viés sistemático não detectável por concordância. Segundo, as \textbf{diferenças de suporte semântico são modestas} ($2{,}62$--$3{,}17$), o que, somado ao anotador único, desaconselha qualquer afirmação de significância ou de dominância. Terceiro, a \textit{seed} não foi controlada no \textit{runtime}, de modo que as métricas sensíveis à variação são reportadas em agregado. Quarto, a avaliação recai sobre um recorte de 152 discursos de maio de 2025, sem texto integral, e seus achados não se estendem automaticamente ao recorte completo do sistema (2024--2026) nem a outros períodos, casas legislativas ou idiomas. Por fim, a cláusula (a) da hipótese --- classificação temática \textit{versus} linha de base --- não foi avaliada nesta etapa, permanecendo como trabalho planejado.

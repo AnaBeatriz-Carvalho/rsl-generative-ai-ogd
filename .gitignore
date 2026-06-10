@@ -22,4 +22,8 @@
 *.glg
 *.glo
 *.gls
+*.loq
 _minted*/
+
+# Compiled PDF (not versioned)
+main.pdf
