@@ -8,21 +8,21 @@
 %  conduzida (extensão do Mapeamento Sistemático existente) e estão
 %  marcadas com  % TODO (depende da revisão conduzida).
 %
-%  >>> DOUBLE-BLIND <<<  Autoria/afiliação/ORCID/e-mail e agradecimentos
-%  nominais OMITIDOS no corpo. Preencher só na versão final / cover letter.
+%  >>> SINGLE-BLIND <<<  O periódico opera revisão single-blind: os AUTORES
+%  DEVEM ser identificados no PDF (nome, ORCID, afiliação, e-mail).
+%  Preencher os campos marcados com TODO (ORCID/e-mail/afiliação).
 %
 %  Idioma do corpo: português  ->  classe carregada com [brazilian].
 %  O TÍTULO deve estar em inglês, independentemente do idioma do corpo.
 %
-%  Pacotes CTAN exigidos pela classe (instalar no sistema, ver CHECKLIST):
-%  orcidlink, fontawesome, ifsym, tabularray.
+%  >>> COMPILAR COM XeLaTeX <<<  (exigência do periódico).
+%  Pacotes CTAN exigidos pela classe: orcidlink, fontawesome (e, no
+%  caminho XeLaTeX, as fontes TeX Gyre Termes e Roboto). Ver CHECKLIST.
 % =====================================================================
 \documentclass[brazilian]{sbc2025}
 
-\usepackage[misc,geometry]{ifsym}
 \usepackage{aas_macros}
 \usepackage[bottom]{footmisc}
-\usepackage{tabularray}
 \usepackage{afterpage}
 \usepackage{url}
 \usepackage{pifont}
@@ -44,10 +44,13 @@
 \title[Generative AI for Open Government Data: An SLR]{Generative AI for Open
 Government Data Access and Public Transparency: A Systematic Literature Review}
 
-% --- Autoria OMITIDA para double-blind review ---
-% TODO (versão final, não-anônima): nome, ORCID (obrigatório), afiliação, e-mail.
-\author[Anonymized 202X]{
-\affil{\textbf{Omitido para revisão por dupla ocultação (double-blind)}}
+% --- Autoria identificada (single-blind). ORCID é OBRIGATÓRIO por autor. ---
+% TODO: preencher ORCID, afiliação e e-mail reais (placeholders abaixo).
+% TODO: confirmar a lista de autores (ver perguntas ao final da entrega).
+\author[Oliveira et al. 202X]{
+\affil{\textbf{Ana Beatriz Carvalho Oliveira}~\orcidlink{0000-0000-0000-0000}~\textcolor{blue}{\faEnvelopeO}~~[{Universidade Federal de Sergipe}~|\href{mailto:TODO@exemplo.br}{~{\textit{TODO@exemplo.br}}}~]}
+
+\affil{\textbf{Gilton José Ferreira da Silva}~\orcidlink{0000-0000-0000-0000}~~[{Universidade Federal de Sergipe}~|\href{mailto:TODO@exemplo.br}{{\textit{TODO@exemplo.br}}}~]}
 }
 
 \begin{document}
@@ -57,8 +60,8 @@ Government Data Access and Public Transparency: A Systematic Literature Review}
 \maketitle
 
 \begin{mail}
-% TODO (versão final): endereço de correspondência do autor.
-Omitido para revisão por dupla ocultação (double-blind).
+% TODO: endereço de correspondência do autor (single-blind).
+Universidade Federal de Sergipe -- Departamento/Programa, Cidade -- UF, Brasil.
 \end{mail}
 
 % ---------------------------------------------------------------------
@@ -231,17 +234,17 @@ triados $\rightarrow$ elegíveis $\rightarrow$ incluídos; figura PRISMA.]}
 \begin{declarations}
 
 \begin{acknowledgements}
-% OPCIONAL. Omitido na versão de revisão por dupla ocultação.
-% TODO (versão final, não-anônima).
+% OBRIGATÓRIA para publicação (se aceito). TODO: revisar/ajustar.
+Os autores agradecem ao Programa de Pós-Graduação em Ciência da Computação da
+Universidade Federal de Sergipe pelo apoio à pesquisa. % TODO: confirmar/ajustar.
 \end{acknowledgements}
 
 \begin{contributions}
-% OBRIGATÓRIA (CRediT: https://credit.niso.org/).
-% TODO (versão final, não-anônima): descrever papéis (Conceptualization,
-% Methodology, Investigation, Data Curation, Writing - Original Draft,
-% Writing - Review \& Editing, Supervision).
-Omitido para revisão por dupla ocultação; será preenchido na versão final
-conforme a taxonomia CRediT.
+% OBRIGATÓRIA (CRediT: https://credit.niso.org/). TODO: ajustar papéis.
+A. B. C. Oliveira: conceituação, metodologia, condução da revisão (busca,
+triagem e extração), redação do manuscrito original. G. J. F. da Silva:
+supervisão, conceituação e revisão crítica do manuscrito. Todos os autores
+leram e aprovaram a versão final.
 \end{contributions}
 
 \begin{interests}
@@ -252,15 +255,16 @@ The authors declare that they have no competing interests.
 \begin{materials}
 % OBRIGATÓRIA. Apontar repositório (GitHub/Zenodo) com protocolo, strings
 % exatas por base, lista de estudos e planilha de extração.
-% TODO: inserir DOI/URL (anonimizar durante o double-blind).
-The protocol, the per-database search strings, the list of included studies,
-and the data-extraction spreadsheet generated during this study will be made
-available in a public repository (anonymized during review).
+% TODO: inserir DOI/URL do repositório.
+O protocolo, as \textit{strings} de busca por base, a lista de estudos
+incluídos e a planilha de extração estão disponíveis em repositório público:
+\url{https://github.com/TODO}. % TODO: inserir URL/DOI (GitHub/Zenodo).
 \end{materials}
 
 \begin{funding}
-% OPCIONAL.
-% TODO: declarar agência/processo, ou afirmar ausência de financiamento.
+% OBRIGATÓRIA para publicação (se aceito). TODO: confirmar.
+Esta pesquisa não recebeu financiamento específico de agências de fomento dos
+setores público, comercial ou sem fins lucrativos. % TODO: confirmar ou citar agência/processo.
 \end{funding}
 
 \begin{furtherinformation}
@@ -274,11 +278,11 @@ does not handle sensitive data, requiring no ethics committee approval.
 \end{declarations}
 
 % =====================================================================
-%  REFERÊNCIAS — incluir DOI quando disponível (requisito iSys).
-%  Estilo da iSys: apalike-sol. Citações com \citep / \citet (natbib).
-%  ATENÇÃO: referencias.bib foi criado para o estilo ABNT (abntex2-alf);
-%  ao migrar citações de estado_arte.tex, converter \citeonline -> \citet
-%  e \cite -> \citep, e revisar as entradas .bib para o formato apalike.
+%  REFERÊNCIAS — incluir DOI quando disponível (requisito do periódico).
+%  Estilo: apalike-sol. Citações com \cite/\citep/\citet (natbib).
+%  ATENÇÃO: referencias.bib vem do estilo ABNT (abntex2-alf); ao migrar
+%  citações de estado_arte.tex, converter \citeonline -> \citet e revisar
+%  as entradas .bib (DOI, formato apalike).
 % =====================================================================
 \bibliographystyle{apalike-sol}
 \bibliography{referencias}
