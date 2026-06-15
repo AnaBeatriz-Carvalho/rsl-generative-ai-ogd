@@ -1,0 +1,101 @@
+% =====================================================================
+%  SEÇÃO DE RESULTADOS — RSL (classe sbc2025; sem comandos ABNT)
+%  Inserida em isys_rsl.tex via  \input{resultados_rsl}
+%
+%  ORIGEM: migração do Mapeamento Sistemático já conduzido na dissertação
+%  (capitulos/estado_arte.tex). Conversões aplicadas:
+%   \quadro -> table | \citeonline -> \citet | \cite -> \citep | \fonte removido.
+%
+%  >>> EXECUÇÃO PRELIMINAR <<<  Os números e o corpus (7 estudos) referem-se à
+%  execução INICIAL do mapeamento (5 bases, janela 2014–2026, busca em maio/2026,
+%  questões Q1–Q4 da dissertação). A consolidação para o protocolo desta RSL
+%  (4 bases internacionais + snowballing; RQ1–RQ5) está em andamento; os
+%  quantitativos serão ATUALIZADOS após a extensão. Manter as notas % TODO.
+% =====================================================================
+
+\section{Resultados}
+\label{sec:resultados}
+
+Esta seção reporta os resultados da execução inicial da revisão, que constitui a base a ser ampliada pelo \textit{snowballing} e pela consolidação do protocolo descrito na Seção~\ref{sec:metodo}. Os achados são apresentados na ordem do processo: seleção dos estudos (PRISMA), caracterização do corpus e síntese organizada pelas questões de pesquisa.
+
+\subsection{Seleção dos Estudos}
+\label{subsec:res_selecao}
+
+A busca automática retornou 47 registros, assim distribuídos entre as bases: ACM Digital Library (39), Scopus (6), Web of Science (2), IEEE Xplore (0) e Biblioteca Digital da SBC/SOL (0). A ausência de retorno na SOL/SBC e na IEEE para as \textit{strings} aplicadas foi registrada como resultado negativo esperado, dado o recorte temático e temporal, e não implica inexistência de produção na área. Após a remoção de 2 duplicatas e a aplicação dos critérios de inclusão e exclusão — triagem por título e resumo seguida de leitura de texto completo — foram incluídos 7 estudos primários. A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, triagem, elegibilidade e inclusão.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.55\columnwidth]{imagens/fluxograma_execucao.png}
+\caption{Fluxo de seleção dos estudos (PRISMA).}
+\label{fig:prisma}
+\end{figure}
+
+% TODO (após extensão): atualizar os quantitativos e o diagrama PRISMA para o
+% protocolo consolidado (4 bases internacionais + snowballing).
+\textbf{[Nota: quantitativos da execução preliminar; a serem atualizados após a extensão por \textit{snowballing} e a reexecução sob as RQ1--RQ5.]}
+
+\subsection{Caracterização dos Estudos Incluídos}
+\label{subsec:res_carac}
+
+O corpus reúne trabalhos recentes — predominantemente posteriores a 2022 — concentrados em contextos europeus e asiáticos, com participação pontual de estudos sobre o contexto brasileiro. A Tabela~\ref{tab:corpus} sumariza os estudos incluídos quanto a foco, contexto e abordagem.
+
+\begin{table}[ht]
+\centering
+\caption{Estudos primários incluídos na execução preliminar}
+\label{tab:corpus}
+\small
+\begin{tabular}{|p{3.0cm}|p{2.3cm}|p{5.2cm}|}
+\hline
+\textbf{Estudo} & \textbf{Contexto} & \textbf{Foco / abordagem} \\
+\hline
+\citet{Colombo2025} & Itália & \textit{Pipeline} assistido por LLM para construção de \textit{knowledge graphs} da legislação \\
+\hline
+\citet{Colombo2024} & Itália & Sinergia entre grafos de conhecimento e LLMs para monitoramento e versionamento de legislação \\
+\hline
+\citet{VonLuckeFrank2025} & Parlamentos (geral) & Uso de ChatGPT em parlamentos; potencialidades e riscos (alucinação, imprecisão) \\
+\hline
+\citet{Kim2025} & Coreia do Sul & \textit{LegisFlow}: interface conversacional com consciência temporal, avaliada com usuários \\
+\hline
+\citet{Mendes2025} & Brasil & \textit{Topic Modeling} (PLN clássico) sobre Pedidos de Acesso à Informação \\
+\hline
+\citet{Bojars2019} & Letônia & \textit{LinkedSaeima}: dados parlamentares abertos conectados (\textit{Linked Data}) \\
+\hline
+\citet{PapadopoulosCharalabidis2020} & Estratégias nacionais de IA & PLN para mineração de \textit{insights} em documentos governamentais \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{RQ1 --- Aplicações de IA Generativa em Governo Aberto}
+\label{subsec:res_rq1}
+
+As aplicações de IA Generativa identificadas concentram-se em dois eixos. O primeiro é a \textbf{estruturação de dados legislativos}: \citet{Colombo2025} e \citet{Colombo2024} empregam LLMs para extrair entidades jurídicas de textos não estruturados e organizá-las em grafos de conhecimento, viabilizando inclusive o monitoramento da evolução das leis. O segundo é o \textbf{acesso conversacional}: \citet{Kim2025} implementam um \textit{chatbot} para consultas em linguagem natural sobre legislação, e \citet{VonLuckeFrank2025} discutem o uso de ChatGPT para síntese e apoio em contextos parlamentares. Os demais estudos do corpus recorrem a PLN clássico ou a \textit{Linked Data} \citep{Mendes2025,Bojars2019,PapadopoulosCharalabidis2020}, e não à IA Generativa — o que delimita o subconjunto efetivamente generativo da literatura recuperada.
+
+\subsection{RQ2 --- Tipos de Dados Governamentais}
+\label{subsec:res_rq2}
+
+Os dados analisados abrangem textos de legislação e sua evolução temporal \citep{Colombo2025,Colombo2024}, atividade e documentos parlamentares \citep{Kim2025,Bojars2019}, Pedidos de Acesso à Informação \citep{Mendes2025} e documentos de estratégias governamentais de IA \citep{PapadopoulosCharalabidis2020}. Predominam dados textuais não estruturados, o que motiva o uso de técnicas de processamento de linguagem natural — generativas ou clássicas — para sua estruturação e consulta.
+
+\subsection{RQ3 --- LLMs Utilizados}
+\label{subsec:res_rq3}
+
+Entre os estudos generativos, \citet{VonLuckeFrank2025} examinam explicitamente o ChatGPT, enquanto \citet{Colombo2025,Colombo2024} reportam o uso de LLMs como assistentes na construção de grafos de conhecimento sem, em geral, fixar um modelo único, e \citet{Kim2025} apoiam o \textit{LegisFlow} em modelos de linguagem. Observa-se que parte relevante do corpus ainda não adota LLMs, recorrendo a abordagens clássicas — uma lacuna discutida adiante.
+% TODO (após extensão): consolidar modelos, porte e licença (aberto/proprietário)
+% em tabela, conforme o formulário de extração (Tabela de extração do Método).
+
+\subsection{RQ4 --- Benefícios Reportados}
+\label{subsec:res_rq4}
+
+Os benefícios relatados incluem a transformação de dados legislativos complexos em estruturas de conhecimento compreensíveis \citep{Colombo2025}, o rastreamento da evolução normativa ao longo do tempo \citep{Colombo2024}, a redução da barreira de entrada ao acesso legislativo por meio de interação em linguagem natural \citep{Kim2025} e o ganho de rapidez na síntese de informações \citep{VonLuckeFrank2025}. Em conjunto, esses ganhos apontam para um potencial de ampliação do acesso à informação pública.
+
+\subsection{RQ5 --- Desafios e Limitações}
+\label{subsec:res_rq5}
+
+O desafio mais saliente é a \textbf{confiabilidade} das respostas geradas: \citet{VonLuckeFrank2025} alertam para riscos de alucinação e imprecisão factual, sem que a literatura recuperada apresente estratégias sistemáticas de validação. Soma-se a isso a escassez de foco em \textbf{acessibilidade para o cidadão não especialista}, já que vários trabalhos priorizam a estruturação técnica, e a sub-representação do \textbf{contexto brasileiro e da língua portuguesa}. Por fim, a integração de múltiplas modalidades de interação (por exemplo, \textit{dashboard} e \textit{chatbot}) é raramente explorada de forma conjunta.
+
+\subsection{Lacunas e Agenda de Pesquisa}
+\label{subsec:res_lacunas}
+
+A síntese evidencia um campo em formação. As principais lacunas identificadas são: (i) o foco predominante na estruturação técnica, em detrimento da acessibilidade ao cidadão; (ii) a ausência de protocolos sistemáticos para avaliação da confiabilidade e da rastreabilidade das respostas geradas; (iii) a baixa cobertura de contextos não europeus/asiáticos, em especial o brasileiro e em língua portuguesa; e (iv) a rara integração de modalidades de interação. Essas lacunas configuram a agenda de pesquisa em Sistemas de Informação na interseção entre IA Generativa, dados abertos e transparência pública, e orientam a extensão desta revisão.
+
+% TODO (após extensão): rever as lacunas à luz do corpus ampliado e quantificar,
+% quando possível, a distribuição dos estudos por RQ.

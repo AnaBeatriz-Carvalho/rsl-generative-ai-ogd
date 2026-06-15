@@ -26,6 +26,7 @@
 \usepackage{afterpage}
 \usepackage{url}
 \usepackage{pifont}
+\usepackage{underscore} % permite "_" em modo texto (DOIs nas referências)
 
 \setcitestyle{square}
 
@@ -159,36 +160,10 @@ contribuição em relação à literatura de Sistemas de Informação.]}
 % conduzido em capitulos/estado_arte.tex será feito ao redigir os Resultados.
 \input{metodo_rsl}
 
-% =====================================================================
-\section{Resultados}
-\label{sec:resultados}
-% =====================================================================
-% TODO (depende da revisão conduzida).
-
-\subsection{Seleção dos Estudos (PRISMA)}
-% PONTO DE PARTIDA (mapeamento original, a REEXECUTAR sob o novo escopo):
-% 47 identificados [IEEE 0; Scopus 6; ACM 39; WoS 2; SOL/SBC 0]
-% -> 2 duplicatas removidas -> triagem -> 7 estudos incluídos.
-\textbf{[TODO (depende da revisão conduzida): nº identificados $\rightarrow$
-triados $\rightarrow$ elegíveis $\rightarrow$ incluídos; figura PRISMA.]}
-
-\subsection{Caracterização dos Estudos}
-\textbf{[TODO (depende da revisão conduzida): ano, venue, país, tipo de estudo.]}
-
-\subsection{RQ1 — Aplicações de IA Generativa em Governo Aberto}
-\textbf{[TODO (depende da revisão conduzida)]}
-
-\subsection{RQ2 — Tipos de Dados Governamentais}
-\textbf{[TODO (depende da revisão conduzida)]}
-
-\subsection{RQ3 — LLMs Utilizados}
-\textbf{[TODO (depende da revisão conduzida)]}
-
-\subsection{RQ4 — Benefícios Reportados}
-\textbf{[TODO (depende da revisão conduzida)]}
-
-\subsection{RQ5 — Desafios e Limitações}
-\textbf{[TODO (depende da revisão conduzida)]}
+% Seção de Resultados migrada do mapeamento conduzido (estado_arte.tex),
+% convertida para a classe sbc2025 e organizada por RQ1–RQ5. Rotulada como
+% execução preliminar (a estender por snowballing/reexecução).
+\input{resultados_rsl}
 
 % =====================================================================
 \section{Discussão}
