@@ -1,0 +1,337 @@
+% =====================================================================
+%  MANUSCRITO — Revisão Sistemática da Literatura (RSL) — Revista iSys
+%  Template oficial: classe SBC (sbc2025.cls) — iSys 2026 "Preferred".
+%
+%  Tema: Generative AI for Open Government Data Access and Transparency
+%
+%  >>> ESQUELETO <<<  As seções de resultado/síntese dependem da revisão
+%  conduzida (extensão do Mapeamento Sistemático existente) e estão
+%  marcadas com  % TODO (depende da revisão conduzida).
+%
+%  >>> DOUBLE-BLIND <<<  Autoria/afiliação/ORCID/e-mail e agradecimentos
+%  nominais OMITIDOS no corpo. Preencher só na versão final / cover letter.
+%
+%  Idioma do corpo: português  ->  classe carregada com [brazilian].
+%  O TÍTULO deve estar em inglês, independentemente do idioma do corpo.
+%
+%  Pacotes CTAN exigidos pela classe (instalar no sistema, ver CHECKLIST):
+%  orcidlink, fontawesome, ifsym, tabularray.
+% =====================================================================
+\documentclass[brazilian]{sbc2025}
+
+\usepackage[misc,geometry]{ifsym}
+\usepackage{aas_macros}
+\usepackage[bottom]{footmisc}
+\usepackage{tabularray}
+\usepackage{afterpage}
+\usepackage{url}
+\usepackage{pifont}
+
+\setcitestyle{square}
+
+% ---- Metadados do periódico (preenchidos pela editoria na publicação) ----
+\jid{iSys}
+\jtitle{iSys - Journal of Information Systems, 202X, XX:1}
+\issn{1984-2902}
+\doi{10.5753/isys.202X.XXXXXX}
+\copyrightstatement{This work is licensed under a Creative Commons Attribution 4.0 International License}
+\jyear{202X}
+
+% TODO: confirmar a categoria correta para uma RSL (ex.: "Review Paper").
+\category{Research Paper}
+
+% Título sempre em inglês (exigência da classe). [versão curta opcional]
+\title[Generative AI for Open Government Data: An SLR]{Generative AI for Open
+Government Data Access and Public Transparency: A Systematic Literature Review}
+
+% --- Autoria OMITIDA para double-blind review ---
+% TODO (versão final, não-anônima): nome, ORCID (obrigatório), afiliação, e-mail.
+\author[Anonymized 202X]{
+\affil{\textbf{Omitido para revisão por dupla ocultação (double-blind)}}
+}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\maketitle
+
+\begin{mail}
+% TODO (versão final): endereço de correspondência do autor.
+Omitido para revisão por dupla ocultação (double-blind).
+\end{mail}
+
+% ---------------------------------------------------------------------
+%  RESUMOS  (Resumo deve ter 200–250 palavras, estruturado, 1 parágrafo)
+% ---------------------------------------------------------------------
+\begin{abstract-pt}
+% TODO (depende da revisão conduzida): atualizar números e achados ao final.
+[Contexto] A disponibilização de dados governamentais em formato aberto amplia
+o potencial de transparência pública, mas a complexidade e o volume desses
+dados impõem barreiras de acesso ao cidadão. [Objetivo] Este artigo investiga
+como a Inteligência Artificial Generativa e os \emph{Large Language Models}
+(LLMs) vêm sendo aplicados ao acesso a dados governamentais abertos e à
+promoção da transparência pública. [Método] Conduziu-se uma Revisão Sistemática
+da Literatura segundo as diretrizes de Kitchenham e o reporte PRISMA~2020,
+abrangendo bases internacionais e busca por \emph{snowballing}. [Resultados]
+\textbf{[TODO: nº de estudos incluídos; principais aplicações; tipos de dados;
+LLMs; benefícios; e desafios.]} [Conclusão/Contribuições] A revisão mapeia um
+campo emergente na interseção entre governo digital, dados abertos e IA
+Generativa, contribuindo para a agenda de pesquisa em Sistemas de Informação.
+\end{abstract-pt}
+
+\begin{abstract-en}
+[Context] The release of government data in open formats expands the potential
+for public transparency, yet the complexity and volume of such data impose
+access barriers for citizens. [Objective] This article investigates how
+Generative Artificial Intelligence and Large Language Models (LLMs) have been
+applied to open government data access and to fostering public transparency.
+[Method] We conducted a Systematic Literature Review following Kitchenham's
+guidelines and PRISMA~2020 reporting, covering international databases and
+snowballing. [Results] \textbf{[TODO: number of included studies; main
+applications; data types; LLMs; benefits; and challenges.]}
+[Conclusion/Contribution] The review maps an emerging field at the intersection
+of digital government, open data, and Generative AI, contributing to the
+Information Systems research agenda.
+\end{abstract-en}
+
+\begin{pchaves}
+IA Generativa, Large Language Models, Dados Governamentais Abertos,
+Transparência Pública, Governo Digital, Revisão Sistemática da Literatura
+\end{pchaves}
+
+\begin{keywords}
+Generative AI, Large Language Models, Open Government Data, Public Transparency,
+Digital Government, Systematic Literature Review
+\end{keywords}
+
+\begin{dates}
+\noindent{\sffamily\textbf{Received:}} DD Month YYYY~~~$\bullet$~~~
+{\sffamily\textbf{Accepted:}} DD Month YYYY~~~$\bullet$~~~
+{\sffamily\textbf{Published:}} DD Month YYYY
+\end{dates}
+
+\end{frontmatter}
+
+% =====================================================================
+\section{Introdução}
+\label{sec:intro}
+% =====================================================================
+% Enquadramento EXPLÍCITO em Sistemas de Informação (requisito iSys):
+% transparência pública, governo digital, open government data, acesso à
+% informação e apoio à decisão. Evitar que pareça apenas "PLN/IA".
+% Reuso de enquadramento: capitulos/introducao.tex e capitulos/fundamentacao.tex.
+
+A transparência pública e o acesso à informação são pilares do governo digital
+e objeto recorrente de pesquisa em Sistemas de Informação. A disponibilização
+de \emph{open government data} (OGD) tem ampliado as bases para
+\emph{accountability} e controle social, mas a mera publicação de dados brutos
+não garante acesso efetivo: persistem barreiras cognitivas e técnicas entre o
+dado e o cidadão.
+
+\textbf{[TODO: motivação, problema de pesquisa e contribuição da RSL para SI.]}
+
+\paragraph{Objetivo.} Identificar como a IA Generativa e os LLMs estão sendo
+utilizados para ampliar o acesso a dados governamentais abertos e promover a
+transparência pública.
+
+\paragraph{Organização.} A Seção~\ref{sec:background} apresenta o referencial e
+os trabalhos relacionados; a Seção~\ref{sec:metodo} detalha o protocolo da
+revisão; a Seção~\ref{sec:resultados} reporta os resultados; a
+Seção~\ref{sec:discussao} discute as implicações; a Seção~\ref{sec:ameacas}
+trata das ameaças à validade; e a Seção~\ref{sec:conclusao} conclui.
+
+% =====================================================================
+\section{Background e Trabalhos Relacionados}
+\label{sec:background}
+% =====================================================================
+% Posicionar em venues de Sistemas de Informação: iSys, SBSI, GranDSI-BR,
+% MIS Quarterly, Information Systems Research, Decision Support Systems,
+% ECIS, ICIS, AMCIS.
+
+\textbf{[TODO: conceitos de OGD, governo digital e transparência; panorama de
+IA Generativa/LLMs; e revisões/estudos secundários correlatos, posicionando a
+contribuição em relação à literatura de Sistemas de Informação.]}
+
+% =====================================================================
+\section{Método: Protocolo da Revisão Sistemática}
+\label{sec:metodo}
+% =====================================================================
+% Kitchenham/Charters + reporte PRISMA 2020.
+% NÚCLEO REAPROVEITADO: capitulos/estado_arte.tex já contém um Mapeamento
+% Sistemático CONDUZIDO (Kitchenham; Parsifal; 5 bases; 47 identificados ->
+% 2 duplicatas -> 7 incluídos; fluxograma PRISMA-ScR). Esta RSL ESTENDE esse
+% mapeamento: amplia o escopo para "GenAI x OGD/transparência", recodifica as
+% questões e reexecuta busca + snowballing. Os números da execução original
+% ficam como ponto de partida a ser ATUALIZADO após a extensão.
+
+\subsection{Questões de Pesquisa}
+\begin{itemize}
+  \item \textbf{RQ1}: Quais aplicações de IA Generativa são utilizadas em
+        contextos de governo aberto?
+  \item \textbf{RQ2}: Quais tipos de dados governamentais são analisados?
+  \item \textbf{RQ3}: Quais LLMs são utilizados?
+  \item \textbf{RQ4}: Quais benefícios são reportados?
+  \item \textbf{RQ5}: Quais desafios e limitações são reportados?
+\end{itemize}
+
+\subsection{Bases de Dados}
+Scopus, Web of Science, ACM Digital Library e IEEE Xplore. O mapeamento original
+incluiu ainda a Biblioteca Digital da SBC (SOL) para captar produção nacional;
+decidir se será mantida na extensão.
+
+\subsection{String de Busca}
+% Registrar a string EXATA por base, com nº de retornos e data, em apêndice.
+\begin{quotation}
+\noindent (\texttt{"generative artificial intelligence" OR "large language
+model*" OR "LLM*" OR "ChatGPT"}) \texttt{AND} (\texttt{"open government data"
+OR "government transparency" OR "public transparency" OR "digital government"
+OR "e-government"})
+\end{quotation}
+
+\subsection{Critérios de Inclusão e Exclusão}
+% Adaptados de estado_arte.tex para o escopo OGD/transparência.
+\textbf{Inclusão:} (CI1) aplica IA Generativa/LLM a dados governamentais ou
+contexto de governo aberto; (CI2) discute transparência ou acesso à informação
+pública; (CI3) revisado por pares.
+\textbf{Exclusão:} (CE1) duplicatas; (CE2) literatura cinzenta; (CE3) estudos
+secundários; (CE4) trabalhos sem componente técnico de IA Generativa.
+\textbf{[TODO: consolidar e numerar os critérios finais.]}
+
+\subsection{Processo de Seleção}
+Triagem em duas fases (título/resumo e, depois, texto completo), com apoio de
+ferramenta de revisão (Rayyan/Parsifal) e gestão de referências (Zotero),
+complementada por \emph{snowballing} para frente e para trás a partir dos
+estudos incluídos.
+
+\subsection{Extração de Dados e Síntese}
+% Campos guiados pelas RQs (cf. estado_arte.tex).
+Ano; aplicação de IA Generativa; tipo de dado governamental; LLM utilizado;
+benefícios reportados; desafios/limitações; contexto (país/idioma). A síntese é
+temática (\emph{thematic synthesis}), organizada por RQ.
+
+% =====================================================================
+\section{Resultados}
+\label{sec:resultados}
+% =====================================================================
+% TODO (depende da revisão conduzida).
+
+\subsection{Seleção dos Estudos (PRISMA)}
+% PONTO DE PARTIDA (mapeamento original, a REEXECUTAR sob o novo escopo):
+% 47 identificados [IEEE 0; Scopus 6; ACM 39; WoS 2; SOL/SBC 0]
+% -> 2 duplicatas removidas -> triagem -> 7 estudos incluídos.
+\textbf{[TODO (depende da revisão conduzida): nº identificados $\rightarrow$
+triados $\rightarrow$ elegíveis $\rightarrow$ incluídos; figura PRISMA.]}
+
+\subsection{Caracterização dos Estudos}
+\textbf{[TODO (depende da revisão conduzida): ano, venue, país, tipo de estudo.]}
+
+\subsection{RQ1 — Aplicações de IA Generativa em Governo Aberto}
+\textbf{[TODO (depende da revisão conduzida)]}
+
+\subsection{RQ2 — Tipos de Dados Governamentais}
+\textbf{[TODO (depende da revisão conduzida)]}
+
+\subsection{RQ3 — LLMs Utilizados}
+\textbf{[TODO (depende da revisão conduzida)]}
+
+\subsection{RQ4 — Benefícios Reportados}
+\textbf{[TODO (depende da revisão conduzida)]}
+
+\subsection{RQ5 — Desafios e Limitações}
+\textbf{[TODO (depende da revisão conduzida)]}
+
+% =====================================================================
+\section{Discussão}
+\label{sec:discussao}
+% =====================================================================
+% TODO: síntese transversal, implicações para pesquisa e prática em Sistemas
+% de Informação, e agenda de pesquisa.
+\textbf{[TODO (depende da revisão conduzida)]}
+
+% =====================================================================
+\section{Ameaças à Validade}
+\label{sec:ameacas}
+% =====================================================================
+% Estrutura reaproveitável de capitulos/consideracoes.tex (arquivado).
+\begin{description}
+  \item[Validade de construto] Adequação das RQs e da \emph{string} de busca ao
+        fenômeno; risco de os termos não capturarem trabalhos relevantes.
+        \emph{Mitigação:} string iterada por especialista e \emph{snowballing}.
+  \item[Validade interna] Vieses de seleção e extração.
+        \emph{Mitigação:} critérios explícitos e triagem documentada.
+        \textbf{[TODO: concordância entre revisores, se aplicável.]}
+  \item[Validade externa] Generalização limitada pelo escopo de bases e idioma.
+        \emph{Mitigação:} múltiplas bases e registro de limitações.
+  \item[Validade de conclusão] Rastreabilidade entre dados extraídos e
+        conclusões. \emph{Mitigação:} planilha de extração disponível (ver
+        declaração de disponibilidade de dados).
+\end{description}
+
+% =====================================================================
+\section{Conclusão}
+\label{sec:conclusao}
+% =====================================================================
+% TODO: retomar objetivo, achados por RQ, contribuições para SI e trabalhos
+% futuros.
+\textbf{[TODO (depende da revisão conduzida)]}
+
+% =====================================================================
+%  DECLARAÇÕES OBRIGATÓRIAS iSys (bloco da classe)
+% =====================================================================
+\begin{declarations}
+
+\begin{acknowledgements}
+% OPCIONAL. Omitido na versão de revisão por dupla ocultação.
+% TODO (versão final, não-anônima).
+\end{acknowledgements}
+
+\begin{contributions}
+% OBRIGATÓRIA (CRediT: https://credit.niso.org/).
+% TODO (versão final, não-anônima): descrever papéis (Conceptualization,
+% Methodology, Investigation, Data Curation, Writing - Original Draft,
+% Writing - Review \& Editing, Supervision).
+Omitido para revisão por dupla ocultação; será preenchido na versão final
+conforme a taxonomia CRediT.
+\end{contributions}
+
+\begin{interests}
+% OBRIGATÓRIA.
+The authors declare that they have no competing interests.
+\end{interests}
+
+\begin{materials}
+% OBRIGATÓRIA. Apontar repositório (GitHub/Zenodo) com protocolo, strings
+% exatas por base, lista de estudos e planilha de extração.
+% TODO: inserir DOI/URL (anonimizar durante o double-blind).
+The protocol, the per-database search strings, the list of included studies,
+and the data-extraction spreadsheet generated during this study will be made
+available in a public repository (anonymized during review).
+\end{materials}
+
+\begin{funding}
+% OPCIONAL.
+% TODO: declarar agência/processo, ou afirmar ausência de financiamento.
+\end{funding}
+
+\begin{furtherinformation}
+% DESEJÁVEL. Ética + uso de IA generativa.
+This research uses exclusively public data and published scientific literature;
+it does not involve human participants, does not collect personal data, and
+does not handle sensitive data, requiring no ethics committee approval.
+% TODO: declarar o uso de ferramentas de IA generativa na elaboração do artigo.
+\end{furtherinformation}
+
+\end{declarations}
+
+% =====================================================================
+%  REFERÊNCIAS — incluir DOI quando disponível (requisito iSys).
+%  Estilo da iSys: apalike-sol. Citações com \citep / \citet (natbib).
+%  ATENÇÃO: referencias.bib foi criado para o estilo ABNT (abntex2-alf);
+%  ao migrar citações de estado_arte.tex, converter \citeonline -> \citet
+%  e \cite -> \citep, e revisar as entradas .bib para o formato apalike.
+% =====================================================================
+\bibliographystyle{apalike-sol}
+\bibliography{referencias}
+
+\end{document}

@@ -26,4 +26,10 @@
 _minted*/
 
 # Compiled PDF (not versioned)
-main.pdf
+*.pdf
+
+# macOS
+.DS_Store
+
+# Template extraído temporariamente (usar o .zip oficial como fonte)
+_isys_template_extracted/
