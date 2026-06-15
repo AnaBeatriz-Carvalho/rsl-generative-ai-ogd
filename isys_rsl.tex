@@ -154,61 +154,10 @@ IA Generativa/LLMs; e revisões/estudos secundários correlatos, posicionando a
 contribuição em relação à literatura de Sistemas de Informação.]}
 
 % =====================================================================
-\section{Método: Protocolo da Revisão Sistemática}
-\label{sec:metodo}
-% =====================================================================
-% Kitchenham/Charters + reporte PRISMA 2020.
-% NÚCLEO REAPROVEITADO: capitulos/estado_arte.tex já contém um Mapeamento
-% Sistemático CONDUZIDO (Kitchenham; Parsifal; 5 bases; 47 identificados ->
-% 2 duplicatas -> 7 incluídos; fluxograma PRISMA-ScR). Esta RSL ESTENDE esse
-% mapeamento: amplia o escopo para "GenAI x OGD/transparência", recodifica as
-% questões e reexecuta busca + snowballing. Os números da execução original
-% ficam como ponto de partida a ser ATUALIZADO após a extensão.
-
-\subsection{Questões de Pesquisa}
-\begin{itemize}
-  \item \textbf{RQ1}: Quais aplicações de IA Generativa são utilizadas em
-        contextos de governo aberto?
-  \item \textbf{RQ2}: Quais tipos de dados governamentais são analisados?
-  \item \textbf{RQ3}: Quais LLMs são utilizados?
-  \item \textbf{RQ4}: Quais benefícios são reportados?
-  \item \textbf{RQ5}: Quais desafios e limitações são reportados?
-\end{itemize}
-
-\subsection{Bases de Dados}
-Scopus, Web of Science, ACM Digital Library e IEEE Xplore. O mapeamento original
-incluiu ainda a Biblioteca Digital da SBC (SOL) para captar produção nacional;
-decidir se será mantida na extensão.
-
-\subsection{String de Busca}
-% Registrar a string EXATA por base, com nº de retornos e data, em apêndice.
-\begin{quotation}
-\noindent (\texttt{"generative artificial intelligence" OR "large language
-model*" OR "LLM*" OR "ChatGPT"}) \texttt{AND} (\texttt{"open government data"
-OR "government transparency" OR "public transparency" OR "digital government"
-OR "e-government"})
-\end{quotation}
-
-\subsection{Critérios de Inclusão e Exclusão}
-% Adaptados de estado_arte.tex para o escopo OGD/transparência.
-\textbf{Inclusão:} (CI1) aplica IA Generativa/LLM a dados governamentais ou
-contexto de governo aberto; (CI2) discute transparência ou acesso à informação
-pública; (CI3) revisado por pares.
-\textbf{Exclusão:} (CE1) duplicatas; (CE2) literatura cinzenta; (CE3) estudos
-secundários; (CE4) trabalhos sem componente técnico de IA Generativa.
-\textbf{[TODO: consolidar e numerar os critérios finais.]}
-
-\subsection{Processo de Seleção}
-Triagem em duas fases (título/resumo e, depois, texto completo), com apoio de
-ferramenta de revisão (Rayyan/Parsifal) e gestão de referências (Zotero),
-complementada por \emph{snowballing} para frente e para trás a partir dos
-estudos incluídos.
-
-\subsection{Extração de Dados e Síntese}
-% Campos guiados pelas RQs (cf. estado_arte.tex).
-Ano; aplicação de IA Generativa; tipo de dado governamental; LLM utilizado;
-benefícios reportados; desafios/limitações; contexto (país/idioma). A síntese é
-temática (\emph{thematic synthesis}), organizada por RQ.
+% Seção de Método completa (protocolo Kitchenham/Charters + PRISMA 2020),
+% com tabelas de RQs, PICOC, critérios, qualidade e extração. Reúso do núcleo
+% conduzido em capitulos/estado_arte.tex será feito ao redigir os Resultados.
+\input{metodo_rsl}
 
 % =====================================================================
 \section{Resultados}

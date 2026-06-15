@@ -1,0 +1,199 @@
+% =====================================================================
+%  SEÇÃO DE MÉTODO — Revisão Sistemática da Literatura (RSL)
+%  Inserida em isys_rsl.tex via  \input{metodo_rsl}
+%
+%  CLASSE: sbc2025 (apalike-sol). Sem comandos ABNT (\quadro, \citeonline).
+%  PACOTES: usa apenas tabular/\hline padrão — não exige booktabs.
+%
+%  PARÂMETROS A CONFIRMAR (procure por "CONFIRMAR" abaixo):
+%   - Janela temporal (ano inicial)
+%   - String final após calibração-piloto
+%   - Limiares de qualidade
+%
+%  REFERÊNCIAS .bib:
+%   NOVAS (adicionadas a referencias.bib): kitchenham2007, petersen2015,
+%         page2021, wohlin2014.
+%   REUTILIZADAS de referencias.bib (já existiam): Cohen1960, LandisKoch1977
+%         — por isso as \cite no corpo usam essas chaves, e não cohen1960/landis1977.
+%   NOTA: Kitchenham2004 (mapeamento) já existe no .bib, mas é obra distinta;
+%         o Método cita Kitchenham & Charters (2007) = kitchenham2007.
+%
+%  OBS.: se a classe for de duas colunas e alguma tabela estourar,
+%        troque \begin{table} por \begin{table*}.
+% =====================================================================
+
+\section{Método}
+\label{sec:metodo}
+
+Este trabalho caracteriza-se como uma Revisão Sistemática da Literatura (RSL), método secundário de pesquisa que identifica, avalia e sintetiza, de forma reproduzível e auditável, as evidências disponíveis sobre uma questão de interesse. O protocolo foi planejado e conduzido segundo as diretrizes de Kitchenham e Charters \cite{kitchenham2007}, complementadas pelas orientações para estudos de mapeamento de Petersen et al. \cite{petersen2015}, e o relato segue a recomendação PRISMA 2020 \cite{page2021}. A revisão organiza-se em três fases: \textit{planejamento} (definição do protocolo, das questões de pesquisa e dos critérios), \textit{condução} (busca, seleção, avaliação de qualidade e extração) e \textit{relato} (síntese e discussão dos achados). O protocolo foi definido \textit{a priori} — antes do início da triagem — de modo a assegurar a reprodutibilidade da revisão e a reduzir o viés de seleção do pesquisador.
+
+\subsection{Objetivo e Questões de Pesquisa}
+\label{subsec:objetivo_qp}
+
+O objetivo desta revisão é identificar e caracterizar como a Inteligência Artificial Generativa e os Modelos de Linguagem de Grande Porte (\textit{Large Language Models} -- LLMs) vêm sendo empregados para ampliar o acesso a dados governamentais abertos e promover a transparência pública. O recorte situa-se no campo de Sistemas de Informação, na interseção entre governo digital, dados abertos governamentais (\textit{Open Government Data} -- OGD), acesso à informação e apoio à decisão. A partir desse objetivo, derivam-se as cinco questões de pesquisa apresentadas na Tabela~\ref{tab:rqs}.
+
+\begin{table}[ht]
+\centering
+\caption{Questões de pesquisa e foco de extração}
+\label{tab:rqs}
+\small
+\begin{tabular}{|c|p{4.6cm}|p{4.0cm}|}
+\hline
+\textbf{ID} & \textbf{Questão de pesquisa} & \textbf{Foco da extração} \\
+\hline
+RQ1 & Quais aplicações de IA Generativa são utilizadas em contextos de governo aberto? & Tipo de aplicação / caso de uso \\
+\hline
+RQ2 & Quais tipos de dados governamentais são analisados? & Natureza e domínio dos dados \\
+\hline
+RQ3 & Quais LLMs são utilizados? & Modelo(s), porte, aberto/proprietário \\
+\hline
+RQ4 & Quais benefícios são reportados? & Ganhos de acesso e transparência \\
+\hline
+RQ5 & Quais desafios e limitações são reportados? & Barreiras técnicas, éticas e de adoção \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Estratégia de Busca}
+\label{subsec:busca}
+
+A busca automática foi conduzida em quatro bases reconhecidas pela cobertura de Computação e Sistemas de Informação: Scopus, Web of Science, ACM Digital Library e IEEE Xplore. A escolha contempla tanto bases indexadoras de amplo espectro (Scopus, Web of Science) quanto repositórios especializados na área (ACM, IEEE), reduzindo o risco de omissão de estudos relevantes.
+
+Os termos de busca foram derivados da estrutura PICOC, conforme a Tabela~\ref{tab:picoc}, considerando a \textit{Intervenção} (IA Generativa e LLMs) e o \textit{Contexto} (dados abertos e transparência pública). A \textit{string} de busca resultante, em sua forma de referência, é apresentada a seguir; ela é adaptada à sintaxe específica de cada base no momento da execução.
+
+\begin{table}[ht]
+\centering
+\caption{Termos da busca segundo a estrutura PICOC}
+\label{tab:picoc}
+\small
+\begin{tabular}{|p{2.4cm}|p{6.0cm}|}
+\hline
+\textbf{Elemento} & \textbf{Termos} \\
+\hline
+População & Setor público; portais e dados governamentais \\
+\hline
+Intervenção & IA Generativa; LLMs; modelos de linguagem \\
+\hline
+Comparação & Não aplicável (revisão de caracterização) \\
+\hline
+Desfecho & Acesso à informação; transparência; benefícios e desafios \\
+\hline
+Contexto & Governo digital; \textit{e-government}; OGD \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{quote}
+\small\ttfamily
+("generative artificial intelligence" OR "large language model*" \\
+OR "LLM*" OR "ChatGPT") \\
+AND \\
+("open government data" OR "government transparency" \\
+OR "public transparency" OR "digital government" \\
+OR "e-government")
+\end{quote}
+
+A \textit{string} foi submetida a uma calibração-piloto contra um conjunto de controle de artigos previamente reconhecidos como relevantes: caso algum não fosse recuperado, os termos seriam revistos antes da execução definitiva. % CONFIRMAR: liste 3-5 artigos de controle usados na calibração.
+Consideraram-se estudos publicados entre janeiro de 2019 e a data de execução da busca, % CONFIRMAR ano inicial (2019 adotado pela consolidação dos LLMs pré-treinados; ajuste se necessário)
+recorte justificado pela consolidação dos modelos de linguagem pré-treinados de grande porte a partir desse período. A busca automática foi complementada por \textit{snowballing} para frente e para trás \cite{wohlin2014} a partir do conjunto de estudos incluídos, mitigando lacunas da indexação das bases.
+
+\subsection{Critérios de Seleção e Processo de Triagem}
+\label{subsec:selecao}
+
+Os critérios de inclusão (CI) e exclusão (CE) que delimitam o escopo da revisão são apresentados na Tabela~\ref{tab:criterios}. Um estudo é incluído apenas se atende a \textit{todos} os critérios de inclusão e a \textit{nenhum} dos critérios de exclusão.
+
+\begin{table}[ht]
+\centering
+\caption{Critérios de inclusão e exclusão}
+\label{tab:criterios}
+\small
+\begin{tabular}{|c|p{6.4cm}|}
+\hline
+\textbf{ID} & \textbf{Critério} \\
+\hline
+CI1 & Aplica ou investiga IA Generativa/LLMs em contexto de dados abertos, transparência pública ou governo digital \\
+\hline
+CI2 & Estudo primário revisado por pares (conferência ou periódico) \\
+\hline
+CI3 & Publicado na janela temporal definida \\
+\hline
+CI4 & Texto em inglês ou português \\
+\hline
+CI5 & Texto completo acessível \\
+\hline
+CE1 & Aborda apenas um dos eixos (somente IA \textit{ou} somente governo aberto), sem a interseção \\
+\hline
+CE2 & Estudo secundário (outra revisão, mapeamento ou \textit{survey}) -- reservado para \textit{snowballing} e trabalhos relacionados \\
+\hline
+CE3 & Literatura cinza, editorial, resumo estendido, pôster, \textit{keynote} ou tutorial \\
+\hline
+CE4 & Duplicata \\
+\hline
+CE5 & Versão preliminar de estudo posteriormente estendido (mantém-se a versão mais completa) \\
+\hline
+\end{tabular}
+\end{table}
+
+A seleção ocorre em duas fases. Na primeira, os estudos são triados por \textit{título e resumo}; na segunda, os remanescentes são avaliados por \textit{leitura do texto completo}. As referências são gerenciadas no Zotero, que realiza a deduplicação inicial, e a triagem é operacionalizada no Rayyan. Para reduzir a subjetividade, cada fase é conduzida de forma independente por dois revisores; a concordância é medida pelo coeficiente Kappa de Cohen \cite{Cohen1960}, adotando-se como mínimo aceitável o limiar de concordância substancial ($\kappa \geq 0{,}61$) da escala de Landis e Koch \cite{LandisKoch1977}. Abaixo desse valor, os critérios são reesclarecidos e a fase é refeita. Os casos de discordância remanescentes são resolvidos por um terceiro revisor, e não por negociação entre os dois revisores iniciais. O fluxo completo de identificação, triagem, elegibilidade e inclusão será reportado por meio do diagrama PRISMA na seção de resultados.
+
+\subsection{Avaliação de Qualidade}
+\label{subsec:qualidade}
+
+Os estudos aprovados na seleção por texto completo são submetidos a uma avaliação de qualidade, destinada a caracterizar o rigor das evidências e a ponderar sua contribuição na síntese. Cada critério da Tabela~\ref{tab:qualidade} é pontuado em $\{0;\,0{,}5;\,1\}$ (não atende; atende parcialmente; atende), resultando em um escore de 0 a 5. % CONFIRMAR limiar de corte (sugestão: estudos com escore < 2,5 são reportados à parte, não eliminados).
+Estudos abaixo do limiar definido são reportados separadamente e ponderados com cautela na síntese, em vez de simplesmente descartados.
+
+\begin{table}[ht]
+\centering
+\caption{Critérios de avaliação de qualidade}
+\label{tab:qualidade}
+\small
+\begin{tabular}{|c|p{6.4cm}|}
+\hline
+\textbf{ID} & \textbf{Critério} \\
+\hline
+AQ1 & Os objetivos do estudo estão claramente declarados? \\
+\hline
+AQ2 & O contexto (domínio governamental e dados) está adequadamente descrito? \\
+\hline
+AQ3 & A abordagem de IA Generativa/LLM está descrita com detalhe suficiente para ser compreendida e replicada? \\
+\hline
+AQ4 & Os resultados e benefícios são reportados e sustentados por evidências? \\
+\hline
+AQ5 & As limitações e ameaças à validade são discutidas? \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Extração de Dados}
+\label{subsec:extracao}
+
+A extração utiliza um formulário padronizado, definido antes da leitura integral, cujos campos mapeiam diretamente as questões de pesquisa (Tabela~\ref{tab:extracao}). Além dos campos vinculados às RQs, registram-se metadados bibliográficos (autores, ano, veículo, tipo de veículo e país) e o método de avaliação empregado em cada estudo. A extração é conduzida por um revisor e conferida por um segundo, com divergências resolvidas por consenso documentado.
+
+\begin{table}[ht]
+\centering
+\caption{Formulário de extração e vínculo com as questões de pesquisa}
+\label{tab:extracao}
+\small
+\begin{tabular}{|p{3.6cm}|p{3.2cm}|c|}
+\hline
+\textbf{Campo} & \textbf{Descrição} & \textbf{RQ} \\
+\hline
+Aplicação / caso de uso & Como a IA Generativa é empregada & RQ1 \\
+\hline
+Dados governamentais & Tipo e domínio dos dados analisados & RQ2 \\
+\hline
+Modelo(s) & LLM/IA Generativa, porte, licença & RQ3 \\
+\hline
+Benefícios & Ganhos de acesso/transparência relatados & RQ4 \\
+\hline
+Desafios & Limitações técnicas, éticas e de adoção & RQ5 \\
+\hline
+Avaliação & Método de validação do estudo & --- \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Síntese dos Dados}
+\label{subsec:sintese}
+
+A síntese combina duas abordagens complementares. A \textit{síntese quantitativa descritiva} caracteriza o corpus por meio de distribuições — evolução temporal das publicações, veículos, modelos empregados (RQ3) e tipos de dados governamentais (RQ2) —, oferecendo um panorama do campo no estilo de um mapeamento sistemático. A \textit{síntese temática}, de natureza qualitativa, codifica e agrupa em categorias as aplicações (RQ1), os benefícios (RQ4) e os desafios (RQ5) reportados, podendo resultar em uma taxonomia emergente dos usos de IA Generativa para acesso a dados governamentais abertos e transparência. As duas sínteses são então articuladas na discussão, de modo a responder às cinco questões de pesquisa de forma integrada.
