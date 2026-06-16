@@ -1,6 +1,9 @@
-base,campo,colecao,filtro_ano,contagem_bruta,data_exec,contagem_pos_dedup,observacao
-Scopus,TITLE-ABS-KEY,,2019-2026,,,,
-Web of Science,TS=,Core Collection,2019-2026,,,,
-IEEE Xplore,All Metadata,,2019-2026,,,,
-ACM Digital Library,[All:],ACM Guide to Computing Literature,2019-2026,,,,
-SBC/SOL,busca simples,,2019-2026,,,,
+base;campo;colecao;filtro_ano;contagem_bruta;data_exec;contagem_pos_dedup;observacao;;;;
+Scopus;TITLE-ABS-KEY;;2019-2026;453;16/06/2026;;String apertada (3 blocos) dentro de TITLE-ABS-KEY. Controle Colombo et al. 2025 recuperado (confirma recall).;;;;
+Web of Science;TS=;Core Collection;2019-2026;143;16/06/2026;;String apertada (3 blocos) em TS=. Filtro de ano aplicado pela interface.;;;;
+IEEE Xplore;All Metadata;;2019-2026;224;16/06/2026;;String original retornava 0; string apertada retorna 224 (confirma que o zero anterior era artefato de cobertura; nao vazio real). Controles de tema presentes (TAGIFY/OGD; TNGov-GPT).;
+ACM Digital Library;Abstract;ACM Guide to Computing Literature;2019-2026;445;16/06/2026;;Soma BRUTA das 3 passadas (261+167+17) — NAO deduplicada. Busca via Advanced Search campo Abstract (campo [All:]/Anywhere infla para centenas de milhares). Controle Kim et al. 2025 (UIST) recuperado. contagem_pos_dedup a preencher apos uniao+dedup no Zotero.;;;;
+ACM - Passada A;Abstract;ACM Guide to Computing Literature;2019-2026;261;16/06/2026;;Contexto governamental inequivoco (open government data; government data; public sector data; legislative data; parliamentary data).
+ACM - Passada B;Abstract;ACM Guide to Computing Literature;2019-2026;167;16/06/2026;;Governo digital / FOI (digital government; e-government; open government; freedom of information; FOIA).
+ACM - Passada C;Abstract;ACM Guide to Computing Literature;2019-2026;17;16/06/2026;;Termos qualificados (government/public transparency; government/public accountability; access to public information; government/open data portal).;
+SBC/SOL;busca integrada (Resumo+cruzada);Anais de Eventos + Periodicos;2019-2026;8;16/06/2026;;"Busca cruzada IA x governo: (ChatGPT OR LLM OR ""inteligencia artificial generativa"") AND (governo OR transparencia OR legislacao OR ""dados abertos""). Query complexa com curinga deu Gateway Timeout";" versao simplificada sem curinga funcionou. SOL nao oferece export BibTeX/RIS — registros extraidos manualmente. Buscas exploratorias por termo unico (campo Resumo): ""inteligencia artificial generativa""=74 (predominio educacao)"; ChatGPT=161; LLM=210 — todas fora da intersecao exceto os candidatos abaixo.;
