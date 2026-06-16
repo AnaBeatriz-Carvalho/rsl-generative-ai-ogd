@@ -25,7 +25,7 @@
 \section{Método}
 \label{sec:metodo}
 
-Este trabalho caracteriza-se como uma Revisão Sistemática da Literatura (RSL), método secundário de pesquisa que identifica, avalia e sintetiza, de forma reproduzível e auditável, as evidências disponíveis sobre uma questão de interesse. O protocolo foi planejado e conduzido segundo as diretrizes de Kitchenham e Charters \cite{kitchenham2007}, complementadas pelas orientações para estudos de mapeamento de Petersen et al. \cite{petersen2015}, e o relato segue a recomendação PRISMA 2020 \cite{page2021}. A revisão organiza-se em três fases: \textit{planejamento} (definição do protocolo, das questões de pesquisa e dos critérios), \textit{condução} (busca, seleção, avaliação de qualidade e extração) e \textit{relato} (síntese e discussão dos achados). O protocolo foi definido \textit{a priori} — antes do início da triagem — de modo a assegurar a reprodutibilidade da revisão e a reduzir o viés de seleção do pesquisador.
+Este trabalho caracteriza-se como uma Revisão Sistemática da Literatura (RSL), método secundário de pesquisa que identifica, avalia e sintetiza, de forma reproduzível e auditável, as evidências disponíveis sobre uma questão de interesse. O protocolo foi planejado e conduzido segundo as diretrizes de Kitchenham e Charters \citeyearpar{kitchenham2007}, complementadas pelas orientações para mapeamento sistemático de Petersen et al. \citeyearpar{petersen2015}, e o relato segue a recomendação PRISMA 2020 \citep{page2021}. Como as questões de pesquisa são de caracterização — e não explicativas —, adota-se um desenho \textbf{híbrido} entre RSL e mapeamento sistemático: a busca e a seleção seguem o rigor de uma RSL, enquanto a síntese assume a forma de um mapeamento do campo. A revisão organiza-se em três fases: \textit{planejamento} (definição do protocolo, das questões de pesquisa e dos critérios), \textit{condução} (busca, seleção, avaliação de qualidade e extração) e \textit{relato} (síntese e discussão dos achados). O protocolo foi definido \textit{a priori} — antes do início da triagem — de modo a assegurar a reprodutibilidade da revisão e a reduzir o viés de seleção do pesquisador.
 
 \subsection{Objetivo e Questões de Pesquisa}
 \label{subsec:objetivo_qp}
@@ -41,7 +41,7 @@ O objetivo desta revisão é identificar e caracterizar como a Inteligência Art
 \hline
 \textbf{ID} & \textbf{Questão de pesquisa} & \textbf{Foco da extração} \\
 \hline
-RQ1 & Quais aplicações de IA Generativa são utilizadas em contextos de governo aberto? & Tipo de aplicação / caso de uso \\
+RQ1 & Quais aplicações de IA Generativa são utilizadas no acesso a dados governamentais abertos e na transparência pública? & Tipo de aplicação / caso de uso \\
 \hline
 RQ2 & Quais tipos de dados governamentais são analisados? & Natureza e domínio dos dados \\
 \hline
@@ -95,7 +95,7 @@ OR "e-government")
 
 A \textit{string} foi submetida a uma calibração-piloto contra um conjunto de controle de artigos previamente reconhecidos como relevantes: caso algum não fosse recuperado, os termos seriam revistos antes da execução definitiva. % CONFIRMAR: liste 3-5 artigos de controle usados na calibração.
 Consideraram-se estudos publicados entre janeiro de 2019 e a data de execução da busca, % CONFIRMAR ano inicial (2019 adotado pela consolidação dos LLMs pré-treinados; ajuste se necessário)
-recorte justificado pela consolidação dos modelos de linguagem pré-treinados de grande porte a partir desse período. A busca automática foi complementada por \textit{snowballing} para frente e para trás \cite{wohlin2014} a partir do conjunto de estudos incluídos, mitigando lacunas da indexação das bases.
+recorte justificado pela consolidação dos modelos de linguagem pré-treinados de grande porte a partir desse período. A busca automática será complementada por \textit{snowballing} para frente e para trás \citep{wohlin2014} a partir do conjunto de estudos incluídos, mitigando lacunas da indexação das bases. % NOTA: snowballing previsto e ainda em andamento (ver Resultados).
 
 \subsection{Critérios de Seleção e Processo de Triagem}
 \label{subsec:selecao}
@@ -134,7 +134,7 @@ CE5 & Versão preliminar de estudo posteriormente estendido (mantém-se a versã
 \end{tabular}
 \end{table}
 
-A seleção ocorre em duas fases. Na primeira, os estudos são triados por \textit{título e resumo}; na segunda, os remanescentes são avaliados por \textit{leitura do texto completo}. As referências são gerenciadas no Zotero, que realiza a deduplicação inicial, e a triagem é operacionalizada no Rayyan. Para reduzir a subjetividade, cada fase é conduzida de forma independente por dois revisores; a concordância é medida pelo coeficiente Kappa de Cohen \cite{Cohen1960}, adotando-se como mínimo aceitável o limiar de concordância substancial ($\kappa \geq 0{,}61$) da escala de Landis e Koch \cite{LandisKoch1977}. Abaixo desse valor, os critérios são reesclarecidos e a fase é refeita. Os casos de discordância remanescentes são resolvidos por um terceiro revisor, e não por negociação entre os dois revisores iniciais. O fluxo completo de identificação, triagem, elegibilidade e inclusão será reportado por meio do diagrama PRISMA na seção de resultados.
+A seleção ocorre em duas fases. Na primeira, os estudos são triados por \textit{título e resumo}; na segunda, os remanescentes são avaliados por \textit{leitura do texto completo}. As referências são gerenciadas no Zotero, que realiza a deduplicação inicial, e a triagem é operacionalizada no Rayyan. Para reduzir a subjetividade, cada fase é conduzida de forma independente por dois revisores; a concordância é medida pelo coeficiente Kappa de Cohen \citeyearpar{Cohen1960}, adotando-se como mínimo aceitável o limiar de concordância substancial ($\kappa \geq 0{,}61$) da escala de Landis e Koch \citeyearpar{LandisKoch1977}. Abaixo desse valor, os critérios são reesclarecidos e a fase é refeita. As divergências entre os revisores são resolvidas por consenso. % TODO: confirmar o procedimento de desempate efetivamente adotado (p.ex., terceiro avaliador) e REPORTAR o valor de kappa obtido por fase. O fluxo completo de identificação, triagem, elegibilidade e inclusão é reportado por meio do diagrama PRISMA na seção de resultados.
 
 \subsection{Avaliação de Qualidade}
 \label{subsec:qualidade}
