@@ -1,0 +1,2 @@
+id,titulo,autores,ano,veiculo,tipo_veiculo,doi,base_origem,fase,decisao,criterio,generativo,observacao
+EX01,An LLM-Assisted ETL Pipeline to Build a High-Quality Knowledge Graph of the Italian Legislation,"Colombo, A.; Bernasconi, A.; Ceri, S.",2025,Information Processing & Management,periodico,10.1016/j.ipm.2025.104082,Scopus,texto_completo,incluido,,S,LINHA-EXEMPLO: apague antes de usar

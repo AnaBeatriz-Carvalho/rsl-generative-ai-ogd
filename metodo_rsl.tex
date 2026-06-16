@@ -59,7 +59,7 @@ RQ5 & Quais desafios e limitações são reportados? & Barreiras técnicas, éti
 
 A busca automática foi conduzida em quatro bases reconhecidas pela cobertura de Computação e Sistemas de Informação: Scopus, Web of Science, ACM Digital Library e IEEE Xplore. A escolha contempla tanto bases indexadoras de amplo espectro (Scopus, Web of Science) quanto repositórios especializados na área (ACM, IEEE), reduzindo o risco de omissão de estudos relevantes.
 
-Os termos de busca foram derivados da estrutura PICOC, conforme a Tabela~\ref{tab:picoc}, considerando a \textit{Intervenção} (IA Generativa e LLMs) e o \textit{Contexto} (dados abertos e transparência pública). A \textit{string} de busca resultante, em sua forma de referência, é apresentada a seguir; ela é adaptada à sintaxe específica de cada base no momento da execução.
+Os termos de busca foram derivados das cinco dimensões da estrutura PICOC (Tabela~\ref{tab:picoc}), de modo que a \textit{string} operacionalize todas elas e não apenas a Intervenção. O bloco de \textit{Intervenção} cobre IA Generativa, LLMs e arquiteturas correlatas (modelos de fundação, \textit{transformers}, geração aumentada por recuperação e agentes conversacionais), incluindo modelos nomeados; o bloco de \textit{População}, \textit{Desfecho} e \textit{Contexto} cobre o setor público e os dados governamentais, legislativos e parlamentares, o acesso à informação, a transparência e a \textit{accountability}, e o domínio de governo digital e dados abertos. A \textit{string} de referência é apresentada a seguir e adaptada à sintaxe específica de cada base no momento da execução; uma \textit{string} equivalente em português é aplicada à Biblioteca Digital da SBC/SOL e às demais bases lusófonas, honrando o critério de idioma (CI4). A \textit{string} exata por base, a data de execução e a contagem de registros recuperados por base são reportadas no repositório de materiais e na Seção~\ref{sec:resultados}, permitindo distinguir ausência real de produção de eventual erro de portabilidade da consulta.
 
 \begin{table}[ht]
 \centering
@@ -85,12 +85,18 @@ Contexto & Governo digital; \textit{e-government}; OGD \\
 
 \begin{quote}
 \small\ttfamily
-("generative artificial intelligence" OR "large language model*" \\
-OR "LLM*" OR "ChatGPT") \\
+("generative artificial intelligence" OR "generative AI" \\
+OR "large language model*" OR "LLM*" OR "foundation model*" \\
+OR transformer* OR GPT* OR ChatGPT OR Llama OR Mistral OR Gemini \\
+OR "retrieval-augmented generation" OR RAG \\
+OR chatbot* OR "conversational agent*") \\
 AND \\
-("open government data" OR "government transparency" \\
-OR "public transparency" OR "digital government" \\
-OR "e-government")
+("open government data" OR "open data" OR "government data" \\
+OR "public sector data" OR "legislative data" OR "parliamentary data" \\
+OR "freedom of information" OR FOIA OR "access to information" \\
+OR transparency OR accountability \\
+OR "digital government" OR "e-government" OR "open government" \\
+OR "data portal*")
 \end{quote}
 
 A \textit{string} foi submetida a uma calibração-piloto contra um conjunto de controle de artigos previamente reconhecidos como relevantes: caso algum não fosse recuperado, os termos seriam revistos antes da execução definitiva. % CONFIRMAR: liste 3-5 artigos de controle usados na calibração.
