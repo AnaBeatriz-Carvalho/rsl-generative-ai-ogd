@@ -21,19 +21,32 @@ Esta seção reporta os resultados da execução inicial da revisão, que consti
 \subsection{Seleção dos Estudos}
 \label{subsec:res_selecao}
 
-A busca automática retornou 47 registros, assim distribuídos entre as bases: ACM Digital Library (39), Scopus (6), Web of Science (2), IEEE Xplore (0) e Biblioteca Digital da SBC/SOL (0). A ausência de retorno na SOL/SBC e na IEEE para as \textit{strings} aplicadas foi registrada como resultado negativo esperado, dado o recorte temático e temporal, e não implica inexistência de produção na área. Após a remoção de 2 duplicatas e a aplicação dos critérios de inclusão e exclusão — triagem por título e resumo seguida de leitura de texto completo — foram incluídos 7 estudos primários. A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, triagem, elegibilidade e inclusão.
+A busca automática nas quatro bases internacionais recuperou 1265 registros, assim distribuídos: Scopus (453), ACM Digital Library (445), IEEE Xplore (224) e Web of Science (143). Como fonte adicional, a busca na Biblioteca Digital da SBC/SOL recuperou 23 registros, tratados em fluxo separado por essa base não oferecer exportação padronizada (BibTeX/RIS). A deduplicação das quatro bases internacionais, conduzida no Zotero, removeu 460 registros, resultando em 805 registros únicos; os 23 registros da SOL foram deduplicados manualmente. Na triagem por título e resumo, operacionalizada no Rayyan, os 805 registros das bases internacionais levaram a 668 exclusões e a 137 estudos encaminhados à leitura de texto completo; na SOL, dos 23 registros, 18 foram excluídos e 5 encaminhados ao texto completo (2 inclusões firmes e 3 a confirmar). A etapa de leitura de texto completo abrange, portanto, 142 estudos (137 das bases internacionais e 5 da SOL). O número de estudos incluídos na síntese encontra-se [A DEFINIR --- leitura de texto completo em andamento]. A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, deduplicação, triagem e elegibilidade.
 
-\begin{figure}[ht]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=0.55\columnwidth]{imagens/fluxograma_execucao.png}
+\includegraphics[width=0.6\textwidth]{imagens/fluxograma_execucao.png}
 \caption{Fluxo de seleção dos estudos (PRISMA).}
 \label{fig:prisma}
-\end{figure}
+\end{figure*}
 
-% TODO (após extensão): atualizar os quantitativos e o diagrama PRISMA para o
-% protocolo consolidado (4 bases internacionais + snowballing).
-\textbf{[Nota: quantitativos da execução preliminar; a serem atualizados após a extensão por \textit{snowballing} e a reexecução sob as RQ1--RQ5.]}
+% Quantitativos de identificação, deduplicação e triagem atualizados para o protocolo
+% consolidado (4 bases internacionais + SOL como fonte adicional). A inclusão final na
+% síntese permanece pendente da leitura de texto completo (nó [A DEFINIR] na
+% Figura~\ref{fig:prisma}); o snowballing está previsto sobre o corpus consolidado.
 
+\noindent\textbf{[Em consolidação]} A caracterização do corpus e a síntese das questões de pesquisa (RQ1--RQ5), assim como a tabela de estudos incluídos, dependem da conclusão da leitura de texto completo dos 142 estudos selecionados (ver Seção~\ref{subsec:res_selecao}). A síntese da execução preliminar (7 estudos) foi preservada no código-fonte e será substituída pelo corpus consolidado; não é exibida aqui para não conflitar com o número de incluídos ainda [A DEFINIR].
+
+% ===================================================================== %
+% BLOCO 4.2-4.8 OCULTADO DA COMPILACAO (\iffalse ... \fi).               %
+% Conteudo PRESERVADO para reescrita apos a leitura de texto completo    %
+% dos 142 estudos. NAO APAGAR. Sintese da execucao preliminar (7         %
+% estudos) que contradiz o numero de incluidos [A DEFINIR] do Sec. 4.1.  %
+% As refs Colombo2025/Colombo2024/VonLuckeFrank2025/Kim2025/Mendes2025/  %
+% PapadopoulosCharalabidis2020 caem das Referencias enquanto oculto      %
+% (comportamento correto); voltam quando o bloco for recitado.           %
+% ===================================================================== %
+\iffalse
 \subsection{Caracterização dos Estudos Incluídos}
 \label{subsec:res_carac}
 
@@ -41,7 +54,7 @@ O corpus reúne trabalhos recentes — predominantemente posteriores a 2022 — 
 
 Registra-se uma decisão de escopo: três dos sete estudos recuperados --- \citet{Mendes2025}, \citet{Bojars2019} e \citet{PapadopoulosCharalabidis2020} --- empregam PLN clássico ou \textit{Linked Data}, e não IA Generativa. Por não satisfazerem plenamente o critério CI1, são aqui tratados como \textbf{contexto comparativo} e não compõem a base de evidências das questões sobre uso de LLMs (RQ3 em diante), restando \mbox{$n \approx 4$} estudos efetivamente generativos. % TODO: na execução final, reaplicar CI/CE e consolidar o corpus generativo (excluir formalmente ou redefinir o escopo e as RQs).
 
-\begin{table}[ht]
+\begin{table*}[t]
 \centering
 \caption{Estudos primários incluídos na execução preliminar}
 \label{tab:corpus}
@@ -65,7 +78,7 @@ Registra-se uma decisão de escopo: três dos sete estudos recuperados --- \cite
 \citet{PapadopoulosCharalabidis2020} & Estratégias nacionais de IA & PLN para mineração de \textit{insights} em documentos governamentais \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 
 \subsection{RQ1 --- Aplicações de IA Generativa em Governo Aberto}
 \label{subsec:res_rq1}
@@ -101,3 +114,7 @@ A síntese evidencia um campo em formação. As principais lacunas identificadas
 
 % TODO (após extensão): rever as lacunas à luz do corpus ampliado e quantificar,
 % quando possível, a distribuição dos estudos por RQ.
+\fi
+% ===================================================================== %
+% FIM DO BLOCO 4.2-4.8 OCULTADO (\iffalse ... \fi).                      %
+% ===================================================================== %

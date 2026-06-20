@@ -7,6 +7,46 @@
 
 ---
 
+## Atualização — 19/06/2026 (sessão: reexecução da busca + Background)
+
+Estado mais recente, por cima das seções 5–6 abaixo:
+
+- **Busca reexecutada e contabilizada** (`busca_contagens.csv`):
+  - 4 bases internacionais: Scopus 453, WoS 143, IEEE 224, ACM 445 = **1265 bruto → 805 pós-dedup** (Zotero).
+  - **SBC/SOL** (fonte separada, fora do Rayyan): identificados **23** (busca booleana refeita em duas queries complementares, unidas/dedup à mão; substitui o 8 provisório).
+  - **Triagem título/resumo (Rayyan)**: 805 triados → **137 incluídos**, 668 excluídos, 0 maybe.
+  - **Triagem título (SOL, manual)**: 23 → 2 firmes, 3 a confirmar por texto completo, 18 excluídos; corpus SOL estimado 2–5.
+  - O `TOTAL=1265/805` cobre só as 4 bases internacionais; a SOL é contabilizada à parte no PRISMA.
+- **§2 Background e Trabalhos Relacionados ESCRITA** (`isys_rsl.tex`): 3 subseções
+  (lacuna de acesso a OGD; LLMs/RAG; trabalhos relacionados/Linked Data + lacuna de
+  estudo secundário). Sem citações fabricadas — só chaves já existentes no `.bib`.
+  Há um `% TODO` para confirmar ausência de RSL correlata na busca.
+- **Compila XeLaTeX exit 0**, 0 citações/refs indefinidas, **7 páginas**.
+- **Reversão consciente do escopo do título (19/06/2026):** a autora **mantém o título
+  amplo** ("...Public Transparency") e **rejeitou** o estreitamento para "...Legislative
+  Data" antes registrado. Memória `decisao-escopo-isys`, índice `MEMORY.md` e este handoff
+  foram realinhados; o título no `.tex` já estava amplo (o registro de "estreitado no
+  `.tex`" era falso). A tensão título↔corpus passa a ser **limitação de validade de
+  construto** (Ameaças à Validade), não estreitamento. Strings de busca, corpus e números
+  não foram tocados.
+
+**Ainda bloqueado pela triagem de texto completo (não fabricar):** Resultados ainda
+com números antigos (47/7); Figura PRISMA final; QA; Discussão; Conclusão; e
+os `[TODO]` de resultados nos resumos pt/en. Destravam ao fechar a leitura de texto
+completo dos 137 (Rayyan) + confirmar os 3 da SOL.
+
+**Decisão de escopo vigente** (memória `decisao-escopo-isys`): **título MANTIDO na forma
+ampla** — "...Open Government Data Access and *Public Transparency*". O estreitamento para
+"...Accessing Open Government and Legislative Data" foi **rejeitado conscientemente pela
+autora (19/06/2026)** — NÃO voltar a estreitar. A tensão título↔corpus (corpus é
+estruturação/acesso a dados legislativos e OGD, não medida de transparência como desfecho)
+é tratada como **limitação de validade de construto** nas Ameaças à Validade, não por
+estreitamento. Decisão de corpus separada e ainda válida: excluir formalmente os 3
+não-generativos (Mendes2025, Bojars2019, PapadopoulosCharalabidis2020) e Colombo2024
+(preprint → CI2) na consolidação final.
+
+---
+
 ## 0. Avisos
 
 - **`main` é a fonte de verdade** da dissertação e do artigo experimental. Não alterar.
@@ -44,7 +84,9 @@
 - **Bases (protocolo consolidado):** Scopus, Web of Science, ACM DL, IEEE Xplore
   (+ snowballing). O mapeamento original usou ainda a SOL/SBC.
 - **Método completo** em `metodo_rsl.tex` (Kitchenham/Charters + PRISMA 2020;
-  PICOC, critérios CI/CE, Kappa de Cohen, avaliação de qualidade, extração).
+  PICOC, critérios CI/CE, avaliação de qualidade, extração). Revisora única —
+  decisões rastreáveis no Rayyan, sem concordância interavaliadores (ver memória
+  `revisora-unica-isys`).
 
 ---
 
@@ -78,7 +120,8 @@ na árvore de usuário (`~/Library/texmf`) e em `~/Library/Fonts`:
 `Roboto`, `TeX Gyre Termes`, `FontAwesome`. **Em outra máquina** (ou Overleaf),
 instalar via `tlmgr`/MacTeX completo, ou usar o Overleaf (que já os traz).
 
-Estado atual: compila com **exit 0**, **0 citações/refs indefinidas**, ~5 páginas.
+Estado atual: compila com **exit 0**, **0 citações/refs indefinidas**, ~7 páginas
+(ver bloco "Atualização — 19/06/2026" no topo).
 
 ---
 
@@ -98,15 +141,25 @@ Estado atual: compila com **exit 0**, **0 citações/refs indefinidas**, ~5 pág
 ## 6. Pendências (bloqueiam a submissão real)
 
 ### Conteúdo científico (principal)
-1. **Discussão** e **Conclusão** (ainda `[TODO]` em `isys_rsl.tex`).
-2. Atualizar o **resumo** (pt/en) com números e achados reais (hoje `[TODO]`).
-3. **Estender a busca** (snowballing + reexecução nas 4 bases sob RQ1–RQ5) para
-   resolver a inconsistência entre o protocolo consolidado e a execução
-   preliminar (5 bases/Q1–Q4) e atingir o **mínimo de 15 páginas**.
-4. Migrar o restante de `estado_arte.tex` que ainda for útil; revisar todas as
-   entradas do `.bib` para incluir **DOI**.
-5. Resolver os parâmetros `% CONFIRMAR` em `metodo_rsl.tex` (janela temporal
-   — hoje 2019; artigos de controle; limiar de qualidade; string final).
+1. **Fechar a triagem de texto completo** dos 137 incluídos (Rayyan) + confirmar os
+   3 candidatos da SOL → consolidar o **corpus final** e o **n**. Isto destrava (3)–(6).
+2. **Atualizar §Resultados** (`resultados_rsl.tex`): hoje com números antigos (47/7);
+   reescrever seleção (PRISMA), corpus, RQ1–RQ5 e lacunas com o corpus consolidado.
+   Refazer a **Figura PRISMA** com 805/137/.../n.
+3. **Discussão** e **Conclusão** (ainda `[TODO]` em `isys_rsl.tex`).
+4. Atualizar o **resumo** (pt/en) com números e achados reais (hoje `[TODO]` nos
+   resultados).
+5. **Snowballing** (Wohlin) sobre o corpus consolidado; reportar QA. Revisora
+   única: não há concordância interavaliadores a reportar — declarar como
+   limitação de validade interna (já feito nas Ameaças à Validade).
+6. Atingir o **mínimo de 15 páginas** (hoje ~7).
+7. Revisar todas as entradas do `.bib` para incluir **DOI**.
+8. Resolver os parâmetros `% CONFIRMAR` em `metodo_rsl.tex` (janela temporal,
+   artigos de controle, limiar de qualidade, string final).
+
+> **FEITO nesta linha de trabalho (não retrabalhar):** §2 Background escrita;
+> reexecução da busca + contabilização no `busca_contagens.csv`; string ampliada já no
+> `.tex` (título **mantido na forma ampla**); ancoragem de refs SI agora disponível na §2.
 
 ### Itens de submissão (de Ana)
 6. URL/DOI do repositório de dados (hoje `https://github.com/TODO` na seção

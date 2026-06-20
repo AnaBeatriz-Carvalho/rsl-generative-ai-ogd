@@ -13,8 +13,6 @@
 %  REFERÊNCIAS .bib:
 %   NOVAS (adicionadas a referencias.bib): kitchenham2007, petersen2015,
 %         page2021, wohlin2014.
-%   REUTILIZADAS de referencias.bib (já existiam): Cohen1960, LandisKoch1977
-%         — por isso as \cite no corpo usam essas chaves, e não cohen1960/landis1977.
 %   NOTA: Kitchenham2004 (mapeamento) já existe no .bib, mas é obra distinta;
 %         o Método cita Kitchenham & Charters (2007) = kitchenham2007.
 %
@@ -32,7 +30,7 @@ Este trabalho caracteriza-se como uma Revisão Sistemática da Literatura (RSL),
 
 O objetivo desta revisão é identificar e caracterizar como a Inteligência Artificial Generativa e os Modelos de Linguagem de Grande Porte (\textit{Large Language Models} -- LLMs) vêm sendo empregados para ampliar o acesso a dados governamentais abertos e promover a transparência pública. O recorte situa-se no campo de Sistemas de Informação, na interseção entre governo digital, dados abertos governamentais (\textit{Open Government Data} -- OGD), acesso à informação e apoio à decisão. A partir desse objetivo, derivam-se as cinco questões de pesquisa apresentadas na Tabela~\ref{tab:rqs}.
 
-\begin{table}[ht]
+\begin{table*}[t]
 \centering
 \caption{Questões de pesquisa e foco de extração}
 \label{tab:rqs}
@@ -52,7 +50,7 @@ RQ4 & Quais benefícios são reportados? & Ganhos de acesso e transparência \\
 RQ5 & Quais desafios e limitações são reportados? & Barreiras técnicas, éticas e de adoção \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 
 \subsection{Estratégia de Busca}
 \label{subsec:busca}
@@ -61,7 +59,7 @@ A busca automática foi conduzida em quatro bases reconhecidas pela cobertura de
 
 Os termos de busca foram derivados das cinco dimensões da estrutura PICOC (Tabela~\ref{tab:picoc}), de modo que a \textit{string} operacionalize todas elas e não apenas a Intervenção. O bloco de \textit{Intervenção} cobre IA Generativa, LLMs e arquiteturas correlatas (modelos de fundação, \textit{transformers}, geração aumentada por recuperação e agentes conversacionais), incluindo modelos nomeados; o bloco de \textit{População}, \textit{Desfecho} e \textit{Contexto} cobre o setor público e os dados governamentais, legislativos e parlamentares, o acesso à informação, a transparência e a \textit{accountability}, e o domínio de governo digital e dados abertos. A \textit{string} de referência é apresentada a seguir e adaptada à sintaxe específica de cada base no momento da execução; uma \textit{string} equivalente em português é aplicada à Biblioteca Digital da SBC/SOL e às demais bases lusófonas, honrando o critério de idioma (CI4). A \textit{string} exata por base, a data de execução e a contagem de registros recuperados por base são reportadas no repositório de materiais e na Seção~\ref{sec:resultados}, permitindo distinguir ausência real de produção de eventual erro de portabilidade da consulta.
 
-\begin{table}[ht]
+\begin{table*}[t]
 \centering
 \caption{Termos da busca segundo a estrutura PICOC}
 \label{tab:picoc}
@@ -81,7 +79,7 @@ Desfecho & Acesso à informação; transparência; benefícios e desafios \\
 Contexto & Governo digital; \textit{e-government}; OGD \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 
 \begin{quote}
 \small\ttfamily
@@ -140,7 +138,7 @@ CE5 & Versão preliminar de estudo posteriormente estendido (mantém-se a versã
 \end{tabular}
 \end{table}
 
-A seleção ocorre em duas fases. Na primeira, os estudos são triados por \textit{título e resumo}; na segunda, os remanescentes são avaliados por \textit{leitura do texto completo}. As referências são gerenciadas no Zotero, que realiza a deduplicação inicial, e a triagem é operacionalizada no Rayyan. Para reduzir a subjetividade, cada fase é conduzida de forma independente por dois revisores; a concordância é medida pelo coeficiente Kappa de Cohen \citeyearpar{Cohen1960}, adotando-se como mínimo aceitável o limiar de concordância substancial ($\kappa \geq 0{,}61$) da escala de Landis e Koch \citeyearpar{LandisKoch1977}. Abaixo desse valor, os critérios são reesclarecidos e a fase é refeita. As divergências entre os revisores são resolvidas por consenso. % TODO: confirmar o procedimento de desempate efetivamente adotado (p.ex., terceiro avaliador) e REPORTAR o valor de kappa obtido por fase. O fluxo completo de identificação, triagem, elegibilidade e inclusão é reportado por meio do diagrama PRISMA na seção de resultados.
+A seleção ocorre em duas fases. Na primeira, os estudos são triados por \textit{título e resumo}; na segunda, os remanescentes são avaliados por \textit{leitura do texto completo}. As referências são gerenciadas no Zotero, que realiza a deduplicação inicial, e a triagem é operacionalizada no Rayyan. A revisão foi conduzida por uma única revisora; para reduzir o viés de seleção, os critérios de inclusão e exclusão foram definidos \textit{a priori} e aplicados de forma explícita e uniforme, e cada decisão de triagem (inclusão ou exclusão, com o respectivo motivo) foi registrada de forma rastreável no Rayyan, permitindo auditoria do processo. O fluxo completo de identificação, triagem, elegibilidade e inclusão é reportado por meio do diagrama PRISMA na seção de resultados.
 
 \subsection{Avaliação de Qualidade}
 \label{subsec:qualidade}
@@ -173,9 +171,9 @@ AQ5 & As limitações e ameaças à validade são discutidas? \\
 \subsection{Extração de Dados}
 \label{subsec:extracao}
 
-A extração utiliza um formulário padronizado, definido antes da leitura integral, cujos campos mapeiam diretamente as questões de pesquisa (Tabela~\ref{tab:extracao}). Além dos campos vinculados às RQs, registram-se metadados bibliográficos (autores, ano, veículo, tipo de veículo e país) e o método de avaliação empregado em cada estudo. A extração é conduzida por um revisor e conferida por um segundo, com divergências resolvidas por consenso documentado.
+A extração utiliza um formulário padronizado, definido antes da leitura integral, cujos campos mapeiam diretamente as questões de pesquisa (Tabela~\ref{tab:extracao}). Além dos campos vinculados às RQs, registram-se metadados bibliográficos (autores, ano, veículo, tipo de veículo e país) e o método de avaliação empregado em cada estudo. A extração é conduzida pela revisora única, a partir do formulário definido \textit{a priori}, com registro rastreável da origem de cada item extraído, preservando a ligação entre evidência e síntese.
 
-\begin{table}[ht]
+\begin{table*}[t]
 \centering
 \caption{Formulário de extração e vínculo com as questões de pesquisa}
 \label{tab:extracao}
@@ -197,7 +195,7 @@ Desafios & Limitações técnicas, éticas e de adoção & RQ5 \\
 Avaliação & Método de validação do estudo & --- \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 
 \subsection{Síntese dos Dados}
 \label{subsec:sintese}

@@ -42,7 +42,8 @@ O documento compila e a bibliografia (`apalike-sol`) é resolvida.
 ## Conteúdo da RSL (BLOQUEIA a submissão — ainda não conduzido)
 - [x] Método: protocolo completo (`metodo_rsl.tex`) — Kitchenham/Charters + PRISMA
 - [ ] **Conduzir a revisão**: busca nas 4 bases, deduplicação, triagem em 2
-      fases (Kappa), avaliação de qualidade, extração e síntese
+      fases (revisora única; decisões rastreáveis no Rayyan), avaliação de
+      qualidade, extração e síntese
 - [ ] Resultados: diagrama PRISMA, caracterização do corpus, RQ1–RQ5
 - [ ] Discussão e Conclusão
 - [ ] Resumo (pt/en): substituir os `[TODO]` por números e achados reais

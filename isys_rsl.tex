@@ -162,9 +162,78 @@ trata das ameaças à validade; e a Seção~\ref{sec:conclusao} conclui.
 % MIS Quarterly, Information Systems Research, Decision Support Systems,
 % ECIS, ICIS, AMCIS.
 
-\textbf{[TODO: conceitos de OGD, governo digital e transparência; panorama de
-IA Generativa/LLMs; e revisões/estudos secundários correlatos, posicionando a
-contribuição em relação à literatura de Sistemas de Informação.]}
+\subsection{Dados governamentais abertos e a lacuna de acesso}
+\label{subsec:bg_ogd}
+
+\emph{Open government data} (OGD) designa dados produzidos ou custodiados pelo
+setor público, disponibilizados em formato legível por máquina e sob licença que
+permite reúso \citep{ZuiderwijkJanssen2014}. Em Sistemas de Informação, a agenda
+de OGD articula-se às de governo digital e \emph{accountability}: a abertura é
+tratada como infraestrutura para o controle social, e não como fim em si
+\citep{RibeiroAlmeida2011,OliveiraCkagnazaroff2022}. A literatura, contudo,
+distingue de forma consistente \emph{disponibilização} de \emph{uso efetivo}.
+Políticas de abertura variam amplamente em implementação e impacto
+\citep{ZuiderwijkJanssen2014}, e a qualidade dos dados publicados --- completude,
+atualidade, consistência --- com frequência compromete o reúso
+\citep{Vetro2016}.
+
+Mesmo com qualidade técnica adequada, persiste uma barreira de outra natureza: a
+distância entre o dado bruto e o cidadão capaz de interpretá-lo. Estudos de
+interação humano-dados e de literacia de dados mostram que extrair sentido de
+conjuntos governamentais exige competências de leitura, consulta e visualização
+que não estão uniformemente distribuídas na população
+\citep{Hornung2015,Lee2017,Brito2024}. No domínio legislativo, a barreira é
+agravada pela natureza dos dados --- textos normativos extensos, com vocabulário
+técnico-jurídico e densa referência cruzada --- e pela necessidade de acompanhar
+sua evolução ao longo do tempo. É nesse intervalo, entre a publicação e a
+compreensão, que se situa o problema de acesso de que trata esta revisão.
+
+\subsection{IA Generativa, LLMs e recuperação aumentada}
+\label{subsec:bg_genai}
+
+\emph{Large language models} (LLMs) são modelos treinados sobre grandes volumes
+de texto que aprendem a prever e gerar linguagem natural, com desempenho
+relevante em sumarização, extração de informação e resposta a perguntas
+\citep{JurafskyMartin2023}. Para o acesso a dados governamentais textuais, a
+capacidade de interpretar uma consulta em linguagem natural e devolver a resposta
+no mesmo registro desloca o ponto de contato do cidadão: em vez de formular
+consultas estruturadas ou navegar por portais, ele pergunta diretamente.
+
+Essa promessa esbarra em duas limitações conhecidas. Primeiro, LLMs geram texto
+plausível sem garantia de correção factual, produzindo afirmações incorretas
+--- \emph{alucinações} ---, especialmente problemáticas num contexto em que a
+informação tem efeito normativo \citep{MarquesLaipelt2023}. Segundo, o
+conhecimento paramétrico do modelo é estático e desatualiza-se. A geração
+aumentada por recuperação (\emph{retrieval-augmented generation}, RAG) responde
+a ambos ao condicionar a saída a documentos recuperados em tempo de consulta,
+ancorando-a em fontes verificáveis \citep{Lewis2020}. Para dados legislativos,
+que mudam e exigem rastreabilidade à fonte, esse condicionamento é menos um
+detalhe de implementação do que um requisito.
+
+\subsection{Trabalhos relacionados}
+\label{subsec:bg_related}
+
+Tornar dados parlamentares e legislativos acessíveis é tarefa anterior à IA
+Generativa. A abordagem predominante até recentemente foi a da Web semântica:
+modelar a informação como dados conectados (\emph{Linked Data}) e grafos de
+conhecimento, expondo-a por consultas estruturadas
+\citep{IsotaniBittencourt2015}. Iniciativas como o ParliamentSampo
+\citep{Tamper2022} e o LinkedSaeima \citep{Bojars2019} exemplificam o paradigma:
+dados parlamentares ricamente estruturados e interligados, mas acessíveis
+sobretudo por consulta formal (por exemplo, SPARQL), o que preserva a barreira
+para o usuário não especialista. A IA Generativa propõe deslocar esse paradigma
+--- da consulta estruturada para a interação em linguagem natural ---, ao custo
+de herdar os problemas de confiabilidade descritos acima.
+
+Apesar do interesse crescente, a interseção entre IA Generativa e acesso a dados
+governamentais e legislativos permanece dispersa entre comunidades de pesquisa
+--- governo digital, processamento de linguagem natural e Web semântica. Não se
+identificou, até a condução desta revisão, um estudo secundário que a sintetize
+especificamente, lacuna que justifica a presente RSL e orienta as questões
+formuladas na Seção~\ref{sec:metodo}.
+% TODO (após a busca): confirmar a ausência de RSL/estudo secundário correlato;
+% se algum for recuperado no corpus, posicionar a contribuição explicitamente
+% em relação a ele (cobertura, recorte temporal, questões).
 
 % =====================================================================
 % Seção de Método completa (protocolo Kitchenham/Charters + PRISMA 2020),
@@ -201,9 +270,12 @@ contribuição em relação à literatura de Sistemas de Informação.]}
         % DESFECHO (compreensão cidadã, accountability, uso efetivo): se SIM,
         % ancorar o título na evidência; se NÃO, declarar explicitamente aqui como
         % limitação de validade de construto. Fechar este parágrafo com os dados.
-  \item[Validade interna] Vieses de seleção e extração.
-        \emph{Mitigação:} critérios explícitos e triagem documentada.
-        \textbf{[TODO: concordância entre revisores, se aplicável.]}
+  \item[Validade interna] Vieses de seleção e extração, acentuados pelo fato de
+        a revisão ter sido conduzida por uma única revisora, sem medida de
+        concordância interavaliadores. \emph{Mitigação:} protocolo definido
+        \emph{a priori}, critérios de inclusão/exclusão explícitos, e decisões de
+        triagem e extração registradas de forma rastreável no Rayyan, permitindo
+        auditoria; não se reivindica concordância entre revisores.
   \item[Validade externa] Generalização limitada pelo escopo de bases e idioma.
         \emph{Mitigação:} múltiplas bases e registro de limitações.
   \item[Validade de conclusão] Rastreabilidade entre dados extraídos e
