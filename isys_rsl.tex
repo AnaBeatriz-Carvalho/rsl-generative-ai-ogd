@@ -27,6 +27,8 @@
 \usepackage{url}
 \usepackage{pifont}
 \usepackage{underscore} % permite "_" em modo texto (DOIs nas referências)
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit, calc}
 
 \setcitestyle{square}
 
@@ -74,8 +76,10 @@ como a Inteligência Artificial Generativa e os \emph{Large Language Models}
 (LLMs) vêm sendo aplicados ao acesso a dados governamentais abertos e à
 promoção da transparência pública. [Método] Conduziu-se uma Revisão Sistemática
 da Literatura segundo as diretrizes de Kitchenham e o reporte PRISMA~2020,
-abrangendo bases internacionais e busca por \emph{snowballing}. [Resultados]
-\textbf{[TODO: nº de estudos incluídos; principais aplicações; tipos de dados;
+abrangendo bases internacionais e a Biblioteca Digital da SBC/SOL como fonte
+adicional. [Resultados] A revisão incluiu \textbf{29 estudos} na síntese
+(27 das bases internacionais e 2 da SBC/SOL).
+\textbf{[ATUALIZAR APÓS EXTRAÇÃO: principais aplicações; tipos de dados;
 LLMs; benefícios; e desafios.]} [Conclusão/Contribuições] A revisão mapeia um
 campo emergente na interseção entre governo digital, dados abertos e IA
 Generativa, contribuindo para a agenda de pesquisa em Sistemas de Informação.
@@ -88,8 +92,11 @@ access barriers for citizens. [Objective] This article investigates how
 Generative Artificial Intelligence and Large Language Models (LLMs) have been
 applied to open government data access and to fostering public transparency.
 [Method] We conducted a Systematic Literature Review following Kitchenham's
-guidelines and PRISMA~2020 reporting, covering international databases and
-snowballing. [Results] \textbf{[TODO: number of included studies; main
+guidelines and PRISMA~2020 reporting, covering international databases and the
+SBC/SOL Digital Library as an additional source.
+[Results] The review included \textbf{29 studies} in the synthesis
+(27 from the international databases and 2 from SBC/SOL).
+\textbf{[TO UPDATE AFTER EXTRACTION: main
 applications; data types; LLMs; benefits; and challenges.]}
 [Conclusion/Contribution] The review maps an emerging field at the intersection
 of digital government, open data, and Generative AI, contributing to the
@@ -242,8 +249,8 @@ formuladas na Seção~\ref{sec:metodo}.
 \input{metodo_rsl}
 
 % Seção de Resultados migrada do mapeamento conduzido (estado_arte.tex),
-% convertida para a classe sbc2025 e organizada por RQ1–RQ5. Rotulada como
-% execução preliminar (a estender por snowballing/reexecução).
+% convertida para a classe sbc2025 e organizada por RQ1–RQ5. Snowballing
+% não foi conduzido nesta versão; ausência declarada em sec:ameacas.
 \input{resultados_rsl}
 
 % =====================================================================
@@ -262,7 +269,8 @@ formuladas na Seção~\ref{sec:metodo}.
 \begin{description}
   \item[Validade de construto] Adequação das RQs e da \emph{string} de busca ao
         fenômeno; risco de os termos não capturarem trabalhos relevantes.
-        \emph{Mitigação:} string iterada por especialista e \emph{snowballing}.
+        \emph{Mitigação:} string iterada por especialista, com calibração contra
+        um conjunto de controle de artigos previamente reconhecidos como relevantes.
         % [TODO-transparência] Nota para mim mesma (NÃO é o texto final): declarar
         % que a transparência pública entra como HORIZONTE/MOTIVAÇÃO do estudo, e
         % não necessariamente como desfecho medido. Após a busca reexecutada,
@@ -278,6 +286,13 @@ formuladas na Seção~\ref{sec:metodo}.
         auditoria; não se reivindica concordância entre revisores.
   \item[Validade externa] Generalização limitada pelo escopo de bases e idioma.
         \emph{Mitigação:} múltiplas bases e registro de limitações.
+  \item[Cobertura da busca] A revisão apoiou-se exclusivamente na busca
+        automática nas bases consultadas; não foi conduzido \emph{snowballing}
+        para frente e para trás \citep{wohlin2014} sobre os estudos incluídos.
+        Essa decisão pode ter deixado de capturar estudos relevantes não
+        indexados nas bases consultadas ou conectados apenas por citação,
+        especialmente literatura recente ou de comunidades regionais. A execução
+        do \emph{snowballing} fica registrada como trabalho futuro.
   \item[Validade de conclusão] Rastreabilidade entre dados extraídos e
         conclusões. \emph{Mitigação:} planilha de extração disponível (ver
         declaração de disponibilidade de dados).

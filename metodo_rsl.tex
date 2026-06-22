@@ -99,7 +99,7 @@ OR "data portal*")
 
 A \textit{string} foi submetida a uma calibração-piloto contra um conjunto de controle de artigos previamente reconhecidos como relevantes: caso algum não fosse recuperado, os termos seriam revistos antes da execução definitiva. % CONFIRMAR: liste 3-5 artigos de controle usados na calibração.
 Consideraram-se estudos publicados entre janeiro de 2019 e a data de execução da busca, % CONFIRMAR ano inicial (2019 adotado pela consolidação dos LLMs pré-treinados; ajuste se necessário)
-recorte justificado pela consolidação dos modelos de linguagem pré-treinados de grande porte a partir desse período. A busca automática será complementada por \textit{snowballing} para frente e para trás \citep{wohlin2014} a partir do conjunto de estudos incluídos, mitigando lacunas da indexação das bases. % NOTA: snowballing previsto e ainda em andamento (ver Resultados).
+recorte justificado pela consolidação dos modelos de linguagem pré-treinados de grande porte a partir desse período. A revisão baseou-se exclusivamente na busca automática nas bases de dados listadas. Técnicas de \textit{snowballing} para frente e para trás \citep{wohlin2014}, embora reconhecidas como complemento usual em revisões sistemáticas, não foram conduzidas nesta etapa; sua ausência é discutida como limitação na Seção~\ref{sec:ameacas}.
 
 \subsection{Critérios de Seleção e Processo de Triagem}
 \label{subsec:selecao}
@@ -127,7 +127,7 @@ CI5 & Texto completo acessível \\
 \hline
 CE1 & Aborda apenas um dos eixos (somente IA \textit{ou} somente governo aberto), sem a interseção \\
 \hline
-CE2 & Estudo secundário (outra revisão, mapeamento ou \textit{survey}) -- reservado para \textit{snowballing} e trabalhos relacionados \\
+CE2 & Estudo secundário (outra revisão, mapeamento ou \textit{survey}) -- considerado apenas como referência para trabalhos relacionados \\
 \hline
 CE3 & Literatura cinza, editorial, resumo estendido, pôster, \textit{keynote} ou tutorial \\
 \hline
@@ -143,8 +143,9 @@ A seleção ocorre em duas fases. Na primeira, os estudos são triados por \text
 \subsection{Avaliação de Qualidade}
 \label{subsec:qualidade}
 
-Os estudos aprovados na seleção por texto completo são submetidos a uma avaliação de qualidade, destinada a caracterizar o rigor das evidências e a ponderar sua contribuição na síntese. Cada critério da Tabela~\ref{tab:qualidade} é pontuado em $\{0;\,0{,}5;\,1\}$ (não atende; atende parcialmente; atende), resultando em um escore de 0 a 5. % CONFIRMAR limiar de corte (sugestão: estudos com escore < 2,5 são reportados à parte, não eliminados).
-Estudos abaixo do limiar definido são reportados separadamente e ponderados com cautela na síntese, em vez de simplesmente descartados.
+Os estudos aprovados na seleção por texto completo são submetidos a uma avaliação de qualidade, destinada a caracterizar o rigor das evidências e a ponderar sua contribuição na síntese. Cada critério da Tabela~\ref{tab:qualidade} é pontuado em $\{0;\,0{,}5;\,1\}$ (não atende; atende parcialmente; atende), resultando em um escore de 0 a 5. Adota-se o \textbf{limiar explícito de $2{,}5$}: estudos com escore $\geq 2{,}5$ integram a síntese em condições regulares; estudos com escore $<2{,}5$ são reportados \textit{à parte} e ponderados com cautela na discussão, em vez de simplesmente descartados.
+
+A avaliação de qualidade também ancora a \textbf{ponderação de estudos veiculados em meios de menor rigor editorial} --- por exemplo, periódicos de iniciação científica ou anais sem indicação clara de revisão por pares de mérito. Como o critério de inclusão CI2 exige apenas que o estudo seja primário e revisado por pares (atendido por esses veículos), tais estudos não são excluídos do corpus; o menor rigor do veículo passa a ser registrado por meio do escore de qualidade (em particular nos itens AQ4 e AQ5), penalizando a sua contribuição na síntese sem alterar o critério de inclusão.
 
 \begin{table}[ht]
 \centering

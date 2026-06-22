@@ -6,43 +6,104 @@
 %  (capitulos/estado_arte.tex). Conversões aplicadas:
 %   \quadro -> table | \citeonline -> \citet | \cite -> \citep | \fonte removido.
 %
-%  >>> EXECUÇÃO PRELIMINAR <<<  Os números e o corpus (7 estudos) referem-se à
-%  execução INICIAL do mapeamento (5 bases, janela 2014–2026, busca em maio/2026,
-%  questões Q1–Q4 da dissertação). A consolidação para o protocolo desta RSL
-%  (4 bases internacionais + snowballing; RQ1–RQ5) está em andamento; os
-%  quantitativos serão ATUALIZADOS após a extensão. Manter as notas % TODO.
+%  >>> SELEÇÃO CONSOLIDADA <<<  O funil PRISMA aqui reportado reflete a
+%  EXECUÇÃO FINAL do protocolo desta RSL (4 bases internacionais + SBC/SOL como
+%  fonte adicional; RQ1–RQ5), com CORPUS FINAL DE SÍNTESE = 29 estudos
+%  (27 das bases internacionais + 2 da SBC/SOL). Os blocos de caracterização,
+%  RQ1–RQ5 e lacunas dependem da EXTRAÇÃO DE DADOS (em curso) e estão marcados
+%  com [ATUALIZAR APÓS EXTRAÇÃO]. O bloco antigo (corpus preliminar de 7) está
+%  preservado entre \iffalse...\fi (não compilado). Snowballing não foi
+%  conduzido nesta versão (ver sec:ameacas).
 % =====================================================================
 
 \section{Resultados}
 \label{sec:resultados}
 
-Esta seção reporta os resultados da execução inicial da revisão, que constitui a base a ser ampliada pelo \textit{snowballing} e pela consolidação do protocolo descrito na Seção~\ref{sec:metodo}. Os achados são apresentados na ordem do processo: seleção dos estudos (PRISMA), caracterização do corpus e síntese organizada pelas questões de pesquisa.
+Esta seção reporta os resultados da execução da revisão conforme o protocolo descrito na Seção~\ref{sec:metodo}. Os achados são apresentados na ordem do processo: seleção dos estudos (PRISMA), caracterização do corpus e síntese organizada pelas questões de pesquisa.
 
 \subsection{Seleção dos Estudos}
 \label{subsec:res_selecao}
 
-A busca automática nas quatro bases internacionais recuperou 1265 registros, assim distribuídos: Scopus (453), ACM Digital Library (445), IEEE Xplore (224) e Web of Science (143). Como fonte adicional, a busca na Biblioteca Digital da SBC/SOL recuperou 23 registros, tratados em fluxo separado por essa base não oferecer exportação padronizada (BibTeX/RIS). A deduplicação das quatro bases internacionais, conduzida no Zotero, removeu 460 registros, resultando em 805 registros únicos; os 23 registros da SOL foram deduplicados manualmente. Na triagem por título e resumo, operacionalizada no Rayyan, os 805 registros das bases internacionais levaram a 668 exclusões e a 137 estudos encaminhados à leitura de texto completo; na SOL, dos 23 registros, 18 foram excluídos e 5 encaminhados ao texto completo (2 inclusões firmes e 3 a confirmar). A etapa de leitura de texto completo abrange, portanto, 142 estudos (137 das bases internacionais e 5 da SOL). O número de estudos incluídos na síntese encontra-se [A DEFINIR --- leitura de texto completo em andamento]. A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, deduplicação, triagem e elegibilidade.
+A busca automática nas quatro bases internacionais recuperou \textbf{1.265 registros}, assim distribuídos: Scopus (453), ACM Digital Library (445), IEEE Xplore (224) e Web of Science (143). Como fonte adicional, a busca na Biblioteca Digital da SBC/SOL recuperou \textbf{23 registros}, tratados em fluxo separado por essa base não oferecer exportação padronizada (BibTeX/RIS), totalizando \textbf{1.288 registros identificados}. A deduplicação das quatro bases internacionais, conduzida no Zotero, removeu 460 registros, resultando em \textbf{805 registros únicos}; os 23 registros da SOL foram deduplicados manualmente, sem ocorrência de duplicatas. Na triagem por título e resumo, operacionalizada no Rayyan, os 805 registros das bases internacionais levaram a 759 exclusões e a \textbf{46 estudos} encaminhados à recuperação do texto completo; destes, 19 não foram recuperados (\textit{reports not retrieved} no PRISMA 2020) e \textbf{27 foram avaliados em elegibilidade e incluídos} (sem exclusões adicionais por critério na leitura do texto completo). Na SOL, dos 23 registros, 14 foram excluídos por título e \textbf{9 encaminhados à leitura do texto completo}; destes, 7 foram excluídos com motivo (predominantemente CE1) e \textbf{2 foram incluídos}. O corpus final de síntese reúne, portanto, \textbf{29 estudos} (27 das bases internacionais e 2 da SBC/SOL). A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, deduplicação, triagem e elegibilidade.
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.6\textwidth]{imagens/fluxograma_execucao.png}
-\caption{Fluxo de seleção dos estudos (PRISMA).}
+\begin{tikzpicture}[
+  font=\footnotesize,
+  >={Latex[length=2mm]},
+  node distance=0.55cm and 0.6cm,
+  box/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, minimum height=0.85cm},
+  ident/.style ={box, fill=blue!8,   text width=4.6cm},
+  screen/.style={box, fill=green!8,  text width=4.6cm},
+  elig/.style  ={box, fill=orange!10,text width=4.6cm},
+  incl/.style  ={box, fill=red!8,    text width=5.2cm, font=\footnotesize\bfseries},
+  excl/.style  ={box, fill=gray!10,  text width=3.6cm, font=\scriptsize},
+  arr/.style={->, thick},
+]
+% ---------- Coluna A: Bases internacionais ----------
+\node[ident] (idA) {\textbf{Identificação --- Bases internacionais}\\ Scopus 453; ACM 445;\\ IEEE 224; WoS 143\\ \textbf{Total: 1.265}};
+\node[screen, below=of idA] (dedA) {Após deduplicação (Zotero)\\ \textbf{805 únicos} ($-$460 duplicatas)};
+\node[screen, below=of dedA] (trA) {Triagem por título/resumo (Rayyan)\\ \textbf{46} buscados para recuperação};
+\node[elig,   below=of trA]  (ftA) {Avaliados em elegibilidade\\ (texto completo): \textbf{27}};
+\node[incl,   below=of ftA]  (inA) {Incluídos (bases internacionais): \textbf{27}};
+
+% ---------- Coluna B: SBC/SOL ----------
+\node[ident,  right=2.2cm of idA] (idB) {\textbf{Identificação --- SBC/SOL}\\ Busca booleana integrada\\ (fonte adicional, sem export.\\ padronizada)\\ \textbf{Total: 23}};
+\node[screen, below=of idB] (dedB) {Após deduplicação manual\\ \textbf{23 únicos} (sem duplicatas)};
+\node[screen, below=of dedB] (trB) {Triagem por título (manual)\\ \textbf{9} buscados para recuperação};
+\node[elig,   below=of trB] (ftB) {Avaliados em elegibilidade\\ (texto completo): \textbf{9}};
+\node[incl,   below=of ftB] (inB) {Incluídos (SBC/SOL): \textbf{2}};
+
+% ---------- Caixas de exclusão (laterais) ----------
+\node[excl, right=0.35cm of trA] (exA1) {Excluídos t/r:\\ \textbf{759}};
+\node[excl, right=0.35cm of ftA] (exA2) {Não recuperados: \textbf{19}\\ Excluídos c/ motivo: \textbf{0}};
+
+\node[excl, left=0.35cm of trB] (exB1) {Excluídos por\\ título: \textbf{14}};
+\node[excl, left=0.35cm of ftB] (exB2) {Excluídos c/ motivo: \textbf{7}\\ {\scriptsize CE3+CE2+CE1 (1)}\\ {\scriptsize CE1 (5) · CI5 (1)}};
+
+% ---------- Caixa final (corpus) ----------
+\node[incl, below=1.0cm of $(inA)!0.5!(inB)$, text width=6.6cm, fill=red!14] (total)
+  {\textbf{Corpus final de síntese: 29 estudos}\\ (27 bases internacionais + 2 SBC/SOL)};
+
+% ---------- Setas (verticais) ----------
+\draw[arr] (idA) -- (dedA);
+\draw[arr] (dedA) -- (trA);
+\draw[arr] (trA) -- (ftA);
+\draw[arr] (ftA) -- (inA);
+\draw[arr] (idB) -- (dedB);
+\draw[arr] (dedB) -- (trB);
+\draw[arr] (trB) -- (ftB);
+\draw[arr] (ftB) -- (inB);
+
+% Setas para caixas laterais
+\draw[arr] (trA.east) -- (exA1.west);
+\draw[arr] (ftA.east) -- (exA2.west);
+\draw[arr] (trB.west) -- (exB1.east);
+\draw[arr] (ftB.west) -- (exB2.east);
+
+% Convergência ao corpus final
+\draw[arr] (inA.south) -- ($(inA.south)+(0,-0.35)$) -| (total.north);
+\draw[arr] (inB.south) -- ($(inB.south)+(0,-0.35)$) -| (total.north);
+\end{tikzpicture}
+\caption{Fluxo de seleção dos estudos (PRISMA 2020). Bases internacionais e SBC/SOL são fontes paralelas; entre os 2 estudos incluídos da SBC/SOL, um deles (veículo de iniciação científica) é mantido com escore reduzido na avaliação de qualidade (ver Seção~\ref{subsec:qualidade}). Aritmética: $805=759+46$; $46=19+27$; $9=7+2$; corpus final $=27+2=29$.}
 \label{fig:prisma}
 \end{figure*}
 
-% Quantitativos de identificação, deduplicação e triagem atualizados para o protocolo
-% consolidado (4 bases internacionais + SOL como fonte adicional). A inclusão final na
-% síntese permanece pendente da leitura de texto completo (nó [A DEFINIR] na
-% Figura~\ref{fig:prisma}); o snowballing está previsto sobre o corpus consolidado.
+% Funil PRISMA travado: identificação 1.265 (bases) + 23 (SOL) = 1.288;
+% bases 805 únicos -> 46 buscados -> 19 não recuperados + 27 avaliados ->
+% 0 excluídos com motivo + 27 incluídos. SOL 23 -> 9 full-text -> 7 excluídos
+% com motivo + 2 incluídos. Corpus final = 29. Snowballing não conduzido (ver
+% sec:ameacas). Caracterização e síntese RQ1-RQ5 dependem da extração
+% (marcadas com [ATUALIZAR APÓS EXTRAÇÃO]).
 
-\noindent\textbf{[Em consolidação]} A caracterização do corpus e a síntese das questões de pesquisa (RQ1--RQ5), assim como a tabela de estudos incluídos, dependem da conclusão da leitura de texto completo dos 142 estudos selecionados (ver Seção~\ref{subsec:res_selecao}). A síntese da execução preliminar (7 estudos) foi preservada no código-fonte e será substituída pelo corpus consolidado; não é exibida aqui para não conflitar com o número de incluídos ainda [A DEFINIR].
+\noindent\textbf{[ATUALIZAR APÓS EXTRAÇÃO]} A caracterização do corpus, a síntese das questões de pesquisa (RQ1--RQ5) e a tabela de estudos incluídos dependem da conclusão da extração de dados sobre os 29 estudos do corpus final (Seção~\ref{subsec:res_selecao}). O conteúdo das subseções RQ1--RQ5 e de lacunas/agenda derivado da execução preliminar (corpus de 7 estudos) foi preservado no código-fonte, ocultado da compilação, e será reescrito após a extração; não é exibido aqui para não conflitar com o corpus consolidado de 29.
 
 % ===================================================================== %
 % BLOCO 4.2-4.8 OCULTADO DA COMPILACAO (\iffalse ... \fi).               %
-% Conteudo PRESERVADO para reescrita apos a leitura de texto completo    %
-% dos 142 estudos. NAO APAGAR. Sintese da execucao preliminar (7         %
-% estudos) que contradiz o numero de incluidos [A DEFINIR] do Sec. 4.1.  %
-% As refs Colombo2025/Colombo2024/VonLuckeFrank2025/Kim2025/Mendes2025/  %
+% [ATUALIZAR APOS EXTRACAO] Conteudo PRESERVADO do mapeamento preliminar %
+% (corpus de 7 estudos) para reescrita com o corpus consolidado de 29    %
+% (27 bases internacionais + 2 SBC/SOL). NAO APAGAR. As referencias      %
+% Colombo2025/Colombo2024/VonLuckeFrank2025/Kim2025/Mendes2025/          %
 % PapadopoulosCharalabidis2020 caem das Referencias enquanto oculto      %
 % (comportamento correto); voltam quando o bloco for recitado.           %
 % ===================================================================== %
