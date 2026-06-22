@@ -24,67 +24,11 @@ Esta seção reporta os resultados da execução da revisão conforme o protocol
 \subsection{Seleção dos Estudos}
 \label{subsec:res_selecao}
 
-A busca automática nas quatro bases internacionais recuperou \textbf{1.265 registros}, assim distribuídos: Scopus (453), ACM Digital Library (445), IEEE Xplore (224) e Web of Science (143). Como fonte adicional, a busca na Biblioteca Digital da SBC/SOL recuperou \textbf{23 registros}, tratados em fluxo separado por essa base não oferecer exportação padronizada (BibTeX/RIS), totalizando \textbf{1.288 registros identificados}. A deduplicação das quatro bases internacionais, conduzida no Zotero, removeu 460 registros, resultando em \textbf{805 registros únicos}; os 23 registros da SOL foram deduplicados manualmente, sem ocorrência de duplicatas. Na triagem por título e resumo, operacionalizada no Rayyan, os 805 registros das bases internacionais levaram a 759 exclusões e a \textbf{46 estudos} encaminhados à recuperação do texto completo; destes, 19 não foram recuperados (\textit{reports not retrieved} no PRISMA 2020) e \textbf{27 foram avaliados em elegibilidade e incluídos} (sem exclusões adicionais por critério na leitura do texto completo). Na SOL, dos 23 registros, 14 foram excluídos por título e \textbf{9 encaminhados à leitura do texto completo}; destes, 7 foram excluídos com motivo (predominantemente CE1) e \textbf{2 foram incluídos}. O corpus final de síntese reúne, portanto, \textbf{29 estudos} (27 das bases internacionais e 2 da SBC/SOL). A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, deduplicação, triagem e elegibilidade.
+As buscas foram executadas em \textbf{[CONFIRMAR: mês/ano de execução]}, nas quatro bases internacionais e na SBC/SOL; as \textit{strings} exatas por base, com as respectivas datas e contagens, estão depositadas no repositório de materiais. A busca automática nas quatro bases internacionais recuperou \textbf{1.265 registros}, assim distribuídos: Scopus (453), ACM Digital Library (445), IEEE Xplore (224) e Web of Science (143). Como fonte adicional, a busca na Biblioteca Digital da SBC/SOL recuperou \textbf{23 registros}, tratados em fluxo separado por essa base não oferecer exportação padronizada (BibTeX/RIS), totalizando \textbf{1.288 registros identificados}. A deduplicação das quatro bases internacionais, conduzida no Zotero, removeu 460 registros, resultando em \textbf{805 registros únicos}; os 23 registros da SOL foram deduplicados manualmente, sem ocorrência de duplicatas. Na triagem por título e resumo, operacionalizada no Rayyan, os 805 registros das bases internacionais levaram a 759 exclusões e a \textbf{46 estudos} encaminhados à recuperação do texto completo; destes, 19 não foram recuperados (\textit{reports not retrieved} no PRISMA 2020) e \textbf{27 foram avaliados em elegibilidade e incluídos} (sem exclusões adicionais por critério na leitura do texto completo). Na SOL, dos 23 registros, 14 foram excluídos por título e \textbf{9 encaminhados à leitura do texto completo}; destes, 7 foram excluídos com motivo (predominantemente CE1) e \textbf{2 foram incluídos}. O corpus final de síntese reúne, portanto, \textbf{29 estudos} (27 das bases internacionais e 2 da SBC/SOL). A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, deduplicação, triagem e elegibilidade.
 
-\begin{figure*}[t]
+\begin{figure*}[!htbp]
 \centering
-\begin{tikzpicture}[
-  font=\footnotesize,
-  >={Latex[length=2mm]},
-  node distance=0.55cm and 0.6cm,
-  box/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, minimum height=0.85cm},
-  ident/.style ={box, fill=blue!8,   text width=4.6cm},
-  screen/.style={box, fill=green!8,  text width=4.6cm},
-  elig/.style  ={box, fill=orange!10,text width=4.6cm},
-  incl/.style  ={box, fill=red!8,    text width=5.2cm, font=\footnotesize\bfseries},
-  excl/.style  ={box, fill=gray!10,  text width=3.6cm, font=\scriptsize},
-  arr/.style={->, thick},
-]
-% ---------- Coluna A: Bases internacionais ----------
-\node[ident] (idA) {\textbf{Identificação --- Bases internacionais}\\ Scopus 453; ACM 445;\\ IEEE 224; WoS 143\\ \textbf{Total: 1.265}};
-\node[screen, below=of idA] (dedA) {Após deduplicação (Zotero)\\ \textbf{805 únicos} ($-$460 duplicatas)};
-\node[screen, below=of dedA] (trA) {Triagem por título/resumo (Rayyan)\\ \textbf{46} buscados para recuperação};
-\node[elig,   below=of trA]  (ftA) {Avaliados em elegibilidade\\ (texto completo): \textbf{27}};
-\node[incl,   below=of ftA]  (inA) {Incluídos (bases internacionais): \textbf{27}};
-
-% ---------- Coluna B: SBC/SOL ----------
-\node[ident,  right=2.2cm of idA] (idB) {\textbf{Identificação --- SBC/SOL}\\ Busca booleana integrada\\ (fonte adicional, sem export.\\ padronizada)\\ \textbf{Total: 23}};
-\node[screen, below=of idB] (dedB) {Após deduplicação manual\\ \textbf{23 únicos} (sem duplicatas)};
-\node[screen, below=of dedB] (trB) {Triagem por título (manual)\\ \textbf{9} buscados para recuperação};
-\node[elig,   below=of trB] (ftB) {Avaliados em elegibilidade\\ (texto completo): \textbf{9}};
-\node[incl,   below=of ftB] (inB) {Incluídos (SBC/SOL): \textbf{2}};
-
-% ---------- Caixas de exclusão (laterais) ----------
-\node[excl, right=0.35cm of trA] (exA1) {Excluídos t/r:\\ \textbf{759}};
-\node[excl, right=0.35cm of ftA] (exA2) {Não recuperados: \textbf{19}\\ Excluídos c/ motivo: \textbf{0}};
-
-\node[excl, left=0.35cm of trB] (exB1) {Excluídos por\\ título: \textbf{14}};
-\node[excl, left=0.35cm of ftB] (exB2) {Excluídos c/ motivo: \textbf{7}\\ {\scriptsize CE3+CE2+CE1 (1)}\\ {\scriptsize CE1 (5) · CI5 (1)}};
-
-% ---------- Caixa final (corpus) ----------
-\node[incl, below=1.0cm of $(inA)!0.5!(inB)$, text width=6.6cm, fill=red!14] (total)
-  {\textbf{Corpus final de síntese: 29 estudos}\\ (27 bases internacionais + 2 SBC/SOL)};
-
-% ---------- Setas (verticais) ----------
-\draw[arr] (idA) -- (dedA);
-\draw[arr] (dedA) -- (trA);
-\draw[arr] (trA) -- (ftA);
-\draw[arr] (ftA) -- (inA);
-\draw[arr] (idB) -- (dedB);
-\draw[arr] (dedB) -- (trB);
-\draw[arr] (trB) -- (ftB);
-\draw[arr] (ftB) -- (inB);
-
-% Setas para caixas laterais
-\draw[arr] (trA.east) -- (exA1.west);
-\draw[arr] (ftA.east) -- (exA2.west);
-\draw[arr] (trB.west) -- (exB1.east);
-\draw[arr] (ftB.west) -- (exB2.east);
-
-% Convergência ao corpus final
-\draw[arr] (inA.south) -- ($(inA.south)+(0,-0.35)$) -| (total.north);
-\draw[arr] (inB.south) -- ($(inB.south)+(0,-0.35)$) -| (total.north);
-\end{tikzpicture}
+\includegraphics[width=0.95\textwidth]{imagens/fluxograma_prisma.png}
 \caption{Fluxo de seleção dos estudos (PRISMA 2020). Bases internacionais e SBC/SOL são fontes paralelas; entre os 2 estudos incluídos da SBC/SOL, um deles (veículo de iniciação científica) é mantido com escore reduzido na avaliação de qualidade (ver Seção~\ref{subsec:qualidade}). Aritmética: $805=759+46$; $46=19+27$; $9=7+2$; corpus final $=27+2=29$.}
 \label{fig:prisma}
 \end{figure*}

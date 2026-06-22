@@ -81,21 +81,22 @@ Contexto & Governo digital; \textit{e-government}; OGD \\
 \end{tabular}
 \end{table*}
 
-\begin{quote}
-\small\ttfamily
-("generative artificial intelligence" OR "generative AI" \\
-OR "large language model*" OR "LLM*" OR "foundation model*" \\
-OR transformer* OR GPT* OR ChatGPT OR Llama OR Mistral OR Gemini \\
-OR "retrieval-augmented generation" OR RAG \\
-OR chatbot* OR "conversational agent*") \\
-AND \\
-("open government data" OR "open data" OR "government data" \\
-OR "public sector data" OR "legislative data" OR "parliamentary data" \\
-OR "freedom of information" OR FOIA OR "access to information" \\
-OR transparency OR accountability \\
-OR "digital government" OR "e-government" OR "open government" \\
-OR "data portal*")
-\end{quote}
+\begin{small}
+\begin{verbatim}
+("generative artificial intelligence" OR "generative AI"
+ OR "large language model*" OR "LLM*" OR "foundation model*"
+ OR transformer* OR GPT* OR ChatGPT OR Llama OR Mistral OR Gemini
+ OR "retrieval-augmented generation" OR RAG
+ OR chatbot* OR "conversational agent*")
+AND
+("open government data" OR "open data" OR "government data"
+ OR "public sector data" OR "legislative data" OR "parliamentary data"
+ OR "freedom of information" OR FOIA OR "access to information"
+ OR transparency OR accountability
+ OR "digital government" OR "e-government" OR "open government"
+ OR "data portal*")
+\end{verbatim}
+\end{small}
 
 A \textit{string} foi submetida a uma calibração-piloto contra um conjunto de controle de artigos previamente reconhecidos como relevantes: caso algum não fosse recuperado, os termos seriam revistos antes da execução definitiva. % CONFIRMAR: liste 3-5 artigos de controle usados na calibração.
 Consideraram-se estudos publicados entre janeiro de 2019 e a data de execução da busca, % CONFIRMAR ano inicial (2019 adotado pela consolidação dos LLMs pré-treinados; ajuste se necessário)
@@ -179,7 +180,8 @@ A extração utiliza um formulário padronizado, definido antes da leitura integ
 \caption{Formulário de extração e vínculo com as questões de pesquisa}
 \label{tab:extracao}
 \small
-\begin{tabular}{|p{3.6cm}|p{3.2cm}|c|}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|p{3.6cm}|@{\hspace{0.6em}}p{6.0cm}@{\hspace{0.6em}}|c|}
 \hline
 \textbf{Campo} & \textbf{Descrição} & \textbf{RQ} \\
 \hline
