@@ -24,12 +24,12 @@ Esta seção reporta os resultados da execução da revisão conforme o protocol
 \subsection{Seleção dos Estudos}
 \label{subsec:res_selecao}
 
-As buscas foram executadas em \textbf{[CONFIRMAR: mês/ano de execução]}, nas quatro bases internacionais e na SBC/SOL; as \textit{strings} exatas por base, com as respectivas datas e contagens, estão depositadas no repositório de materiais. A busca automática nas quatro bases internacionais recuperou \textbf{1.265 registros}, assim distribuídos: Scopus (453), ACM Digital Library (445), IEEE Xplore (224) e Web of Science (143). Como fonte adicional, a busca na Biblioteca Digital da SBC/SOL recuperou \textbf{23 registros}, tratados em fluxo separado por essa base não oferecer exportação padronizada (BibTeX/RIS), totalizando \textbf{1.288 registros identificados}. A deduplicação das quatro bases internacionais, conduzida no Zotero, removeu 460 registros, resultando em \textbf{805 registros únicos}; os 23 registros da SOL foram deduplicados manualmente, sem ocorrência de duplicatas. Na triagem por título e resumo, operacionalizada no Rayyan, os 805 registros das bases internacionais levaram a 759 exclusões e a \textbf{46 estudos} encaminhados à recuperação do texto completo; destes, 19 não foram recuperados (\textit{reports not retrieved} no PRISMA 2020) e \textbf{27 foram avaliados em elegibilidade e incluídos} (sem exclusões adicionais por critério na leitura do texto completo). Na SOL, dos 23 registros, 14 foram excluídos por título e \textbf{9 encaminhados à leitura do texto completo}; destes, 7 foram excluídos com motivo (predominantemente CE1) e \textbf{2 foram incluídos}. O corpus final de síntese reúne, portanto, \textbf{29 estudos} (27 das bases internacionais e 2 da SBC/SOL). A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, deduplicação, triagem e elegibilidade.
+As buscas foram executadas em junho de 2026, nas quatro bases internacionais em 16/06/2026 e na SBC/SOL em 19/06/2026; as \textit{strings} exatas por base, com as respectivas datas e contagens, estão depositadas no repositório de materiais. A busca automática nas quatro bases internacionais recuperou \textbf{1.265 registros}, assim distribuídos: Scopus (453), ACM Digital Library (445), IEEE Xplore (224) e Web of Science (143). Como fonte adicional, a busca na Biblioteca Digital da SBC/SOL recuperou \textbf{23 registros}, tratados em fluxo separado por essa base não oferecer exportação padronizada (BibTeX/RIS), totalizando \textbf{1.288 registros identificados}. A deduplicação das quatro bases internacionais, conduzida no Zotero, removeu 460 registros, resultando em \textbf{805 registros únicos}; os 23 registros da SOL foram deduplicados manualmente, sem ocorrência de duplicatas. Na triagem por título e resumo, operacionalizada no Rayyan, os 805 registros das bases internacionais levaram a 759 exclusões e a \textbf{46 estudos} encaminhados à recuperação do texto completo; destes, 19 não foram recuperados (\textit{reports not retrieved} no PRISMA 2020) e \textbf{27 foram avaliados em elegibilidade e incluídos} (sem exclusões adicionais por critério na leitura do texto completo). Na SOL, dos 23 registros, 14 foram excluídos por título e \textbf{9 encaminhados à leitura do texto completo}; destes, 7 foram excluídos com motivo (predominantemente CE1) e \textbf{2 foram incluídos}. O corpus final de síntese reúne, portanto, \textbf{29 estudos} (27 das bases internacionais e 2 da SBC/SOL). A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, deduplicação, triagem e elegibilidade.
 
-\begin{figure*}[!htbp]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=0.95\textwidth]{imagens/fluxograma_prisma.png}
-\caption{Fluxo de seleção dos estudos (PRISMA 2020). Bases internacionais e SBC/SOL são fontes paralelas; entre os 2 estudos incluídos da SBC/SOL, um deles (veículo de iniciação científica) é mantido com escore reduzido na avaliação de qualidade (ver Seção~\ref{subsec:qualidade}). Aritmética: $805=759+46$; $46=19+27$; $9=7+2$; corpus final $=27+2=29$.}
+\includegraphics[width=0.75\textwidth]{imagens/fluxograma_prisma.png}
+\caption{Fluxo de seleção dos estudos (PRISMA 2020). Bases internacionais e SBC/SOL são fontes paralelas; entre os 2 estudos incluídos da SBC/SOL, um deles (veículo de iniciação científica) é mantido com escore reduzido na avaliação de qualidade (ver Seção~\ref{subsec:qualidade}).}
 \label{fig:prisma}
 \end{figure*}
 
@@ -40,86 +40,73 @@ As buscas foram executadas em \textbf{[CONFIRMAR: mês/ano de execução]}, nas 
 % sec:ameacas). Caracterização e síntese RQ1-RQ5 dependem da extração
 % (marcadas com [ATUALIZAR APÓS EXTRAÇÃO]).
 
-\noindent\textbf{[ATUALIZAR APÓS EXTRAÇÃO]} A caracterização do corpus, a síntese das questões de pesquisa (RQ1--RQ5) e a tabela de estudos incluídos dependem da conclusão da extração de dados sobre os 29 estudos do corpus final (Seção~\ref{subsec:res_selecao}). O conteúdo das subseções RQ1--RQ5 e de lacunas/agenda derivado da execução preliminar (corpus de 7 estudos) foi preservado no código-fonte, ocultado da compilação, e será reescrito após a extração; não é exibido aqui para não conflitar com o corpus consolidado de 29.
+\subsection{Caracterização do corpus}
+\label{subsec:res_caracterizacao}
 
-% ===================================================================== %
-% BLOCO 4.2-4.8 OCULTADO DA COMPILACAO (\iffalse ... \fi).               %
-% [ATUALIZAR APOS EXTRACAO] Conteudo PRESERVADO do mapeamento preliminar %
-% (corpus de 7 estudos) para reescrita com o corpus consolidado de 29    %
-% (27 bases internacionais + 2 SBC/SOL). NAO APAGAR. As referencias      %
-% Colombo2025/Colombo2024/VonLuckeFrank2025/Kim2025/Mendes2025/          %
-% PapadopoulosCharalabidis2020 caem das Referencias enquanto oculto      %
-% (comportamento correto); voltam quando o bloco for recitado.           %
-% ===================================================================== %
-\iffalse
-\subsection{Caracterização dos Estudos Incluídos}
-\label{subsec:res_carac}
+Embora o protocolo tenha definido a janela de busca a partir de 2019, os 29 estudos que compõem o corpus final concentram-se entre 2021 e 2026, sem que nenhum trabalho anterior a 2021 tenha satisfeito os critérios de inclusão. A distribuição temporal revela um campo de pesquisa em franca expansão: 22 trabalhos, aproximadamente três quartos da amostra, situam-se no triênio 2024--2026. Esse adensamento recente evidencia o salto de interesse acadêmico no setor público impulsionado pela popularização de Grandes Modelos de Linguagem (LLMs), notadamente a partir do lançamento comercial de ferramentas como o ChatGPT.
 
-O corpus reúne trabalhos recentes — predominantemente posteriores a 2022 — concentrados em contextos europeus e asiáticos, com participação pontual de estudos sobre o contexto brasileiro. A Tabela~\ref{tab:corpus} sumariza os estudos incluídos quanto a foco, contexto e abordagem.
+No que tange à infraestrutura tecnológica (RQ3), o corpus demonstra dependência majoritária de serviços proprietários: dezoito dos vinte e nove estudos fundamentam suas arquiteturas em APIs comerciais da OpenAI (famílias GPT-3.5, GPT-4 e derivadas). Observa-se, contudo, uma tendência emergente de adoção de modelos de pesos abertos, como Llama, Mistral, Gemma e ChatGLM, presentes em seis trabalhos. Em alguns desses casos, a escolha por modelos abertos aparece associada a requisitos de soberania sobre dados sensíveis ou à mitigação de alucinações por meio de arquiteturas de recuperação aumentada. Registra-se, ainda, uma lacuna de reprodutibilidade em parte da literatura: dois estudos apoiam-se em plataformas conversacionais não estritamente generativas, como o Google DialogFlow, e três sequer especificam o modelo empregado, omitindo informações como porte ou licenciamento.
 
-Registra-se uma decisão de escopo: três dos sete estudos recuperados --- \citet{Mendes2025}, \citet{Bojars2019} e \citet{PapadopoulosCharalabidis2020} --- empregam PLN clássico ou \textit{Linked Data}, e não IA Generativa. Por não satisfazerem plenamente o critério CI1, são aqui tratados como \textbf{contexto comparativo} e não compõem a base de evidências das questões sobre uso de LLMs (RQ3 em diante), restando \mbox{$n \approx 4$} estudos efetivamente generativos. % TODO: na execução final, reaplicar CI/CE e consolidar o corpus generativo (excluir formalmente ou redefinir o escopo e as RQs).
+Do ponto de vista metodológico, o corpus apresenta divisão clara. A maioria dos estudos (23 trabalhos) adota abordagens empíricas, testando protótipos e sistemas em ambientes controlados ou cenários reais; os seis restantes constituem-se de artigos conceituais, provas de conceito isoladas ou propostas de arquitetura sem validação prática. A auditoria das avaliações revela, porém, um achado central desta revisão. Embora a promoção da transparência pública seja recorrentemente declarada como motivação nas introduções dos trabalhos, nenhum dos 29 estudos mede, como desfecho final, o aumento da compreensão cívica ou do controle social efetivo. Mesmo entre os 23 trabalhos empíricos, as validações restringem-se a aferir desempenho técnico-algorítmico, com métricas como BLEU, ROUGE, F1-score, latência e MRR, ou, em cerca de um terço do corpus, a avaliar proxies de interação humano-computador, como percepção de usabilidade, uso efetivo e índices de leiturabilidade. Essa dissociação entre a motivação declarada e as métricas efetivamente adotadas configura o que denominamos paradoxo da transparência, tema retomado e aprofundado na Discussão (Seção~\ref{sec:discussao}).
 
-\begin{table*}[t]
-\centering
-\caption{Estudos primários incluídos na execução preliminar}
-\label{tab:corpus}
-\small
-\begin{tabular}{|p{3.0cm}|p{2.3cm}|p{5.2cm}|}
-\hline
-\textbf{Estudo} & \textbf{Contexto} & \textbf{Foco / abordagem} \\
-\hline
-\citet{Colombo2025} & Itália & \textit{Pipeline} assistido por LLM para construção de \textit{knowledge graphs} da legislação \\
-\hline
-\citet{Colombo2024} & Itália & Sinergia entre grafos de conhecimento e LLMs para monitoramento e versionamento de legislação \\
-\hline
-\citet{VonLuckeFrank2025} & Parlamentos (geral) & Uso de ChatGPT em parlamentos; potencialidades e riscos (alucinação, imprecisão) \\
-\hline
-\citet{Kim2025} & Coreia do Sul & \textit{LegisFlow}: interface conversacional com consciência temporal, avaliada com usuários \\
-\hline
-\citet{Mendes2025} & Brasil & \textit{Topic Modeling} (PLN clássico) sobre Pedidos de Acesso à Informação \\
-\hline
-\citet{Bojars2019} & Letônia & \textit{LinkedSaeima}: dados parlamentares abertos conectados (\textit{Linked Data}) \\
-\hline
-\citet{PapadopoulosCharalabidis2020} & Estratégias nacionais de IA & PLN para mineração de \textit{insights} em documentos governamentais \\
-\hline
-\end{tabular}
-\end{table*}
+\subsection{Aplicações de IA Generativa (RQ1)}
+\label{subsec:rq1}
 
-\subsection{RQ1 --- Aplicações de IA Generativa em Governo Aberto}
-\label{subsec:res_rq1}
+As aplicações de IA generativa identificadas no corpus organizam-se em três grandes tipos, que se distribuem ao longo de um espectro que vai da preparação dos dados governamentais à sua mediação direta com o cidadão.
 
-As aplicações de IA Generativa identificadas concentram-se em dois eixos. O primeiro é a \textbf{estruturação de dados legislativos}: \citet{Colombo2025} e \citet{Colombo2024} empregam LLMs para extrair entidades jurídicas de textos não estruturados e organizá-las em grafos de conhecimento, viabilizando inclusive o monitoramento da evolução das leis. O segundo é o \textbf{acesso conversacional}: \citet{Kim2025} implementam um \textit{chatbot} para consultas em linguagem natural sobre legislação, e \citet{VonLuckeFrank2025} discutem o uso de ChatGPT para síntese e apoio em contextos parlamentares. Os demais estudos do corpus recorrem a PLN clássico ou a \textit{Linked Data} \citep{Mendes2025,Bojars2019,PapadopoulosCharalabidis2020}, e não à IA Generativa — o que delimita o subconjunto efetivamente generativo da literatura recuperada.
+O primeiro tipo, presente em sete estudos, concentra-se na estruturação e no enriquecimento de dados, ou seja, o lado da oferta. Nesses trabalhos, os modelos generativos atuam sobre o próprio dado governamental, antes de qualquer interação com o usuário final: extraem entidades de textos legislativos e os organizam em grafos de conhecimento \cite{Colombo2025,Colombo2024}, geram metadados e rótulos para melhorar a localização de conjuntos de dados em portais abertos \cite{TAGIFY2025,Gan2026}, tornam documentos públicos acessíveis e pesquisáveis \cite{MakingPDFsAccessible2023}, ou apoiam a auditoria e a classificação de informações fiscais e processuais \cite{Monsalvo2025,Baron2023}. Trata-se de aplicações voltadas à qualidade e à organização da informação pública, condição prévia para seu acesso efetivo.
 
-\subsection{RQ2 --- Tipos de Dados Governamentais}
-\label{subsec:res_rq2}
+O segundo tipo, com onze estudos, dedica-se ao acesso conversacional a dados abertos, isto é, à interface entre o cidadão e os conjuntos de dados governamentais. Aqui, os sistemas traduzem perguntas em linguagem natural em consultas estruturadas sobre dados abertos, dispensando o domínio técnico de formatos ou linguagens de consulta. Os trabalhos incluem assistentes que interrogam portais de dados orçamentários e estatísticos \cite{ChatbotMadrid2021,ScotlandChatGPT2024,EffectiveUseOGD2025}, interfaces que geram visualizações e análises sobre dados tabulares \cite{ConversationalInterfaces2024,DesigningODAssistant2024}, e arquiteturas multiagente que combinam recuperação aumentada e geração de consultas para garantir respostas fundamentadas \cite{ExpertMultiAgent2025,HybridGraphRAG2025}.
 
-Os dados analisados abrangem textos de legislação e sua evolução temporal \citep{Colombo2025,Colombo2024}, atividade e documentos parlamentares \citep{Kim2025,Bojars2019}, Pedidos de Acesso à Informação \citep{Mendes2025} e documentos de estratégias governamentais de IA \citep{PapadopoulosCharalabidis2020}. Predominam dados textuais não estruturados, o que motiva o uso de técnicas de processamento de linguagem natural — generativas ou clássicas — para sua estruturação e consulta.
+O terceiro tipo, também com onze estudos, volta-se aos serviços e à informação ao cidadão, ou seja, à mediação de procedimentos, direitos e comunicações governamentais. Diferentemente do tipo anterior, cujo objeto são os conjuntos de dados, esses sistemas medeiam informação sobre serviços públicos e textos oficiais. Incluem assistentes que orientam o cidadão sobre programas sociais e obrigações administrativas \cite{Nagesh2025,HeyGoogleTaxes2025,Gao2023,IntelligentPractices2025}, e, de modo particularmente alinhado ao propósito desta revisão, soluções que simplificam a linguagem técnico-jurídica para torná-la compreensível ao cidadão comum \cite{Freitas_Silva_2026,wcge,Rakhimova2025}.
 
-\subsection{RQ3 --- LLMs Utilizados}
-\label{subsec:res_rq3}
+A distribuição evidencia que a maior parte do corpus (22 dos 29 estudos) situa-se do lado da demanda, mediando o acesso do cidadão, enquanto uma parcela menor (sete estudos) atua sobre a oferta, preparando os dados. Essa concentração na interface com o usuário será retomada na discussão das demais questões de pesquisa (Seção~\ref{sec:discussao}).
 
-Entre os estudos generativos, \citet{VonLuckeFrank2025} examinam explicitamente o ChatGPT, enquanto \citet{Colombo2025,Colombo2024} reportam o uso de LLMs como assistentes na construção de grafos de conhecimento sem, em geral, fixar um modelo único, e \citet{Kim2025} apoiam o \textit{LegisFlow} em modelos de linguagem. Observa-se que parte relevante do corpus ainda não adota LLMs, recorrendo a abordagens clássicas — uma lacuna discutida adiante.
-% TODO (após extensão): consolidar modelos, porte e licença (aberto/proprietário)
-% em tabela, conforme o formulário de extração (Tabela de extração do Método).
+\subsection{Tipos de Dados Governamentais (RQ2)}
+\label{subsec:rq2}
 
-\subsection{RQ4 --- Benefícios Reportados}
-\label{subsec:res_rq4}
+Os dados governamentais sobre os quais o corpus atua revelam um padrão marcante: a predominância de informação textual sobre dados estruturados. Embora os dados abertos sejam frequentemente associados a tabelas e séries numéricas, a maior parte dos estudos opera sobre documentos em linguagem natural, como legislação, decisões, pareceres e comunicados, domínio em que as capacidades generativas dos LLMs encontram aplicação mais direta.
 
-Os benefícios relatados incluem a transformação de dados legislativos complexos em estruturas de conhecimento compreensíveis \citep{Colombo2025}, o rastreamento da evolução normativa ao longo do tempo \citep{Colombo2024}, a redução da barreira de entrada ao acesso legislativo por meio de interação em linguagem natural \citep{Kim2025} e o ganho de rapidez na síntese de informações \citep{VonLuckeFrank2025}. Esses benefícios, contudo, são em larga medida \textbf{autodeclarados} pelos estudos primários e apoiados em um corpus reduzido (\mbox{$n \approx 4$} estudos efetivamente generativos), o que recomenda interpretá-los como indícios preliminares de potencial, e não como evidência consolidada.
+O agrupamento mais expressivo, com oito estudos, recai sobre dados legislativos e jurídicos. Incluem-se textos normativos estruturados em formatos como XML/Akoma Ntoso \cite{Colombo2025,Colombo2024}, decisões e acórdãos judiciais \cite{Freitas_Silva_2026}, pareceres de tribunais de contas \cite{wcge}, legislação em línguas de poucos recursos \cite{Rakhimova2025}, memorandos sujeitos a pedidos de acesso à informação \cite{Baron2023}, decisões ministeriais \cite{MakingPDFsAccessible2023} e registros de compras públicas e votações \cite{ExpertMultiAgent2025}. A natureza desses dados, marcada por vocabulário técnico, extensão e densa referência cruzada, é precisamente o que motiva o recurso à mediação generativa.
 
-\subsection{RQ5 --- Desafios e Limitações}
-\label{subsec:res_rq5}
+Um segundo grupo, também numeroso, abrange os portais de dados abertos de propósito geral, incluindo tanto \emph{datasets} tabulares (CSV, planilhas, bancos SQL) quanto dados estatísticos publicados como \emph{linked data}. Aqui situam-se trabalhos que operam sobre portais municipais e nacionais \cite{ChatbotMadrid2021,EffectiveUseOGD2025,Gan2026,TAGIFY2025,ConversationalInterfaces2024,DesigningODAssistant2024} e sobre repositórios estatísticos estruturados como \emph{linked open data} \cite{ScotlandChatGPT2024,EvaluatingLLMsOGD2025}. É neste grupo que se concentram os poucos estudos voltados a dados genuinamente estruturados, frequentemente acessados por meio da tradução de linguagem natural para consultas formais (SQL, SPARQL).
 
-O desafio mais saliente é a \textbf{confiabilidade} das respostas geradas: \citet{VonLuckeFrank2025} alertam para riscos de alucinação e imprecisão factual, sem que a literatura recuperada apresente estratégias sistemáticas de validação. Soma-se a isso a escassez de foco em \textbf{acessibilidade para o cidadão não especialista}, já que vários trabalhos priorizam a estruturação técnica, e a sub-representação do \textbf{contexto brasileiro e da língua portuguesa}. Por fim, a integração de múltiplas modalidades de interação (por exemplo, \textit{dashboard} e \textit{chatbot}) é raramente explorada de forma conjunta.
+Um terceiro conjunto volta-se à informação sobre serviços e procedimentos governamentais, como textos instrucionais, perguntas frequentes e bases de conhecimento sobre direitos e obrigações do cidadão. Incluem-se guias sobre tributação e imigração \cite{HeyGoogleTaxes2025}, bases de perguntas e respostas de serviços públicos \cite{Gao2023,IntelligentPractices2025}, informações sobre programas sociais \cite{Nagesh2025} e conteúdos de saúde pública \cite{Ingole2024}.
 
-\subsection{Lacunas e Agenda de Pesquisa}
-\label{subsec:res_lacunas}
+Por fim, um grupo menor trata de políticas públicas e dados setoriais específicos, como políticas climáticas e dados censitários \cite{CLEAR2025}, comunicados de políticas governamentais \cite{HybridGraphRAG2025} e registros fiscais para auditoria \cite{Monsalvo2025}. Um único estudo, de natureza conceitual, não se vincula a um tipo de dado específico \cite{Loukis2023}.
 
-A síntese evidencia um campo em formação. As principais lacunas identificadas são: (i) o foco predominante na estruturação técnica, em detrimento da acessibilidade ao cidadão; (ii) a ausência de protocolos sistemáticos para avaliação da confiabilidade e da rastreabilidade das respostas geradas; (iii) a baixa cobertura de contextos não europeus/asiáticos, em especial o brasileiro e em língua portuguesa; e (iv) a rara integração de modalidades de interação. Dado o tamanho reduzido do corpus desta execução preliminar, essas lacunas devem ser lidas como \textbf{hipóteses de pesquisa} a confirmar com o corpus ampliado, e não como conclusões consolidadas; ainda assim, orientam uma agenda de pesquisa em Sistemas de Informação na interseção entre IA Generativa, dados abertos e transparência pública.
+O quadro geral confirma o deslocamento do dado estruturado para o documento textual como principal objeto de trabalho: a maioria dos estudos enfrenta o problema de tornar compreensível um texto governamental complexo, e não o de consultar uma base numérica, o que ajuda a explicar a centralidade das tarefas de sumarização, simplificação e resposta em linguagem natural observadas na RQ1 (Seção~\ref{subsec:rq1}).
 
-% TODO (após extensão): rever as lacunas à luz do corpus ampliado e quantificar,
-% quando possível, a distribuição dos estudos por RQ.
-\fi
-% ===================================================================== %
-% FIM DO BLOCO 4.2-4.8 OCULTADO (\iffalse ... \fi).                      %
-% ===================================================================== %
+\subsection{LLMs e Modelos Utilizados (RQ3)}
+\label{subsec:rq3}
+
+Quanto aos modelos empregados, o corpus revela forte concentração em soluções proprietárias. Dezoito dos vinte e nove estudos adotam como modelo principal um sistema da família GPT, acessado via API comercial da OpenAI ou de provedores como Azure e Google. As versões variam do GPT-3.5 (frequente nos trabalhos de 2023 e 2024) ao GPT-4 e GPT-4o (predominantes nos mais recentes), refletindo a rápida sucessão de gerações no período analisado. Modelos como Gemini e Copilot aparecem de forma pontual, em geral como alternativas comparadas dentro de um mesmo estudo.
+
+Os modelos de pesos abertos comparecem como modelo principal em seis estudos, número menor que o dos proprietários, mas com presença crescente nos trabalhos de 2025 e 2026. Destacam-se Llama \cite{DesigningODAssistant2024,Colombo2024}, Mistral \cite{Colombo2025}, DeepSeek e ChatGLM \cite{IntelligentPractices2025}. Chama atenção o porte reduzido de vários deles, como Mistral-7B e Llama-3.2-3B, indicando preferência por modelos que possam ser executados localmente. Essa escolha aparece associada, em parte dos casos, a requisitos de processamento de dados sensíveis em ambiente controlado e à viabilidade de operação sem dependência de serviços externos.
+
+Alguns estudos combinam modelos de naturezas distintas em uma mesma arquitetura, atribuindo a cada um função específica. É comum o emprego de um modelo aberto e leve para tarefas de interpretação ou classificação, reservando um modelo proprietário mais potente para a geração da resposta final, como em CLEAR \cite{CLEAR2025}, que usa Llama para interpretar a consulta e GPT-4 para gerar o relatório. Esse arranjo híbrido sinaliza uma estratégia de equilíbrio entre custo, controle e qualidade de geração.
+
+Dois padrões finais merecem registro. Dois estudos baseiam-se em plataformas de IA conversacional não estritamente generativas, como o Google DialogFlow \cite{ChatbotMadrid2021}, pertencentes a uma geração anterior de chatbots orientados a intenções. E três estudos não especificam o modelo de linguagem efetivamente utilizado, descrevendo-o apenas de forma genérica. Essa omissão, ainda que minoritária, compromete a reprodutibilidade dos resultados e a avaliação independente das soluções propostas, ponto retomado entre os desafios da RQ5.
+
+\subsection{Benefícios Reportados (RQ4)}
+\label{subsec:rq4}
+
+Os benefícios reportados pelos estudos concentram-se, antes de tudo, na remoção das barreiras técnicas que separam o cidadão do dado governamental. A capacidade de formular perguntas em linguagem natural e obter respostas no mesmo registro dispensa o domínio de consultas estruturadas como SPARQL ou SQL \cite{EvaluatingLLMsOGD2025,DesigningODAssistant2024}, bem como o conhecimento de formatos como planilhas \cite{ChatbotMadrid2021}. Com isso, o dado público se aproxima de usuários sem formação técnica.
+
+Parte dos estudos sustenta esses ganhos com medidas objetivas. Um deles relata aumento na taxa de conclusão de tarefas, de 66,7\% para 100\%, com redução de 47,9\% no tempo de acesso \cite{ChatbotMadrid2021}. Outro reporta satisfação de usuário de 85\% e resolução autônoma de 70\% das consultas \cite{Ingole2024}. Há ainda registros de melhoria de 21,3\% na acurácia de descoberta de dados \cite{Gan2026} e de redução do tempo de localização de conjuntos de dados de minutos para segundos \cite{DesigningODAssistant2024}. Tais resultados, ainda que restritos a cenários experimentais, indicam ganhos concretos de eficiência no acesso.
+
+Um terceiro conjunto de benefícios refere-se à simplificação da linguagem e à mediação da compreensão. Algumas soluções reescrevem textos jurídicos em linguagem simples \cite{Freitas_Silva_2026}, sumarizam pareceres técnicos para o cidadão leigo \cite{wcge} ou traduzem procedimentos administrativos em orientações passo a passo \cite{HeyGoogleTaxes2025}. Todas atuam sobre a barreira cognitiva, e não apenas sobre a técnica. Na mesma direção, abordagens narrativas tornam dados quantitativos abstratos mais concretos para não especialistas \cite{RobotStorytelling2025}.
+
+Por fim, registram-se ganhos relativos à qualidade e à confiabilidade da própria informação. Entre eles estão a construção de bases legislativas interligadas e rastreáveis \cite{Colombo2025}, o preenchimento automático de metadados ausentes em portais \cite{TAGIFY2025} e o uso de grafos de conhecimento para reduzir alucinações e assegurar rastreabilidade às fontes \cite{HybridGraphRAG2025}. Vale notar, contudo, que a maior parte desses benefícios é aferida do ponto de vista do desempenho do sistema ou da percepção imediata do usuário em testes controlados, e não do impacto cívico de longo prazo. Essa limitação se conecta ao achado central desta revisão e será retomada na discussão (Seção~\ref{sec:discussao}).
+
+\subsection{Desafios e Limitações (RQ5)}
+\label{subsec:rq5}
+
+Entre os desafios reportados, um se destaca pela recorrência: a alucinação. A geração de afirmações incorretas ou inventadas aparece na maioria dos estudos, e o contexto governamental agrava o problema, já que a informação pública tem efeito normativo e orienta decisões do cidadão. Vários trabalhos consideram inaceitável qualquer taxa de erro factual em respostas oficiais \cite{Gao2023}. Um deles leva a exigência ao extremo, ao apontar a necessidade de zero alucinação na elaboração legislativa \cite{Colombo2024}. As mitigações mais citadas envolvem a geração aumentada por recuperação (RAG) e o uso de grafos de conhecimento, que ancoram as respostas em fontes verificáveis \cite{HybridGraphRAG2025,Nagesh2025}. Nenhuma delas, porém, elimina o problema por completo.
+
+Um segundo eixo reúne as preocupações éticas e de governança. Recorrem questões de privacidade no tratamento de dados sensíveis \cite{Ingole2024}, opacidade algorítmica e replicação de vieses presentes nos dados de treinamento \cite{Monsalvo2025,Freitas_Silva_2026}. Soma-se a isso a dependência de modelos proprietários, que levanta dúvidas sobre soberania de dados e confiança institucional \cite{ScotlandChatGPT2024,ExpertMultiAgent2025}. A ausência de marcos legais claros para o uso de IA no setor público também aparece como obstáculo à adoção responsável.
+
+O terceiro eixo diz respeito a limitações técnicas e de custo. Alguns estudos relatam custos computacionais e latências elevadas, com tempos de resposta que chegam a dezenas de segundos \cite{HybridGraphRAG2025} ou a processamentos muito mais lentos que os métodos tradicionais \cite{MakingPDFsAccessible2023}. Modelos menores mostraram-se propensos a inventar dados ausentes \cite{EvaluatingLLMsOGD2025}, e em ao menos um caso o desempenho do LLM ficou abaixo de classificadores supervisionados convencionais \cite{Baron2023}. A qualidade precária dos dados e metadados de origem, comum nos portais públicos, agrava todas essas dificuldades.
+
+Por fim, há os desafios de adoção e de alcance ao cidadão. Barreiras como baixa literacia digital, conectividade limitada e exclusão linguística restringem justamente as populações que mais se beneficiariam dessas soluções. A falta de suporte a línguas indígenas e minoritárias é um exemplo concreto \cite{ExpertMultiAgent2025,Rakhimova2025}. Um estudo observa ainda que combinar a interface conversacional com a exibição tradicional de tabelas brutas pode sobrecarregar o usuário e reduzir a compreensão, fenômeno que ele próprio descreve como paradoxo da transparência \cite{EffectiveUseOGD2025}. Esse achado, partindo de um estudo isolado, ressoa com a constatação mais ampla desta revisão e é retomado na discussão (Seção~\ref{sec:discussao}).
+

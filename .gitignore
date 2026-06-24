@@ -31,6 +31,10 @@ _minted*/
 # macOS
 .DS_Store
 
+# Editor/tooling
+.vscode/
+.idea/
+
 # Template extraído temporariamente (usar o .zip oficial como fonte)
 _isys_template_extracted/
 *.xdv
