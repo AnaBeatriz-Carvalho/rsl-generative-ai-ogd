@@ -26,7 +26,7 @@
 _minted*/
 
 # Compiled PDF (not versioned)
-*.pdf
+# *.pdf
 
 # macOS
 .DS_Store
