@@ -1,0 +1,15 @@
+("inteligência artificial generativa" OR "IA generativa"
+ OR "modelos de linguagem" OR "grandes modelos de linguagem"
+ OR "modelo de linguagem de grande porte" OR LLM OR ChatGPT OR transformer)
+AND
+(
+  ("dados abertos governamentais" OR "dados governamentais"
+   OR "dados do setor público" OR "dados legislativos" OR "dados parlamentares"
+   OR "governo digital" OR "governo eletrônico" OR "governo aberto"
+   OR "liberdade de informação")
+  OR
+  ("transparência governamental" OR "transparência pública"
+   OR "accountability governamental" OR "accountability pública"
+   OR "responsabilização pública" OR "acesso à informação pública"
+   OR "portal de dados governamentais" OR "portal de dados abertos")
+)

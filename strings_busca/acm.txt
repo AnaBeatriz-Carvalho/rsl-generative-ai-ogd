@@ -1,0 +1,34 @@
+Bloco de intervenção (fixo — repetir idêntico nas três passadas):
+
+[Abstract: "generative artificial intelligence"] OR [Abstract: "generative ai"]
+OR [Abstract: "large language model"] OR [Abstract: "llm"] OR [Abstract: "foundation model"]
+OR [Abstract: transformer] OR [Abstract: gpt] OR [Abstract: chatgpt] OR [Abstract: llama]
+OR [Abstract: mistral] OR [Abstract: gemini] OR [Abstract: "retrieval-augmented generation"]
+OR [Abstract: rag] OR [Abstract: chatbot] OR [Abstract: "conversational agent"]
+
+Cada passada = (bloco de intervenção) AND (bloco de contexto da passada).
+
+Passada A — contexto governamental inequívoco:
+
+(bloco de intervenção)
+AND
+([Abstract: "open government data"] OR [Abstract: "government data"]
+ OR [Abstract: "public sector data"] OR [Abstract: "legislative data"]
+ OR [Abstract: "parliamentary data"])
+
+Passada B — governo digital / FOI:
+
+(bloco de intervenção)
+AND
+([Abstract: "digital government"] OR [Abstract: "e-government"]
+ OR [Abstract: "open government"] OR [Abstract: "freedom of information"]
+ OR [Abstract: foia])
+
+Passada C — termos qualificados:
+
+(bloco de intervenção)
+AND
+([Abstract: "government transparency"] OR [Abstract: "public transparency"]
+ OR [Abstract: "government accountability"] OR [Abstract: "public accountability"]
+ OR [Abstract: "access to public information"]
+ OR [Abstract: "government data portal"] OR [Abstract: "open data portal"])

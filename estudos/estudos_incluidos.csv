@@ -1,0 +1,30 @@
+﻿ID;Autor/Ano;Veículo;País;Modelo Principal;Escore QA;Vertente
+E01;Korpan et al. (2026);Companion Proc. ACM/IEEE HRI;EUA;GPT-5;4.0;Serviço ao cidadão
+E02;Cantador et al. (2021);Proc. dg.o;Espanha;Google DialogFlow;4.5;Acesso conversacional
+E03;Dineva & Atanasova (2025);SGEM Conf.;Bulgária;Não reportado;2.0;Acesso conversacional
+E04;Ingole et al. (2024);ICICyTA;EUA;BERT / DialogFlow / Rasa;4.0;Serviço ao cidadão
+E05;Nagesh et al. (2025);IEEE ETCOM;Índia;Não reportado (RAG);3.0;Serviço ao cidadão
+E06;Colombo et al. (2025);Information Processing & Management;Itália;Mistral-7B / BERT;5.0;Estruturação de dados
+E07;Gong et al. (2025);Proc. GAIB;China;DeepSeek-v3;4.5;Serviço ao cidadão
+E08;Gao et al. (2023);Proc. ICBDIE (ACM ICPS);China;ChatGPT / BERT;4.5;Serviço ao cidadão
+E09;Gomez-Vazquez et al. (2024);ACM CUI;Espanha/Luxemburgo;GPT-4;4.5;Acesso conversacional
+E10;Mamalis et al. (2024);PCI (Pan-Hellenic Conf.);Escócia;GPT-3.5-turbo;4.5;Acesso conversacional
+E11;Loukis et al. (2023);EGOV (IFIP WG 8.5);Genérico;ChatGPT;3.5;Acesso conversacional
+E12;Wu et al. (2025);ACM Web Conf. Companion;Austrália;Llama-3.2-3B / GPT-4;4.0;Serviço ao cidadão
+E13;Schelhorn et al. (2026);Decision Support Systems;EUA;GPT-3.5 / GPT-5-mini;5.0;Acesso conversacional
+E14;Maslaris et al. (2025);PCI (Pan-Hellenic Conf.);Escócia;Llama-3.1 / Mistral / Gemma;5.0;Acesso conversacional
+E15;Schelhorn et al. (2024);DESRIST;Alemanha;GPT-3.5 Turbo;4.5;Acesso conversacional
+E16;Monsalvo et al. (2025);Information;Colômbia;Azure OpenAI (GPT);4.5;Estruturação de dados
+E17;Farah & Sin (2025);ACM CUI;Canadá;ChatGPT / Gemini / Copilot;4.0;Serviço ao cidadão
+E18;Flores et al. (2025);IEEE Access;Peru;GPT-4o;5.0;Acesso conversacional
+E19;Gan et al. (2026);CCIS (Springer);Reino Unido;Gemini 2.5 / Gemma;5.0;Estruturação de dados
+E20;Rakhimova et al. (2025);Computers (MDPI);Cazaquistão;GPT-4o mini / Vários abertos;5.0;Serviço ao cidadão
+E21;Papageorgiou et al. (2025);Applied Sciences (MDPI);Europa (UE);GPT-4.1-mini / GPT-4o;5.0;Acesso conversacional
+E22;van Heusden et al. (2023);TPDL;Holanda;GPT-3.5-turbo;5.0;Estruturação de dados
+E23;Kliimask & Nikiforova (2024);IEEE IDSTA;Estônia;GPT-3.5-turbo / GPT-4;5.0;Estruturação de dados
+E24;Colombo (2024);ACM CIKM;Itália;Llama-3 70B;3.5;Estruturação de dados
+E25;Cortes-Cediel et al. (2023);Government Information Quarterly;Espanha;Google DialogFlow;4.5;Acesso conversacional
+E26;Baron et al. (2023);CEUR Workshop Proceedings;EUA;GPT-3.5;4.5;Estruturação de dados
+E27;Silva et al. (2024);Anais do WCGE (SBC);Brasil;GPT-4;4.5;Serviço ao cidadão
+E28;Freitas & Silva (2026);REIC (Rev. Eletr. Iniciação Científica em Computação);Brasil;ChatGPT;5.0;Serviço ao cidadão
+E29;Han et al. (2024);IEEE Access;China;ChatGLM-6B;4.5;Serviço ao cidadão

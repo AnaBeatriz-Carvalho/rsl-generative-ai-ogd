@@ -1,0 +1,20 @@
+("All Metadata":"generative artificial intelligence" OR "All Metadata":"generative AI"
+ OR "All Metadata":"large language model*" OR "All Metadata":"LLM"
+ OR "All Metadata":"foundation model*" OR "All Metadata":transformer*
+ OR "All Metadata":GPT* OR "All Metadata":ChatGPT OR "All Metadata":Llama
+ OR "All Metadata":Mistral OR "All Metadata":Gemini
+ OR "All Metadata":"retrieval-augmented generation" OR "All Metadata":RAG
+ OR "All Metadata":chatbot* OR "All Metadata":"conversational agent*")
+AND
+(
+ ("All Metadata":"open government data" OR "All Metadata":"government data"
+  OR "All Metadata":"public sector data" OR "All Metadata":"legislative data"
+  OR "All Metadata":"parliamentary data" OR "All Metadata":"digital government"
+  OR "All Metadata":"e-government" OR "All Metadata":"open government"
+  OR "All Metadata":"freedom of information" OR "All Metadata":FOIA)
+ OR
+ ("All Metadata":"government transparency" OR "All Metadata":"public transparency"
+  OR "All Metadata":"government accountability" OR "All Metadata":"public accountability"
+  OR "All Metadata":"access to public information"
+  OR "All Metadata":"government data portal*" OR "All Metadata":"open data portal*")
+)

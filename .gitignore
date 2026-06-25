@@ -1,4 +1,11 @@
-# LaTeX auxiliary files
+# macOS
+.DS_Store
+
+# Editor/tooling
+.vscode/
+.idea/
+
+# LaTeX auxiliary files (caso esta branch venha a compilar algo)
 *.aux
 *.bbl
 *.blg
@@ -16,10 +23,3 @@
 *.vrb
 *.bcf
 *.run.xml
-*.idx
-*.ilg
-*.ind
-*.glg
-*.glo
-*.gls
-_minted*/

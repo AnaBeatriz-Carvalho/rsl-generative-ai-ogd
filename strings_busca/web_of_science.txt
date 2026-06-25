@@ -1,0 +1,19 @@
+TS=(
+  ("generative artificial intelligence" OR "generative AI"
+   OR "large language model*" OR "LLM*" OR "foundation model*"
+   OR transformer* OR GPT* OR ChatGPT OR Llama OR Mistral OR Gemini
+   OR "retrieval-augmented generation" OR RAG
+   OR chatbot* OR "conversational agent*")
+  AND
+  (
+    ("open government data" OR "government data" OR "public sector data"
+     OR "legislative data" OR "parliamentary data"
+     OR "digital government" OR "e-government" OR "open government"
+     OR "freedom of information" OR FOIA)
+    OR
+    ("government transparency" OR "public transparency"
+     OR "government accountability" OR "public accountability"
+     OR "access to public information"
+     OR "government data portal*" OR "open data portal*")
+  )
+)
