@@ -5,11 +5,6 @@
 %  CLASSE: sbc2025 (apalike-sol). Sem comandos ABNT (\quadro, \citeonline).
 %  PACOTES: usa apenas tabular/\hline padrão — não exige booktabs.
 %
-%  PARÂMETROS A CONFIRMAR (procure por "CONFIRMAR" abaixo):
-%   - Janela temporal (ano inicial)
-%   - String final após calibração-piloto
-%   - Limiares de qualidade
-%
 %  REFERÊNCIAS .bib:
 %   NOVAS (adicionadas a referencias.bib): kitchenham2007, petersen2015,
 %         page2021, wohlin2014.
@@ -23,14 +18,14 @@
 \section{Método}
 \label{sec:metodo}
 
-Este trabalho caracteriza-se como uma Revisão Sistemática da Literatura (RSL), método secundário cujo propósito é identificar, avaliar e sintetizar as evidências científicas disponíveis sobre um dado fenômeno de forma reprozível. O protocolo foi planejado e conduzido segundo as diretrizes de Kitchenham e Charters \citeyearpar{kitchenham2007}, complementadas pelas orientações para mapeamento sistemático de Petersen et al. \citeyearpar{petersen2015}. O relato da pesquisa obedece às recomendações do framework PRISMA 2020 \citep{page2021}.
+Este trabalho é uma Revisão Sistemática da Literatura (RSL), método secundário que identifica, avalia e sintetiza, de forma reproduzível, as evidências disponíveis sobre um fenômeno. O protocolo seguiu as diretrizes de Kitchenham e Charters \citeyearpar{kitchenham2007}, complementadas pelas orientações de mapeamento sistemático de Petersen et al. \citeyearpar{petersen2015}, e o relato segue a recomendação PRISMA 2020 \citep{page2021}.
 
-Como as questões levantadas são de caracterização, e não explicativas, optou-se por um desenho \textbf{híbrido}. Isso significa que a busca e a seleção de literatura seguem o rigor procedimental de uma RSL, mas a síntese dos resultados assume a abrangência de um mapeamento de campo. A execução organiza-se em três etapas: planejamento (definição do protocolo e critérios), condução (busca, seleção e extração) e relato (síntese e discussão). Visando proteger a reprodutibilidade do estudo e refrear o viés do pesquisador, todo o protocolo foi consolidado \textit{a priori}.
+Como as questões de pesquisa são de caracterização, e não explicativas, adotou-se um desenho híbrido: a busca e a seleção seguem o rigor de uma RSL, enquanto a síntese assume a forma de um mapeamento do campo. A revisão organiza-se em três etapas: planejamento (definição do protocolo e dos critérios), condução (busca, seleção e extração) e relato (síntese e discussão). O protocolo foi definido a priori, antes do início da triagem, para assegurar a reprodutibilidade e reduzir o viés do pesquisador.
 
 \subsection{Objetivo e Questões de Pesquisa}
-\label{subsec:objetivo_qp}
+\label{subsec:rqs}
 
-O objetivo desta revisão é identificar como a Inteligência Artificial Generativa e os Modelos de Linguagem de Grande Porte (\textit{Large Language Models} -- LLMs) vêm sendo empregados para destravar o acesso a dados governamentais abertos e impulsionar a transparência pública. O esforço ancora-se na área de Sistemas de Informação, operando exatamente na interseção entre governo digital, política de dados abertos (\textit{Open Government Data} -- OGD) e apoio à decisão. A partir dessa diretriz central, derivam-se as cinco questões de pesquisa detalhadas na Tabela~\ref{tab:rqs}.
+O objetivo desta revisão é identificar como a IA Generativa e os Modelos de Linguagem de Grande Porte (\textit{Large Language Models} -- LLMs) vêm sendo usados para ampliar o acesso a dados governamentais abertos e promover a transparência pública. O recorte situa-se em Sistemas de Informação, na interseção entre governo digital, dados abertos (\textit{Open Government Data} -- OGD) e apoio à decisão. A partir desse objetivo, derivam-se as cinco questões de pesquisa da Tabela~\ref{tab:rqs}.
 
 \begin{table*}[t]
 \centering
@@ -51,11 +46,9 @@ RQ5 & Quais desafios e limitações são reportados? & Barreiras técnicas, éti
 \subsection{Estratégia de Busca}
 \label{subsec:busca}
 
-A varredura automática ocorreu em quatro bases de amplo reconhecimento no domínio da Computação: Scopus, Web of Science, ACM Digital Library e IEEE Xplore. Essa seleção equilibra indexadores multidisciplinares (Scopus, WoS) e repositórios de nicho tecnológico (ACM, IEEE), mitigando o risco de omissão de publicações chave.
+A busca automática foi conduzida em quatro bases reconhecidas na área de Computação: Scopus, Web of Science, ACM Digital Library e IEEE Xplore. A escolha combina bases indexadoras de amplo espectro (Scopus, Web of Science) e repositórios especializados (ACM, IEEE), reduzindo o risco de omitir estudos relevantes.
 
-Os termos da consulta foram arquitetados a partir das cinco dimensões da estrutura PICOC (Tabela~\ref{tab:picoc}), garantindo que a \textit{string} não recaísse isoladamente sobre a Intervenção tecnológica. O eixo de Intervenção mapeia o maquinário propriamente dito: IA Generativa, modelos de fundação, \textit{transformers}, arquiteturas RAG, agentes conversacionais e LLMs comerciais ou abertos. Em contrapartida, os blocos de População, Desfecho e Contexto amarram o escopo da ferramenta ao setor público, filtrando estritamente estudos sobre portais governamentais, dados legislativos e políticas de transparência digital.
-
-A \textit{string} de referência consta na Figura~\ref{fig:string} e foi adaptada às regras sintáticas de cada base no momento do disparo. Para assegurar aderência ao critério de idioma (CI4), aplicou-se uma variação do comando em português à Biblioteca Digital da SBC/SOL e demais plataformas lusófonas. Com o intuito de distinguir a real escassez de produção acadêmica de meros erros de digitação na busca, a estrutura sintática exata, a data e o volume retornado por base foram documentados no repositório do projeto e recuperados na Seção~\ref{sec:resultados}.
+Os termos de busca derivam das cinco dimensões da estrutura PICOC (Tabela~\ref{tab:picoc}), de modo que a \textit{string} cubra todas elas, e não apenas a Intervenção. O bloco de Intervenção reúne IA Generativa, LLMs e arquiteturas correlatas (modelos de fundação, \textit{transformers}, RAG e agentes conversacionais), incluindo modelos nomeados; os blocos de População, Desfecho e Contexto delimitam o escopo ao setor público, aos dados governamentais e legislativos, ao acesso à informação, à transparência e ao governo digital.
 
 \begin{table*}[t]
 \centering
@@ -72,6 +65,8 @@ Desfecho & Acesso à informação; transparência; benefícios e desafios \\ \hl
 Contexto & Governo digital; \textit{e-government}; OGD \\ \hline
 \end{tabular}
 \end{table*}
+
+A \textit{string} de referência está na Figura~\ref{fig:string} e foi adaptada à sintaxe de cada base no momento da execução. Para atender ao critério de idioma (CI4), uma versão equivalente em português foi aplicada à Biblioteca Digital da SBC/SOL. A \textit{string} exata por base, a data de execução e a contagem de registros estão no repositório de materiais e na Seção~\ref{sec:resultados}, o que permite distinguir ausência real de produção de eventual erro na consulta.
 
 \begin{figure*}[t]
 \centering
@@ -97,15 +92,12 @@ AND
 \label{fig:string}
 \end{figure*}
 
-Antes da execução definitiva, a \textit{string} passou por calibração-piloto. Ela foi confrontada contra um acervo de controle previamente mapeado pela literatura: caso algum desses artigos essenciais não fosse detectado, o escopo de palavras-chave sofreria expansão imediata. % CONFIRMAR: liste 3-5 artigos de controle usados na calibração.
-
-O intervalo temporal abrange de janeiro de 2019 até a data da pesquisa. % CONFIRMAR ano inicial.
-A justificativa para o corte repousa no fato de a consolidação dos grandes modelos pré-treinados ter ocorrido sistematicamente a partir de 2019. O esforço apoiou-se exclusivamente no retorno das bases de dados; técnicas auxiliares de prospecção referencial em cascata (\textit{snowballing} para frente e para trás) \citep{wohlin2014} não foram acionadas neste estágio, configurando uma limitação metodológica discutida com maior profundidade na Seção~\ref{sec:ameacas}.
+Antes da execução definitiva, a \textit{string} passou por calibração-piloto contra um conjunto de controle de artigos já reconhecidos como relevantes: se algum não fosse recuperado, os termos seriam revistos. Consideraram-se estudos publicados entre janeiro de 2019 e a data da busca, recorte justificado pela consolidação dos LLMs a partir desse período. A revisão apoiou-se apenas na busca automática; técnicas de \textit{snowballing} \citep{wohlin2014} não foram conduzidas nesta etapa, e sua ausência é discutida como limitação na Seção~\ref{sec:ameacas}.
 
 \subsection{Critérios de Seleção e Processo de Triagem}
-\label{subsec:selecao}
+\label{subsec:criterios}
 
-O filtro do \textit{corpus} bibliográfico baseou-se nos parâmetros expostos na Tabela~\ref{tab:criterios}. O protocolo é excludente: a aprovação final de um artigo exige a conformidade simultânea a todos os critérios de inclusão e a imunidade absoluta a qualquer um dos critérios de exclusão.
+Os critérios de inclusão (CI) e exclusão (CE) que delimitam o escopo estão na Tabela~\ref{tab:criterios}. Um estudo é incluído apenas se atende a todos os critérios de inclusão e a nenhum dos de exclusão.
 
 \begin{table}[ht]
 \centering
@@ -128,18 +120,12 @@ CE5 & Versão preliminar de estudo posteriormente estendido (mantém-se a versã
 \end{tabular}
 \end{table}
 
-O funil de seleção operou em duas etapas. A triagem inicial ocorreu por meio da leitura rápida de títulos e resumos. Em seguida, os trabalhos pré-selecionados avançaram para a avaliação na íntegra. Todo o referencial foi exportado para o Zotero (responsável pela deduplicação primária) e posteriormente importado para a plataforma Rayyan, onde ocorreu a triagem manual.
-
-Uma única pesquisadora conduziu a revisão. Para mitigar o viés interpretativo individual, todos os parâmetros de inclusão e exclusão foram engessados formalmente no projeto de pesquisa. Além disso, as exclusões no Rayyan exigiram a marcação explícita do rótulo motivador correspondente ao critério CE, gerando uma trilha de auditoria rastreável. O diagrama PRISMA, ilustrado na seção de resultados, consolida todo o fluxo das exclusões.
+A seleção ocorreu em duas fases. Na primeira, os estudos foram triados por título e resumo; na segunda, os remanescentes foram avaliados por leitura do texto completo. As referências foram gerenciadas no Zotero, responsável pela deduplicação inicial, e a triagem foi operacionalizada no Rayyan. A revisão foi conduzida por uma única revisora. Para reduzir o viés de seleção, os critérios foram definidos a priori e aplicados de forma uniforme, e cada decisão de triagem, com o respectivo motivo, foi registrada de forma rastreável no Rayyan, permitindo auditoria. O fluxo completo de identificação, triagem, elegibilidade e inclusão é reportado pelo diagrama PRISMA na seção de resultados.
 
 \subsection{Avaliação de Qualidade}
 \label{subsec:qualidade}
 
-Os manuscritos sobreviventes à leitura integral foram então submetidos a um crivo de qualidade focado no rigor científico das evidências. Cada métrica da Tabela~\ref{tab:qualidade} comporta três valores possíveis: $0$ (não atende), $0{,}5$ (atende parcialmente) e $1$ (atende plenamente), culminando em uma pontuação máxima de 5.
-
-Estabeleceu-se o limiar de $2{,}5$ como nota de corte analítica. Trabalhos que igualam ou superam essa barreira compõem o núcleo da síntese informacional sem ressalvas. Aqueles com desempenho inferior não sofrem descarte sumário, mas são apartados em um bloco interpretativo paralelo, exigindo ceticismo deliberado na fase de Discussão.
-
-Esse recurso avaliativo opera também como mecanismo compensatório para publicações em veículos de menor tradição editorial (como simpósios de iniciação ou anais de triagem branda). Pelo critério CI2, estudos primários em eventos oficiais não são descartados na fase inicial. É a matriz de qualidade (notadamente os fatores AQ4 e AQ5) que penaliza a fragilidade argumentativa dessas produções, desidratando sua influência na conclusão final sem violar as regras da filtragem sistemática.
+Os estudos aprovados na leitura de texto completo passaram por uma avaliação de qualidade, destinada a caracterizar o rigor das evidências e a ponderar sua contribuição na síntese. Cada critério da Tabela~\ref{tab:qualidade} é pontuado em $\{0;\ 0{,}5;\ 1\}$ (não atende; atende parcialmente; atende), resultando em um escore de 0 a 5. Adotou-se o limiar de $2{,}5$: estudos com escore maior ou igual a $2{,}5$ integram a síntese em condições regulares; os de escore inferior são reportados à parte e ponderados com cautela na discussão, em vez de descartados.
 
 \begin{table}[ht]
 \centering
@@ -157,10 +143,12 @@ AQ5 & As limitações e ameaças à validade são discutidas? \\ \hline
 \end{tabular}
 \end{table}
 
+A avaliação de qualidade também serve para ponderar estudos publicados em veículos de menor rigor editorial, como periódicos de iniciação científica ou anais sem indicação clara de revisão por pares. Como o critério CI2 exige apenas que o estudo seja primário e revisado por pares, condição que esses veículos atendem, eles não são excluídos do corpus. O menor rigor do veículo é registrado pelo escore de qualidade, em particular nos itens AQ4 e AQ5, reduzindo a influência do estudo na síntese sem alterar o critério de inclusão.
+
 \subsection{Extração de Dados}
 \label{subsec:extracao}
 
-A captação de evidências seguiu um formulário rígido cujas entradas convergem diretamente para as cinco questões de pesquisa (Tabela~\ref{tab:extracao}). Como complemento à estruturação técnica, levantou-se o inventário bibliométrico padrão (autoria, ano, país e tipologia do veículo), bem como as matrizes metodológicas de validação presentes em cada artigo empírico. Todo o registro das abstrações foi conduzido pela revisora primária, mantendo a indexação rigorosa da informação recolhida com o arquivo de origem para evitar distorções de interpretação fora de contexto.
+A extração usou um formulário padronizado, definido antes da leitura integral, cujos campos mapeiam diretamente as questões de pesquisa (Tabela~\ref{tab:extracao}). Além dos campos ligados às RQs, registraram-se metadados bibliográficos (autores, ano, veículo, tipo de veículo e país) e o método de avaliação de cada estudo. A extração foi conduzida pela revisora única, com registro rastreável da origem de cada item, preservando a ligação entre evidência e síntese.
 
 \begin{table*}[t]
 \centering
@@ -183,4 +171,4 @@ Avaliação & Método de validação do estudo & --- \\ \hline
 \subsection{Síntese dos Dados}
 \label{subsec:sintese}
 
-O fechamento da revisão opera sob uma matriz dual. O primeiro pilar baseia-se na \textit{síntese quantitativa descritiva}, responsável por traduzir o volume documental em distribuições macro (como a linha do tempo de publicações, os LLMs mais citados em RQ3 e o espectro de dados analisados em RQ2). O segundo pilar é a \textit{síntese temática}, uma abordagem estritamente qualitativa. Nela, o esforço debruça-se sobre a codificação do texto bruto, extraindo e categorizando de forma orgânica as rotinas governamentais criadas (RQ1), os impactos sociais alcançados (RQ4) e as pedras de tropeço da adoção (RQ5). É o atrito analítico provocado pelo cruzamento dessas duas sínteses que permitirá, no momento da Discussão, organizar o caos de aplicações cívicas de Inteligência Artificial em uma taxonomia coesa e útil para a comunidade científica.
+A síntese combina duas abordagens. A \textit{síntese quantitativa descritiva} caracteriza o corpus por meio de distribuições: evolução temporal das publicações, veículos, modelos empregados (RQ3) e tipos de dados (RQ2), oferecendo um panorama do campo no estilo de um mapeamento sistemático. A \textit{síntese temática}, qualitativa, codifica e agrupa em categorias as aplicações (RQ1), os benefícios (RQ4) e os desafios (RQ5) reportados, podendo resultar em uma taxonomia emergente dos usos de IA Generativa para acesso a dados governamentais. As duas sínteses são articuladas na discussão, de modo a responder às cinco questões de forma integrada.
