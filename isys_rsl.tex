@@ -28,6 +28,7 @@
 \usepackage{url}
 \usepackage{pifont}
 \usepackage{underscore} % permite "_" em modo texto (DOIs nas referências)
+\usepackage{array}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit, calc}
 
@@ -102,17 +103,13 @@ Public Transparency, Systematic Literature Review
 % informação e apoio à decisão. Evitar que pareça apenas "PLN/IA".
 % Reuso de enquadramento: capitulos/introducao.tex e capitulos/fundamentacao.tex.
 
-A transparência pública e o acesso irrestrito à informação figuram como alicerces incontornáveis do governo digital, constituindo objeto histórico de investigação na área de Sistemas de Informação. A formulação de ecossistemas de \emph{open government data} (OGD) fortalece as bases técnicas para o controle social e a \emph{accountability}. Contudo, a mera publicação institucional do dado bruto não afiança sua utilidade efetiva. Persistem graves barreiras de domínio técnico e cognitivo que afastam o cidadão da informação que lhe pertence.
+A transparência pública e o acesso à informação são pilares do governo digital e tema recorrente de pesquisa em Sistemas de Informação. A abertura de dados governamentais (\emph{open government data}, OGD) fortalece as bases para o controle social e a \emph{accountability}, mas publicar o dado bruto não garante que ele seja útil. Entre o cidadão e a informação que lhe pertence permanecem barreiras técnicas e cognitivas.
 
-A literatura voltada ao governo eletrônico já documenta exaustivamente as vantagens cívicas da abertura de acervos públicos. Em paralelo, a ciência da computação comprova, por meio dos avanços recentes da IA Generativa, a capacidade semântica das máquinas de interpretar documentos técnicos densos. O cenário prático que interconecta esses dois mundos, no entanto, permanece disperso. A conversão da inteligência de grandes modelos de linguagem (LLMs) em ferramentas de empoderamento cidadão sobre o dado aberto padece, até o momento, da ausência de uma sumarização acadêmica estruturada.
+A literatura de governo eletrônico já documenta os benefícios da abertura de dados públicos, e os avanços recentes da IA Generativa mostram a capacidade dos modelos de interpretar documentos técnicos densos. O que conecta esses dois campos, porém, ainda está disperso. Falta uma síntese estruturada sobre como os grandes modelos de linguagem (LLMs) vêm sendo usados para aproximar o cidadão do dado aberto.
 
-% TODO (depende da §2/Background): ancorar este parágrafo com referências de SI
-% sobre OGD/e-gov (p.ex., Janssen, Charalabidis, Zuiderwijk, Attard) e de IA
-% Generativa (p.ex., Bommasani; Lewis/RAG), e posicionar frente a RSLs prévias.
+\paragraph{Objetivo e contribuições.} Para preencher essa lacuna, este artigo mapeia sistematicamente como a IA Generativa vem sendo aplicada ao acesso a dados governamentais abertos. A revisão caracteriza as áreas de aplicação (RQ1), os tipos de dados tratados (RQ2), os modelos empregados (RQ3), os benefícios reportados (RQ4) e os desafios remanescentes (RQ5). Dessa caracterização derivam três contribuições: (i) um panorama atualizado do estado da arte; (ii) uma taxonomia dos usos de IA Generativa no acesso a dados governamentais; e (iii) uma agenda de pesquisa para a comunidade de Sistemas de Informação.
 
-\paragraph{Objetivo e contribuições.} Com o intuito de suprir essa vacância, este artigo mapeia sistematicamente como o campo científico tem fundido as rotinas da IA Generativa ao cenário de \emph{open government data} (OGD). A proposta desdobra-se na caracterização das áreas de aplicação (RQ1), dos formatos arquivísticos dominantes (RQ2), das estruturas algorítmicas empregadas (RQ3), dos avanços de usabilidade constatados (RQ4) e dos gargalos remanescentes (RQ5). Dessa dissecação emanam três contribuições axiais ao estado da arte: (i) um levantamento atualizado das publicações de fronteira; (ii) uma taxonomia aplicada às modalidades de consulta governamental automatizada; e (iii) um roteiro prospectivo de pesquisa destinado à comunidade de Sistemas de Informação.
-
-\paragraph{Organização.} A Seção~\ref{sec:background} apresenta os conceitos basilares e as investidas prévias da literatura. A Seção~\ref{sec:metodo} especifica o esqueleto metodológico da revisão. Na sequência, a Seção~\ref{sec:resultados} exibe a filtragem dos achados; a Seção~\ref{sec:discussao} tece a crítica técnica; e a Seção~\ref{sec:ameacas} expõe os fatores restritivos da amostra. O ensaio conclui-se na Seção~\ref{sec:conclusao}.
+\paragraph{Organização.} A Seção~\ref{sec:background} apresenta os conceitos fundamentais e os trabalhos relacionados. A Seção~\ref{sec:metodo} detalha o método da revisão. A Seção~\ref{sec:resultados} reporta os resultados, a Seção~\ref{sec:discussao} discute suas implicações e a Seção~\ref{sec:ameacas} trata das ameaças à validade. A Seção~\ref{sec:conclusao} conclui o trabalho.
 
 % =====================================================================
 \section{Background e Trabalhos Relacionados}
@@ -125,33 +122,29 @@ A literatura voltada ao governo eletrônico já documenta exaustivamente as vant
 \subsection{Dados governamentais abertos e a lacuna de acesso}
 \label{subsec:bg_ogd}
 
-A terminologia \emph{open government data} (OGD) abrange o arcabouço informacional gestado ou mantido pelo ente público, ofertado compulsoriamente em formato legível por software e regido por licenciamento de redistribuição livre \citep{ZuiderwijkJanssen2014}. A arquitetura de Sistemas de Informação atrela o OGD diretamente aos paradigmas da responsabilidade pública. Sob essa ótica, a exposição dos dados atua como infraestrutura basilar de auditabilidade cívica, afastando-se da mera acumulação burocrática \citep{RibeiroAlmeida2011,OliveiraCkagnazaroff2022}. A comunidade científica, porém, é rigorosa ao cindir os atos de "disponibilizar" e "utilizar". Políticas regionais de abertura oscilam agressivamente em grau de sucesso; frequentemente esbarram em deficiências de formatação, atualização tardia ou inconsistência lógica, falhas que, por si sós, sufocam tentativas de processamento civil \citep{ZuiderwijkJanssen2014,Vetro2016}.
+A expressão \emph{open government data} (OGD) designa os dados produzidos ou mantidos pelo setor público, disponibilizados em formato legível por máquina e sob licença que permite reúso \citep{ZuiderwijkJanssen2014}. Em Sistemas de Informação, o OGD liga-se diretamente às agendas de governo digital e \emph{accountability}: a abertura dos dados é tratada como infraestrutura para o controle social, e não como um fim em si \citep{RibeiroAlmeida2011,OliveiraCkagnazaroff2022}. A literatura, porém, distingue de forma consistente os atos de disponibilizar e de usar. Políticas de abertura variam muito em sucesso e frequentemente esbarram em problemas de formatação, atualização tardia ou inconsistência, falhas que comprometem o reúso dos dados \citep{ZuiderwijkJanssen2014,Vetro2016}.
 
-Ainda que a pureza técnica do arquivo seja assegurada, deflagra-se uma segunda trincheira. Trata-se do descompasso cognitivo entre a sintaxe do portal e o leitor interessado. Pesquisas de avaliação de \emph{design} e literacia denunciam repetidamente que a interpretação autônoma de metadados estatais demanda destreza estatística e familiaridade gráfica desproporcionais ao currículo médio da população \citep{Hornung2015,Lee2017,Brito2024}.
+Mesmo quando a qualidade técnica do dado está garantida, surge uma segunda barreira: a distância cognitiva entre o portal e o cidadão interessado. Estudos de \emph{design} e de literacia de dados mostram que interpretar conjuntos governamentais por conta própria exige competências estatísticas e gráficas que não estão distribuídas de modo uniforme na população \citep{Hornung2015,Lee2017,Brito2024}.
 
-No ambiente legislativo, essa discrepância atinge seu ápice em decorrência da própria natureza do material de origem. Extensos corpos normativos são estruturados por rigoroso jargão jurídico e saturados por complexas malhas de referências revogatórias. Decifrar a incidência atualizada de um projeto de lei impõe a investigação temporal retrospectiva de todas as suas emendas. Consequentemente, entre o ato de publicar a norma e o direito inalienável de compreendê-la consolida-se um vácuo. É a superação desse intervalo específico que alicerça o enfoque da presente revisão.
+No domínio legislativo, essa distância se acentua pela própria natureza do material. Textos normativos extensos, com vocabulário técnico-jurídico e densas referências cruzadas, exigem do leitor o acompanhamento de todas as emendas para entender a validade atual de uma norma. Entre publicar a lei e poder compreendê-la, forma-se um vão. É a superação desse vão que motiva a presente revisão.
 
 \subsection{IA Generativa, LLMs e recuperação aumentada}
 \label{subsec:bg_genai}
 
-Sustentados pelo peso probabilístico de trilhões de interações pregressas, os \emph{Large Language Models} (LLMs) adquiriram a habilidade de emular construções textuais orgânicas. Tais arquiteturas assumiram centralidade comercial e acadêmica não apenas pela desenvoltura linguística, mas por sua aptidão ímpar para o resumo estruturado e para o diálogo instrucional bidirecional \citep{JurafskyMartin2023}. Ao interceptarem o domínio dos arquivos governamentais, os LLMs transferem a responsabilidade da busca técnica do usuário para o servidor. Fica abolida a obrigação primária de preencher intricados formulários departamentais ou redigir \emph{queries} operacionais; a investigação transmuta-se numa conversação livre.
+Os \emph{Large Language Models} (LLMs) são modelos treinados sobre grandes volumes de texto, capazes de prever e gerar linguagem natural. Ganharam centralidade não só pela fluência, mas pela aptidão para resumir e responder a perguntas em diálogo \citep{JurafskyMartin2023}. Aplicados ao acesso a dados governamentais, deslocam o esforço técnico do usuário: em vez de preencher formulários ou escrever \emph{queries}, o cidadão pergunta em linguagem natural e recebe a resposta no mesmo registro.
 
-Essa guinada de comportamento, no entanto, internaliza defeitos de concepção profundos. O risco elementar atende pelo nome de alucinação algorítmica. Uma rede neural pode encadear vocabulário semanticamente coeso que sustenta convicções factualmente inverídicas. Projetar tal falha estatística sobre resoluções normativas públicas, corrompendo ativamente a interpretação cidadã, eleva a discussão técnica ao patamar do risco jurídico \citep{MarquesLaipelt2023}. O segundo grande gargalo diz respeito à efemeridade de seu treinamento. Modelos encapsulam a inteligência global da data em que foram compilados, ignorando legislações promulgadas no dia seguinte.
+Essa mudança traz dois problemas conhecidos. O primeiro é a alucinação: o modelo pode gerar um texto coerente, mas factualmente incorreto. Num contexto em que a informação pública tem efeito normativo, esse erro deixa de ser apenas técnico e passa a ter implicações jurídicas \citep{MarquesLaipelt2023}. O segundo é a defasagem do treinamento: o conhecimento do modelo é fixo na data de sua compilação e não acompanha legislações posteriores.
 
-Para lidar com essa defasagem, a arquitetura de Geração Aumentada por Recuperação (\emph{Retrieval-Augmented Generation} - RAG) ergue-se como a principal barreira metodológica de contenção. A estratégia determina que o algoritmo vasculhe e injete documentos textuais fidedignos e atualizados no corpo da pergunta inicial do usuário antes de processar a formulação da resposta final \citep{Lewis2020}. Nesse fluxo amarrado, o LLM deixa de confiar plenamente na sua memória abstrata e passa a interpretar o fragmento literal ofertado, assegurando o vínculo obrigatório com fontes originais. O emprego do RAG, portanto, deixa de ser configurado como requinte no processamento governamental para operar como mecanismo de obediência inegociável.
+A Geração Aumentada por Recuperação (\emph{Retrieval-Augmented Generation}, RAG) responde a ambos. Antes de gerar a resposta, o sistema recupera documentos relevantes e atualizados e os fornece ao modelo, que passa a se apoiar nessas fontes em vez de confiar apenas na memória interna \citep{Lewis2020}. Para dados legislativos, que mudam e exigem rastreabilidade à fonte, o RAG é menos um refinamento técnico e mais um requisito.
 
 \subsection{Trabalhos relacionados}
 \label{subsec:bg_related}
 
-O anseio pela inteligibilidade da documentação executiva e parlamentar antecede o fascínio contemporâneo pelos LLMs. O ciclo hegemônico anterior repousava nos pilares da Web Semântica. A metodologia propugnava a modelagem topológica da gestão estatal em dados abertos conectados (\emph{Linked Data}), forjando grafos de conhecimento que interligassem instâncias formais \citep{IsotaniBittencourt2015}. Projetos consolidados, como o ParliamentSampo na Finlândia \citep{Tamper2022} e o LinkedSaeima na Letônia \citep{Bojars2019}, consubstanciam esse paradigma. Ambas as plataformas criaram cartografias semânticas espetaculares das atividades em plenário. O sacrifício dessa organização sistêmica foi a dependência contínua de blocos lógicos formais (a exemplo da linguagem SPARQL) para desencadear consultas, o que reteve o controle dos portais nos laboratórios de ciência da computação e escanteou o interesse leigo.
+Tornar a documentação legislativa e parlamentar acessível é um problema anterior aos LLMs. A abordagem dominante até recentemente era a da Web Semântica: modelar a informação pública como dados conectados (\emph{Linked Data}) e grafos de conhecimento, expostos por consultas estruturadas \citep{IsotaniBittencourt2015}. Projetos como o ParliamentSampo, na Finlândia \citep{Tamper2022}, e o LinkedSaeima, na Letônia \citep{Bojars2019}, ilustram esse paradigma: dados ricamente estruturados e interligados, mas acessíveis sobretudo por consultas formais como SPARQL, o que mantém a barreira para o usuário leigo.
 
-A adesão à IA Generativa decreta o colapso dessa sintaxe técnica ao empoderar a voz cidadã. O ônus dessa permuta conversacional reside justamente na importação das já documentadas perturbações alucinatórias. Ainda que o tema mobilize fóruns governamentais ativos, a intersecção analítica abordando diretamente a implementação de algoritmos generativos como destrancadores de bases cívicas resiste de forma isolada. Há núcleos esparsos investigando viabilidades pontuais espalhados pelos simpósios de transparência digital e nos consórcios de linguagem natural.
+A IA Generativa propõe substituir essa sintaxe técnica pela conversa em linguagem natural, ao custo de herdar os problemas de confiabilidade já descritos. Embora o tema mobilize a comunidade, a interseção entre IA Generativa e acesso a dados governamentais ainda aparece de forma dispersa, espalhada por fóruns de transparência digital e de processamento de linguagem natural.
 
-Até o escopo desta validação, nenhuma articulação secundária da literatura conseguiu empacotar essa convergência em definitivo. Essa constatação de ineditismo foi previamente chancelada por meio de buscas de sondagem nas bases delineadas (Seção~\ref{subsec:busca}), aplicando-se filtros restritivos a metodologias de sumário integrativo (\textit{reviews}, \textit{surveys} e mapeamentos). É a carência de uma documentação agregadora que outorga sentido à presente Revisão Sistemática, servindo de estopim empírico às hipóteses erguidas na Seção~\ref{sec:metodo}.
-
-% TODO (após a busca): confirmar a ausência de RSL/estudo secundário correlato;
-% se algum for recuperado no corpus, posicionar a contribuição explicitamente
-% em relação a ele (cobertura, recorte temporal, questões).
+Até a condução desta revisão, não se identificou um estudo secundário que sintetize especificamente essa convergência. Essa ausência foi verificada por busca exploratória nas mesmas bases consultadas (Seção~\ref{subsec:busca}), restringindo os tipos de documento a revisões, \emph{surveys} e mapeamentos. A falta de uma síntese agregadora é o que justifica esta Revisão Sistemática e orienta as questões formuladas na Seção~\ref{sec:metodo}.
 
 % =====================================================================
 % Seção de Método completa (protocolo Kitchenham/Charters + PRISMA 2020),
@@ -200,9 +193,13 @@ Por fim, esses achados situam a contribuição da revisão no campo de Sistemas 
 \section{Conclusão}
 \label{sec:conclusao}
 % =====================================================================
-% TODO: retomar objetivo, achados por RQ, contribuições para SI e trabalhos
-% futuros.
-\textbf{[TODO (depende da revisão conduzida)]}
+Esta revisão investigou como a IA Generativa e os modelos de linguagem de grande porte vêm sendo aplicados ao acesso a dados governamentais abertos e à transparência pública. A partir de 29 estudos, selecionados segundo um protocolo definido a priori e reportados conforme o PRISMA 2020, caracterizou-se um campo recente, concentrado nos últimos três anos e ainda em formação.
+
+Os achados mostram que as aplicações se distribuem entre a estruturação de dados, o acesso conversacional e a mediação de serviços ao cidadão, operando sobretudo sobre dados textuais como legislação, decisões e documentos oficiais. Há forte dependência de modelos proprietários da família GPT, com adoção emergente de alternativas de pesos abertos. Os benefícios relatados concentram-se na remoção de barreiras técnicas e na simplificação da linguagem, enquanto os desafios recorrentes envolvem alucinações, custos, questões de governança e o alcance desigual às populações que mais necessitariam dessas soluções.
+
+A principal contribuição da revisão, contudo, não está no catálogo de aplicações, mas na constatação que o atravessa: embora a transparência pública seja a motivação declarada da maioria dos trabalhos, nenhum a avalia como desfecho cívico efetivo. Esse paradoxo da transparência revela uma lacuna entre a capacidade técnica já demonstrada e a verificação de seu valor público, que permanece por fazer. Para a área de Sistemas de Informação, o trabalho oferece um panorama do estado da arte, uma taxonomia de usos organizada entre oferta e demanda, e a indicação de uma agenda voltada à avaliação centrada no cidadão.
+
+Como trabalhos futuros, destacam-se três direções. A primeira é o desenvolvimento de instrumentos capazes de medir compreensão, confiança e uso efetivo por parte do cidadão, e não apenas o desempenho dos modelos. A segunda é o tratamento conjunto da qualidade dos dados de origem e da confiabilidade da geração, hoje abordadas de forma separada. A terceira é a ampliação da cobertura desta revisão por meio de snowballing e da inclusão de produção em outros idiomas, em especial o espanhol, de modo a captar mais plenamente a experiência latino-americana de governo aberto.
 
 % =====================================================================
 %  DECLARAÇÕES OBRIGATÓRIAS iSys (bloco da classe)
@@ -248,8 +245,8 @@ setores público, comercial ou sem fins lucrativos. % TODO: confirmar ou citar a
 Esta pesquisa utiliza exclusivamente dados públicos e literatura científica
 publicada; não envolve participantes humanos, não coleta dados pessoais e não
 manipula dados sensíveis, dispensando aprovação por comitê de ética.
-% TODO: declarar, se aplicável, o uso de ferramentas de IA generativa na
-% elaboração do artigo.
+
+Os autores utilizaram ferramentas de IA Generativa como apoio à organização de dados e à redação. As decisões metodológicas, a análise dos estudos e as conclusões são de responsabilidade exclusiva dos autores, que validaram todo o conteúdo final.
 \end{furtherinformation}
 
 \end{declarations}
