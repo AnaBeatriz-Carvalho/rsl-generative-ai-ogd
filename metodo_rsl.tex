@@ -46,7 +46,7 @@ RQ5 & Quais desafios e limitações são reportados? & Barreiras técnicas, éti
 \subsection{Estratégia de Busca}
 \label{subsec:busca}
 
-A busca automática foi conduzida em quatro bases reconhecidas na área de Computação: Scopus, Web of Science, ACM Digital Library e IEEE Xplore. A escolha combina bases indexadoras de amplo espectro (Scopus, Web of Science) e repositórios especializados (ACM, IEEE), reduzindo o risco de omitir estudos relevantes.
+A busca automática foi conduzida em cinco fontes: quatro bases internacionais reconhecidas na área de Computação --- Scopus, Web of Science, ACM Digital Library e IEEE Xplore --- e a Biblioteca Digital da SBC/SOL, como fonte adicional voltada à cobertura da produção nacional. A escolha combina bases indexadoras de amplo espectro (Scopus, Web of Science), repositórios especializados (ACM, IEEE) e o principal repositório da comunidade brasileira de Computação (SBC/SOL), reduzindo o risco de omitir estudos relevantes. As buscas foram executadas em junho de 2026: nas quatro bases internacionais em 16/06/2026 e na SBC/SOL em 19/06/2026. Consideraram-se estudos publicados entre janeiro de 2019 e a data da busca, recorte justificado pela consolidação dos LLMs a partir desse período. As \textit{strings} exatas por base, com datas e contagens, estão depositadas no repositório de materiais.
 
 Os termos de busca derivam das cinco dimensões da estrutura PICOC (Tabela~\ref{tab:picoc}), de modo que a \textit{string} cubra todas elas, e não apenas a Intervenção. O bloco de Intervenção reúne IA Generativa, LLMs e arquiteturas correlatas (modelos de fundação, \textit{transformers}, RAG e agentes conversacionais), incluindo modelos nomeados; os blocos de População, Desfecho e Contexto delimitam o escopo ao setor público, aos dados governamentais e legislativos, ao acesso à informação, à transparência e ao governo digital.
 
@@ -66,9 +66,9 @@ Contexto & Governo digital; \textit{e-government}; OGD \\ \hline
 \end{tabular}
 \end{table*}
 
-A \textit{string} de referência está na Figura~\ref{fig:string} e foi adaptada à sintaxe de cada base no momento da execução. Para atender ao critério de idioma (CI4), uma versão equivalente em português foi aplicada à Biblioteca Digital da SBC/SOL. A \textit{string} exata por base, a data de execução e a contagem de registros estão no repositório de materiais e na Seção~\ref{sec:resultados}, o que permite distinguir ausência real de produção de eventual erro na consulta.
+A \textit{string} de referência está na Figura~\ref{fig:string} e foi adaptada à sintaxe de cada base no momento da execução. Para atender ao critério de idioma (CI4), uma versão equivalente em português foi aplicada à Biblioteca Digital da SBC/SOL. A contagem de registros por base é reportada na Seção~\ref{sec:resultados}, o que permite distinguir ausência real de produção de eventual erro na consulta.
 
-\begin{figure*}[t]
+\begin{figure*}[tp]
 \centering
 \begin{minipage}{0.95\textwidth}
 \begin{small}
@@ -92,7 +92,7 @@ AND
 \label{fig:string}
 \end{figure*}
 
-Antes da execução definitiva, a \textit{string} passou por calibração-piloto contra um conjunto de controle de artigos já reconhecidos como relevantes: se algum não fosse recuperado, os termos seriam revistos. Consideraram-se estudos publicados entre janeiro de 2019 e a data da busca, recorte justificado pela consolidação dos LLMs a partir desse período. A revisão apoiou-se apenas na busca automática; técnicas de \textit{snowballing} \citep{wohlin2014} não foram conduzidas nesta etapa, e sua ausência é discutida como limitação na Seção~\ref{sec:ameacas}.
+Antes da execução definitiva, a \textit{string} passou por calibração-piloto contra um conjunto de controle de artigos já reconhecidos como relevantes: se algum não fosse recuperado, os termos seriam revistos. A revisão apoiou-se apenas na busca automática; técnicas de \textit{snowballing} \citep{wohlin2014} não foram conduzidas nesta etapa, e sua ausência é discutida como limitação na Seção~\ref{sec:ameacas}.
 
 \subsection{Critérios de Seleção e Processo de Triagem}
 \label{subsec:criterios}
@@ -120,7 +120,7 @@ CE5 & Versão preliminar de estudo posteriormente estendido (mantém-se a versã
 \end{tabular}
 \end{table}
 
-A seleção ocorreu em duas fases. Na primeira, os estudos foram triados por título e resumo; na segunda, os remanescentes foram avaliados por leitura do texto completo. As referências foram gerenciadas no Zotero, responsável pela deduplicação inicial, e a triagem foi operacionalizada no Rayyan. A revisão foi conduzida por uma única revisora. Para reduzir o viés de seleção, os critérios foram definidos a priori e aplicados de forma uniforme, e cada decisão de triagem, com o respectivo motivo, foi registrada de forma rastreável no Rayyan, permitindo auditoria. O fluxo completo de identificação, triagem, elegibilidade e inclusão é reportado pelo diagrama PRISMA na seção de resultados.
+A seleção ocorreu em duas fases. Na primeira, os estudos foram triados por título e resumo; na segunda, os remanescentes foram avaliados por leitura do texto completo. As referências foram gerenciadas no Zotero \citep{zotero}, responsável pela deduplicação inicial, e a triagem foi operacionalizada no Rayyan. A revisão foi conduzida por uma única revisora. Para reduzir o viés de seleção, os critérios foram definidos a priori e aplicados de forma uniforme, e cada decisão de triagem, com o respectivo motivo, foi registrada de forma rastreável no Rayyan, permitindo auditoria. O fluxo completo de identificação, triagem, elegibilidade e inclusão é reportado pelo diagrama PRISMA na seção de resultados.
 
 \subsection{Avaliação de Qualidade}
 \label{subsec:qualidade}

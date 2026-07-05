@@ -8,9 +8,11 @@
 %  conduzida (extensão do Mapeamento Sistemático existente) e estão
 %  marcadas com  % TODO (depende da revisão conduzida).
 %
-%  >>> SINGLE-BLIND <<<  O periódico opera revisão single-blind: os AUTORES
-%  DEVEM ser identificados no PDF (nome, ORCID, afiliação, e-mail).
-%  Preencher os campos marcados com TODO (ORCID/e-mail/afiliação).
+%  >>> DOUBLE-ANONYMOUS <<<  O iSys opera revisão double-anonymous: a versão
+%  de submissão NÃO deve identificar autores, afiliações, e-mails, ORCID,
+%  agradecimentos ou repositórios que revelem autoria. Use a flag \ifanon
+%  logo abaixo: \anontrue = versão de submissão (cega); \anonfalse = versão
+%  camera-ready (pós-aceite, restaura todos os dados de autoria).
 %
 %  Idioma do corpo: português  ->  classe carregada com [brazilian].
 %  O TÍTULO deve estar em inglês, independentemente do idioma do corpo.
@@ -22,6 +24,15 @@
 
 \documentclass[brazilian]{sbc2025}
 
+% ---------------------------------------------------------------------
+%  Flag de anonimização (double-anonymous do iSys).
+%  \anontrue  = versão de submissão (cega): oculta autores, e-mails,
+%               afiliações, agradecimentos e link identificável do repositório.
+%  \anonfalse = versão camera-ready (pós-aceite): restaura tudo.
+% ---------------------------------------------------------------------
+\newif\ifanon
+\anontrue
+
 \usepackage{aas_macros}
 \usepackage[bottom]{footmisc}
 \usepackage{afterpage}
@@ -31,6 +42,21 @@
 \usepackage{array}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit, calc}
+
+% ---------------------------------------------------------------------
+% Metadados do PDF — na versão cega, remover qualquer identificação
+% (evita desk-reject por metadata que revele autoria).
+% ---------------------------------------------------------------------
+\ifanon
+\hypersetup{
+  pdfauthor    = {},
+  pdftitle     = {Generative AI for Open Government Data Access and Public Transparency: A Systematic Literature Review},
+  pdfsubject   = {Systematic Literature Review},
+  pdfkeywords  = {},
+  pdfcreator   = {},
+  pdfproducer  = {}
+}
+\fi
 
 \setcitestyle{square}
 
@@ -49,31 +75,41 @@
 \title[Generative AI for Open Government Data: An SLR]{Generative AI for Open
 Government Data Access and Public Transparency: A Systematic Literature Review}
 
-% --- Autoria identificada (single-blind). \faEnvelopeO = autor correspondente. ---
+% --- Autoria: double-anonymous na submissão, identificada na camera-ready. ---
+\ifanon
+\author[Anonymous 202X]{%
+\affil{\textbf{[Author names removed for double-anonymous review]}}%
+}
+\else
 \author[Oliveira et al. 202X]{
 \affil{\textbf{Ana Beatriz Carvalho Oliveira}~\orcidlink{0009-0004-3454-6527}~\textcolor{blue}{\faEnvelopeO}~~[{Universidade Federal de Sergipe}~|
 \href{mailto:anabeatrizcarvalho@academico.ufs.br}{~{\textit{anabeatrizcarvalho@academico.ufs.br}}}~]}
 \affil{\textbf{Gilton José Ferreira da Silva}~\orcidlink{0000-0002-2281-9426}~~[{Universidade Federal de Sergipe}~|
 \href{mailto:gilton@dcomp.ufs.br}{{\textit{gilton@dcomp.ufs.br}}}~]}
 }
+\fi
 
 \begin{document}
 \begin{frontmatter}
 \maketitle
 
 \begin{mail}
+\ifanon
+[Corresponding author affiliation removed for double-anonymous review.]
+\else
 Departamento de Computação, Universidade Federal de Sergipe, São Cristóvão -- SE, Brasil.
+\fi
 \end{mail}
 
 % ---------------------------------------------------------------------
 %  RESUMOS  (Resumo deve ter 200–250 palavras, estruturado, 1 parágrafo)
 % ---------------------------------------------------------------------
 \begin{abstract-pt}
-A abertura de dados governamentais amplia o potencial de transparência pública, mas publicar os dados não basta: seu volume e sua complexidade mantêm barreiras de acesso para o cidadão. Este artigo investiga como a Inteligência Artificial Generativa e os \emph{Large Language Models} (LLMs) vêm sendo usados para reduzir essas barreiras e fortalecer a transparência pública. Conduziu-se uma Revisão Sistemática da Literatura segundo as diretrizes de Kitchenham e o protocolo PRISMA~2020, abrangendo bases internacionais e a Biblioteca Digital da SBC/SOL como fonte adicional. A síntese reuniu 29 estudos, 27 de bases internacionais e 2 da SBC/SOL. As aplicações distribuem-se entre estruturação de dados, acesso conversacional e mediação de serviços ao cidadão, operando sobretudo sobre dados textuais, como legislação, decisões e documentos oficiais. Predominam modelos proprietários da família GPT, presentes em 18 dos 29 estudos, com adoção emergente de modelos de pesos abertos. Os benefícios reportados concentram-se na simplificação de linguagem e na facilitação do acesso, enquanto os desafios recorrentes incluem alucinações, custos de adoção e a necessidade de supervisão humana. Observou-se, porém, que nenhum estudo avalia a transparência como desfecho cívico efetivo, o que se denomina paradoxo da transparência. A revisão mapeia um campo emergente na interseção entre governo digital, dados abertos e IA Generativa, e organiza uma agenda de pesquisa para a área de Sistemas de Informação.
+A abertura de dados governamentais amplia a transparência pública, mas publicar não basta: volume e complexidade mantêm barreiras de acesso ao cidadão. Este artigo mapeia sistematicamente aplicações de IA Generativa e \emph{Large Language Models} (LLMs) para reduzir essas barreiras. Aplicou-se o protocolo de Kitchenham e o PRISMA~2020 sobre bases internacionais e a SBC/SOL, totalizando 29 estudos. As aplicações abrangem estruturação de dados, acesso conversacional e mediação de serviços, predominando dados textuais (legislação, decisões, documentos oficiais) sobre dados estruturados. Predominam modelos da família GPT (18/29), com adoção emergente de pesos abertos. Os benefícios concentram-se na remoção de barreiras técnicas de acesso e na simplificação da linguagem jurídica; os desafios recorrentes envolvem alucinações, custos, supervisão humana e alcance desigual a populações com menor literacia digital. Nenhum estudo, porém, avalia a transparência como desfecho cívico efetivo, o que denominamos paradoxo da transparência. A revisão contribui com uma taxonomia oferta/demanda e uma agenda de avaliação centrada no cidadão para Sistemas de Informação.
 \end{abstract-pt}
 
 \begin{abstract-en}
-Opening government data expands the potential for public transparency, but releasing the data is not enough: its volume and complexity keep access barriers in place for citizens. This article investigates how Generative Artificial Intelligence and \emph{Large Language Models} (LLMs) have been used to reduce these barriers and strengthen public transparency. We conducted a Systematic Literature Review following Kitchenham's guidelines and the PRISMA~2020 protocol, covering international databases and the SBC/SOL Digital Library as an additional source. The synthesis comprised 29 studies, 27 from international databases and 2 from SBC/SOL. The applications fall into data structuring, conversational access, and citizen service mediation, operating mostly on textual data such as legislation, rulings, and official documents. Proprietary models from the GPT family prevail, appearing in 18 of the 29 studies, with emerging adoption of open-weight models. Reported benefits center on language simplification and improved access, while recurring challenges include hallucinations, adoption costs, and the need for human oversight. However, no study evaluates transparency as an effective civic outcome, which we term the transparency paradox. The review maps an emerging field at the intersection of digital government, open data, and Generative AI, and outlines a research agenda for Information Systems research.
+Opening government data expands public transparency, but publishing is not enough: volume and complexity keep access barriers in place for citizens. This article systematically maps applications of Generative AI and \emph{Large Language Models} (LLMs) to reduce these barriers. We followed Kitchenham's guidelines and the PRISMA~2020 protocol over international databases and the SBC/SOL Digital Library, yielding 29 studies. Applications span data structuring, conversational access, and service mediation, operating predominantly on textual data (legislation, rulings, official documents) rather than on structured data. Proprietary models from the GPT family prevail (18/29), with emerging adoption of open-weight models. Reported benefits center on removing technical access barriers and simplifying legal and administrative language; recurring challenges involve hallucinations, adoption costs, human oversight, and uneven reach among populations with lower digital literacy. However, no study evaluates transparency as an effective civic outcome, which we term the transparency paradox. The review contributes a supply/demand taxonomy and a citizen-centered evaluation agenda for Information Systems.
 \end{abstract-en}
 
 \begin{pchaves}
@@ -103,11 +139,11 @@ Public Transparency, Systematic Literature Review
 % informação e apoio à decisão. Evitar que pareça apenas "PLN/IA".
 % Reuso de enquadramento: capitulos/introducao.tex e capitulos/fundamentacao.tex.
 
-A transparência pública e o acesso à informação são pilares do governo digital e tema recorrente de pesquisa em Sistemas de Informação. A abertura de dados governamentais (\emph{open government data}, OGD) fortalece as bases para o controle social e a \emph{accountability}, mas publicar o dado bruto não garante que ele seja útil. Entre o cidadão e a informação que lhe pertence permanecem barreiras técnicas e cognitivas.
+A transparência pública e o acesso à informação são pilares do governo digital e tema recorrente de pesquisa em Sistemas de Informação \citep{RibeiroAlmeida2011,OliveiraCkagnazaroff2022}. A abertura de dados governamentais (\emph{open government data}, OGD) fortalece as bases para o controle social e a \emph{accountability}, mas publicar o dado bruto não garante que ele seja útil \citep{ZuiderwijkJanssen2014,Vetro2016}. Entre o cidadão e a informação que lhe pertence permanecem barreiras técnicas e cognitivas \citep{Hornung2015,Lee2017}.
 
 A literatura de governo eletrônico já documenta os benefícios da abertura de dados públicos, e os avanços recentes da IA Generativa mostram a capacidade dos modelos de interpretar documentos técnicos densos. O que conecta esses dois campos, porém, ainda está disperso. Falta uma síntese estruturada sobre como os grandes modelos de linguagem (LLMs) vêm sendo usados para aproximar o cidadão do dado aberto.
 
-\paragraph{Objetivo e contribuições.} Para preencher essa lacuna, este artigo mapeia sistematicamente como a IA Generativa vem sendo aplicada ao acesso a dados governamentais abertos. A revisão caracteriza as áreas de aplicação (RQ1), os tipos de dados tratados (RQ2), os modelos empregados (RQ3), os benefícios reportados (RQ4) e os desafios remanescentes (RQ5). Dessa caracterização derivam três contribuições: (i) um panorama atualizado do estado da arte; (ii) uma taxonomia dos usos de IA Generativa no acesso a dados governamentais; e (iii) uma agenda de pesquisa para a comunidade de Sistemas de Informação.
+\paragraph{Objetivo e contribuições.} Para preencher essa lacuna, este artigo tem como objetivo mapear sistematicamente como a IA Generativa vem sendo aplicada ao acesso a dados governamentais abertos. A revisão caracteriza as áreas de aplicação (RQ1), os tipos de dados tratados (RQ2), os modelos empregados (RQ3), os benefícios reportados (RQ4) e os desafios remanescentes (RQ5). Dessa caracterização derivam três contribuições: (i) um panorama atualizado do estado da arte; (ii) uma taxonomia dos usos de IA Generativa no acesso a dados governamentais; e (iii) uma agenda de pesquisa para a comunidade de Sistemas de Informação.
 
 \paragraph{Organização.} A Seção~\ref{sec:background} apresenta os conceitos fundamentais e os trabalhos relacionados. A Seção~\ref{sec:metodo} detalha o método da revisão. A Seção~\ref{sec:resultados} reporta os resultados, a Seção~\ref{sec:discussao} discute suas implicações e a Seção~\ref{sec:ameacas} trata das ameaças à validade. A Seção~\ref{sec:conclusao} conclui o trabalho.
 
@@ -119,14 +155,20 @@ A literatura de governo eletrônico já documenta os benefícios da abertura de 
 % MIS Quarterly, Information Systems Research, Decision Support Systems,
 % ECIS, ICIS, AMCIS.
 
+Esta seção situa o problema de pesquisa em três blocos. Primeiro, revisa o conceito de dados governamentais abertos e a distância entre publicar o dado e torná-lo efetivamente acessível ao cidadão. Em seguida, apresenta a IA Generativa e os LLMs como tecnologia candidata a reduzir essa distância, com destaque para a arquitetura de Geração Aumentada por Recuperação (RAG). Por fim, examina os trabalhos que precedem esta revisão, incluindo os estudos secundários mais próximos e as diferenças que justificam a presente síntese.
+
 \subsection{Dados governamentais abertos e a lacuna de acesso}
 \label{subsec:bg_ogd}
 
 A expressão \emph{open government data} (OGD) designa os dados produzidos ou mantidos pelo setor público, disponibilizados em formato legível por máquina e sob licença que permite reúso \citep{ZuiderwijkJanssen2014}. Em Sistemas de Informação, o OGD liga-se diretamente às agendas de governo digital e \emph{accountability}: a abertura dos dados é tratada como infraestrutura para o controle social, e não como um fim em si \citep{RibeiroAlmeida2011,OliveiraCkagnazaroff2022}. A literatura, porém, distingue de forma consistente os atos de disponibilizar e de usar. Políticas de abertura variam muito em sucesso e frequentemente esbarram em problemas de formatação, atualização tardia ou inconsistência, falhas que comprometem o reúso dos dados \citep{ZuiderwijkJanssen2014,Vetro2016}.
 
+Convém destacar que essa formulação trata a abertura do dado como meio, e não como fim. O valor público perseguido pelo campo, seja o controle social, a \emph{accountability} ou a participação, não se realiza no ato de disponibilizar o arquivo, e sim no uso que ele viabiliza. Enquanto o dado publicado não é apropriado por quem dele necessita, a promessa de transparência permanece potencial, e a política de abertura entrega infraestrutura sem entregar resultado. Essa distinção entre disponibilizar e gerar valor público desloca o foco da avaliação. Contabilizar o volume de conjuntos publicados ou aferir a conformidade de formatos informa sobre a oferta, não sobre o efeito público que a justifica. O que interessa, no horizonte de \emph{accountability} que orienta a subseção, é se o cidadão converte o dado em compreensão e, a partir dela, em ação. É esse deslocamento de foco que organiza os obstáculos discutidos a seguir, situando-os não como falhas técnicas isoladas, mas como pontos em que a cadeia entre publicação e apropriação se rompe.
+
 Mesmo quando a qualidade técnica do dado está garantida, surge uma segunda barreira: a distância cognitiva entre o portal e o cidadão interessado. Estudos de \emph{design} e de literacia de dados mostram que interpretar conjuntos governamentais por conta própria exige competências estatísticas e gráficas que não estão distribuídas de modo uniforme na população \citep{Hornung2015,Lee2017,Brito2024}.
 
 No domínio legislativo, essa distância se acentua pela própria natureza do material. Textos normativos extensos, com vocabulário técnico-jurídico e densas referências cruzadas, exigem do leitor o acompanhamento de todas as emendas para entender a validade atual de uma norma. Entre publicar a lei e poder compreendê-la, forma-se um vão. É a superação desse vão que motiva a presente revisão.
+
+Esse vão pode ser lido em duas camadas complementares. Na primeira, as dimensões técnicas discutidas pela literatura, entre elas completude, atualização, formato e consistência \citep{ZuiderwijkJanssen2014,Vetro2016}, operam como condição, e não como garantia, do reúso. Um conjunto disponibilizado com atraso, em formato pouco estruturado ou com registros parciais atende formalmente à exigência de abertura sem sustentar, na prática, análises cívicas confiáveis. Na segunda camada, mesmo quando essas dimensões são plenamente satisfeitas, o obstáculo cognitivo se mantém. Ler uma série orçamentária, comparar categorias oficiais ou situar uma emenda no contexto de uma norma exige competências de literacia de dados que se distribuem de forma desigual na população \citep{Hornung2015,Lee2017}. As duas camadas se reforçam. Dados de qualidade limitada elevam a barreira cognitiva ao exigir do cidadão trabalho adicional de interpretação, e a assimetria de literacia amplia o custo social das falhas de qualidade que restam. Tratar esse vão como problema apenas técnico ou apenas educacional deixaria de fora justamente o ponto em que as duas ordens de obstáculo se encontram.
 
 \subsection{IA Generativa, LLMs e recuperação aumentada}
 \label{subsec:bg_genai}
@@ -137,6 +179,15 @@ Essa mudança traz dois problemas conhecidos. O primeiro é a alucinação: o mo
 
 A Geração Aumentada por Recuperação (\emph{Retrieval-Augmented Generation}, RAG) responde a ambos. Antes de gerar a resposta, o sistema recupera documentos relevantes e atualizados e os fornece ao modelo, que passa a se apoiar nessas fontes em vez de confiar apenas na memória interna \citep{Lewis2020}. Para dados legislativos, que mudam e exigem rastreabilidade à fonte, o RAG é menos um refinamento técnico e mais um requisito.
 
+Convém aprofundar por que essa reclassificação, de refinamento a requisito, se sustenta no domínio legislativo. A informação normativa é datada e mutável: uma norma pode ter sido alterada, revogada ou reinterpretada após o corte de treinamento do modelo, e a resposta útil ao cidadão é aquela que reflete o estado vigente do texto, com identificação da fonte que o comprova. A memória interna do modelo, fixa na data em que foi compilada, não oferece nem a atualização nem a rastreabilidade que o domínio requer, o que faz da recuperação sobre um repositório documental atualizado uma condição de operação, e não uma otimização. Ainda assim, ancorar a geração em documentos recuperados apenas desloca o problema para a etapa seguinte. Que a resposta cite um documento existente e localizável não implica que o trecho recuperado, uma vez integrado à geração, sustente de fato a afirmação apresentada ao leitor. A distância entre apontar uma fonte e apoiar-se nela permanece em aberto pela recuperação isoladamente e ressurge como questão de avaliação quando o que está em jogo é a fidelidade da saída ao documento público invocado. A Figura~\ref{fig:paradigmas} sintetiza o contraste entre esse paradigma emergente e a abordagem anterior, baseada na Web Semântica, discutida a seguir.
+
+\begin{figure*}[tp]
+\centering
+\includegraphics[width=0.75\textwidth,keepaspectratio]{imagens/paradigmas.png}
+\caption{Dois paradigmas de acesso ao dado governamental aberto. No paradigma anterior, baseado na Web Semântica, o dado é modelado como dados conectados e grafos de conhecimento, acessíveis por consulta formal (SPARQL), o que mantém a barreira técnica para o usuário leigo. No paradigma atual, a IA Generativa (LLMs com recuperação aumentada) oferece interface em linguagem natural, ampliando o acesso, mas herdando problemas de confiabilidade como a alucinação.}
+\label{fig:paradigmas}
+\end{figure*}
+
 \subsection{Trabalhos relacionados}
 \label{subsec:bg_related}
 
@@ -144,7 +195,9 @@ Tornar a documentação legislativa e parlamentar acessível é um problema ante
 
 A IA Generativa propõe substituir essa sintaxe técnica pela conversa em linguagem natural, ao custo de herdar os problemas de confiabilidade já descritos. Embora o tema mobilize a comunidade, a interseção entre IA Generativa e acesso a dados governamentais ainda aparece de forma dispersa, espalhada por fóruns de transparência digital e de processamento de linguagem natural.
 
-Até a condução desta revisão, não se identificou um estudo secundário que sintetize especificamente essa convergência. Essa ausência foi verificada por busca exploratória nas mesmas bases consultadas (Seção~\ref{subsec:busca}), restringindo os tipos de documento a revisões, \emph{surveys} e mapeamentos. A falta de uma síntese agregadora é o que justifica esta Revisão Sistemática e orienta as questões formuladas na Seção~\ref{sec:metodo}.
+Três revisões secundárias recentes situam-se na vizinhança direta desta pesquisa e permitem contrastá-la com o estado atual do campo. \citet{Bastos2025} conduzem um mapeamento sistemático de LLMs em análise de dados abertos governamentais, caracterizando padrões de adoção (tipos de contribuição, domínios e modelos empregados) e reportando a predominância da família GPT e das funções de interface conversacional e extração de informação. O foco recai sobre a caracterização da adoção; a transparência não é tratada como categoria de desfecho, e a distinção entre oferta e demanda não é articulada. \citet{Widiyaningtyas2026} revisam sistematicamente \textit{chatbots} governamentais baseados em Geração Aumentada por Recuperação e propõem o \emph{Semantic Alignment Score} como métrica de ancoragem, observando que definições e métricas de \textit{groundedness} para documentos governamentais permanecem raras. A ancoragem é enquadrada como métrica técnica de fidelidade ao documento, o que se aproxima da preocupação desta revisão, mas não avança até o desfecho cívico; a discussão fica no plano da integridade referencial, sem contemplar a atribuição semântica que sustenta a compreensão pelo cidadão. \citet{Savveli2025} sintetizam as atitudes do cidadão diante de serviços de \textit{e-government} com IA, com predominância de \textit{chatbots}, e situam a transparência como necessidade de \textit{design} percebida pelos usuários, e não como desfecho medido. Em conjunto, essas revisões confirmam a maturação do campo, mas nenhuma trata a transparência como resultado cívico verificado. A taxonomia entre oferta e demanda, a classificação da transparência como desfecho e o recorte legislativo é o que distingue a presente revisão.
+
+A busca exploratória em veículos brasileiros, incluindo a Biblioteca Digital da SBC (SOL) e a própria iSys, não retornou revisão secundária correlata sobre IA Generativa aplicada a dados governamentais. O cenário nacional adjacente compõe-se de estudos primários, do qual são ilustrativos três trabalhos recentes. \citet{Marcacini2025} propõem a destilação de LLMs com ajuste fino preservando privacidade para uso no setor público. \citet{Monteiro2023} investigam problemas de usabilidade em \textit{chatbots} governamentais brasileiros e estrangeiros. \citet{Presa2024} avaliam LLMs no raciocínio sobre legislação tributária. Esses trabalhos indicam produção nacional ativa em torno do problema, sem, contudo, oferecer uma síntese secundária que responda às questões formuladas nesta revisão, o que justifica a Revisão Sistemática aqui apresentada e orienta a Seção~\ref{sec:metodo}.
 
 % =====================================================================
 % Seção de Método completa (protocolo Kitchenham/Charters + PRISMA 2020),
@@ -169,7 +222,13 @@ Um segundo achado diz respeito à distribuição das aplicações. A maior parte
 
 O terceiro ponto refere-se à maturidade metodológica e à reprodutibilidade. A dependência de modelos proprietários, presente na maioria do corpus, combinada com a omissão do modelo utilizado em parte dos estudos, fragiliza a verificação independente dos resultados. Soma-se a isso a onipresença das alucinações, relatadas em quase todos os trabalhos e particularmente críticas em um domínio onde a informação tem efeito normativo. O campo opera, em larga medida, sobre caixas-pretas comerciais cujo comportamento não pode ser plenamente auditado, o que contrasta com as exigências de transparência e prestação de contas que a própria literatura defende. Há aqui uma ironia que merece registro: ferramentas opacas são propostas para promover a transparência do Estado.
 
-Por fim, esses achados situam a contribuição da revisão no campo de Sistemas de Informação. Mais do que catalogar aplicações, o estudo evidencia uma lacuna entre a capacidade técnica já demonstrada e a avaliação de valor público que ainda não se realizou. Para a agenda de SI, isso aponta a necessidade de instrumentos de avaliação centrados no cidadão, capazes de medir compreensão, confiança e uso efetivo, e não apenas o desempenho do modelo. Aponta também para a relevância de abordagens que tratem a qualidade do dado e a confiabilidade da geração como questões inseparáveis do acesso. A taxonomia de usos aqui proposta, organizada entre oferta e demanda, oferece um ponto de partida para essa agenda.
+Um desdobramento desse ponto merece registro à parte, por incidir sobre a rastreabilidade da saída. Mesmo quando um sistema associa cada afirmação a um documento de origem, verificar que a citação existe formalmente não é o mesmo que verificar que o trecho citado sustenta, de fato, a afirmação. Distinguimos aqui, como lente analítica da revisão, integridade referencial (a saída aponta para uma fonte real e localizável) e atribuição semântica (a fonte apontada de fato ancora o conteúdo asseverado). Quando as avaliações do corpus tocam a rastreabilidade, tendem a parar na primeira e não alcançar a segunda. A proposta de \citet{Widiyaningtyas2026}, com sua métrica de \emph{groundedness} (o Semantic Alignment Score), representa o esforço mais avançado nessa direção, ao medir a ancoragem da saída aos documentos recuperados; ainda assim, essa medida opera próxima da integridade referencial e não substitui a atribuição semântica que o cidadão precisaria para conferir uma afirmação de forma independente. O ponto pesa neste domínio porque, em uma área de efeito normativo, uma saída fluente e formalmente atribuída, mas semanticamente infiel, é mais perigosa do que uma alucinação evidente, pois carrega aparência de autoridade e escapa mais facilmente à detecção. Avaliar apenas a integridade referencial pode, assim, produzir uma falsa sensação de rastreabilidade, ao passo que a transparência cívica exigiria uma atribuição que o cidadão possa seguir até a fonte e confirmar, algo que o corpus não avalia. Nesse sentido, o achado reforça o paradoxo da transparência.
+
+Um segundo desdobramento estende a discussão do lado da recepção. A promessa de democratização do acesso pressupõe um cidadão apto a interagir com o sistema, mas os desafios reportados na RQ5 apontam barreiras que antecedem a interface. A literatura registra baixa literacia digital, conectividade limitada e exclusão linguística, esta última manifesta na falta de suporte a línguas indígenas e minoritárias. Quando cruzamos esse quadro com a RQ3, que documenta a predominância de modelos proprietários da família GPT em dezoito dos vinte e nove estudos, o padrão se agrava: a mediação do acesso repousa, em larga medida, sobre infraestruturas cuja cobertura linguística e cujas condições de uso são definidas fora do controle público e tendem a favorecer os idiomas e usuários já melhor servidos. Observamos, ainda, que um dos estudos do corpus registra o efeito paradoxal de combinar a interface conversacional com a exibição de tabelas brutas, que pode sobrecarregar o usuário em vez de auxiliá-lo \cite{EffectiveUseOGD2025}. Uma ferramenta que promete ampliar o acesso, mas pressupõe letramento digital, conectividade estável e disponibilidade na língua do cidadão, pode aprofundar a desigualdade cívica em vez de mitigá-la. Também aqui, portanto, o acesso efetivo é assumido, não demonstrado, o que estende ao lado da recepção a mesma dissociação já observada quanto à transparência.
+
+Cabe qualificar o balanço com um registro do que o campo, apesar das lacunas apontadas, de fato entrega. A RQ4 documenta benefícios em três frentes. Primeiro, a remoção de barreiras técnicas de acesso, ao permitir consultas em linguagem natural sobre dados que antes exigiam domínio de SPARQL, SQL ou planilhas, com registros de aumento na taxa de conclusão de tarefas, de 66,7\% para 100\%, e redução de 47,9\% no tempo de acesso \cite{ChatbotMadrid2021}, melhoria de 21,3\% na acurácia de descoberta de conjuntos de dados \cite{Gan2026} e redução do tempo de localização de conjuntos de dados de minutos para segundos \cite{DesigningODAssistant2024}. Segundo, a mediação da compreensão por meio da simplificação de linguagem jurídica, da sumarização de pareceres técnicos e da tradução de procedimentos administrativos em orientações passo a passo, o que atua sobre a barreira cognitiva e não apenas sobre a técnica. Terceiro, ganhos de qualidade e confiabilidade da informação, como a construção de bases legislativas interligadas e rastreáveis, o preenchimento automático de metadados ausentes em portais e o uso de grafos de conhecimento para reduzir alucinações. Esses benefícios são reais e ajudam a explicar o entusiasmo em torno da aplicação de IA Generativa a dados governamentais. Convém, porém, situar sua natureza: como a própria RQ4 registra, eles são aferidos, em sua maior parte, sob a ótica do desempenho do sistema ou da percepção imediata do usuário em testes controlados, e não sob a ótica do impacto cívico em uso real. Um benefício técnico observado não equivale, ainda, a um ganho cívico medido. A lacuna que percorre esta revisão, portanto, não está na existência do benefício, e sim na ausência de avaliação de seu efeito público, ponto em que o balanço positivo se articula ao paradoxo da transparência sem contradizê-lo.
+
+Por fim, esses achados situam a contribuição da revisão no campo de Sistemas de Informação. Mais do que catalogar aplicações, o estudo evidencia uma lacuna entre a capacidade técnica já demonstrada e a avaliação de valor público que ainda não se realizou. Para a agenda de SI, isso aponta a necessidade de instrumentos de avaliação centrados no cidadão, capazes de medir compreensão, confiança e uso efetivo, e não apenas o desempenho do modelo. Aponta também para a relevância de abordagens que tratem a qualidade do dado e a confiabilidade da geração como questões inseparáveis do acesso, incluindo a atribuição semântica como alvo de avaliação ao lado das medidas centradas no cidadão. A taxonomia de usos aqui proposta, organizada entre oferta e demanda, oferece um ponto de partida para essa agenda.
 
 % =====================================================================
 \section{Ameaças à Validade}
@@ -197,7 +256,9 @@ Esta revisão investigou como a IA Generativa e os modelos de linguagem de grand
 
 Os achados mostram que as aplicações se distribuem entre a estruturação de dados, o acesso conversacional e a mediação de serviços ao cidadão, operando sobretudo sobre dados textuais como legislação, decisões e documentos oficiais. Há forte dependência de modelos proprietários da família GPT, com adoção emergente de alternativas de pesos abertos. Os benefícios relatados concentram-se na remoção de barreiras técnicas e na simplificação da linguagem, enquanto os desafios recorrentes envolvem alucinações, custos, questões de governança e o alcance desigual às populações que mais necessitariam dessas soluções.
 
-A principal contribuição da revisão, contudo, não está no catálogo de aplicações, mas na constatação que o atravessa: embora a transparência pública seja a motivação declarada da maioria dos trabalhos, nenhum a avalia como desfecho cívico efetivo. Esse paradoxo da transparência revela uma lacuna entre a capacidade técnica já demonstrada e a verificação de seu valor público, que permanece por fazer. Para a área de Sistemas de Informação, o trabalho oferece um panorama do estado da arte, uma taxonomia de usos organizada entre oferta e demanda, e a indicação de uma agenda voltada à avaliação centrada no cidadão.
+A principal contribuição da revisão, contudo, não está no catálogo de aplicações, mas na constatação que o atravessa: embora a transparência pública seja a motivação declarada da maioria dos trabalhos, nenhum a avalia como desfecho cívico efetivo. Esse paradoxo da transparência revela uma lacuna entre a capacidade técnica já demonstrada e a verificação de seu valor público, que permanece por fazer. Para a área de Sistemas de Informação, o trabalho oferece um panorama do estado da arte, uma taxonomia de usos organizada entre oferta e demanda (com três categorias concretas: estruturação e enriquecimento de dados, acesso conversacional a dados abertos, e serviços e informação ao cidadão), e a indicação de uma agenda voltada à avaliação centrada no cidadão.
+
+Desses achados decorrem implicações práticas para os gestores de portais de dados abertos. A concentração do esforço do campo na camada de interface, evidenciada pela distribuição do corpus entre oferta e demanda, sugere que ganhos duradouros de acesso dependem de deslocar parte desse investimento para a qualidade do dado na origem, pois interfaces bem construídas sobre dados incompletos ou mal descritos herdam as limitações do insumo. Sugere, também, que a avaliação dos serviços apoiados por IA Generativa se aproxime das dimensões que interessam ao cidadão, como compreensão, confiança, uso efetivo e possibilidade de conferir a atribuição semântica das respostas até a fonte, e não apenas do desempenho do sistema. Trata-se de implicações derivadas dos padrões observados no corpus, oferecidas como orientação e não como prescrição.
 
 Como trabalhos futuros, destacam-se três direções. A primeira é o desenvolvimento de instrumentos capazes de medir compreensão, confiança e uso efetivo por parte do cidadão, e não apenas o desempenho dos modelos. A segunda é o tratamento conjunto da qualidade dos dados de origem e da confiabilidade da geração, hoje abordadas de forma separada. A terceira é a ampliação da cobertura desta revisão por meio de snowballing e da inclusão de produção em outros idiomas, em especial o espanhol, de modo a captar mais plenamente a experiência latino-americana de governo aberto.
 
@@ -206,18 +267,34 @@ Como trabalhos futuros, destacam-se três direções. A primeira é o desenvolvi
 % =====================================================================
 \begin{declarations}
 
+\ifanon
 \begin{acknowledgements}
-% OBRIGATÓRIA para publicação (se aceito). TODO: revisar/ajustar.
-Os autores agradecem ao Programa de Pós-Graduação em Ciência da Computação da
-Universidade Federal de Sergipe pelo apoio à pesquisa. % TODO: confirmar/ajustar.
+Agradecimentos serão incluídos na versão camera-ready.
 \end{acknowledgements}
+\else
+\begin{acknowledgements}
+Os autores agradecem ao Programa de Pós-Graduação em Ciência da Computação
+(PROCC) da Universidade Federal de Sergipe (UFS) pelo apoio à pesquisa.
+\end{acknowledgements}
+\fi
 
 \begin{contributions}
-% OBRIGATÓRIA (CRediT: https://credit.niso.org/). TODO: ajustar papéis.
-A. B. C. Oliveira: conceituação, metodologia, condução da revisão (busca,
-triagem e extração), redação do manuscrito original. G. J. F. da Silva:
-supervisão, conceituação e revisão crítica do manuscrito. Todos os autores
-leram e aprovaram a versão final.
+% CRediT (https://credit.niso.org/). Iniciais substituídas por rótulos genéricos
+% na versão cega; restaurar na camera-ready.
+\ifanon
+Autor~1: \textit{Conceptualization}, \textit{Methodology}, \textit{Investigation}
+(condução da busca, triagem e extração), \textit{Data curation},
+\textit{Writing -- original draft}. Autor~2: \textit{Supervision},
+\textit{Conceptualization}, \textit{Writing -- review \& editing}. Todos os
+autores leram e aprovaram a versão final.
+\else
+A. B. C. Oliveira: \textit{Conceptualization}, \textit{Methodology},
+\textit{Investigation} (condução da busca, triagem e extração),
+\textit{Data curation}, \textit{Writing -- original draft}.
+G. J. F. da Silva: \textit{Supervision}, \textit{Conceptualization},
+\textit{Writing -- review \& editing}. Todos os autores leram e aprovaram a
+versão final.
+\fi
 \end{contributions}
 
 \begin{interests}
@@ -231,7 +308,13 @@ Os autores declaram não haver conflitos de interesse.
 % TODO: inserir DOI/URL do repositório.
 O protocolo, as \textit{strings} de busca por base, a lista de estudos
 incluídos e a planilha de extração estão disponíveis em repositório público:
+\ifanon
+\url{https://anonymous.4open.science/r/rsl-generative-ai-ogd-anon}
+(espelho anônimo para a revisão; o repositório identificado será divulgado
+na versão camera-ready).
+\else
 \url{https://github.com/AnaBeatriz-Carvalho/rsl-generative-ai-ogd}.
+\fi
 \end{materials}
 
 \begin{funding}

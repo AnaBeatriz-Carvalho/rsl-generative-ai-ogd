@@ -24,9 +24,9 @@ Esta seção reporta os resultados da execução da revisão conforme o protocol
 \subsection{Seleção dos Estudos}
 \label{subsec:res_selecao}
 
-As buscas foram executadas em junho de 2026, nas quatro bases internacionais em 16/06/2026 e na SBC/SOL em 19/06/2026; as \textit{strings} exatas por base, com as respectivas datas e contagens, estão depositadas no repositório de materiais. A busca automática nas quatro bases internacionais recuperou \textbf{1.265 registros}, assim distribuídos: Scopus (453), ACM Digital Library (445), IEEE Xplore (224) e Web of Science (143). Como fonte adicional, a busca na Biblioteca Digital da SBC/SOL recuperou \textbf{23 registros}, tratados em fluxo separado por essa base não oferecer exportação padronizada (BibTeX/RIS), totalizando \textbf{1.288 registros identificados}. A deduplicação das quatro bases internacionais, conduzida no Zotero, removeu 460 registros, resultando em \textbf{805 registros únicos}; os 23 registros da SOL foram deduplicados manualmente, sem ocorrência de duplicatas. Na triagem por título e resumo, operacionalizada no Rayyan, os 805 registros das bases internacionais levaram a 759 exclusões e a \textbf{46 estudos} encaminhados à recuperação do texto completo; destes, 19 não foram recuperados (\textit{reports not retrieved} no PRISMA 2020) e \textbf{27 foram avaliados em elegibilidade e incluídos} (sem exclusões adicionais por critério na leitura do texto completo). A não recuperação desses 19 estudos deveu-se predominantemente à ausência de acesso aberto e à falta de cobertura, pelos convênios institucionais disponíveis, dos veículos específicos em que foram publicados. Optou-se por registrá-los de forma transparente como \textit{reports not retrieved}, conforme o PRISMA 2020, em vez de excluí-los silenciosamente. A ausência de exclusões adicionais nessa fase decorre da triagem em duas etapas adotada: a primeira passada, por título e resumo, e a segunda, de revisão detalhada dos estudos pré-selecionados, já promoveram filtragem criteriosa antes da leitura integral, de modo que os estudos efetivamente recuperados atenderam aos critérios de inclusão. Na SOL, dos 23 registros, 14 foram excluídos por título e \textbf{9 encaminhados à leitura do texto completo}; destes, 7 foram excluídos com motivo (predominantemente CE1) e \textbf{2 foram incluídos}. O corpus final de síntese reúne, portanto, \textbf{29 estudos} (27 das bases internacionais e 2 da SBC/SOL). A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, deduplicação, triagem e elegibilidade.
+Conforme o protocolo detalhado na Seção~\ref{subsec:busca} (bases, \textit{strings} e datas), a busca automática nas quatro bases internacionais recuperou \textbf{1.265 registros}, assim distribuídos: Scopus (453), ACM Digital Library (445), IEEE Xplore (224) e Web of Science (143). Como fonte adicional, a busca na Biblioteca Digital da SBC/SOL recuperou \textbf{23 registros}, tratados em fluxo separado por essa base não oferecer exportação padronizada (BibTeX/RIS), totalizando \textbf{1.288 registros identificados}. A deduplicação das quatro bases internacionais, conduzida no Zotero, removeu 460 registros, resultando em \textbf{805 registros únicos}; os 23 registros da SOL foram deduplicados manualmente, sem ocorrência de duplicatas. Na triagem por título e resumo, operacionalizada no Rayyan, os 805 registros das bases internacionais levaram a 759 exclusões e a \textbf{46 estudos} encaminhados à recuperação do texto completo; destes, 19 não foram recuperados (\textit{reports not retrieved} no PRISMA 2020) e \textbf{27 foram avaliados em elegibilidade e incluídos} (sem exclusões adicionais por critério na leitura do texto completo). A não recuperação desses 19 estudos deveu-se predominantemente à ausência de acesso aberto e à falta de cobertura, pelos convênios institucionais disponíveis, dos veículos específicos em que foram publicados. Optou-se por registrá-los de forma transparente como \textit{reports not retrieved}, conforme o PRISMA 2020, em vez de excluí-los silenciosamente. A ausência de exclusões adicionais nessa fase decorre da triagem em duas etapas adotada: a primeira passada, por título e resumo, e a segunda, de revisão detalhada dos estudos pré-selecionados, já promoveram filtragem criteriosa antes da leitura integral, de modo que os estudos efetivamente recuperados atenderam aos critérios de inclusão. Na SOL, dos 23 registros, 14 foram excluídos por título e \textbf{9 encaminhados à leitura do texto completo}; destes, 7 foram excluídos com motivo (predominantemente CE1) e \textbf{2 foram incluídos}. O corpus final de síntese reúne, portanto, \textbf{29 estudos} (27 das bases internacionais e 2 da SBC/SOL). A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, deduplicação, triagem e elegibilidade.
 
-\begin{figure*}[t]
+\begin{figure*}[tp]
 \centering
 \includegraphics[width=0.75\textwidth]{imagens/fluxograma_prisma.png}
 \caption{Fluxo de seleção dos estudos (PRISMA 2020). Bases internacionais e SBC/SOL são fontes paralelas; entre os 2 estudos incluídos da SBC/SOL, um foi publicado em veículo de iniciação científica, condição registrada na avaliação de qualidade (Seção~\ref{subsec:qualidade}) sem implicar exclusão.}
@@ -48,6 +48,37 @@ Embora o protocolo tenha definido a janela de busca a partir de 2019, os 29 estu
 No que tange à infraestrutura tecnológica (RQ3), o corpus demonstra dependência majoritária de serviços proprietários: dezoito dos vinte e nove estudos fundamentam suas arquiteturas em APIs comerciais da OpenAI (famílias GPT-3.5, GPT-4 e derivadas). Observa-se, contudo, uma tendência emergente de adoção de modelos de pesos abertos, como Llama, Mistral, Gemma e ChatGLM, presentes em seis trabalhos. Em alguns desses casos, a escolha por modelos abertos aparece associada a requisitos de soberania sobre dados sensíveis ou à mitigação de alucinações por meio de arquiteturas de recuperação aumentada. Registra-se, ainda, uma lacuna de reprodutibilidade em parte da literatura: dois estudos apoiam-se em plataformas conversacionais não estritamente generativas, como o Google DialogFlow, e três sequer especificam o modelo empregado, omitindo informações como porte ou licenciamento.
 
 Do ponto de vista metodológico, o corpus apresenta divisão clara. A maioria dos estudos (23 trabalhos) adota abordagens empíricas, testando protótipos e sistemas em ambientes controlados ou cenários reais; os seis restantes constituem-se de artigos conceituais, provas de conceito isoladas ou propostas de arquitetura sem validação prática. A auditoria das avaliações revela, porém, um achado central desta revisão. Embora a promoção da transparência pública seja recorrentemente declarada como motivação nas introduções dos trabalhos, nenhum dos 29 estudos mede, como desfecho final, o aumento da compreensão cívica ou do controle social efetivo. Mesmo entre os 23 trabalhos empíricos, as validações restringem-se a aferir desempenho técnico-algorítmico, com métricas como BLEU, ROUGE, F1-score, latência e MRR, ou, em cerca de um terço do corpus, a avaliar proxies de interação humano-computador, como percepção de usabilidade, uso efetivo e índices de leiturabilidade. Essa dissociação entre a motivação declarada e as métricas efetivamente adotadas configura o que denominamos paradoxo da transparência, tema retomado e aprofundado na Discussão (Seção~\ref{sec:discussao}).
+
+A Tabela~\ref{tab:corpus} consolida a caracterização do corpus segundo as dimensões analisadas.
+
+\begin{table}[ht]
+\centering
+\caption{Caracterização do corpus (29 estudos)}
+\label{tab:corpus}
+\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{5.2cm}|c|}
+\hline
+\textbf{Categoria} & \textbf{Estudos} \\ \hline
+\multicolumn{2}{|l|}{\textit{Modelo principal (RQ3)}} \\ \hline
+Proprietário (família GPT)                     & 18 \\ \hline
+Pesos abertos                                  &  6 \\ \hline
+Plataforma conversacional (DialogFlow)         &  2 \\ \hline
+Não reportado                                  &  3 \\ \hline
+\multicolumn{2}{|l|}{\textit{Tipo de dado (RQ2)}} \\ \hline
+Legislativo e jurídico                         &  8 \\ \hline
+Portais de dados abertos gerais                & 11 \\ \hline
+Serviços e procedimentos                       &  5 \\ \hline
+Políticas e dados setoriais                    &  4 \\ \hline
+Conceitual (sem tipo específico)               &  1 \\ \hline
+\multicolumn{2}{|l|}{\textit{Categoria de aplicação (RQ1)}} \\ \hline
+Estruturação e enriquecimento (oferta)         &  7 \\ \hline
+Acesso conversacional (demanda)                & 11 \\ \hline
+Serviços e informação ao cidadão (demanda)     & 11 \\ \hline
+\multicolumn{2}{|l|}{\textit{Abordagem metodológica}} \\ \hline
+Empíricos                                      & 23 \\ \hline
+Conceituais                                    &  6 \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{Aplicações de IA Generativa (RQ1)}
 \label{subsec:rq1}
@@ -71,7 +102,7 @@ O agrupamento mais expressivo, com oito estudos, recai sobre dados legislativos 
 
 Um segundo grupo, com onze estudos, abrange os portais de dados abertos de propósito geral, incluindo tanto \emph{datasets} tabulares (CSV, planilhas, bancos SQL) quanto dados estatísticos publicados como \emph{linked data}. Aqui situam-se trabalhos que operam sobre portais municipais e nacionais \cite{ChatbotMadrid2021,EffectiveUseOGD2025,Gan2026,TAGIFY2025,ConversationalInterfaces2024,DesigningODAssistant2024,RobotStorytelling2025,Dineva2025}, sobre repositórios estatísticos estruturados como \emph{linked open data} \cite{ScotlandChatGPT2024,EvaluatingLLMsOGD2025} e sobre revisões de tendências de \emph{chatbots} que exploram esses portais \cite{TrendsChatbots2023}. É neste grupo que se concentram os poucos estudos voltados a dados genuinamente estruturados, frequentemente acessados por meio da tradução de linguagem natural para consultas formais (SQL, SPARQL).
 
-Um terceiro conjunto volta-se à informação sobre serviços e procedimentos governamentais, como textos instrucionais, perguntas frequentes e bases de conhecimento sobre direitos e obrigações do cidadão. Incluem-se guias sobre tributação e imigração \cite{HeyGoogleTaxes2025}, bases de perguntas e respostas de serviços públicos \cite{Gao2023,IntelligentPractices2025}, informações sobre programas sociais \cite{Nagesh2025} e conteúdos de saúde pública \cite{Ingole2024}.
+Um terceiro conjunto, com cinco estudos, volta-se à informação sobre serviços e procedimentos governamentais, como textos instrucionais, perguntas frequentes e bases de conhecimento sobre direitos e obrigações do cidadão. Incluem-se guias sobre tributação e imigração \cite{HeyGoogleTaxes2025}, bases de perguntas e respostas de serviços públicos \cite{Gao2023,IntelligentPractices2025}, informações sobre programas sociais \cite{Nagesh2025} e conteúdos de saúde pública \cite{Ingole2024}.
 
 Por fim, um grupo de quatro estudos trata de políticas públicas e dados setoriais específicos, como políticas climáticas e dados censitários \cite{CLEAR2025}, comunicados de políticas governamentais \cite{HybridGraphRAG2025}, registros fiscais para auditoria \cite{Monsalvo2025} e alocação de recursos em fundos públicos por meio de arquiteturas multiagente \cite{Gong2025}. Um único estudo, de natureza conceitual, não se vincula a um tipo de dado específico \cite{Loukis2023}.
 
