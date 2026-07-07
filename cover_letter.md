@@ -1,7 +1,5 @@
 # Cover Letter — Submissão à revista iSys
 
-> Arquivo separado do manuscrito. Enviado apenas pelo sistema de submissão,
-> fora do PDF anonimizado do double-anonymous.
 
 **Para:** Editores da iSys — Journal of Information Systems (SBC)
 
@@ -13,7 +11,7 @@ Prezados Editores,
 
 Submetemos à apreciação da iSys o manuscrito intitulado **"Generative AI for
 Open Government Data Access and Public Transparency: A Systematic Literature
-Review"**, para avaliação como *Research Paper* na seção *Articles*.
+Review"**, para avaliação na seção *Surveys*.
 
 ## Escopo e adequação ao iSys
 
@@ -76,14 +74,18 @@ veículo.
 
 ## Uso de IA generativa
 
-Utilizamos ferramentas de IA Generativa como apoio à organização de dados e à
-redação (revisão de estilo e verificação de coerência textual). As decisões
-metodológicas, a análise dos estudos e as conclusões são de responsabilidade
-exclusiva dos autores, que validaram todo o conteúdo final. Declaração
-completa em *Further relevant information*.
+Utilizamos ferramentas de IA Generativa (Claude, da Anthropic, e Gemini, do
+Google) como apoio à revisão de estilo, à organização de materiais e à
+verificação de coerência textual. Nenhuma ferramenta de IA foi utilizada na
+análise dos estudos, na triagem, na extração de dados ou nas decisões
+metodológicas, conduzidas exclusivamente pelos autores. Todo o conteúdo final
+foi revisado e validado pelos autores. Declaração completa em *Further
+relevant information*.
 
 Agradecemos a consideração dos Editores e da comunidade avaliadora.
 
 Atenciosamente,
 
-**[Autores — preencher na submissão pelo sistema (fora do PDF cego)]**
+Ana Beatriz Carvalho Oliveira
+Gilton José Ferreira da Silva
+Universidade Federal de Sergipe (UFS)
