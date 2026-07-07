@@ -1,6 +1,3 @@
-# Cover Letter — Submissão à revista iSys
-
-
 **Para:** Editores da iSys — Journal of Information Systems (SBC)
 
 **Assunto:** Submissão de manuscrito — Revisão Sistemática da Literatura
