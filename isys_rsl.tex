@@ -44,6 +44,18 @@
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit, calc}
 
 % ---------------------------------------------------------------------
+%  Destaque das alterações da revisão iSys (major revision).
+%  \hltrue  -> PDF de revisão: trechos alterados saem em AMARELO.
+%  \hlfalse -> camera-ready: mesmo texto, sem destaque (nada muda no corpo).
+%  Uso: \rev{...} em torno de todo trecho novo/alterado.
+%  Fallback: onde o soul quebrar (ex.: dentro de \cite/tabelas), usar
+%  \colorbox{yellow}{...} pontual.
+% ---------------------------------------------------------------------
+\usepackage{soul}
+\newif\ifhl \hltrue
+\newcommand{\rev}[1]{\ifhl\sethlcolor{yellow}\hl{#1}\else#1\fi}
+
+% ---------------------------------------------------------------------
 % Metadados do PDF — na versão cega, remover qualquer identificação
 % (evita desk-reject por metadata que revele autoria).
 % ---------------------------------------------------------------------
