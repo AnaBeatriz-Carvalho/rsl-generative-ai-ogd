@@ -25,7 +25,7 @@ Como as questões de pesquisa são de caracterização, e não explicativas, ado
 \subsection{Objetivo e Questões de Pesquisa}
 \label{subsec:rqs}
 
-O objetivo desta revisão é identificar como a IA Generativa e os Modelos de Linguagem de Grande Porte (\textit{Large Language Models} -- LLMs) vêm sendo usados para ampliar o acesso a dados governamentais abertos e promover a transparência pública. O recorte situa-se em Sistemas de Informação, na interseção entre governo digital, dados abertos (\textit{Open Government Data} -- OGD) e apoio à decisão. A partir desse objetivo, derivam-se as cinco questões de pesquisa da Tabela~\ref{tab:rqs}.
+\rev{O objetivo desta revisão é identificar como a IA Generativa e os Modelos de Linguagem de Grande Porte (\textit{Large Language Models} -- LLMs) vêm sendo usados para ampliar o acesso à informação do setor público e a serviços de governo digital, bem como sua relação com a transparência pública. O recorte situa-se em Sistemas de Informação, na interseção entre governo digital, informação pública, dados abertos (\textit{Open Government Data} -- OGD) e interação entre Estado e cidadão. OGD constitui um caso paradigmático desse universo informacional, mas o escopo também inclui documentos oficiais e conteúdos de serviços públicos. A partir desse objetivo, derivam-se as cinco questões de pesquisa da Tabela~\mbox{\ref{tab:rqs}}.}
 
 \begin{table*}[t]
 \centering
@@ -35,8 +35,8 @@ O objetivo desta revisão é identificar como a IA Generativa e os Modelos de Li
 \begin{tabular}{|c|p{4.6cm}|p{4.0cm}|}
 \hline
 \textbf{ID} & \textbf{Questão de pesquisa} & \textbf{Foco da extração} \\ \hline
-RQ1 & Quais aplicações de IA Generativa são utilizadas no acesso a dados governamentais abertos e na transparência pública? & Tipo de aplicação / caso de uso \\ \hline
-RQ2 & Quais tipos de dados governamentais são analisados? & Natureza e domínio dos dados \\ \hline
+RQ1 & \rev{Quais aplicações de IA Generativa são utilizadas no acesso à informação do setor público e a serviços de governo digital?} & Tipo de aplicação / caso de uso \\ \hline
+RQ2 & \rev{Qual é a natureza e o domínio da informação do setor público mediada pelas aplicações?} & \rev{Natureza e domínio da informação} \\ \hline
 RQ3 & Quais LLMs são utilizados? & Modelo(s), porte, aberto/proprietário \\ \hline
 RQ4 & Quais benefícios são reportados? & Ganhos de acesso e transparência \\ \hline
 RQ5 & Quais desafios e limitações são reportados? & Barreiras técnicas, éticas e de adoção \\ \hline
@@ -46,12 +46,10 @@ RQ5 & Quais desafios e limitações são reportados? & Barreiras técnicas, éti
 \subsection{Estratégia de Busca}
 \label{subsec:busca}
 
-A busca automática foi conduzida em cinco fontes: quatro bases internacionais reconhecidas na área de Computação --- Scopus, Web of Science, ACM Digital Library e IEEE Xplore --- e a Biblioteca Digital da SBC/SOL\footnote{\rev{A SOL é a biblioteca digital da Sociedade Brasileira de Computação (SBC), que reúne os anais das conferências e os periódicos da entidade, constituindo o principal repositório da produção científica da comunidade brasileira de Computação reunida pela SBC. Disponível em \mbox{\url{https://sol.sbc.org.br}}.}}
+A busca automática foi conduzida em cinco fontes: quatro bases internacionais reconhecidas na área de Computação (Scopus, Web of Science, ACM Digital Library e IEEE Xplore) e a Biblioteca Digital da SBC/SOL\footnote{\rev{A SOL é a biblioteca digital da Sociedade Brasileira de Computação (SBC), que reúne os anais das conferências e os periódicos da entidade, constituindo o principal repositório da produção científica da comunidade brasileira de Computação reunida pela SBC. Disponível em \mbox{\url{https://sol.sbc.org.br}}.}}
 , como fonte adicional voltada à cobertura da produção nacional. A escolha combina bases indexadoras de amplo espectro (Scopus, Web of Science), repositórios especializados (ACM, IEEE) e o principal repositório da comunidade brasileira de Computação (SBC/SOL), reduzindo o risco de omitir estudos relevantes. As buscas foram executadas em junho de 2026: nas quatro bases internacionais em 16/06/2026 e na SBC/SOL em 19/06/2026. Consideraram-se estudos publicados entre janeiro de 2019 e a data da busca, recorte justificado pela consolidação dos LLMs a partir desse período. As \textit{strings} exatas por base, com datas e contagens, estão depositadas no repositório de materiais.
 
-\rev{A estrutura PICOC (\textit{Population, Intervention, Comparison, Outcome, Context}) organiza o planejamento da busca em cinco dimensões e adapta, para a síntese de evidências em Computação, o arcabouço PICO originado na medicina baseada em evidências, com o propósito de delimitar as questões de pesquisa e derivar de forma sistemática os termos de busca \mbox{\citep{kitchenham2007}}. Cada dimensão define um bloco de termos: a Intervenção reúne IA Generativa, LLMs e arquiteturas correlatas; a População e o Contexto delimitam o setor público, os dados governamentais e o governo digital; e o Desfecho abrange o acesso à informação e a transparência. A Comparação não se aplica, por tratar-se de uma revisão de caracterização, e não de um contraste entre intervenções. Assim, os termos da Tabela~\mbox{\ref{tab:picoc}} e a \textit{string} da Figura~\mbox{\ref{fig:string}} derivam dessa estrutura definida no protocolo, e não o inverso: a PICOC precede e orienta a busca, em vez de justificá-la a posteriori.}
-
-Os termos de busca derivam das cinco dimensões da estrutura PICOC (Tabela~\ref{tab:picoc}), de modo que a \textit{string} cubra todas elas, e não apenas a Intervenção. O bloco de Intervenção reúne IA Generativa, LLMs e arquiteturas correlatas (modelos de fundação, \textit{transformers}, RAG e agentes conversacionais), incluindo modelos nomeados; os blocos de População, Desfecho e Contexto delimitam o escopo ao setor público, aos dados governamentais e legislativos, ao acesso à informação, à transparência e ao governo digital.
+\rev{A estrutura PICOC (\textit{Population, Intervention, Comparison, Outcome, Context}) organiza o planejamento da busca em cinco dimensões e adapta, para a síntese de evidências em Computação, o arcabouço PICO originado na medicina baseada em evidências, com o propósito de delimitar as questões de pesquisa e derivar de forma sistemática os termos de busca \mbox{\citep{kitchenham2007}}. Cada dimensão define um bloco de termos. A Intervenção reúne IA Generativa, LLMs, modelos de fundação, \textit{transformers}, RAG, agentes conversacionais e modelos nomeados. A População e o Contexto delimitam o setor público, os dados governamentais e legislativos e o governo digital. O Desfecho abrange o acesso à informação e a transparência. A Comparação não se aplica, por tratar-se de uma revisão de caracterização, e não de um contraste entre intervenções. Assim, os termos da Tabela~\mbox{\ref{tab:picoc}} e a \textit{string} da Figura~\mbox{\ref{fig:string}} derivam dessa estrutura definida no protocolo, e não o inverso: a PICOC precede e orienta a busca, em vez de justificá-la a posteriori.}
 
 \begin{table*}[t]
 \centering
@@ -95,9 +93,11 @@ AND
 \label{fig:string}
 \end{figure*}
 
+\rev{A \textit{string} operacionalizou o escopo por meio de termos de dados governamentais abertos, informação e dados do setor público, acesso à informação, transparência e governo digital. Esses termos funcionam como porta de entrada para o universo informacional mais amplo delimitado na Seção~\mbox{\ref{subsec:bg_ogd}}: documentos oficiais, serviços e procedimentos foram recuperados por estudos indexados sob esses termos e caracterizados na extração, o que é coerente com um escopo em que os dados abertos constituem o caso paradigmático, mas não exclusivo, da informação do setor público.}
+
 Antes da execução definitiva, a \textit{string} passou por calibração-piloto contra um conjunto de controle de artigos já reconhecidos como relevantes: se algum não fosse recuperado, os termos seriam revistos. A revisão apoiou-se apenas na busca automática; técnicas de \textit{snowballing} \citep{wohlin2014} não foram conduzidas nesta etapa, e sua ausência é discutida como limitação na Seção~\ref{sec:ameacas}.
 
-\rev{A consulta à SBC/SOL foi realizada manualmente pela interface de busca da própria plataforma --- baseada em \textit{Open Journal/Conference Systems}, com suporte booleano limitado e sem exportação padronizada (BibTeX/RIS) ---, e não por \textit{script} ou API. Empregou-se uma \textit{string} equivalente em português, com os termos de IA Generativa e LLMs combinados aos de dados governamentais, governo digital e transparência pública. Os registros retornados foram triados e deduplicados manualmente, aplicando-se o mesmo recorte temporal (a partir de 2019) e o mesmo critério de idioma (CI4) das demais bases. Esse tratamento manual, imposto pela ausência de exportação padronizada, é o motivo de a SBC/SOL ser reportada em fluxo separado no diagrama PRISMA (Seção~\mbox{\ref{sec:resultados}}).}
+\rev{A consulta à SBC/SOL foi realizada manualmente pela interface de busca da própria plataforma, baseada em \textit{Open Journal/Conference Systems}, com suporte booleano limitado e sem exportação padronizada em BibTeX ou RIS. Não foram utilizados \textit{script} ou API. Empregou-se uma \textit{string} equivalente em português, com os termos de IA Generativa e LLMs combinados aos de dados governamentais, governo digital e transparência pública. Os registros retornados foram triados e deduplicados manualmente, aplicando-se o mesmo recorte temporal (a partir de 2019) e o mesmo critério de idioma (CI4) das demais bases. Esse tratamento manual, necessário devido à ausência de exportação padronizada, explica por que a SBC/SOL aparece em fluxo separado no diagrama PRISMA (Seção~\mbox{\ref{sec:resultados}}).}
 
 \subsection{Critérios de Seleção e Processo de Triagem}
 \label{subsec:criterios}
@@ -112,7 +112,7 @@ Os critérios de inclusão (CI) e exclusão (CE) que delimitam o escopo estão n
 \begin{tabular}{|c|>{\raggedright\arraybackslash}p{7.0cm}|}
 \hline
 \textbf{ID} & \textbf{Critério} \\ \hline
-CI1 & Aplica ou investiga IA Generativa/LLMs em contexto de dados abertos, transparência pública ou governo digital \\ \hline
+CI1 & \rev{Aplica ou investiga IA Generativa/LLMs no acesso, organização ou mediação de informação do setor público, incluindo dados governamentais abertos, documentos oficiais ou conteúdos de serviços de governo digital} \\ \hline
 CI2 & Estudo primário revisado por pares (conferência ou periódico) \\ \hline
 CI3 & Publicado na janela temporal definida \\ \hline
 CI4 & Texto em inglês ou português \\ \hline
@@ -125,12 +125,12 @@ CE5 & Versão preliminar de estudo posteriormente estendido (mantém-se a versã
 \end{tabular}
 \end{table}
 
-A seleção ocorreu em duas fases. Na primeira, os estudos foram triados por título e resumo; na segunda, os remanescentes foram avaliados por leitura do texto completo. As referências foram gerenciadas no Zotero \citep{zotero}, responsável pela deduplicação inicial, e a triagem foi operacionalizada no Rayyan. A revisão foi conduzida por uma única revisora. Para reduzir o viés de seleção, os critérios foram definidos a priori e aplicados de forma uniforme, e cada decisão de triagem, com o respectivo motivo, foi registrada de forma rastreável no Rayyan, permitindo auditoria. O fluxo completo de identificação, triagem, elegibilidade e inclusão é reportado pelo diagrama PRISMA na seção de resultados.
+A seleção ocorreu em duas fases. Na primeira, os estudos foram triados por título e resumo; na segunda, os remanescentes foram avaliados por leitura do texto completo. As referências foram gerenciadas no Zotero \citep{zotero}, responsável pela deduplicação inicial, e a triagem foi operacionalizada no Rayyan. A revisão foi conduzida por \rev{uma única pessoa}. Para reduzir o viés de seleção, os critérios foram definidos a priori e aplicados de forma uniforme, e cada decisão de triagem, com o respectivo motivo, foi registrada de forma rastreável no Rayyan, permitindo auditoria. O fluxo completo de identificação, triagem, elegibilidade e inclusão é reportado pelo diagrama PRISMA na seção de resultados.
 
 \subsection{Avaliação de Qualidade}
 \label{subsec:qualidade}
 
-Os estudos aprovados na leitura de texto completo passaram por uma avaliação de qualidade, destinada a caracterizar o rigor das evidências e a ponderar sua contribuição na síntese. Cada critério da Tabela~\ref{tab:qualidade} é pontuado em $\{0;\ 0{,}5;\ 1\}$ (não atende; atende parcialmente; atende), resultando em um escore de 0 a 5. Adotou-se o limiar de $2{,}5$: estudos com escore maior ou igual a $2{,}5$ integram a síntese em condições regulares; os de escore inferior são reportados à parte e ponderados com cautela na discussão, em vez de descartados.
+\rev{Os estudos aprovados na leitura do texto completo passaram por uma avaliação de qualidade destinada a caracterizar o rigor das evidências e ponderar sua contribuição na síntese. A avaliação de qualidade não foi utilizada como critério de exclusão, pois a inclusão no corpus já havia sido decidida pela aplicação dos critérios de inclusão e exclusão durante a triagem. Cada critério da Tabela~\mbox{\ref{tab:qualidade}} é pontuado em $\{0;\ 0{,}5;\ 1\}$ (não atende; atende parcialmente; atende), resultando em um escore de 0 a 5. Adotou-se o limiar de $2{,}5$: estudos com escore maior ou igual a $2{,}5$ contribuem para a síntese em condições regulares; os de escore inferior são mantidos, reportados separadamente e não podem sustentar sozinhos uma conclusão. Os escores individuais são apresentados no Apêndice~\mbox{\ref{ap:qa}}.}
 
 \begin{table}[ht]
 \centering
@@ -148,12 +148,14 @@ AQ5 & As limitações e ameaças à validade são discutidas? \\ \hline
 \end{tabular}
 \end{table}
 
-\rev{O tipo de veículo --- inclusive periódicos de iniciação científica ou anais sem indicação clara de revisão por pares de mérito --- foi registrado como metadado bibliográfico, mas não é tomado como proxy do rigor do estudo. A avaliação de qualidade foi aplicada item a item, de forma uniforme, a todos os estudos, independentemente do veículo: o critério CI2 (estudo primário revisado por pares) admite esses veículos no corpus, e eventuais diferenças de qualidade emergem do escore item a item, e não de uma penalização atribuída ao veículo. De fato, o único estudo do corpus oriundo de um veículo de iniciação científica alcançou escore alto na avaliação, por mérito próprio, o que reforça que o rigor editorial do veículo e o rigor metodológico do estudo são dimensões distintas.}
+\rev{O tipo de veículo, inclusive periódicos de iniciação científica ou anais sem indicação clara de revisão por pares de mérito, foi registrado como metadado bibliográfico, mas não foi usado como indicador do rigor do estudo. A avaliação de qualidade foi aplicada item a item, de forma uniforme, a todos os estudos, independentemente do veículo. O critério CI2 admite esses veículos no corpus, e eventuais diferenças de qualidade decorrem do escore dos critérios, não de uma penalização atribuída ao veículo. O único estudo do corpus publicado em um veículo de iniciação científica alcançou escore alto por atender aos critérios estabelecidos. Portanto, o rigor editorial do veículo e o rigor metodológico do estudo foram tratados como dimensões distintas.}
 
 \subsection{Extração de Dados}
 \label{subsec:extracao}
 
-A extração usou um formulário padronizado, definido antes da leitura integral, cujos campos mapeiam diretamente as questões de pesquisa (Tabela~\ref{tab:extracao}). Além dos campos ligados às RQs, registraram-se metadados bibliográficos (autores, ano, veículo, tipo de veículo e país) e o método de avaliação de cada estudo. A extração foi conduzida pela revisora única, com registro rastreável da origem de cada item, preservando a ligação entre evidência e síntese.
+A extração usou um formulário padronizado, definido antes da leitura integral, cujos campos mapeiam diretamente as questões de pesquisa (Tabela~\ref{tab:extracao}). Além dos campos ligados às RQs, registraram-se metadados bibliográficos (autores, ano, veículo, tipo de veículo e país) e o método de avaliação de cada estudo. A extração foi \rev{conduzida pela mesma pessoa responsável pela triagem}, com registro rastreável da origem de cada item, preservando a ligação entre evidência e síntese.
+
+\rev{A unidade de extração foi o estudo primário. Para cada um dos 29 estudos, procedeu-se à leitura do texto completo e ao registro, em planilha, da aplicação ou caso de uso, da natureza e do domínio da informação governamental, do modelo empregado, dos benefícios, dos desafios, do método de avaliação e das respostas aos cinco critérios de qualidade. Cada item extraído foi acompanhado das páginas e seções que continham a evidência correspondente, permitindo retornar ao texto de origem durante a síntese.}
 
 \begin{table*}[t]
 \centering
@@ -165,7 +167,7 @@ A extração usou um formulário padronizado, definido antes da leitura integral
 \hline
 \textbf{Campo} & \textbf{Descrição} & \textbf{RQ} \\ \hline
 Aplicação / caso de uso & Como a IA Generativa é empregada & RQ1 \\ \hline
-Dados governamentais & Tipo e domínio dos dados analisados & RQ2 \\ \hline
+\rev{Informação do setor público} & \rev{Natureza e domínio da informação mediada} & RQ2 \\ \hline
 Modelo(s) & LLM/IA Generativa, porte, licença & RQ3 \\ \hline
 Benefícios & Ganhos de acesso/transparência relatados & RQ4 \\ \hline
 Desafios & Limitações técnicas, éticas e de adoção & RQ5 \\ \hline
@@ -176,4 +178,4 @@ Avaliação & Método de validação do estudo & --- \\ \hline
 \subsection{Síntese dos Dados}
 \label{subsec:sintese}
 
-A síntese combina duas abordagens. A \textit{síntese quantitativa descritiva} caracteriza o corpus por meio de distribuições: evolução temporal das publicações, veículos, modelos empregados (RQ3) e tipos de dados (RQ2), oferecendo um panorama do campo no estilo de um mapeamento sistemático. A \textit{síntese temática}, qualitativa, codifica e agrupa em categorias as aplicações (RQ1), os benefícios (RQ4) e os desafios (RQ5) reportados, podendo resultar em uma taxonomia emergente dos usos de IA Generativa para acesso a dados governamentais. As duas sínteses são articuladas na discussão, de modo a responder às cinco questões de forma integrada.
+A síntese combina duas abordagens. A \textit{síntese quantitativa descritiva} caracteriza o corpus por meio de distribuições: evolução temporal das publicações, veículos, modelos empregados (RQ3) e tipos de dados (RQ2), oferecendo um panorama do campo no estilo de um mapeamento sistemático. \rev{A \textit{síntese temática}, qualitativa, foi conduzida de forma indutiva, conforme o procedimento de }\ifhl\mbox{\colorbox{yellow}{\citet{CruzesDyba2011}}}\else\citet{CruzesDyba2011}\fi\rev{, após a extração dos 29 estudos. As descrições dos casos de uso registradas na planilha foram comparadas e as aplicações semelhantes, agrupadas, dando origem às categorias apresentadas na RQ1; o mesmo procedimento de comparação orientou a organização dos benefícios (RQ4) e desafios (RQ5). Como um mesmo sistema poderia desempenhar mais de uma função, cada estudo foi classificado segundo sua aplicação principal, identificada a partir do objetivo e do caso de uso descritos no texto completo. Funções secundárias foram preservadas na descrição narrativa, mas não geraram contagem adicional, evitando que um estudo fosse contabilizado mais de uma vez na distribuição das categorias. A categorização foi realizada pela mesma pessoa responsável pela extração; a ausência de dupla codificação é tratada como ameaça à validade interna.} As duas sínteses são articuladas na discussão, de modo a responder às cinco questões de forma integrada.
