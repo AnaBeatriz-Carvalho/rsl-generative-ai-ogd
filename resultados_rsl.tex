@@ -6,14 +6,12 @@
 %  Conversões aplicadas:
 %   \quadro -> table | \citeonline -> \citet | \cite -> \citep | \fonte removido.
 %
-%  >>> SELEÇÃO CONSOLIDADA <<<  O funil PRISMA aqui reportado reflete a
-%  EXECUÇÃO FINAL do protocolo desta RSL (4 bases internacionais + SBC/SOL como
-%  fonte adicional; RQ1–RQ5), com CORPUS FINAL DE SÍNTESE = 29 estudos
-%  (27 das bases internacionais + 2 da SBC/SOL). Os blocos de caracterização,
-%  RQ1–RQ5 e lacunas dependem da EXTRAÇÃO DE DADOS (em curso) e estão marcados
-%  com [ATUALIZAR APÓS EXTRAÇÃO]. O bloco antigo (corpus preliminar de 7) está
-%  preservado entre \iffalse...\fi (não compilado). Snowballing não foi
-%  conduzido nesta versão (ver sec:ameacas).
+%  >>> SELEÇÃO CONSOLIDADA <<<  O funil PRISMA reflete a EXECUÇÃO FINAL do
+%  protocolo desta RSL (4 bases internacionais + SBC/SOL como fonte adicional;
+%  RQ1–RQ5). CORPUS FINAL DE SÍNTESE = 29 estudos (27 das bases internacionais
+%  + 2 da SBC/SOL). Extração concluída; caracterização e RQ1–RQ5 refletem os 29.
+%  Corpus CONGELADO em 29 (19 reports not retrieved, 8 excluídos). Snowballing
+%  não foi conduzido nesta versão (ver sec:ameacas).
 % =====================================================================
 
 \section{Resultados}
@@ -24,7 +22,7 @@ Esta seção reporta os resultados da execução da revisão conforme o protocol
 \subsection{Seleção dos Estudos}
 \label{subsec:res_selecao}
 
-Conforme o protocolo detalhado na Seção~\ref{subsec:busca} (bases, \textit{strings} e datas), a busca automática nas quatro bases internacionais recuperou \textbf{1.265 registros}, assim distribuídos: Scopus (453), ACM Digital Library (445), IEEE Xplore (224) e Web of Science (143). Como fonte adicional, a busca na Biblioteca Digital da SBC/SOL recuperou \textbf{23 registros}, tratados em fluxo separado por essa base não oferecer exportação padronizada (BibTeX/RIS), totalizando \textbf{1.288 registros identificados}. A deduplicação das quatro bases internacionais, conduzida no Zotero, removeu 460 registros, resultando em \textbf{805 registros únicos}; os 23 registros da SOL foram deduplicados manualmente, sem ocorrência de duplicatas. Na triagem por título e resumo, operacionalizada no Rayyan, os 805 registros das bases internacionais levaram a 759 exclusões e a \textbf{46 estudos} encaminhados à recuperação do texto completo; destes, 19 não foram recuperados (\textit{reports not retrieved} no PRISMA 2020) e \textbf{27 foram avaliados em elegibilidade e incluídos} (sem exclusões adicionais por critério na leitura do texto completo). A não recuperação desses 19 estudos deveu-se predominantemente à ausência de acesso aberto e à falta de cobertura, pelos convênios institucionais disponíveis, dos veículos específicos em que foram publicados. Optou-se por registrá-los de forma transparente como \textit{reports not retrieved}, conforme o PRISMA 2020, em vez de excluí-los silenciosamente. A ausência de exclusões adicionais nessa fase decorre da triagem em duas etapas adotada: a primeira passada, por título e resumo, e a segunda, de revisão detalhada dos estudos pré-selecionados, já promoveram filtragem criteriosa antes da leitura integral, de modo que os estudos efetivamente recuperados atenderam aos critérios de inclusão. Na SOL, dos 23 registros, 14 foram excluídos por título e \textbf{9 encaminhados à leitura do texto completo}; destes, 7 foram excluídos com motivo (predominantemente CE1) e \textbf{2 foram incluídos}. O corpus final de síntese reúne, portanto, \textbf{29 estudos} (27 das bases internacionais e 2 da SBC/SOL). A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, deduplicação, triagem e elegibilidade. \rev{Os motivos de exclusão de cada estudo foram registrados no Rayyan e estão disponíveis no material suplementar.}
+Conforme o protocolo detalhado na Seção~\ref{subsec:busca} (bases, \textit{strings} e datas), a busca automática nas quatro bases internacionais recuperou \textbf{1.265 registros}, assim distribuídos: Scopus (453), ACM Digital Library (445), IEEE Xplore (224) e Web of Science (143). Como fonte adicional, a busca na Biblioteca Digital da SBC/SOL recuperou \textbf{23 registros}, tratados em fluxo separado por essa base não oferecer exportação padronizada (BibTeX/RIS), totalizando \textbf{1.288 registros identificados}. A deduplicação das quatro bases internacionais, conduzida no Zotero, removeu 460 registros, resultando em \textbf{805 registros únicos}; os 23 registros da SOL foram deduplicados manualmente, sem ocorrência de duplicatas. Na triagem por título e resumo, operacionalizada no Rayyan, os 805 registros das bases internacionais levaram a 759 exclusões e a \textbf{46 estudos} encaminhados à recuperação do texto completo; destes, 19 não foram recuperados (\textit{reports not retrieved} no PRISMA 2020) e \textbf{27 foram avaliados em elegibilidade e incluídos} (sem exclusões adicionais por critério na leitura do texto completo). A não recuperação desses 19 estudos deveu-se predominantemente à ausência de acesso aberto e à falta de cobertura, pelos convênios institucionais disponíveis, dos veículos específicos em que foram publicados. Optou-se por registrá-los de forma transparente como \textit{reports not retrieved}, conforme o PRISMA 2020, em vez de excluí-los silenciosamente. A ausência de exclusões adicionais nessa fase decorre da triagem em duas etapas adotada: a primeira passada, por título e resumo, e a segunda, de revisão detalhada dos estudos pré-selecionados, \rev{já aplicaram os critérios de inclusão e exclusão antes da leitura integral}, de modo que os estudos efetivamente recuperados atenderam aos critérios de inclusão. Na SOL, dos 23 registros, 14 foram excluídos por título e \textbf{9 encaminhados à leitura do texto completo}; destes, 7 foram excluídos com motivo (predominantemente CE1) e \textbf{2 foram incluídos}. O corpus final de síntese reúne, portanto, \textbf{29 estudos} (27 das bases internacionais e 2 da SBC/SOL). A Figura~\ref{fig:prisma} sintetiza o fluxo de identificação, deduplicação, triagem e elegibilidade. \rev{Os motivos de exclusão de cada estudo foram registrados no Rayyan e estão disponíveis no material suplementar.}
 
 \begin{figure*}[tp]
 \centering
@@ -36,9 +34,8 @@ Conforme o protocolo detalhado na Seção~\ref{subsec:busca} (bases, \textit{str
 % Funil PRISMA travado: identificação 1.265 (bases) + 23 (SOL) = 1.288;
 % bases 805 únicos -> 46 buscados -> 19 não recuperados + 27 avaliados ->
 % 0 excluídos com motivo + 27 incluídos. SOL 23 -> 9 full-text -> 7 excluídos
-% com motivo + 2 incluídos. Corpus final = 29. Snowballing não conduzido (ver
-% sec:ameacas). Caracterização e síntese RQ1-RQ5 dependem da extração
-% (marcadas com [ATUALIZAR APÓS EXTRAÇÃO]).
+% com motivo + 2 incluídos. Corpus final = 29 (CONGELADO). Snowballing não
+% conduzido (ver sec:ameacas). Caracterização e síntese RQ1-RQ5 refletem os 29.
 
 \subsection{Caracterização do corpus}
 \label{subsec:res_caracterizacao}
@@ -82,6 +79,29 @@ Conceituais                                    &  6 \\ \hline
 \end{tabular}
 \end{table}
 
+\subsection{\texorpdfstring{\rev{Distribuição geográfica}}{Distribuicao geografica}}
+\label{subsec:geografia}
+
+\rev{Tomando o contexto governamental empírico de cada estudo (Seção~\mbox{\ref{subsec:extracao}}), o corpus cobre dezessete contextos nacionais e um contexto supranacional, com forte concentração no Norte global. Os Estados Unidos aparecem em quatro estudos; o Reino Unido e a China, em três cada; Espanha, Itália e Brasil, em dois cada. Doze contextos comparecem uma única vez (Alemanha, Bulgária, Índia, Austrália, Colômbia, Canadá, Peru, Cazaquistão, Países Baixos, Estônia, um estudo supranacional da União Europeia e um estudo multinacional Espanha--Luxemburgo). Um estudo, de natureza conceitual, não se vincula a um contexto nacional. Por região, a Europa reúne treze estudos, seguida por Ásia e América do Norte com cinco cada, América do Sul com quatro e Oceania com um; não há nenhum estudo cujo contexto empírico seja um governo africano. A Tabela~\mbox{\ref{tab:geografia}} resume a distribuição por região. Essa concentração no Norte global é retomada como ameaça à validade externa (Seção~\mbox{\ref{sec:ameacas}}).}
+
+\begin{table}[ht]
+\centering
+\caption{\rev{Distribuição dos 29 estudos por região do contexto governamental empírico}}
+\label{tab:geografia}
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Região} & \textbf{$n$} \\ \hline
+Europa & 13 \\ \hline
+Ásia & 5 \\ \hline
+América do Norte & 5 \\ \hline
+América do Sul & 4 \\ \hline
+Oceania & 1 \\ \hline
+África & 0 \\ \hline
+Sem contexto nacional (conceitual) & 1 \\ \hline
+\textbf{Total} & \textbf{29} \\ \hline
+\end{tabular}
+\end{table}
+
 \subsection{Aplicações de IA Generativa (RQ1)}
 \label{subsec:rq1}
 
@@ -108,18 +128,96 @@ Um terceiro conjunto, com cinco estudos, volta-se à informação sobre serviço
 
 Por fim, um grupo de quatro estudos trata de políticas públicas e dados setoriais específicos, como políticas climáticas e dados censitários \citep{CLEAR2025}, comunicados de políticas governamentais \citep{HybridGraphRAG2025}, registros fiscais para auditoria \citep{Monsalvo2025} e alocação de recursos em fundos públicos por meio de arquiteturas multiagente \citep{Gong2025}. Um único estudo, de natureza conceitual, não se vincula a um tipo de dado específico \citep{Loukis2023}.
 
-O quadro geral confirma o deslocamento do dado estruturado para o documento textual como principal objeto de trabalho: a maioria dos estudos enfrenta o problema de tornar compreensível um texto governamental complexo, e não o de consultar uma base numérica, o que ajuda a explicar a centralidade das tarefas de sumarização, simplificação e resposta em linguagem natural observadas na RQ1 (Seção~\ref{subsec:rq1}).
+\rev{O quadro geral evidencia a predominância da informação textual sobre os dados estruturados no corpus analisado: a maior parte dos estudos enfrenta o problema de tornar compreensível um texto governamental complexo, e não o de consultar uma base numérica, o que ajuda a explicar a centralidade das tarefas de sumarização, simplificação e resposta em linguagem natural observadas na RQ1 (Seção~\mbox{\ref{subsec:rq1}}). Essa constatação descreve a distribuição observada no corpus e não uma tendência histórica de substituição de um tipo de informação por outro.}
+
+\subsection{\texorpdfstring{\rev{Taxonomia dos usos de IA Generativa no acesso à informação pública}}{Taxonomia dos usos de IA Generativa no acesso à informacao publica}}
+\label{subsec:taxonomia}
+
+A síntese de RQ1 e RQ2 permite organizar o corpus em uma taxonomia de três dimensões, todas recuperáveis do formulário de extração. Cada estudo é caracterizado por uma combinação (posição na cadeia informacional, objeto informacional, função da IA Generativa); as duas primeiras dimensões são mutuamente exclusivas por estudo, tendo sido atribuídas pela aplicação principal (Seção~\ref{subsec:sintese}), enquanto a terceira pode acumular mais de um valor, pois um mesmo sistema costuma desempenhar funções combinadas. A Tabela~\ref{tab:taxonomia} define cada categoria, seu critério de inclusão, o critério que a diferencia das demais e estudos ilustrativos; a Figura~\ref{fig:taxonomia} representa as relações entre as três dimensões.
+
+A \textbf{Dimensão 1 (posição na cadeia informacional)} distingue \emph{onde} a IA Generativa atua: na \emph{oferta}, quando modifica, estrutura ou enriquece a informação na origem, antes de qualquer interação com o usuário; ou na \emph{demanda}, quando medeia diretamente a interação do cidadão com a informação pública. Essa distinção não depende do tipo de material consultado --- tanto conjuntos de dados quanto legislação, políticas ou informação de serviços podem ocupar a posição de demanda ---, o que a mantém conceitualmente independente da Dimensão 2. A \textbf{Dimensão 2 (objeto informacional)} identifica \emph{sobre que} material a IA opera, retomando os quatro agrupamentos de RQ2 mais a categoria conceitual; é aqui, e não na Dimensão 1, que se distingue a consulta a \emph{datasets} da mediação de informação sobre serviços. A \textbf{Dimensão 3 (função)} descreve \emph{o que} a IA faz e atravessa as duas primeiras: extração, estruturação e enriquecimento concentram-se na oferta; consulta e tradução de linguagem natural em consulta formal, geração, sumarização, simplificação e orientação concentram-se na demanda. Como a função não é exclusiva, ela não gera contagem por estudo, sendo reportada de forma descritiva.
+
+\begin{table*}[t]
+\centering
+\caption{\rev{Taxonomia dos usos de IA Generativa no acesso à informação do setor público}}
+\label{tab:taxonomia}
+\scriptsize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}p{3.7cm}|>{\raggedright\arraybackslash}p{3.7cm}|c|}
+\hline
+\textbf{Categoria} & \textbf{Definição / critério de inclusão} & \textbf{Critério de diferenciação} & \textbf{$n$} \\ \hline
+\multicolumn{4}{|l|}{\textit{Dimensão 1 --- Posição na cadeia informacional (exclusiva por estudo)}} \\ \hline
+Oferta / preparação & A IA modifica, estrutura ou enriquece a informação na origem, antes da interação com o usuário (estruturar, enriquecer, gerar metadados). & Não há interface de consulta pelo cidadão como objeto principal; o produto é a informação melhorada. & 7 \\ \hline
+Demanda / mediação do acesso & A IA medeia diretamente a interação do cidadão com a informação pública, seja a consulta a dados, seja a mediação de serviços. & Há interação direta do usuário; o que é consultado (dado ou serviço) é distinguido pela Dimensão~2, não por esta. & 22 \\ \hline
+\multicolumn{4}{|l|}{\textit{Dimensão 2 --- Objeto informacional (exclusiva por estudo)}} \\ \hline
+Legislativo e jurídico & Normas, decisões, acórdãos, pareceres, documentos sujeitos a acesso à informação. & Texto com efeito normativo e referência cruzada densa. & 8 \\ \hline
+Portais de dados abertos gerais & \emph{Datasets} tabulares/estatísticos e \emph{linked data} de portais. & Dado predominantemente estruturado. & 11 \\ \hline
+Serviços e procedimentos & FAQs, guias, bases de conhecimento sobre direitos/obrigações. & Conteúdo instrucional voltado à prestação de serviço. & 5 \\ \hline
+Políticas e dados setoriais & Políticas públicas e dados de domínio específico (clima, fisco, fundos). & Recorte setorial explícito. & 4 \\ \hline
+Conceitual & Não vinculado a um tipo de dado específico. & Estudo teórico/exploratório. & 1 \\ \hline
+\multicolumn{4}{|l|}{\textit{Dimensão 3 --- Função da IA Generativa (não exclusiva; sem contagem por estudo)}} \\ \hline
+Extração / estruturação & Extrair entidades e estruturar texto em formato consultável (p.\ ex.\ grafo). & Produz estrutura a partir de texto bruto. & --- \\ \hline
+Enriquecimento / metadados & Gerar rótulos, \emph{tags} e metadados que melhoram a encontrabilidade. & Acrescenta descritores ao recurso. & --- \\ \hline
+Consulta / tradução & Traduzir linguagem natural em consulta formal (SQL, SPARQL). & Interface de recuperação sobre dados. & --- \\ \hline
+Geração / sumarização & Resumir e gerar respostas em linguagem natural. & Produz texto novo a partir da fonte. & --- \\ \hline
+Simplificação & Reescrever texto técnico-jurídico em linguagem simples. & Reduz a barreira cognitiva do texto. & --- \\ \hline
+Orientação / mediação & Guiar o cidadão em procedimentos passo a passo. & Foco no fluxo de serviço, não no dado. & --- \\ \hline
+\end{tabular}
+\end{table*}
+
+Estudos ilustrativos por combinação: a oferta sobre objeto legislativo mediante extração/estruturação aparece em \citet{Colombo2025,Colombo2024}; a oferta por enriquecimento de metadados em portais gerais, em \citet{TAGIFY2025,Gan2026}; a demanda por consulta/tradução sobre portais estatísticos, em \citet{ScotlandChatGPT2024,EvaluatingLLMsOGD2025}; a demanda sobre objeto de serviços por orientação, em \citet{HeyGoogleTaxes2025,Nagesh2025,Gao2023}; e a demanda sobre objeto jurídico por simplificação, em \citet{Freitas_Silva_2026,wcge,Rakhimova2025}. Um mesmo estudo pode ocupar valores combinados na função: \citet{ExpertMultiAgent2025}, por exemplo, integra extração/estruturação (OCR de documentos) e consulta/tradução (\emph{text-to-SQL}) no lado da demanda.
+
+\begin{figure*}[tp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  font=\footnotesize,
+  chip/.style={draw, rounded corners, inner sep=3pt, align=center, fill=black!4, text width=2.0cm},
+  posbox/.style={draw, rounded corners, inner sep=4pt, align=center, text width=3.0cm, minimum height=1.0cm},
+  lab/.style={font=\footnotesize\bfseries, align=center},
+  rel/.style={-{Latex[length=1.6mm]}, black!55}
+]
+  % Dimension 1: chain position (top row)
+  \node[lab] (d1) at (-8.6,3) {Dim.\ 1\\Posição};
+  \node[posbox] (oferta)  at (-3.0,3) {Oferta / preparação\\--- 7};
+  \node[posbox] (demanda) at (3.0,3)  {Demanda / mediação do acesso\\--- 22};
+
+  % Dimension 3: function (middle row)
+  \node[lab] (d3) at (-8.6,1.1) {Dim.\ 3\\Função};
+  \node[chip] (f1) at (-6.0,1.1) {extração/\\estruturação};
+  \node[chip] (f2) at (-3.6,1.1) {enriquec./\\metadados};
+  \node[chip] (f3) at (-1.2,1.1) {consulta/\\tradução};
+  \node[chip] (f4) at (1.2,1.1)  {geração/\\sumarização};
+  \node[chip] (f5) at (3.6,1.1)  {simplificação};
+  \node[chip] (f6) at (6.0,1.1)  {orientação/\\mediação};
+
+  % Dimension 2: object (bottom row)
+  \node[lab] (d2) at (-8.6,-0.9) {Dim.\ 2\\Objeto};
+  \node[chip] (o1) at (-6.0,-0.9) {legislativo/\\jurídico --- 8};
+  \node[chip] (o2) at (-3.0,-0.9) {portais de\\dados --- 11};
+  \node[chip] (o3) at (0,-0.9)    {serviços/\\procedim. --- 5};
+  \node[chip] (o4) at (3.0,-0.9)  {políticas/\\setoriais --- 4};
+  \node[chip] (o5) at (6.0,-0.9)  {conceitual --- 1};
+
+  % relations: function -> chain position
+  \draw[rel] (f1) -- (oferta); \draw[rel] (f2) -- (oferta);
+  \draw[rel] (f3) -- (demanda); \draw[rel] (f4) -- (demanda);
+  \draw[rel] (f5) -- (demanda); \draw[rel] (f6) -- (demanda);
+\end{tikzpicture}}
+\caption{Taxonomia dos usos de IA Generativa no acesso à informação do setor público. Cada estudo é caracterizado por uma combinação (posição na cadeia, objeto, função). A posição (Dim.\ 1: oferta ou demanda) e o objeto (Dim.\ 2) são exclusivos por estudo, com as contagens indicadas; a função (Dim.\ 3) atravessa as posições e pode acumular valores, por isso sem contagem. As setas indicam onde cada função predomina: extração, estruturação e enriquecimento na oferta; consulta/tradução, geração, sumarização, simplificação e orientação na demanda. O objeto informacional combina-se livremente com posição e função, e é ele, não a posição, que distingue a consulta a dados da mediação de serviços.}
+\label{fig:taxonomia}
+\end{figure*}
 
 \subsection{LLMs e Modelos Utilizados (RQ3)}
 \label{subsec:rq3}
 
-Quanto aos modelos empregados, o corpus revela forte concentração em soluções proprietárias. Dezoito dos vinte e nove estudos adotam como modelo principal um sistema da família GPT, acessado via API comercial da OpenAI ou de provedores como Azure e Google. As versões variam do GPT-3.5 (frequente nos trabalhos de 2023 e 2024) ao GPT-4 e GPT-4o (predominantes nos mais recentes), refletindo a rápida sucessão de gerações no período analisado. Modelos como Gemini e Copilot aparecem de forma pontual, em geral como alternativas comparadas dentro de um mesmo estudo.
+Quanto aos modelos empregados, o corpus revela forte concentração em soluções proprietárias. \rev{Dezoito dos vinte e nove estudos adotam como modelo principal um sistema da família GPT, acessado principalmente por serviços comerciais da OpenAI ou do Azure OpenAI.} As versões variam do GPT-3.5 (frequente nos trabalhos de 2023 e 2024) ao GPT-4 e GPT-4o (predominantes nos mais recentes), refletindo a rápida sucessão de gerações no período analisado. Modelos como Gemini e Copilot aparecem de forma pontual, em geral como alternativas comparadas dentro de um mesmo estudo.
 
 Os modelos de pesos abertos comparecem como modelo principal em seis estudos, número menor que o dos proprietários, mas com presença crescente nos trabalhos de 2025 e 2026. Destacam-se Llama \citep{DesigningODAssistant2024,Colombo2024}, Mistral \citep{Colombo2025}, DeepSeek \citep{Gong2025} e ChatGLM \citep{IntelligentPractices2025}. Chama atenção o porte reduzido de vários deles, como Mistral-7B e Llama-3.2-3B, indicando preferência por modelos que possam ser executados localmente. Essa escolha aparece associada, em parte dos casos, a requisitos de processamento de dados sensíveis em ambiente controlado e à viabilidade de operação sem dependência de serviços externos.
 
 Alguns estudos combinam modelos de naturezas distintas em uma mesma arquitetura, atribuindo a cada um função específica. É comum o emprego de um modelo aberto e leve para tarefas de interpretação ou classificação, reservando um modelo proprietário mais potente para a geração da resposta final, como em CLEAR \citep{CLEAR2025}, que usa Llama para interpretar a consulta e GPT-4 para gerar o relatório. Esse arranjo híbrido sinaliza uma estratégia de equilíbrio entre custo, controle e qualidade de geração.
 
-Dois padrões finais merecem registro. Dois estudos baseiam-se em plataformas de IA conversacional não estritamente generativas, como o Google DialogFlow \citep{ChatbotMadrid2021}, pertencentes a uma geração anterior de chatbots orientados a intenções. E três estudos não especificam o modelo de linguagem efetivamente utilizado, descrevendo-o apenas de forma genérica. Essa omissão, ainda que minoritária, compromete a reprodutibilidade dos resultados e a avaliação independente das soluções propostas, ponto retomado entre os desafios da RQ5.
+Dois padrões finais merecem registro. Dois estudos baseiam-se em plataformas de IA conversacional não estritamente generativas, como o Google DialogFlow \citep{ChatbotMadrid2021,TrendsChatbots2023}, pertencentes a uma geração anterior de chatbots orientados a intenções. E três estudos não especificam o modelo de linguagem efetivamente utilizado, descrevendo-o apenas de forma genérica. Essa omissão, ainda que minoritária, compromete a reprodutibilidade dos resultados e a avaliação independente das soluções propostas, ponto retomado entre os desafios da RQ5.
 
 \subsection{Benefícios Reportados (RQ4)}
 \label{subsec:rq4}
@@ -135,7 +233,7 @@ Por fim, registram-se ganhos relativos à qualidade e à confiabilidade da próp
 \subsection{Desafios e Limitações (RQ5)}
 \label{subsec:rq5}
 
-Entre os desafios reportados, um se destaca pela recorrência: a alucinação. A geração de afirmações incorretas ou inventadas aparece na maioria dos estudos, e o contexto governamental agrava o problema, já que a informação pública tem efeito normativo e orienta decisões do cidadão. Vários trabalhos consideram inaceitável qualquer taxa de erro factual em respostas oficiais \citep{Gao2023}. Um deles leva a exigência ao extremo, ao apontar a necessidade de zero alucinação na elaboração legislativa \citep{Colombo2024}. As mitigações mais citadas envolvem a geração aumentada por recuperação (RAG) e o uso de grafos de conhecimento, que ancoram as respostas em fontes verificáveis \citep{HybridGraphRAG2025,Nagesh2025}. Nenhuma delas, porém, elimina o problema por completo.
+Entre os desafios reportados, um se destaca pela recorrência: a alucinação. \rev{A geração de afirmações incorretas ou inventadas é discutida explicitamente em dezoito dos vinte e nove estudos, seja como risco a mitigar, seja como resultado observado na avaliação;} o contexto governamental agrava o problema, já que a informação pública tem efeito normativo e orienta decisões do cidadão. Vários trabalhos consideram inaceitável qualquer taxa de erro factual em respostas oficiais \citep{Gao2023}. Um deles leva a exigência ao extremo, ao apontar a necessidade de zero alucinação na elaboração legislativa \citep{Colombo2024}. As mitigações mais citadas envolvem a geração aumentada por recuperação (RAG) e o uso de grafos de conhecimento, que ancoram as respostas em fontes verificáveis \citep{HybridGraphRAG2025,Nagesh2025}. Nenhuma delas, porém, elimina o problema por completo.
 
 Um segundo eixo reúne as preocupações éticas e de governança. Recorrem questões de privacidade no tratamento de dados sensíveis \citep{Ingole2024}, opacidade algorítmica e replicação de vieses presentes nos dados de treinamento \citep{Monsalvo2025,Freitas_Silva_2026}. Soma-se a isso a dependência de modelos proprietários, que levanta dúvidas sobre soberania de dados e confiança institucional \citep{ScotlandChatGPT2024,ExpertMultiAgent2025}. A ausência de marcos legais claros para o uso de IA no setor público também aparece como obstáculo à adoção responsável.
 
