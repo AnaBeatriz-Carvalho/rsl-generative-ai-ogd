@@ -1,6 +1,6 @@
 # Response to Reviewers — iSys (Major Revision)
 
-**Manuscript:** *Generative AI for Open Government Data Access and Public Transparency: A Systematic Literature Review*
+**Manuscript:** *Generative AI for Public-Sector Information Access and Public Transparency: A Systematic Literature Review*
 
 We thank the editor and the reviewers for the careful and constructive assessment. Below we respond to each
 point, indicating whether we agree, what was changed, and exactly where. All changed passages are highlighted
@@ -9,11 +9,15 @@ the new taxonomy subsection) are marked as new by their highlighted captions/hea
 No data, counts, categories, citations, or methodological procedures were invented; every factual change is
 traceable to the extraction spreadsheet and the study registry provided in the supplementary materials.
 
-> **Note on integrity of the corpus and method.** We did **not** alter the corpus (29 studies), the
-> single-reviewer procedure, the absence of double coding, the absence of snowballing/grey literature, or the
-> 19 reports not retrieved. Where a reviewer suggestion would have required re-running the protocol or
-> fabricating data, we instead strengthened the corresponding limitation and, where possible, added verifiable
-> synthesis from the data already collected.
+> **Note on integrity of the corpus and method.** In direct response to Reviewer A, we conducted an additional,
+> documented full-text retrieval round for the 19 reports originally *not retrieved*; this recovered 9 full texts,
+> **7 of which were included and 2 excluded after full-text assessment**, moving the synthesis corpus from
+> **29 to 36 studies** (34 international + 2 SBC/SOL). This is the **only** change to the corpus, and every one
+> of the 7 new studies was extracted, quality-assessed and classified from its full text with the **same**
+> instrument used for the original 29; no data were invented (all traceable to `busca_registros.csv`,
+> `resultado_extracao_rsl.txt` and the corpus `.bib`). We did **not** change the original search string, run a
+> new search, perform snowballing, or alter the single-reviewer / no-double-coding procedures. Ten reports remain
+> *not retrieved* and are still carried as an availability-bias limitation.
 
 ---
 
@@ -52,13 +56,14 @@ tendência histórica de substituição").
 
 **Comment.** "na maioria", "quase todos", "onipresença" are not quantified.
 
-**Response.** We counted the corpus: hallucination is **explicitly discussed in 18 of the 29 studies** (as a
-risk to mitigate or as an observed result). We replaced every vague quantifier with this verifiable count and
-removed "onipresença"/"quase todos".
+**Response.** We counted the corpus: hallucination was **explicitly discussed in 18 of the 29 studies** in the
+original submission and, after the additional retrieval round, in **24 of the 36 studies** (as a risk to mitigate
+or as an observed result). We replaced every vague quantifier with this verifiable count and removed
+"onipresença"/"quase todos".
 
-**Changes.** RQ5 opening (`resultados_rsl.tex`: "…dezoito dos vinte e nove estudos…"); Discussion §3
-(`isys_rsl.tex`), which also now reports "dezoito dos vinte e nove" for proprietary-model dependence and "três"
-for unreported models.
+**Changes.** RQ5 opening (`resultados_rsl.tex`: "…vinte e quatro dos trinta e seis estudos…"); Discussion §3
+(`isys_rsl.tex`), which also now reports "dezoito dos trinta e seis" for proprietary-model dependence and
+"quatro" for unreported models (see the RQ3 model-family recoding section below).
 
 ### A4 — Rhetorical language
 
@@ -75,15 +80,31 @@ inclusão e exclusão" replacing "filtragem criteriosa").
 
 **Comment.** Please attempt to recover the 19 reports not retrieved.
 
-**Response.** We did **not** perform (or claim) additional retrieval beyond the original protocol, to avoid
-misrepresenting the method. We instead (i) strengthened the availability-bias limitation and (ii) compiled the
-19 studies with their DOIs so they can be attempted before any future extension. Recovering them would require
-re-applying the full-text criteria and re-running extraction/quality assessment; until then the corpus remains
-29 studies.
+**Response.** We thank the reviewer for this recommendation. In response, we conducted an additional full-text
+retrieval round for all 19 reports originally classified as *reports not retrieved*. The additional attempts
+used, as applicable, publisher/DOI pages, institutional access, alternative versions indexed by scholarly search
+engines, ResearchGate or repositories, and direct author requests. Nine full texts were recovered. We reapplied
+the original eligibility criteria without modification: **seven studies were included and two were excluded after
+full-text assessment**. Ten reports remained unavailable despite the additional retrieval effort. Accordingly, we
+updated the PRISMA flow, the synthesis corpus (29 → 36), the quality assessment, the consolidated evidence
+tables, and the availability-bias limitation. The two full-text exclusions were recorded with explicit reasons:
 
-**Changes.** New Threats item **"Viés de disponibilidade"** (`isys_rsl.tex`), explaining that non-retrieval
-concentrates in paywalled venues and may bias the corpus toward open-access work. Supplementary file
-`reports_not_retrieved_todo.md` lists the 19 studies with DOIs.
+- **Baron (2025), "Using AI in providing greater access to the U.S. government's email"** — excluded because it
+  does **not** constitute new, independent primary evidence for the Generative-AI phenomenon under review: its
+  GenAI component synthesizes the already-included Baron et al. (2023) (same FOIA context, ChatGPT-3.5, Clinton
+  collection; "No datasets were generated or analysed during the current study"). Including it alongside Baron
+  et al. (2023) would double-count the same evidence. It is **not** treated as a duplicate (CE4) and **not** as a
+  preliminary/extended version (CE5).
+- **Tahtali et al. (2026), "Why public procurement professionals accept (or resist) generative AI"** — a
+  peer-reviewed primary study, but its object is procurement professionals' *acceptance/resistance* of GenAI
+  (TAM/TTF/TOE), not GenAI as a mechanism for the access, organization or mediation of public-sector information.
+  It therefore fails **CI1**. It is **not** excluded for lack of peer review, nor under CE4/CE5.
+
+**Changes.** Updated Threats item **"Viés de disponibilidade"** (`isys_rsl.tex`): the risk is **reduced** (9/19
+recovered) but **not eliminated**, and the remaining 10 could still shift model/venue/geographic distributions.
+Results §Seleção, PRISMA counts, Table 1, geography, taxonomy, QA appendix, and the consolidated table were
+updated to N=36. Supplementary file `reports_not_retrieved_todo.md` now lists the **10** still-unretrieved studies
+with DOIs and documents the 7 included and 2 excluded.
 
 ### A6 — SLR vs Systematic Mapping Study
 
@@ -132,7 +153,7 @@ North America 5, South America 4, Oceania 1, **Africa 0**. We linked this concen
 subsection **"Distribuição geográfica"** with **Table `tab:geografia`** (`resultados_rsl.tex`); new sentence in
 Threats/External validity (`isys_rsl.tex`).
 
-### C3 — Consolidated view of the 29 studies
+### C3 — Consolidated view of the corpus (now 36 studies)
 
 **Comment.** Provide a consolidated corpus table.
 
@@ -189,11 +210,13 @@ resultado (nível iv)").
 
 ---
 
-## Final validation round — additional changes (corpus frozen at 29)
+## Validation round — terminological/conceptual changes (corpus was 29 at that point)
 
-> **Integrity note for this round.** The corpus remains **29 studies** (19 reports not retrieved, 8 excluded).
-> No study was recovered or added; `busca_registros.csv`, the extraction file, and the corpus `.bib` were **not**
-> modified. All changes below are terminological/conceptual and are highlighted with `\rev{}` in the revised PDF.
+> **Integrity note for that round.** At the time of the terminological/conceptual pass below, the corpus was
+> **29 studies**; those changes did not add or remove any study. **A subsequent, separately documented full-text
+> retrieval round then moved the corpus to 36** (see the top integrity note, the Reviewer A "19 reports" item,
+> and the "Additional full-text retrieval round" section at the end). The changes in this subsection remain valid
+> and are highlighted with `\rev{}`.
 
 ### Title and scope (Reviewers A & C — scope clarification)
 
@@ -237,12 +260,86 @@ was reclassified: the 7/22 counts come directly from the D1 column of the consol
 - **RAG** de-universalized: "…mechanisms of retrieval over updated repositories become particularly relevant; RAG is
   one of the main architectures identified" (was "RAG is a requirement") — `isys_rsl.tex` §2.
 - **Grey literature**: new Threats item stating peer-reviewed-only synthesis and that the 0-civic-outcome finding is
-  bounded to the 29 included studies — `isys_rsl.tex`.
+  bounded to the 36 included studies — `isys_rsl.tex`.
 - **Terminology/acronyms**: "Background" → "Fundamentação e Trabalhos Relacionados"; first-use definitions of
   Inteligência Artificial (IA), Sistemas de Informação (SI); LLMs/OGD/RAG/PICOC/PRISMA/RSL verified.
 
-### Reports not retrieved (Reviewer A) — status this round
+### Reports not retrieved (Reviewer A) — superseded
 
-**PARTIALLY RESOLVED / REQUIRES HUMAN ACTION.** The 19 remain *reports not retrieved*. No additional retrieval was
-performed or claimed; the availability-bias limitation is reinforced and the list with DOIs is in
-`reports_not_retrieved_todo.md`. Recovery is a separate human action for a future round; the corpus stays at 29.
+**RESOLVED in a subsequent round** (see below and the Reviewer A "19 reports" item). An additional full-text
+retrieval round recovered 9 of the 19, of which 7 were included and 2 excluded after full-text assessment; the
+corpus moved to 36. Ten reports remain *not retrieved* and are carried as availability bias in
+`reports_not_retrieved_todo.md`.
+
+---
+
+## Additional full-text retrieval round (Reviewer A) — corpus 29 → 36
+
+This round implements Reviewer A's recommendation on the 19 *reports not retrieved*.
+
+**What was done.** An additional retrieval round was run for all 19 reports, using — as applicable — publisher/DOI
+pages, institutional access, alternative versions indexed by scholarly search engines, ResearchGate/repositories,
+and direct author requests. **Nine** full texts were recovered and reassessed under the **unchanged** CI1–CI5 /
+CE1–CE5 criteria. **Seven were included** (Syahidi et al. 2025; Ryu et al. 2025; Kumar et al. 2024; Giarelis et
+al. 2026; Fang & Xu 2023; Tsourma et al. 2025; García-Montero et al. 2025 — consolidated-table IDs 30–36) and
+**two were excluded after full-text** (Baron 2025; Tahtali et al. 2026 — reasons above). **Ten** remain not
+retrieved.
+
+**PRISMA (international).** 46 sought → 10 not retrieved → 36 assessed → 2 excluded after full-text → 34 included.
+With the 2 SBC/SOL studies, the final corpus is **36**. (Identification/deduplication/title-abstract screening
+counts are unchanged, as the additional round acted only at the full-text-retrieval stage.)
+
+**What was recomputed from data (not mechanically substituted).** Models — at this round GPT/proprietary 19,
+open-weight 11, DialogFlow 2, not reported 4; **subsequently recoded** to proprietary 18 / open-weight 10 /
+multiple-comparative 2 / DialogFlow 2 / not reported 4 (see the RQ3 model-family recoding section below); empirical 28 / conceptual 8; hallucination explicitly discussed 24/36; taxonomy D1 (supply 9 /
+demand 27), D2 (LJ 9, OGD 12, services 9, sectoral 5, conceptual 1); geography (Europe 15, Asia 7, N. America 5,
+S. America 5, Oceania 1, Africa 0, multi-region 1, no national context 2); QA (range 2.0–5.0, **median 4.5
+unchanged**, twelve at 5.0, two below 2.5). The central finding is unchanged and re-verified: **none of the 36
+studies** evaluates transparency as a civic outcome.
+
+**Changes.** Abstract/Resumo, Results §Seleção + PRISMA narrative, Table 1, geography table, taxonomy Table 8 and
+figure, RQ1–RQ5 narratives, QA appendix (rows 30–36), consolidated table (rows 30–36), Discussion, Threats
+(availability bias), and Conclusion — all to N=36. Data files `busca_registros.csv`,
+`resultado_extracao_rsl.txt`, `referencias_corpus.bib`, and `reports_not_retrieved_todo.md` updated accordingly.
+
+**Status of prior human-action items (resolved in the pre-merge pass).** The PRISMA figure
+`imagens/fluxograma_prisma.png` was **replaced manually** with the corrected flow (46 sought → 10 not retrieved →
+36 assessed → 2 excluded → 34 included). The `[A CONFIRMAR]` bibliographic placeholders were resolved:
+García-Montero et al. is now dated **2026** (Springer CCIS chapter; TICEC 2025 event; pp. 63–77) with key
+`GarciaMontero2026`, and Giarelis et al. 2026 is now "Electronic Government (EGOV 2025), LNCS 15944, pp. 368–379".
+
+---
+
+## RQ3 model-family coding — explicit rule and terminology (Reviewers A & C)
+
+**Comment (coding transparency / consistency).** The model-family variable was mutually exclusive but the "main
+model" reduction was never operationally defined, the aggregate label "família GPT" absorbed proprietary non-GPT
+systems (Gemini, Copilot), and several studies use more than one generative family.
+
+**Response.** We did **not** change eligibility, the corpus (still 36), or any other analysis. We only made the
+**descriptive RQ3 model-family coding explicit and reproducible**, operationalizing the previously implicit rule
+across all 36 studies (not a rule invented for one study):
+
+- A study is assigned to **one** category by the **generative** models central to its design. Auxiliary models
+  (embedding, re-ranking, retrieval, classifiers, LLM-as-judge, synthetic-data or preprocessing) do not determine
+  the category; a baseline that is a full experimental arm of a head-to-head comparison the conclusions depend on
+  is treated as co-primary.
+- Categories: **Proprietary · Open-weight · Multiple/comparative · DialogFlow · Not reported**. The aggregate
+  label "família GPT" was renamed **"Proprietário/Proprietary"** (individual GPT-3.5/4/4o mentions are unchanged).
+- **Multiple/comparative** is used **only** for symmetric cross-ownership-family designs (proprietary + open as
+  co-primary experimental conditions, no focal model). Two studies qualify: Rakhimova et al. 2025 (GPT-4o-mini vs.
+  seven open models on Kazakh legal QA) and García-Montero et al. 2026 (Gemini 2.5 Flash / GPT-4.1 Mini vs.
+  DeepSeek V3 / Llama 4 Maverick on the same 16 datasets). Studies with a clear focal generator — including
+  asymmetric pipelines (CLEAR: Llama interprets, GPT-4 generates → Proprietary) and same-family comparisons
+  (three open models → Open-weight; three proprietary → Proprietary) — were **not** moved to Multiple/comparative.
+
+**Recomputed distribution (from the 36 study-level decisions):** proprietary **18**, open-weight **10**,
+multiple/comparative **2**, DialogFlow **2**, not reported **4** (= 36). Net change vs. the previous 19/11/2/4:
+Rakhimova (was in the proprietary aggregate) and García-Montero/R022 (was open-weight) moved to
+multiple/comparative; Gan (#19) remains open-weight; #12/#17 remain proprietary.
+
+**Changes.** Documented rule added to Method (`metodo_rsl.tex`, §Extração); Table 1 relabelled with the new
+category; RQ3 narrative rewritten (proprietary 18, open 10, new multiple/comparative paragraph); Abstract/Resumo,
+Discussion §3 and reception paragraph, and Conclusion delabelled/recounted; extraction records for the two
+comparative studies annotated. No inter-rater validation is claimed; the single-reviewer limitation is preserved.
+This is an operational clarification of RQ3 coding, **not** a new taxonomy dimension.

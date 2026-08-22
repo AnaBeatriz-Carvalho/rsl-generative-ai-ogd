@@ -111,3 +111,73 @@ Correções seguras implementadas nesta rodada, todas terminológicas/conceituai
 Deliverables desta rodada: `00_baseline_validation.md` … `09_reviewer_C_simulation.md`, `FINAL_VALIDATION_REPORT.md`, `response_letter.md` (atualizado).
 
 **Ação humana pendente:** recuperação dos 19 not-retrieved; conferência contra pareceres originais (ausentes do repo); inspeção visual do PDF (sem poppler no ambiente).
+
+---
+
+## 6. Adendo — rodada de recuperação de full-text e integração (corpus 29 -> 36)
+
+Rodada **posterior** à validação final. Diferentemente do adendo §5 (mudanças apenas terminológicas, corpus
+congelado em 29), esta rodada **altera o corpus** porque houve recuperação REAL e documentada de textos completos,
+com os 9 PDFs correspondentes depositados em `recovered_fulltexts/` (7 elegíveis) e `recovered_fulltexts_excluded/`
+(R010, R033). A migração 29 -> 31 vetada anteriormente **não** foi reintroduzida: R005 e R036 permanecem
+*not retrieved*, e o corpus foi para 36 (não 31).
+
+**Cadeia obrigatória cumprida por estudo** (PDF -> elegibilidade -> extração -> QA -> classificação -> cálculo ->
+síntese -> manuscrito). Extração dos 7 novos feita do texto completo com o mesmo formulário (blocos adicionados a
+`resultado_extracao_rsl.txt`, agora 36 blocos).
+
+**Recuperados (9/19):** incluídos R001, R006, R008, R009, R011, R021, R022 (IDs 30–36 na tabela consolidada);
+excluídos após full-text R010 (sem evidência primária independente; sintetiza Baron et al. 2023/R012) e R033
+(não atende CI1). Permanecem *not retrieved* (10): R005, R014, R019, R020, R024, R028, R030, R031, R036, R043.
+
+**Recomputações a partir dos dados** (não substituição mecânica): PRISMA internacional 46→10 not retrieved→36
+avaliados→2 excluídos→34 incluídos; +2 SBC/SOL = 36. Modelos GPT 19 / abertos 11 / DialogFlow 2 / NR 4. Empíricos
+28 / conceituais 8. Alucinação 24/36. D1 oferta 9 / demanda 27. D2 LJ 9, OGD 12, SP 9, PS 5, C 1. Geografia
+Europa 15, Ásia 7, AmNorte 5, AmSul 5, Oceania 1, África 0, multirregião 1, sem contexto 2. QA min 2,0 / máx 5,0 /
+mediana 4,5 (mantida) / 12 em 5,0 / 2 abaixo de 2,5 (Dineva 2,0; TNGov-GPT/R008 2,0). Achado central mantido e
+reverificado: nenhum dos 36 mede desfecho cívico.
+
+**TAXONOMY REVIEW:** nenhuma nova categoria foi necessária — os 7 estudos couberam em D1/D2/D3 existentes. A camada
+de explicabilidade (XAI) de R009 foi representada como função de geração (GS); é candidata a uma função própria de
+"explicação/interpretabilidade" apenas se o padrão recorrer (1 estudo não justifica).
+
+**Compilação:** `latexmk -xelatex` exit 0; 0 undefined citations; 0 undefined references; 23 páginas; 3 overfull
+hbox menores e pré-existentes (frontmatter datas/resumo), sem estouro das tabelas ampliadas.
+
+**Ação humana pendente desta rodada:** (1) regenerar a imagem `imagens/fluxograma_prisma.png` (ainda mostra
+19/27/29 → deve mostrar 10/36/2/34); (2) confirmar o ano definitivo de García-Montero et al. (fixado em 2025 pelo
+prefixo de DOI 978-3-032; a tabela antiga trazia 2026) e os nomes exatos dos proceedings LNCS/CCIS
+(`[A CONFIRMAR]` no `.bib`); (3) contexto governamental de R001 (não especificado no texto) e classificação
+multirregião de R006 (Estônia/Singapura/UE) — confirmar; (4) inspeção visual do PDF (sem poppler no ambiente).
+
+## 7. Adendo — passe de validação pré-merge (2026-08-22)
+
+Itens (1)-(3) de §6 RESOLVIDOS: (1) PRISMA `imagens/fluxograma_prisma.png` substituída manualmente pela autora
+(git: modificada; deve mostrar 46→10→36→2→34); apenas referência e embedding verificados aqui (sem poppler para
+inspeção raster). (2) Ano de García-Montero validado como **2026** (capítulo Springer CCIS; evento TICEC 2025;
+pp. 63-77); chave BibTeX renomeada `GarciaMontero2025`→`GarciaMontero2026` no `.bib` e nas 3 citações do
+`resultados_rsl.tex`; ainda dentro de 2024-2026, sem alteração de contagem. Proceedings preenchidos: Giarelis =
+"Electronic Government (EGOV 2025)", LNCS 15944, pp. 368-379. (3) R001 mantido "não especificado"; R006 mantido
+"multirregião" (texto analisa explicitamente Estônia, Singapura e UE). Recompilação `latexmk -xelatex` exit 0,
+0 undefined. Relatório: `FINAL_PREMERGE_VALIDATION.md`. Nada commitado.
+
+## 8. Adendo — recodificação da família de modelo (RQ3), sem alterar corpus/eligibilidade
+
+Correção do problema apontado em `MODEL_CODING_AUDIT.md`: a variável de família de modelo (RQ3) era mutuamente
+exclusiva, mas a redução por "modelo principal" nunca fora definida; o rótulo agregado "família GPT" absorvia
+proprietários não GPT (Gemini, Copilot); e há estudos com mais de uma família. **Nada além da RQ3 descritiva foi
+tocado** — corpus 36, elegibilidade, PRISMA, QA, geografia, D1/D2/D3, alucinação e desfecho cívico inalterados.
+
+- Regra formalizada e documentada no Método (§Extração), aplicada de forma uniforme aos 36 estudos: categoria pela
+  família dos modelos **generativos centrais**; auxiliares (embedding, reordenação, recuperação, classificador,
+  juiz, dados sintéticos, pré-processamento) não contam; baseline que é arm completo de comparação direta =
+  coprimário. Categorias: Proprietário / Pesos abertos / Múltiplos-comparativo / DialogFlow / Não reportado.
+- Rótulo agregado "família GPT" → **"Proprietário"** (menções às tecnologias GPT-3.5/4/4o preservadas).
+- **"Múltiplos/comparativo"** só para desenhos simétricos entre famílias sem modelo focal: **#20 Rakhimova**
+  (GPT-4o-mini vs. 7 abertos) e **#36 R022** (Gemini/GPT-4.1-mini vs. DeepSeek/Llama-4). #12 (pipeline assimétrico,
+  GPT-4 focal) e #17 (comparação toda proprietária) permaneceram Proprietário; #19 permaneceu Pesos abertos.
+- **Distribuição recomputada** dos 36: Proprietário 18 / Pesos abertos 10 / Múltiplos-comparativo 2 / DialogFlow 2
+  / Não reportado 4 (= 36). Supersede o "GPT 19 / abertos 11 / DF 2 / NR 4" do §6/§7 (aquele número é estado
+  anterior). Sem validação entre avaliadores; limitação de revisão única preservada. Não é nova dimensão de
+  taxonomia — é clarificação operacional da RQ3. `latexmk -xelatex` exit 0, 0 undefined. Relatório:
+  `RQ3_MODEL_FAMILY_RECODING_REPORT.md`. Nada commitado.

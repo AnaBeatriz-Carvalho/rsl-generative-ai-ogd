@@ -280,7 +280,7 @@ AQ5 (Limitações metodológicas discutidas): 1 - Uma seção exclusiva expõe c
 DOCUMENTO: Legal AI in Low-Resource Languages: Building and Evaluating QA Systems for the Kazakh Legislation
 [BLOCO 1: QUESTÕES DE PESQUISA (RQs)]  Aplicação / Caso de Uso (RQ1): O problema solucionado é a carência de profissionais na área jurídica no Cazaquistão e a dificuldade de extrair conhecimentos precisos de massas documentais legais em um idioma com baixa disponibilidade de recursos computacionais. A IA Generativa é empregada treinando LLMs para atuar como sistemas de perguntas e respostas (QA) restritos ao domínio jurídico, interpretando e respondendo com base no quadro regulatório.
 Dados Governamentais (RQ2): Documentos legislativos formais, códigos jurídicos e bases de portais eletrônicos governamentais do Cazaquistão (especificamente as bases Adilet, Zqai e Gov).
-Modelo(s) (RQ3): Diversos modelos foram comparados após fine-tuning: GPT-4o mini (proprietário); e os modelos abertos GEMMA 9B, KazLLM 8B, LLaMA 3.2 3B, Phi 1.4B/2, Qwen 2.5 7B e Mistral 7B.
+Modelo(s) (RQ3): Diversos modelos foram comparados após fine-tuning: GPT-4o mini (proprietário); e os modelos abertos GEMMA 9B, KazLLM 8B, LLaMA 3.2 3B, Phi 1.4B/2, Qwen 2.5 7B e Mistral 7B. Família de modelo (RQ3): MÚLTIPLOS/COMPARATIVO — GPT-4o-mini (proprietário) e sete modelos abertos são condições experimentais de mesmo peso, diretamente comparados; nenhum modelo generativo é focal.
 Benefícios (RQ4): Relatou-se uma grande melhora na eficiência para cidadãos e prestadores de serviços jurídicos perante consultas de rotina. O sistema de QA com o GPT-4o mini obteve a melhor pontuação especializada (3.13 de 5) e alta coerência léxica (ROUGE-L de 0.263), demonstrando capacidade profunda em citar legislações corretamente para melhorar a literacia jurídica pública.
 Desafios (RQ5): Limitações técnicas associadas à complexidade morfológica (aglutinativa) e variação sintática da língua cazaque, as quais prejudicam a tokenização e causam alucinações onde os modelos inventam falsas referências. Barreiras de adoção incluem os altos custos financeiros associados às APIs comerciais para órgãos públicos de orçamentos menores, e os requisitos de alta estabilidade de rede em regiões periféricas.
 Avaliação (Método): Validação quantitativa conduzida por métricas consolidadas (ROUGE-1, 2, L e METEOR) acompanhada por uma avaliação humana, onde um painel de 3 especialistas do ramo de direito avaliou as predições em múltiplas dimensões (acurácia, completude, clareza, etc.), aplicando o coeficiente Kappa de Fleiss para assegurar a concordância.  [BLOCO 2: AVALIAÇÃO DE QUALIDADE (AQ)]AQ1 (Objetivos claros): 1 - A pesquisa é introduzida com metas sólidas para avaliar a adaptação de LLMs no contexto legislativo de baixo recurso de linguagem.
@@ -377,3 +377,167 @@ AQ2 (Contexto de OGD descrito): 0,5 - O texto descreve o uso de dados extraídos
 AQ3 (Detalhes da abordagem GenAI/LLM para replicação): 1 - O estudo detalha a arquitetura, o uso da técnica P-tuning v2, a construção dos templates de instrução (prompts) e os modelos específicos utilizados (ChatGLM e SeamlessM4T-NLLB).
 AQ4 (Resultados/benefícios apoiados por evidências empíricas): 1 - As conclusões de que o modelo proposto é superior são embasadas por resultados rigorosos apresentados em tabelas de comparação com múltiplas métricas de avaliação (ex: BERTScore e ROUGE).
 AQ5 (Limitações metodológicas discutidas): 1 - Os autores reconhecem abertamente nas conclusões que o modelo ainda apresenta alucinações e apontam que a metodologia de sequenciamento de dados no fine-tuning necessita de melhorias futuras.  [BLOCO 3: EVIDÊNCIAS]Página(s) e Seção(ões) principal(is): Abstract; Seção I (Introduction); Seção III (Method - subseções A e B); Seção IV (Experiments - subseção A e B); Seção V (Result); Seção VII (Conclusion and Future Work)
+
+=========================================
+NOTA: os sete blocos a seguir foram extraidos na rodada adicional de recuperacao de full-text (revisao iSys),
+a partir do texto completo, com o MESMO formulario dos 29 estudos originais. Corpus 29 -> 36.
+=========================================
+DOCUMENTO: A Fine-Tuned GPT-4-Based Question Answering System for E-Government Services Using a Custom-Built Dataset [R001]
+[BLOCO 1: QUESTÕES DE PESQUISA (RQs)]
+
+Aplicação / Caso de Uso (RQ1): Sistema de Question Answering baseado em GPT-4 fine-tuned para ampliar o acesso do cidadão a serviços governamentais. A arquitetura modular compreende interface (frontend), processador de consulta (limpeza, detecção de intenção, NER), motor de inferência GPT-4, validador de resposta (checagens de fatos e sanitização) e coletor de feedback.
+Dados Governamentais (RQ2): FAQs oficiais e respostas de portais governamentais verificados (mais de 1.000 pares pergunta-resposta) sobre serviços públicos: registro civil, transporte (renovação de habilitação), bem-estar social (certificados de incapacidade), saúde, tributação e emprego. O sistema de governo/país específico não é reportado no texto (NR).
+Modelo(s) (RQ3): GPT-4 (API da OpenAI), com fine-tuning supervisionado (divisão 80/10/10; 5 épocas; taxa de aprendizado 5e-5; otimizador Adam; janela de 4.096 tokens) e prompt engineering (role prompts, restrições de formato). Modelo proprietário (família GPT).
+Benefícios (RQ4): BLEU 0,68 vs. 0,51 do baseline; ROUGE-L 0,74 vs. 0,60; F1 0,85 em consultas informais; avaliação humana (5 avaliadores) com acurácia 87% vs. 68% e utilidade 90% vs. 72%; robustez a linguagem informal, abreviada e indireta em múltiplos domínios de serviço.
+Desafios (RQ5): dependência de FAQs estáticas, que podem não refletir atualizações de política em tempo real; risco remanescente de alucinação, sobretudo em contextos jurídicos e procedimentais sensíveis; necessidade de mecanismos de explicabilidade; integração com APIs governamentais em tempo real apontada como trabalho futuro.
+Avaliação (Método): validação empírica com métricas automáticas (BLEU, ROUGE-L, F1) sobre 300 consultas em três execuções independentes com desvio-padrão, avaliação humana por cinco especialistas (acurácia, utilidade, relevância) e teste de robustez com variações de fraseado.
+
+[BLOCO 2: AVALIAÇÃO DE QUALIDADE (AQ)]
+
+AQ1 (Objetivos claros): 1 - O objetivo de projetar, ajustar e avaliar um sistema de QA baseado em GPT-4 para serviços de e-gov é declarado explicitamente.
+AQ2 (Contexto de OGD descrito): 0,5 - Os domínios de serviço são descritos, mas a proveniência dos dados e o contexto governamental/país específico permanecem genéricos ("portais governamentais verificados"), sem identificação da administração.
+AQ3 (Detalhes da abordagem GenAI/LLM para replicação): 1 - São reportados hiperparâmetros de fine-tuning (divisão, épocas, taxa de aprendizado, otimizador, janela de tokens), estratégias de prompt e a arquitetura de componentes.
+AQ4 (Resultados/benefícios apoiados por evidências empíricas): 1 - Resultados sustentados por métricas automáticas com desvio-padrão, avaliação humana e teste de robustez.
+AQ5 (Limitações metodológicas discutidas): 1 - Discutem-se FAQs estáticas, risco de alucinação em domínios sensíveis e a necessidade de explicabilidade.
+
+[BLOCO 3: EVIDÊNCIAS]
+
+Página(s) e Seção(ões) principal(is): pp. 232-237; Seções III (Research Methodology), IV (Results and Evaluation) e V (Discussion).
+
+=========================================
+DOCUMENTO: Implementation of RAG-LLM Based AI Agents for Public Service Innovation: RAG System Architecture Analysis and A Cross-National Case Study [R006]
+[BLOCO 1: QUESTÕES DE PESQUISA (RQs)]
+
+Aplicação / Caso de Uso (RQ1): Análise arquitetural de agentes de IA baseados em RAG-LLM e estudo de casos transnacional (Estônia — ecossistema Kratt/Bürokratt; Singapura — AIBots; União Europeia — sistema de assessoria jurídica transfronteiriça) para inovação em serviços públicos, com foco em modelos de governança, interoperabilidade e padronização de dados.
+Dados Governamentais (RQ2): informação do setor público mobilizada nos três casos — bases jurídicas, repositórios de políticas, portais de e-gov e conhecimento administrativo (documentos legais, FAQs de agências, dados de serviços ao cidadão).
+Modelo(s) (RQ3): arquitetura genérica RAG-LLM (modelo de embeddings + retriever + gerador), com GPT-4 citado como gerador exemplar; os casos analisados empregam pilhas distintas (por exemplo, RASA NLP no Bürokratt; embeddings multilíngues BERT-EU na UE). Os autores não implementam um modelo próprio único (NR/múltiplos).
+Benefícios (RQ4): redução de alucinações em até 63% via recuperação; ganhos operacionais (Estônia: 1,2 milhão de consultas/mês, 89% de resolução, -30% de custo; Singapura: +40% de consultas atendidas; UE: emissão de permissões de 6 semanas para 3 dias); satisfação/prontidão cidadã de 82% a 98%; transparência por citação de fontes e suporte multilíngue.
+Desafios (RQ5): generalização a contextos menos digitalizados; governança ética e incerteza regulatória (GDPR, AI Act); qualidade e governança dos dados; complexidade de implementação e modernização de infraestrutura; confiança do usuário e necessidade de supervisão humana (human-in-the-loop) em tarefas sensíveis.
+Avaliação (Método): análise conceitual/arquitetural combinada a estudo de casos transnacional. As métricas reportadas provêm de fontes secundárias sobre as implantações analisadas; os autores não conduzem experimento primário próprio.
+
+[BLOCO 2: AVALIAÇÃO DE QUALIDADE (AQ)]
+
+AQ1 (Objetivos claros): 1 - Os objetivos (analisar padrões arquiteturais de RAG, propor arcabouço de trade-off precisão/segurança e métricas de avaliação) são declarados explicitamente.
+AQ2 (Contexto de OGD descrito): 1 - Os contextos governamentais dos três casos (Estônia, Singapura, UE) são descritos em detalhe.
+AQ3 (Detalhes da abordagem GenAI/LLM para replicação): 0,5 - Os componentes do RAG-LLM e das arquiteturas nacionais são descritos conceitualmente, sem detalhes de implementação replicáveis, por se tratar de síntese de casos.
+AQ4 (Resultados/benefícios apoiados por evidências empíricas): 0,5 - Os benefícios são reportados a partir de fontes secundárias das implantações (blogs institucionais, relatórios), sem experimento primário conduzido pelos autores.
+AQ5 (Limitações metodológicas discutidas): 1 - Discutem-se generalização, ética, qualidade de dados, supervisão humana e desafios regulatórios.
+
+[BLOCO 3: EVIDÊNCIAS]
+
+Página(s) e Seção(ões) principal(is): pp. 308-321; Seções II (Theoretical Background), III (AI Agent Implementation), IV (Cross-National Case Studies) e V (Conclusion).
+
+=========================================
+DOCUMENTO: TNGov-GPT: Pioneering Conversational AI Chat through Tamil Nadu Government Insights and Transformer Innovations [R008]
+[BLOCO 1: QUESTÕES DE PESQUISA (RQs)]
+
+Aplicação / Caso de Uso (RQ1): chatbot conversacional (TNGov-GPT) treinado com dados extraídos de sites do governo indiano para ampliar o acesso do cidadão a informações e serviços governamentais em Tâmil (documentos, recuperação de informação, encaminhamento de reclamações).
+Dados Governamentais (RQ2): dados públicos raspados de sites do governo indiano (domínios .gov.in), abrangendo saúde, educação, finanças, governança geral e esquemas/programas governamentais.
+Modelo(s) (RQ3): modelo baseado em transformer; o pseudocódigo emprega GPT-2 (GPT2Tokenizer/GPT2LMHeadModel — pesos abertos), e o texto discute GPT-3, BERT e transformer customizado. Classificado como pesos abertos (GPT-2).
+Benefícios (RQ4): alegações de respostas precisas e contextualmente relevantes em Tâmil e de melhoria de eficiência do serviço; não há dados que sustentem esses ganhos (a Figura 5 é uma projeção genérica de 12 meses, não uma medição).
+Desafios (RQ5): coleta e limpeza de dados via web scraping; nuances do Tâmil (dialetos, registro formal/informal). As limitações metodológicas do próprio estudo não são discutidas de forma substantiva.
+Avaliação (Método): o trabalho descreve implementação e "deployment", mas não conduz avaliação empírica real — as métricas mencionadas (Query Understanding Accuracy, Success Rate, User Satisfaction) não têm dados reportados e a Figura 5 é uma projeção. Trata-se de prova de conceito sem validação prática (estudo conceitual).
+
+[BLOCO 2: AVALIAÇÃO DE QUALIDADE (AQ)]
+
+AQ1 (Objetivos claros): 1 - O objetivo de desenvolver um chatbot para informações do governo de Tamil Nadu é declarado.
+AQ2 (Contexto de OGD descrito): 0,5 - O contexto (dados de sites .gov.in indianos) é descrito de forma imprecisa, sem detalhamento das fontes específicas.
+AQ3 (Detalhes da abordagem GenAI/LLM para replicação): 0,5 - Há pseudocódigo (GPT-2) e descrição de coleta/pré-processamento, mas o relato é incoerente e não replicável.
+AQ4 (Resultados/benefícios apoiados por evidências empíricas): 0 - Não há avaliação empírica real; a Figura 5 é uma projeção genérica e não há dados de desempenho.
+AQ5 (Limitações metodológicas discutidas): 0 - As limitações e ameaças à validade do estudo não são efetivamente discutidas.
+
+[BLOCO 3: EVIDÊNCIAS]
+
+Página(s) e Seção(ões) principal(is): pp. 1-7 (numeração do evento ICAIT 2024); Seções III (Methodology), IV (Results & Discussions) e V (Conclusion).
+
+=========================================
+DOCUMENTO: Integrating Knowledge Graphs, Large Language Models and Explainable AI Techniques to Improve Public Health Question Answering [R009]
+[BLOCO 1: QUESTÕES DE PESQUISA (RQs)]
+
+Aplicação / Caso de Uso (RQ1): assistente de Question Answering de saúde pública que integra Grafos de Conhecimento (KG), LLM e IA Explicável (xAI) para aumentar a consciência do cidadão sobre questões médicas e a confiança nos serviços de saúde, fornecendo respostas e explicações transparentes sem exigir expertise técnica.
+Dados Governamentais (RQ2): informação de saúde pública — conhecimento médico (doenças, sintomas, fatores, atividades, alimentos) extraído de fontes públicas (PubMed, Europe PMC) e de KGs médicos abertos, no contexto de serviços de e-gov de saúde pública da Grécia.
+Modelo(s) (RQ3): Llama-3.1 8B (open-source, pesos abertos) combinado a um KG dinâmico e a técnicas de xAI (Captum, SHAP, Shapley/Integrated Gradients). Os autores optam por modelo aberto por privacidade dos dados médicos, embora observem que a abordagem também poderia usar modelos proprietários (ChatGPT).
+Benefícios (RQ4): mitigação de alucinação e indecisão dos LLMs por meio do contexto estruturado do KG; transparência via explicações xAI que destacam o contexto usado na resposta; avaliação preliminar positiva por cinco especialistas médicos (22 de 25 questões com resultado favorável em clareza, acurácia e qualidade); potencial de fomentar participação e confiança cidadã.
+Desafios (RQ5): solução testada em número limitado de doenças (ortopédicas); a avaliação preliminar carece de experimentos empíricos que meçam quantitativamente a acurácia de QA e a confiança na camada de explicabilidade; necessidade de ampliar a avaliação a grupos de stakeholders mais diversos, incluindo cidadãos com diferentes níveis de literacia digital.
+Avaliação (Método): avaliação preliminar qualitativa com cinco especialistas médicos do Sistema de Saúde Pública da Grécia, comparando 25 respostas da abordagem integrada LLM-KG às respostas do LLM isolado (Llama-3.1 8B).
+
+[BLOCO 2: AVALIAÇÃO DE QUALIDADE (AQ)]
+
+AQ1 (Objetivos claros): 1 - Os objetivos (QA de saúde pública com KG+LLM+xAI para transparência e confiança) são declarados explicitamente.
+AQ2 (Contexto de OGD descrito): 1 - O contexto de e-gov de saúde pública e as fontes de dados (PubMed, Europe PMC, KGs médicos) são bem descritos.
+AQ3 (Detalhes da abordagem GenAI/LLM para replicação): 1 - A ontologia, o modelo (Llama-3.1 8B), os prompts (Tabela 1) e as técnicas de xAI (Captum, SHAP) são detalhados o suficiente para compreensão e replicação aproximada.
+AQ4 (Resultados/benefícios apoiados por evidências empíricas): 0,5 - A avaliação é preliminar e qualitativa (5 especialistas, 25 questões); os próprios autores reconhecem a ausência de medição quantitativa da acurácia.
+AQ5 (Limitações metodológicas discutidas): 1 - Discutem-se o escopo limitado (ortopedia), a ausência de experimentos quantitativos e a necessidade de avaliação com stakeholders mais amplos.
+
+[BLOCO 3: EVIDÊNCIAS]
+
+Página(s) e Seção(ões) principal(is): pp. 1-13; Seções 1 (Introduction), 2 (Related Work), 3 (The Proposed Public Health QA Assistant) e 4 (Discussion).
+
+=========================================
+DOCUMENTO: Automating Government Response to Citizens' Questions: A Large Language Model-Based Question-Answering Guidance Generation System [R011]
+[BLOCO 1: QUESTÕES DE PESQUISA (RQs)]
+
+Aplicação / Caso de Uso (RQ1): sistema de geração de respostas-guia de QA especializado em assuntos governamentais que, ao receber uma nova pergunta de cidadão, gera respostas exemplares para que servidores públicos as utilizem como referência ao responder. Atua no lado da oferta (human-in-the-loop), sem interface direta de consulta pelo cidadão.
+Dados Governamentais (RQ2): perguntas e respostas de painéis de mensagens governamentais da China (130.258 registros de 2022), com informação de localização geográfica e contagem de upvotes; QA sobre assuntos e serviços governamentais.
+Modelo(s) (RQ3): Qwen (desenvolvido pela Alibaba; pesos abertos) fine-tuned como modelo gerador principal, combinado ao BERT para embeddings de sentença e recuperação de perguntas históricas similares (com filtragem por localização e top-K); baselines GPT-3 e BERT. Modelo principal: pesos abertos.
+Benefícios (RQ4): melhoria de desempenho de 4% a 10% sobre os baselines; METEOR médio 0,6270 (vs. GPT-3 0,5826 e BERT 0,5587); respostas linguisticamente mais naturais e "praticamente efetivas"; a filtragem por localização reduz informação incorreta por região; redução de custo de trabalho manual dos servidores.
+Desafios (RQ5): LLMs geram ocasionalmente conteúdo factualmente incorreto (alucinação) e texto "vazio" sem informação útil; altos custos de treinamento; dependência da qualidade e quantidade dos dados; baixa interpretabilidade do texto gerado.
+Avaliação (Método): avaliação empírica com a métrica METEOR em cinco testes paralelos sobre as 1.000 perguntas historicamente mais upvotadas (conjunto de teste distinto do treino), comparando o sistema proposto aos baselines GPT-3 e BERT, complementada por análise comparativa manual.
+
+[BLOCO 2: AVALIAÇÃO DE QUALIDADE (AQ)]
+
+AQ1 (Objetivos claros): 1 - O objetivo de construir um sistema de geração de respostas-guia para QA governamental é declarado explicitamente.
+AQ2 (Contexto de OGD descrito): 1 - O contexto (painéis de mensagens governamentais da China, 130.258 registros) e a natureza dos dados são descritos.
+AQ3 (Detalhes da abordagem GenAI/LLM para replicação): 1 - A arquitetura (Qwen fine-tuned, embeddings BERT, similaridade de cosseno, filtragem por localização, top-K) é descrita com detalhe suficiente.
+AQ4 (Resultados/benefícios apoiados por evidências empíricas): 1 - Os resultados são sustentados por experimento comparativo com baselines e a métrica METEOR em cinco execuções.
+AQ5 (Limitações metodológicas discutidas): 0,5 - As limitações (alucinação, custo, dependência de dados, interpretabilidade) são mencionadas, mas o estudo não possui seção dedicada de ameaças à validade.
+
+[BLOCO 3: EVIDÊNCIAS]
+
+Página(s) e Seção(ões) principal(is): pp. 386-389; Seções I (Introduction), II (Related Work), III (Data Description), IV (Methodology), V (Results & Discussion) e VI (Conclusions).
+
+=========================================
+DOCUMENTO: Legal Assistance in Low-Resource Languages: Evaluating RAG and Fine-Tuned LLMs for Greek e-Governance [R021]
+[BLOCO 1: QUESTÕES DE PESQUISA (RQs)]
+
+Aplicação / Caso de Uso (RQ1): sistema de gestão do conhecimento acessível por agente conversacional de e-governança grega, destinado a auxiliar servidores públicos internos (e empresas) a navegar serviços públicos, arcabouços jurídicos e procedimentos administrativos; compara uma abordagem RAG com um LLM apenas fine-tuned.
+Dados Governamentais (RQ2): dados governamentais gregos — procedimentos administrativos do repositório central MITOS e leis/decretos/decisões oficiais do Diário Oficial (Government Gazette) da República Helênica; texto predominantemente legislativo e administrativo.
+Modelo(s) (RQ3): Meltemi-7B (LLM grego open-source, baseado em Mistral-7B; pesos abertos) fine-tuned com LoRA sobre versão quantizada (AutoAWQ) e integrado a RAG (ElasticSearch); GPT-4 empregado apenas para gerar o dataset sintético de pares QA e como LLM-juiz na avaliação. Modelo principal: pesos abertos.
+Benefícios (RQ4): a abordagem RAG mitiga o risco de respostas desatualizadas ou alucinadas e supera o LLM apenas fine-tuned em relevância, coerência, groundedness e consistência factual; permite acesso a fontes governamentais atualizadas; viabiliza assistência em língua de poucos recursos (grego).
+Desafios (RQ5): o fine-tuning com dados limitados generaliza mal em cenário de poucos recursos; o dataset sintético gerado por GPT-4 carrega vieses (maior taxa de recusa em temas sensíveis, sub-representação de registros informais); o Meltemi apresenta capacidade limitada de raciocínio e julgamento; o LLM fine-tuned exibe alucinações; considerações éticas quanto ao risco de o cidadão interpretar respostas como juridicamente vinculantes, exigindo transparência sobre as limitações do agente.
+Avaliação (Método): avaliação qualitativa por dois avaliadores humanos e por LLM-as-a-judge (GPT-4) em cinco métricas (relevância, coerência, groundedness, fluência, consistência factual; escala 1-5) e avaliação quantitativa da proporção de respostas corretas/incorretas via BERTScore, comparando as abordagens RAG e fine-tuned.
+
+[BLOCO 2: AVALIAÇÃO DE QUALIDADE (AQ)]
+
+AQ1 (Objetivos claros): 1 - Os objetivos (agente de e-governança grega e comparação RAG vs. fine-tuned) são declarados explicitamente.
+AQ2 (Contexto de OGD descrito): 1 - O contexto (MITOS, Diário Oficial grego) e a natureza dos dados são descritos em detalhe.
+AQ3 (Detalhes da abordagem GenAI/LLM para replicação): 1 - Modelo (Meltemi-7B), parâmetros de LoRA (Tabela I), quantização (AutoAWQ), pipeline RAG (ElasticSearch) e geração de dataset sintético são detalhados; o dataset é disponibilizado em repositório.
+AQ4 (Resultados/benefícios apoiados por evidências empíricas): 1 - Resultados sustentados por avaliação humana, LLM-as-a-judge (5 métricas) e BERTScore, com comparação RAG vs. fine-tuned.
+AQ5 (Limitações metodológicas discutidas): 1 - Discutem-se limitações de baixo recurso, vieses do dataset sintético, fraquezas do Meltemi, alucinação e riscos éticos de adoção pelo cidadão.
+
+[BLOCO 3: EVIDÊNCIAS]
+
+Página(s) e Seção(ões) principal(is): pp. 366-373; Seções III (Proposed Approach), IV (Synthetic Dataset Preparation), V (Evaluation Methodology), VI (Results), VII (Discussion and Limitations) e VIII (Conclusion).
+
+=========================================
+DOCUMENTO: Enriching Dataset Metadata with LLMs to Unlock Semantic Meaning [R022]
+[BLOCO 1: QUESTÕES DE PESQUISA (RQs)]
+
+Aplicação / Caso de Uso (RQ1): enriquecimento semântico de metadados de datasets de dados abertos governamentais — geração de descrições de colunas e do dataset — para melhorar a interpretação, a encontrabilidade e o reúso dos dados. Atua no lado da oferta, por meio de um workflow de cinco etapas (carregamento, pré-processamento, profiling, enriquecimento com LLM e avaliação).
+Dados Governamentais (RQ2): dados governamentais abertos — 16 datasets reais do Portal de Dados Abertos do Equador, cobrindo 18 áreas temáticas (Administração Pública, Anticorrupção, Saúde, Educação, Energia, Economia e Finanças, Segurança, entre outras), totalizando 279 colunas.
+Modelo(s) (RQ3): comparação de quatro LLMs — proprietários (Gemini 2.5 Flash, GPT-4.1 Mini) e de pesos abertos (DeepSeek V3, Llama 4 Maverick) — acessados via OpenRouter, com validação de esquema (pydantic). O estudo enfatiza a competitividade dos modelos de pesos abertos (Llama 4 Maverick com melhor ROUGE-L). Família de modelo (RQ3): MÚLTIPLOS/COMPARATIVO — comparação simétrica de famílias proprietária (Gemini 2.5 Flash, GPT-4.1 Mini) e de pesos abertos (DeepSeek V3, Llama 4 Maverick) como condições experimentais de mesmo peso sobre os mesmos 16 datasets, sem modelo generativo focal.
+Benefícios (RQ4): todos os modelos atingiram similaridade semântica média superior a 0,6; os modelos open-source mostraram desempenho competitivo com os proprietários, sobretudo em domínios com terminologia padronizada; automação com economia de tempo e recursos na curadoria de metadados; benefícios de privacidade, transparência e flexibilidade de licenciamento das soluções abertas.
+Desafios (RQ5): vocabulário técnico e específico de domínio reduz o desempenho; rigidez da métrica ROUGE-L (penaliza paráfrases válidas); custo de infraestrutura e computação para implantar modelos abertos localmente; imprecisões factuais ocasionais (alucinação); necessidade de validação humana mais ampla; RAG e agentes de IA apontados como trabalho futuro.
+Avaliação (Método): avaliação empírica quantitativa com Cosine Similarity (embeddings Jina/Sentence-BERT) e ROUGE-L F1 sobre 279 colunas de 16 datasets, com estatísticas descritivas por modelo e por área temática, complementada por workshop de validação com cinco especialistas.
+
+[BLOCO 2: AVALIAÇÃO DE QUALIDADE (AQ)]
+
+AQ1 (Objetivos claros): 1 - O objetivo de enriquecer metadados de OGD com LLMs e comparar modelos proprietários e abertos é declarado explicitamente.
+AQ2 (Contexto de OGD descrito): 1 - O contexto (Portal de Dados Abertos do Equador, 16 datasets, 18 áreas temáticas) é descrito em detalhe.
+AQ3 (Detalhes da abordagem GenAI/LLM para replicação): 1 - O workflow de cinco etapas, os algoritmos, os modelos (Tabela 2), os parâmetros de API (temperatura, top_p) e os prompts (apêndice) são detalhados.
+AQ4 (Resultados/benefícios apoiados por evidências empíricas): 1 - Resultados sustentados por estatísticas descritivas de Cosine Similarity e ROUGE-L F1 sobre 279 colunas, com análise por área temática.
+AQ5 (Limitações metodológicas discutidas): 1 - Discutem-se o escopo específico (16 datasets), a rigidez do ROUGE-L, o custo de infraestrutura dos abertos e imprecisões factuais.
+
+[BLOCO 3: EVIDÊNCIAS]
+
+Página(s) e Seção(ões) principal(is): pp. 1-15; Seções 3 (Methodology), 4 (Results and Discussion), 5 (Conclusion) e Apêndices 1-2.

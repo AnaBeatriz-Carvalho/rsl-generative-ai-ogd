@@ -38,3 +38,6 @@ _minted*/
 # Template extraído temporariamente (usar o .zip oficial como fonte)
 _isys_template_extracted/
 *.xdv
+
+recovered_fulltexts/
+recovered_fulltexts_excluded/
