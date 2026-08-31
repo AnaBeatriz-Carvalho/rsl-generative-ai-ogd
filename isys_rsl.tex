@@ -201,22 +201,14 @@ A Geração Aumentada por Recuperação (\emph{Retrieval-Augmented Generation}, 
 
 \begin{figure*}[tp]
 \centering
-\resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[
-  font=\small,
-  branch/.style={draw, rounded corners, align=center, inner sep=5pt, text width=5.0cm},
-  conv/.style={draw, rounded corners, align=center, inner sep=5pt, text width=7.0cm, fill=black!5},
-  ben/.style={align=center, inner sep=3pt, text width=8.5cm},
-  arr/.style={draw, -{Latex[length=2mm]}, thick}
-]
-  \node[branch] (sw) at (-3.6,3.4) {\textbf{Web Semântica / \emph{Linked Data} / Grafos de conhecimento}\\[2pt] estruturação semântica; consultas formais (SPARQL); interoperabilidade\\[2pt] \textit{força:} precisão e rastreabilidade; \textit{limite:} barreira técnica ao leigo};
-  \node[branch] (ga) at (3.6,3.4) {\textbf{IA Generativa / LLMs / RAG}\\[2pt] interface em linguagem natural; mediação e geração/sumarização\\[2pt] \textit{força:} acesso ampliado; \textit{limite:} alucinação e confiabilidade};
-  \node[conv] (conv) at (0,0.9) {\textbf{Convergência:} Grafo de conhecimento $+$ RAG $+$ LLM\\[2pt] acesso conversacional com maior rastreabilidade à fonte};
-  \node[ben] (ben) at (0,-0.6) {Cidadãos e sistemas de governo digital podem se beneficiar das duas abordagens.};
-  \draw[arr] (sw.south) -- (conv.north west);
-  \draw[arr] (ga.south) -- (conv.north east);
-  \draw[arr] (conv.south) -- (ben.north);
-\end{tikzpicture}}
+\begingroup
+\setlength{\fboxsep}{2pt}%
+\ifhl
+  \fcolorbox{yellow}{yellow}{\includegraphics[width=0.70\textwidth,height=0.55\textheight,keepaspectratio]{imagens/paradigmas.png}}%
+\else
+  \includegraphics[width=0.70\textwidth,height=0.55\textheight,keepaspectratio]{imagens/paradigmas.png}%
+\fi
+\endgroup
 \caption{\rev{Abordagens complementares para o acesso à informação pública. A Web Semântica modela a informação como dados conectados e grafos de conhecimento, acessíveis por consulta formal (SPARQL), oferecendo precisão e rastreabilidade, mas mantendo a barreira técnica para o usuário leigo. A IA Generativa (LLMs com recuperação aumentada) oferece interface em linguagem natural, ampliando o acesso, mas herdando problemas de confiabilidade como a alucinação. As duas não são etapas sucessivas de substituição: sua convergência (grafo de conhecimento com RAG e LLM) combina acesso conversacional e rastreabilidade à fonte, beneficiando tanto o cidadão quanto os sistemas de governo digital.}}
 \label{fig:paradigmas}
 \end{figure*}
@@ -497,7 +489,7 @@ Esta pesquisa utiliza exclusivamente dados públicos e literatura científica
 publicada; não envolve participantes humanos, não coleta dados pessoais e não
 manipula dados sensíveis, dispensando aprovação por comitê de ética.
 
-\rev{Os autores utilizaram ferramentas de IA Generativa (Claude, da Anthropic, e Gemini, do Google) como apoio à revisão textual e de estilo, à organização de materiais e à verificação de coerência e consistência. A busca automática e a triagem originais dos estudos foram conduzidas pelos autores. Durante a rodada de revisão maior, essas ferramentas também auxiliaram a leitura e a auditoria dos textos completos recuperados, a organização das evidências e a preparação e conferência da atualização dos registros de extração. As decisões de elegibilidade, codificação, interpretação e síntese foram tomadas e validadas pelos autores, com conferência das evidências nos textos completos. As ferramentas de IA não foram tratadas como fonte autônoma de evidência nem tomaram decisões metodológicas de forma independente. Todo o conteúdo final foi revisado e validado pelos autores, que assumem integral responsabilidade científica pelo trabalho.}
+Os autores utilizaram ferramentas de IA Generativa (Claude, da Anthropic, e Gemini, do Google) como apoio à revisão de estilo, à organização de materiais e à verificação de coerência textual. Nenhuma ferramenta de IA foi utilizada na análise dos estudos, na triagem, na extração de dados ou nas decisões metodológicas, que foram conduzidas exclusivamente pelos autores. Todo o conteúdo final foi revisado e validado pelos autores, que assumem responsabilidade integral por ele.
 \end{furtherinformation}
 
 \end{declarations}

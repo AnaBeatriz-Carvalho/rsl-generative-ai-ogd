@@ -175,42 +175,15 @@ Estudos ilustrativos por combinação: a oferta sobre objeto legislativo mediant
 
 \begin{figure*}[tp]
 \centering
-\resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[
-  font=\footnotesize,
-  chip/.style={draw, rounded corners, inner sep=3pt, align=center, fill=black!4, text width=2.0cm},
-  posbox/.style={draw, rounded corners, inner sep=4pt, align=center, text width=3.0cm, minimum height=1.0cm},
-  lab/.style={font=\footnotesize\bfseries, align=center},
-  rel/.style={-{Latex[length=1.6mm]}, black!55}
-]
-  % Dimension 1: chain position (top row)
-  \node[lab] (d1) at (-8.6,3) {Dim.\ 1\\Posição};
-  \node[posbox] (oferta)  at (-3.0,3) {Oferta / preparação\\--- 9};
-  \node[posbox] (demanda) at (3.0,3)  {Demanda / mediação do acesso\\--- 27};
-
-  % Dimension 3: function (middle row)
-  \node[lab] (d3) at (-8.6,1.1) {Dim.\ 3\\Função};
-  \node[chip] (f1) at (-6.0,1.1) {extração/\\estruturação};
-  \node[chip] (f2) at (-3.6,1.1) {enriquec./\\metadados};
-  \node[chip] (f3) at (-1.2,1.1) {consulta/\\tradução};
-  \node[chip] (f4) at (1.2,1.1)  {geração/\\sumarização};
-  \node[chip] (f5) at (3.6,1.1)  {simplificação};
-  \node[chip] (f6) at (6.0,1.1)  {orientação/\\mediação};
-
-  % Dimension 2: object (bottom row)
-  \node[lab] (d2) at (-8.6,-0.9) {Dim.\ 2\\Objeto};
-  \node[chip] (o1) at (-6.0,-0.9) {legislativo/\\jurídico --- 9};
-  \node[chip] (o2) at (-3.0,-0.9) {portais de\\dados --- 12};
-  \node[chip] (o3) at (0,-0.9)    {serviços/\\procedim. --- 9};
-  \node[chip] (o4) at (3.0,-0.9)  {políticas/\\setoriais --- 5};
-  \node[chip] (o5) at (6.0,-0.9)  {conceitual --- 1};
-
-  % relations: function -> chain position
-  \draw[rel] (f1) -- (oferta); \draw[rel] (f2) -- (oferta);
-  \draw[rel] (f3) -- (demanda); \draw[rel] (f4) -- (demanda);
-  \draw[rel] (f5) -- (demanda); \draw[rel] (f6) -- (demanda);
-\end{tikzpicture}}
-\caption{Taxonomia dos usos de IA Generativa no acesso à informação do setor público. Cada estudo é caracterizado por uma combinação (posição na cadeia, objeto, função). A posição (Dim.\ 1: oferta ou demanda) e o objeto (Dim.\ 2) são exclusivos por estudo, com as contagens indicadas; a função (Dim.\ 3) atravessa as posições e pode acumular valores, por isso sem contagem. As setas indicam onde cada função predomina: extração, estruturação e enriquecimento na oferta; consulta/tradução, geração, sumarização, simplificação e orientação na demanda. O objeto informacional combina-se livremente com posição e função, e é ele, não a posição, que distingue a consulta a dados da mediação de serviços.}
+\begingroup
+\setlength{\fboxsep}{2pt}%
+\ifhl
+  \fcolorbox{yellow}{yellow}{\includegraphics[width=0.97\textwidth,height=0.47\textheight,keepaspectratio]{imagens/taxonomia.png}}%
+\else
+  \includegraphics[width=0.97\textwidth,height=0.47\textheight,keepaspectratio]{imagens/taxonomia.png}%
+\fi
+\endgroup
+\caption{\rev{Taxonomia dos usos de IA Generativa no acesso à informação do setor público.} Cada estudo é caracterizado por uma combinação (posição na cadeia, objeto, função). A posição (Dim.\ 1: oferta ou demanda) e o objeto (Dim.\ 2) são exclusivos por estudo, com as contagens indicadas; a função (Dim.\ 3) atravessa as posições e pode acumular valores, por isso sem contagem. As setas indicam onde cada função predomina: extração, estruturação e enriquecimento na oferta; consulta/tradução, geração, sumarização, simplificação e orientação na demanda. O objeto informacional combina-se livremente com posição e função, e é ele, não a posição, que distingue a consulta a dados da mediação de serviços.}
 \label{fig:taxonomia}
 \end{figure*}
 
