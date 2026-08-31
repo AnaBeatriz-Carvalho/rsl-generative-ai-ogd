@@ -1,345 +1,181 @@
-# Response to Reviewers — iSys (Major Revision)
+# Carta-Resposta aos Revisores — iSys (Major Revision)
 
-**Manuscript:** *Generative AI for Public-Sector Information Access and Public Transparency: A Systematic Literature Review*
+**Manuscrito:** *Generative AI for Public-Sector Information Access and Public Transparency: A Systematic Literature Review*
 
-We thank the editor and the reviewers for the careful and constructive assessment. Below we respond to each
-point, indicating whether we agree, what was changed, and exactly where. All changed passages are highlighted
-in the revised PDF (via the `\rev{}` command); a few entirely new elements (new tables, two new figures, and
-the new taxonomy subsection) are marked as new by their highlighted captions/headings and are listed here.
-No data, counts, categories, citations, or methodological procedures were invented; every factual change is
-traceable to the extraction spreadsheet and the study registry provided in the supplementary materials.
+Agradecemos aos Editores e aos Revisores A e C pela leitura cuidadosa e pelos comentários construtivos. Abaixo respondemos a cada ponto, resumindo o comentário, indicando nossa resposta e apontando exatamente onde o manuscrito foi alterado. Todas as passagens modificadas estão destacadas em amarelo no PDF revisado (comando `\rev{}`); tabelas, figuras e a subseção de taxonomia inteiramente novas estão sinalizadas por seus títulos/legendas destacados.
 
-> **Note on integrity of the corpus and method.** In direct response to Reviewer A, we conducted an additional,
-> documented full-text retrieval round for the 19 reports originally *not retrieved*; this recovered 9 full texts,
-> **7 of which were included and 2 excluded after full-text assessment**, moving the synthesis corpus from
-> **29 to 36 studies** (34 international + 2 SBC/SOL). This is the **only** change to the corpus, and every one
-> of the 7 new studies was extracted, quality-assessed and classified from its full text with the **same**
-> instrument used for the original 29; no data were invented (all traceable to `busca_registros.csv`,
-> `resultado_extracao_rsl.txt` and the corpus `.bib`). We did **not** change the original search string, run a
-> new search, perform snowballing, or alter the single-reviewer / no-double-coding procedures. Ten reports remain
-> *not retrieved* and are still carried as an availability-bias limitation.
+**Nota sobre o corpus (29 → 36).** Na submissão original, a síntese reunia 29 estudos e 19 relatos haviam permanecido *não recuperados* (*reports not retrieved*). Atendendo à recomendação do Revisor A, conduzimos uma rodada adicional de recuperação de texto completo desses 19 relatos: nove foram recuperados e reavaliados sob os mesmos critérios, dos quais **sete foram incluídos e dois excluídos** após leitura integral; dez permanecem não recuperados. O corpus de síntese passou a **36 estudos** (34 internacionais + 2 da SBC/SOL). Todos os sete novos estudos foram extraídos, avaliados quanto à qualidade e classificados a partir do texto completo, com o mesmo instrumento aplicado aos demais. Não alteramos a string de busca, não realizamos nova busca nem *snowballing*, e mantivemos o procedimento de revisor único. Sempre que abaixo mencionamos "36 estudos", trata-se desse corpus atualizado.
 
 ---
 
-## Reviewer A
+## Revisor A
 
-### A1 — "Taxonomy" is asserted but under-specified (also raised by Reviewer C)
+**A1 — O "paradoxo da transparência" é apresentado como contribuição original, mas deriva de Schelhorn et al.**
+*Resposta.* Concordamos. O termo não é nosso: pertence ao estudo de Schelhorn et al. e refere-se ao efeito específico de sobrecarregar o usuário ao combinar interface conversacional com tabelas brutas. Reescrevemos o texto para atribuí-lo explicitamente àquele estudo e distingui-lo do nosso achado transversal, que passamos a nomear **"lacuna entre motivação e avaliação da transparência"**.
+*Mudanças.* `resultados_rsl.tex` (RQ5, atribuição e desambiguação do termo a Schelhorn); Discussão (`isys_rsl.tex`), onde o achado central é consistentemente chamado de lacuna motivação–avaliação, nunca "paradoxo".
 
-**Comment.** The paper claims a supply/demand *taxonomy*, but the contribution reads as a three-box
-description without a defined conceptual structure.
+**A2 — "Transparência" nunca é definida; é um construto composto (compreensão, controle social, uso efetivo, acessibilidade, encontrabilidade…) que os estudos atendem parcialmente.**
+*Resposta.* Concordamos e retornamos à literatura. Passamos a definir transparência como **construto sociotécnico de cinco dimensões** — encontrabilidade, acessibilidade, compreensão, uso efetivo e controle social — o que permite dizer que um estudo pode atuar sobre uma dimensão sem medir o desfecho cívico.
+*Mudanças.* Nova conceituação na Fundamentação, §2.1 (`isys_rsl.tex`), com referências de SI/governo (Michener & Bersch; Meijer; Heald); operacionalização em quatro níveis na §Síntese do Método (ver A8/A13).
 
-**Response.** We agree the previous version did not meet the bar for a taxonomy. Rather than downgrade the
-term, we found that the extraction already sustains **three recoverable dimensions**, so we made the taxonomy
-explicit and defensible: (1) position in the information chain (supply/preparation vs demand/access vs
-demand/service mediation), (2) information object, and (3) GenAI function. Each category now has a definition,
-an inclusion criterion, and a differentiation criterion; categories combine (each study is a coordinate across
-the dimensions), and the relations between dimensions are shown in a figure. We did not invent categories: the
-dimensions come directly from RQ1 (chain position), RQ2 (object), and the functions described in RQ1/RQ4.
+**A3 — A definição de OGD (Seção 2.1) não cobre o corpus real (legislação, memorandos, FAQs, saúde, imigração); ou limitar a OGD ou ampliar para informação do setor público.**
+*Resposta.* Adotamos a segunda opção, recomendada pelo Revisor. Ampliamos o enquadramento para **informação do setor público**, mantendo OGD como caso paradigmático, mas não exclusivo, e alteramos o **título** de "Open Government Data" para "Public-Sector Information".
+*Mudanças.* §2.1 (`isys_rsl.tex`, delimitação do escopo); título, resumo/abstract, Introdução, Conclusão e critério CI1 (`metodo_rsl.tex`) alinhados; string operacionaliza esse escopo (`metodo_rsl.tex`).
 
-**Changes in manuscript.** New subsection **4.6 "Taxonomia dos usos de IA Generativa no acesso à informação
-pública"** (`resultados_rsl.tex`), with a new definitional **Table (`tab:taxonomia`)** and a new relational
-**Figure (`fig:taxonomia`)**. Abstract/Resumo, Introduction (contribution ii), and Conclusion updated to
-describe the taxonomy as three-dimensional.
+**A4 — "Tipo de dado" (RQ2) é polissêmico (formato? natureza? aplicação?); só o 2º dos quatro tipos é OGD; a discussão mistura tipos.**
+*Resposta.* Concordamos. Renomeamos a RQ2 para **"Natureza e domínio da informação do setor público"**, eliminando a expressão ambígua "tipo de dado", e reorganizamos os agrupamentos por natureza/domínio (legislativo-jurídico; portais de dados abertos; serviços e procedimentos; políticas e dados setoriais; conceitual).
+*Mudanças.* RQ2 renomeada na Tabela de RQs e no campo de extração (`metodo_rsl.tex`); §RQ2 reescrita (`resultados_rsl.tex`, "Natureza e Domínio da Informação do Setor Público").
 
-### A2 — Unsupported inference: "shift from structured data to textual document"
+**A5 — Se o desfecho é o impacto cívico, a fonte não são apenas artigos científicos; parte do estudo precisaria da literatura cinza.**
+*Resposta.* Concordamos com o ponto de fundo. Assumimos, por decisão de protocolo, a síntese apenas de estudos primários revisados por pares (CI2/CE3), e explicitamos que a conclusão sobre a ausência de desfecho cívico refere-se **estritamente aos 36 estudos incluídos**, não à totalidade da prática do campo — implantações e evidências de impacto fora da literatura científica podem não ter sido captadas.
+*Mudanças.* Novo item **"Literatura cinza"** nas Ameaças à Validade (`isys_rsl.tex`).
 
-**Comment.** The review is cross-sectional and cannot demonstrate a temporal *shift*.
+**A6 — A string (B1 AND (B2.1 OR B2.2)) retorna chatbots de e-gov/RAG fora do foco, gerando heterogeneidade; refinar os construtos e então a string.**
+*Resposta.* A heterogeneidade decorre, em parte, do escopo agora explicitado (informação do setor público, não só OGD): estudos sobre serviços e documentos são legítimos sob esse recorte. Por isso não estreitamos a string após a execução — isso comprometeria a reprodutibilidade do protocolo já aplicado —, mas passamos a explicar que os termos operacionalizam o escopo ampliado e derivam da PICOC definida a priori.
+*Mudanças.* Parágrafo explicativo após a figura da string (`metodo_rsl.tex`); a string permanece a executada, agora justificada pelo escopo de A3.
 
-**Response.** We agree. We removed the trend claim and now describe a cross-sectional *predominance* of textual
-information in the corpus, explicitly noting the absence of a time series that would license a substitution
-trend.
+**A7 — A PICOC parece usada como justificativa a posteriori, não no planejamento.**
+*Resposta.* Concordamos que a versão anterior não deixava isso claro. Reescrevemos a seção para mostrar que a PICOC **precede e orienta** a derivação dos termos, e que a tabela PICOC e a string dela decorrem, e não o inverso.
+*Mudanças.* §Estratégia de Busca (`metodo_rsl.tex`), parágrafo que introduz a PICOC antes da Tabela e explicita "a PICOC precede e orienta a busca, em vez de justificá-la a posteriori".
 
-**Changes.** `resultados_rsl.tex`, RQ2 closing paragraph ("O quadro geral evidencia a predominância… e não uma
-tendência histórica de substituição").
+**A8 — A codificação qualitativa precisa ser detalhada (indutiva/dedutiva? unidade? iterações? quem definiu/validou? categorias ambíguas?); um estudo poderia estar em mais de uma categoria.**
+*Resposta.* Detalhamos o procedimento. A síntese temática foi **indutiva**, com o estudo primário como unidade; descrevemos como as categorias emergiram por comparação e agrupamento, como se tratou a classificação múltipla (a dimensão de função **acumula** valores; posição e objeto são exclusivos por estudo) e a regra de codificação de família de modelo. Registramos que a codificação foi feita por uma única pessoa (ver A15).
+*Mudanças.* §Síntese e §Extração (`metodo_rsl.tex`): procedimento temático, regra de modelo principal, tratamento de funções combinadas; a taxonomia (§4.6) explicita exclusividade por dimensão e acúmulo na função.
 
-### A3 — Overgeneralized hallucination claims
+**A9 — A taxonomia oferta/demanda é simplista; "acesso conversacional" e "mediação" parecem a mesma coisa variando o tipo de dado; é preciso maior fragmentação.**
+*Resposta.* Concordamos e reconstruímos a taxonomia em **três dimensões ortogonais**: (1) posição na cadeia informacional (oferta × demanda), (2) objeto informacional, (3) função da IA Generativa. É a Dimensão 2 (objeto), e não a posição, que distingue consulta a dados de mediação de serviços — exatamente a sobreposição apontada. Cada categoria tem definição, critério de inclusão e critério de diferenciação.
+*Mudanças.* Nova subseção **§4.6** com **Tabela `tab:taxonomia`** e **Figura `fig:taxonomia`** (`resultados_rsl.tex`); resumo, Introdução e Conclusão descrevem a taxonomia como tridimensional.
 
-**Comment.** "na maioria", "quase todos", "onipresença" are not quantified.
+**A10 — Inferências na Discussão sem evidência: "deslocamento do dado estruturado para textual" (sem temporalidade); "alucinação em quase todos" (apontar quais).**
+*Resposta.* Concordamos. Removemos a alegação de tendência temporal e passamos a descrever uma **predominância transversal** de informação textual no corpus, ressalvando a ausência de série histórica. Substituímos os quantificadores vagos por contagem verificável: a alucinação é discutida em **24 dos 36 estudos**.
+*Mudanças.* Fecho da §RQ2 ("predominância… e não uma tendência histórica de substituição", `resultados_rsl.tex`); abertura da §RQ5 ("vinte e quatro dos trinta e seis"); Discussão §3 (`isys_rsl.tex`).
 
-**Response.** We counted the corpus: hallucination was **explicitly discussed in 18 of the 29 studies** in the
-original submission and, after the additional retrieval round, in **24 of the 36 studies** (as a risk to mitigate
-or as an observed result). We replaced every vague quantifier with this verifiable count and removed
-"onipresença"/"quase todos".
+**A11 — Falta articulação com teorias de SI que descrevam a transparência como fenômeno sociotécnico.**
+*Resposta.* Aprofundamos a leitura sociotécnica: além da definição de cinco dimensões (A2), a Discussão explicita que o fenômeno emerge da interação entre o artefato (LLM), a informação pública, as organizações, as práticas institucionais, a capacidade do cidadão e o resultado público — e que concentrar a avaliação no artefato é o que produz a lacuna identificada.
+*Mudanças.* §2.1 (construto sociotécnico) e parágrafo de fecho da Discussão (`isys_rsl.tex`, "Lidos sob a leitura sociotécnica…").
 
-**Changes.** RQ5 opening (`resultados_rsl.tex`: "…vinte e quatro dos trinta e seis estudos…"); Discussion §3
-(`isys_rsl.tex`), which also now reports "dezoito dos trinta e seis" for proprietary-model dependence and
-"quatro" for unreported models (see the RQ3 model-family recoding section below).
+**A12 — Muitas referências vêm de veículos de IA/IHC, distanciando o foco de SI/e-gov.**
+*Resposta.* Reforçamos o enquadramento em SI e a seção de Trabalhos Relacionados, contrastando a revisão com sínteses de SI/governo digital (Bastos et al.; Widiyaningtyas et al.; Savveli et al.) e incorporando referências de SI para os construtos (OGD, *accountability*, transparência). Ressalvamos, com honestidade, que a composição do corpus reflete onde o campo efetivamente publica; não substituímos referências do corpus artificialmente.
+*Mudanças.* §2.3 Trabalhos Relacionados reescrita; referências de SI adicionadas na Fundamentação (`isys_rsl.tex`).
 
-### A4 — Rhetorical language
+**A13 — Não se detalha por que cada artigo retornado foi rejeitado, nem se apresenta a avaliação de qualidade.**
+*Resposta.* Passamos a registrar os motivos de exclusão de forma rastreável e a apresentar os escores. As duas exclusões após leitura integral têm motivo e critério explícitos (ver A17); os motivos de triagem estão no material suplementar; e os escores de qualidade dos 36 estudos são agora apresentados.
+*Mudanças.* §Seleção (`resultados_rsl.tex`, motivos + suplementar); novo **Apêndice A** com os escores AQ1–AQ5 estudo a estudo.
 
-**Comment.** Expressions such as "ironia", "caixas-pretas", "criteriosa" weaken the scientific register.
+**A14 — Não se detalha como as categorizações foram criadas: houve análise temática ou outro método?**
+*Resposta.* Explicitamos que foi **análise/síntese temática indutiva**, seguindo o procedimento de Cruzes & Dybå (2011), descrevendo o encadeamento comparação → agrupamento → categorias.
+*Mudanças.* §Síntese (`metodo_rsl.tex`), com citação a Cruzes & Dybå (2011).
 
-**Response.** We agree and rewrote these passages analytically. The "irony" sentence became a statement about
-the tension between component opacity and the auditability requirements of public transparency.
+**A15 — A condução por um único autor deve constar como limitação (viés de julgamento), sobretudo dadas as fronteiras ambíguas de codificação.**
+*Resposta.* Concordamos. Registramos explicitamente a condução por revisor único, sem medida de concordância, como ameaça à validade interna, descrevendo as salvaguardas adotadas (critérios a priori, registro rastreável), sem reivindicar concordância entre avaliadores.
+*Mudanças.* Menção na Triagem, Extração e Codificação (`metodo_rsl.tex`) e item **Validade interna** nas Ameaças (`isys_rsl.tex`).
 
-**Changes.** Discussion §3 (`isys_rsl.tex`, "…introduz uma tensão entre a opacidade de determinados componentes
-tecnológicos e os requisitos de auditabilidade…"); Results selection paragraph ("aplicaram os critérios de
-inclusão e exclusão" replacing "filtragem criteriosa").
+**A16 — Reavaliar se a metodologia é RSL ou Mapeamento Sistemático (mais provável, pois não compara resultados; protocolo PRISMA-ScR).**
+*Resposta.* Adotamos um desenho híbrido explícito e **mantivemos a denominação "Systematic Literature Review"**: o rigor de busca e seleção segue o protocolo de RSL (Kitchenham & Charters; PRISMA 2020), com avaliação de qualidade dos estudos incluídos; a síntese, descritiva ao estilo de mapeamento (Petersen et al.), está agora explicitada no Método. Não retroajustamos um protocolo não executado, e a natureza de caracterização das questões de pesquisa sustenta essa denominação.
+*Mudanças.* §Método, parágrafos iniciais (`metodo_rsl.tex`), que enunciam o desenho híbrido e a natureza de mapeamento da síntese. Título mantido.
 
-### A5 — Additional effort to recover the 19 not-retrieved reports
+**A17 — A exclusão de 19 de 29 é preocupante; buscar outras formas de recuperar (ResearchGate, contato com autores).**
+*Resposta.* Seguimos a recomendação. Conduzimos rodada adicional de recuperação dos 19 relatos, usando páginas de editora/DOI, acesso institucional, versões indexadas por buscadores acadêmicos, ResearchGate/repositórios e contato direto com autores. Recuperamos nove; **sete foram incluídos e dois excluídos** após leitura integral (Baron 2025 — estudo secundário que sintetiza o Baron 2023 já incluído, **CE2**, evitando dupla contagem; Tahtali et al. 2026 — trata de aceitação organizacional de IA em compras, não do acesso/mediação de informação pública, **CI1**). Dez permanecem não recuperados e são tratados como viés de disponibilidade.
+*Mudanças.* §Seleção e fluxo PRISMA atualizados para N=36 (`resultados_rsl.tex`); item **"Viés de disponibilidade"** nas Ameaças (`isys_rsl.tex`); lista dos dez remanescentes com DOIs no material suplementar.
 
-**Comment.** Please attempt to recover the 19 reports not retrieved.
-
-**Response.** We thank the reviewer for this recommendation. In response, we conducted an additional full-text
-retrieval round for all 19 reports originally classified as *reports not retrieved*. The additional attempts
-used, as applicable, publisher/DOI pages, institutional access, alternative versions indexed by scholarly search
-engines, ResearchGate or repositories, and direct author requests. Nine full texts were recovered. We reapplied
-the original eligibility criteria without modification: **seven studies were included and two were excluded after
-full-text assessment**. Ten reports remained unavailable despite the additional retrieval effort. Accordingly, we
-updated the PRISMA flow, the synthesis corpus (29 → 36), the quality assessment, the consolidated evidence
-tables, and the availability-bias limitation. The two full-text exclusions were recorded with explicit reasons:
-
-- **Baron (2025), "Using AI in providing greater access to the U.S. government's email"** — excluded because it
-  does **not** constitute new, independent primary evidence for the Generative-AI phenomenon under review: its
-  GenAI component synthesizes the already-included Baron et al. (2023) (same FOIA context, ChatGPT-3.5, Clinton
-  collection; "No datasets were generated or analysed during the current study"). Including it alongside Baron
-  et al. (2023) would double-count the same evidence. It is **not** treated as a duplicate (CE4) and **not** as a
-  preliminary/extended version (CE5).
-- **Tahtali et al. (2026), "Why public procurement professionals accept (or resist) generative AI"** — a
-  peer-reviewed primary study, but its object is procurement professionals' *acceptance/resistance* of GenAI
-  (TAM/TTF/TOE), not GenAI as a mechanism for the access, organization or mediation of public-sector information.
-  It therefore fails **CI1**. It is **not** excluded for lack of peer review, nor under CE4/CE5.
-
-**Changes.** Updated Threats item **"Viés de disponibilidade"** (`isys_rsl.tex`): the risk is **reduced** (9/19
-recovered) but **not eliminated**, and the remaining 10 could still shift model/venue/geographic distributions.
-Results §Seleção, PRISMA counts, Table 1, geography, taxonomy, QA appendix, and the consolidated table were
-updated to N=36. Supplementary file `reports_not_retrieved_todo.md` now lists the **10** still-unretrieved studies
-with DOIs and documents the 7 included and 2 excluded.
-
-### A6 — SLR vs Systematic Mapping Study
-
-**Comment.** Is this an SLR or a mapping study?
-
-**Response.** The manuscript already adopts, and we retained, an explicit **hybrid design**: SLR rigor in
-search and selection (Kitchenham & Charters; PRISMA 2020) with a mapping-style descriptive synthesis (Petersen
-et al.). We did not retrofit a protocol that was not executed. We consider this framing defensible given the
-characterization-oriented research questions and the presence of a quality assessment.
-
-**Changes.** No change beyond confirming consistency of the wording in the Method (§3, ¶2) and abstract.
-
-### A7 — Stronger Information Systems framing
-
-**Comment.** The work reads as NLP/LLM rather than IS.
-
-**Response.** We deepened the sociotechnical reading already introduced (transparency as a five-dimension
-sociotechnical construct) by making explicit, in the Discussion, that the phenomenon emerges from the
-interaction among the technological artifact, public-sector information, public organizations, institutional
-practices, citizen capacity, and public outcomes — and that concentrating evaluation on the artifact alone is
-what produces the identified gap. No new references were fabricated; if the editor wishes deeper theoretical
-grounding, we list candidate literature in the final report for verified inclusion.
-
-**Changes.** Discussion closing paragraph (`isys_rsl.tex`, "Lidos sob a leitura sociotécnica…").
+**A18 — Linguagem ocasionalmente retórica ("ironia", "ferramentas opacas", "criteriosa", "rigorosa") e afirmações mais fortes que a evidência.**
+*Resposta.* Concordamos e reescrevemos essas passagens em registro analítico. A frase da "ironia" tornou-se uma afirmação sobre a tensão entre a opacidade de componentes e os requisitos de auditabilidade; "filtragem criteriosa" foi substituída pela descrição do procedimento.
+*Mudanças.* Discussão §3 e §Seleção (`isys_rsl.tex`, `resultados_rsl.tex`); os termos retóricos foram eliminados.
 
 ---
 
-## Reviewer C
+## Revisor C
 
-### C1 — Make the taxonomy visible and defined
+**C1 — Os critérios usados para identificar e analisar a transparência nos estudos não são claros.**
+*Resposta.* Passamos a classificar cada estudo por um procedimento explícito de **quatro níveis** ancorado nas cinco dimensões de transparência (menção; atuação sobre uma dimensão; uso de *proxy*; desfecho cívico), registrado em matriz no material suplementar.
+*Mudanças.* Novo parágrafo na §Síntese (`metodo_rsl.tex`); ver também A2.
 
-See **A1** — a definitional table and a relational figure were added, with inclusion/differentiation criteria
-per category.
+**C2 — Esclarecer como o conceito de transparência foi usado e como se diferencia de acesso, usabilidade, compreensão, confiança, participação, accountability.**
+*Resposta.* Concordamos. Delimitamos transparência frente a esses construtos próximos: usabilidade e qualidade da informação podem favorecê-la sem demonstrá-la; confiança e participação podem decorrer dela sem serem sinônimos; *accountability* pressupõe mecanismos institucionais que ultrapassam o acesso.
+*Mudanças.* §2.1 (`isys_rsl.tex`), parágrafo que separa transparência de construtos próximos.
 
-### C2 — Geographic synthesis is missing
+**C3 — A taxonomia não é apresentada com estrutura (dimensões, categorias, relações, critérios); parece agrupamento descritivo; desenvolvê-la ou trocar "taxonomia" por "classificação".**
+*Resposta.* Optamos por desenvolvê-la. Ver **A9**: taxonomia de três dimensões com tabela definicional (critérios de inclusão e de diferenciação por categoria) e figura de relações.
+*Mudanças.* §4.6, `tab:taxonomia`, `fig:taxonomia` (`resultados_rsl.tex`). *(As referências de taxonomia sugeridas pelo Revisor foram consultadas como orientação sobre a forma de estruturar a contribuição.)*
 
-**Comment.** Country is extracted but never synthesized.
+**C4 — O procedimento de qualidade é descrito, mas os escores não são apresentados; informar e explicar se/como a qualidade influenciou a síntese.**
+*Resposta.* Apresentamos os escores dos 36 estudos e explicamos seu papel: a avaliação de qualidade **pondera, não exclui** — foi aplicada após a seleção por CI/CE. Dois estudos ficaram abaixo do limiar de 2,5 (Dineva e Atanasova, #3; Kumar et al., #32; ambos 2,0) e, embora mantidos na caracterização, **não sustentam sozinhos** nenhuma categoria ou conclusão.
+*Mudanças.* §Avaliação de Qualidade (`metodo_rsl.tex`); parágrafo de escores na Caracterização (`resultados_rsl.tex`); **Apêndice A** (escores AQ1–AQ5).
 
-**Response.** We agree. We first defined, in the Method, that the *country* field records the **empirical
-government context** studied (not author affiliation), because this is more relevant to generalization. We then
-added a geographic synthesis: 17 national contexts plus one supranational; USA 4, UK 3, China 3, Spain/Italy/
-Brazil 2 each, twelve single-country contexts, one multinational, one conceptual. By region: Europe 13, Asia 5,
-North America 5, South America 4, Oceania 1, **Africa 0**. We linked this concentration to external validity.
+**C5 — Explicar como as categorias foram construídas, quais critérios, se um estudo pode ter mais de uma classificação e como híbridos foram tratados.**
+*Resposta.* Detalhamos a construção (ver A8): posição e objeto são **exclusivos por estudo** (classificação pela aplicação principal); a função **acumula** valores; sistemas que combinam funções (p.ex. extração + consulta) são registrados na descrição sem gerar dupla contagem.
+*Mudanças.* §Síntese e §Extração (`metodo_rsl.tex`); texto e nota da §4.6 com exemplo de estudo de função combinada (`resultados_rsl.tex`).
 
-**Changes.** New Method sentence defining the *country* field (`metodo_rsl.tex`, §Extração); new Results
-subsection **"Distribuição geográfica"** with **Table `tab:geografia`** (`resultados_rsl.tex`); new sentence in
-Threats/External validity (`isys_rsl.tex`).
+**C6 — A PICOC é usada sem explicação; apresentar seu significado, origem e papel na string, e defini-la antes da Tabela 2.**
+*Resposta.* Passamos a explicar a PICOC (*Population, Intervention, Comparison, Outcome, Context*), sua origem (adaptação do PICO da medicina baseada em evidências, via Kitchenham & Charters) e seu papel na derivação dos termos, **antes** da tabela correspondente.
+*Mudanças.* §Estratégia de Busca (`metodo_rsl.tex`), parágrafo que precede a Tabela PICOC; ver A7.
 
-### C3 — Consolidated view of the corpus (now 36 studies)
+**C7 — Esclarecer como a busca na SBC/SOL foi feita (interface direta ou scripts; termos, filtros, tratamento manual).**
+*Resposta.* Descrevemos a execução: consulta manual pela interface da própria plataforma (baseada em *Open Journal/Conference Systems*), sem script ou API, com string equivalente em português, triagem e deduplicação manuais e o mesmo recorte temporal e de idioma; por não haver exportação padronizada, a SBC/SOL aparece em fluxo separado no PRISMA.
+*Mudanças.* §Estratégia de Busca (`metodo_rsl.tex`), parágrafo dedicado à execução na SBC/SOL.
 
-**Comment.** Provide a consolidated corpus table.
+**C8 — Apresentar a distribuição geográfica dos estudos (país já extraído, mas ausente dos resultados).**
+*Resposta.* Concordamos. Definimos que o campo *país* registra o **contexto governamental empírico** (não a afiliação) e adicionamos uma síntese geográfica: **19 contextos nacionais** e um supranacional; EUA e China com 4 cada, Reino Unido 3; por região, **Europa 15, Ásia 7**, Américas do Norte e do Sul 5 cada, Oceania 1 e **nenhum contexto africano** — ligada às ameaças à validade externa.
+*Mudanças.* Definição do campo *país* (`metodo_rsl.tex`); nova subseção **§Distribuição geográfica** com **Tabela `tab:geografia`** (`resultados_rsl.tex`).
 
-**Response.** We agree. To avoid imposing contested per-study classifications, the consolidated table reports
-the directly-extracted, verifiable fields (study, year, government context, main model reported),
-cross-referenced to the quality scores (Appendix A) and to the taxonomy (§4.6). The full extraction spreadsheet
-remains in the supplement.
+**C9 — Ampliar a síntese quantitativa descritiva (países, tipos de dados, modelos, métodos de avaliação, métricas, categorias).**
+*Resposta.* Ampliamos a síntese descritiva com a distribuição geográfica, os escores de qualidade, a tabela de caracterização do corpus e uma tabela consolidada estudo a estudo (país, modelo, três dimensões da taxonomia, tipo de avaliação e escore).
+*Mudanças.* Tabela de caracterização (`resultados_rsl.tex`); **Apêndice B** consolidado (`isys_rsl.tex`); ver C8 e C15.
 
-**Changes.** New **Appendix B "Visão Consolidada do Corpus"** with a two-part **Table `tab:corpus_consolidado`**
-(`isys_rsl.tex`).
+**C10 — Acrônimos: "IA" e "LLM" usados antes de definidos; LLM definido em PT na Introdução e em EN na §2.2; "RAG" definido duas vezes na §2; adotar sigla para SI.**
+*Resposta.* Corrigimos. "Inteligência Artificial (IA)" e "Sistemas de Informação (SI)" passam a ser definidos na primeira ocorrência; LLMs é definido uma única vez; RAG é definido uma única vez na §2.
+*Mudanças.* Resumo e Introdução (`isys_rsl.tex`); §2.2 (definição única de RAG).
 
-### C4 — Figure 1 (Semantic Web "previous" vs GenAI "current") is too linear
+**C11 — O manuscrito mistura PT e EN (título em EN, corpo em PT; título de seção "Background e Trabalhos Relacionados"); padronizar idioma; sugestão de redigir tudo em inglês.**
+*Resposta.* Padronizamos a terminologia e corrigimos o título de seção para **"Fundamentação e Trabalhos Relacionados"**, eliminando a mistura de idiomas nos títulos e a dupla definição de LLM. Mantivemos o corpo em português, idioma do periódico e dos pareceres, e tratamos a redação integral em inglês como sugestão a ser considerada em versão futura.
+*Mudanças.* Título da §2 (`isys_rsl.tex`); auditoria de terminologia no resumo, Introdução, §4.6 e Conclusão.
 
-**Comment.** The figure suggests technological substitution.
+**C12 — "Objetivo e contribuições" e "Organização" poderiam ser incorporados ao texto corrido, sem negrito.**
+*Resposta.* Concordamos. Removemos os rótulos em negrito e integramos ambos como parágrafos correntes da Introdução, preservando o conteúdo (objetivo, RQ1–RQ5, três contribuições e o mapa das seções).
+*Mudanças.* Introdução (`isys_rsl.tex`): rótulos `\paragraph{}` removidos; os parágrafos fluem no corpo do texto.
 
-**Response.** We agree. We reframed the figure as **complementary approaches**: Linked Data/Knowledge Graphs
-(structure, traceability) and GenAI/LLMs/RAG (natural-language access), converging in KG + RAG + LLM for
-conversational access with greater traceability. We replaced the external image with a self-contained diagram
-and updated the caption and the surrounding text (Background and Related Work) so the two are no longer
-described as "previous"/"current".
+**C13 — Incluir, na primeira ocorrência da SBC/SOL, nota de rodapé com o endereço e breve explicação de seu papel.**
+*Resposta.* Adicionamos a nota de rodapé com o endereço (sol.sbc.org.br) e a explicação de que a SOL é a biblioteca digital da SBC, principal repositório da produção brasileira em Computação.
+*Mudanças.* Nota de rodapé na §Estratégia de Busca (`metodo_rsl.tex`).
 
-**Changes.** Figure `fig:paradigmas` redrawn and re-captioned (`isys_rsl.tex`); related-work sentence changed
-from "substituir" to "via complementar"; introductory sentence to the figure updated.
+**C14 — A Figura 1 apresenta Web Semântica como paradigma anterior e IA Generativa como atual; a distinção é excessivamente linear; não seriam complementares?**
+*Resposta.* Concordamos. Refizemos a figura como **abordagens complementares** (dados conectados/grafos de conhecimento e IA Generativa/RAG), convergindo em grafo + RAG + LLM, e ajustamos legenda e texto para não descrevê-las como "anterior/atual". A imagem externa foi substituída por diagrama autocontido.
+*Mudanças.* **Figura `fig:paradigmas`** redesenhada e recaptionada; §2.2 e §2.3 ajustadas de "substituir" para "via complementar" (`isys_rsl.tex`).
 
-### C5 — Terminology and language consistency
+**C15 — Tabela consolidada com os estudos (país, tipo de dado, modelo, categoria de aplicação, forma de avaliação, resultados).**
+*Resposta.* Concordamos. Adicionamos uma tabela consolidada, auditável estudo a estudo, com contexto governamental, modelo principal, as três dimensões da taxonomia, o tipo de avaliação e o escore de qualidade, remetendo à planilha de extração no suplemento.
+*Mudanças.* Novo **Apêndice B "Visão Consolidada do Corpus"**, Tabela `tab:corpus_consolidado` (`isys_rsl.tex`).
 
-**Comment.** Ensure acronyms are defined once; reduce PT/EN mixing; consider full English translation.
+**C16 — Figuras que sintetizem a taxonomia, suas relações e a distribuição dos estudos; um diagrama de Sankey ou visualização compatível.**
+*Resposta.* Adicionamos uma figura que representa as três dimensões da taxonomia e suas relações (`fig:taxonomia`), com as contagens por posição e objeto. Avaliamos um diagrama de Sankey e optamos por um diagrama relacional, por representar melhor a ortogonalidade das dimensões; a distribuição completa, estudo a estudo, é mantida na tabela consolidada e no material suplementar, onde uma visualização adicional pode ser disponibilizada.
+*Mudanças.* **Figura `fig:taxonomia`** (`resultados_rsl.tex`); Apêndice B para a distribuição por estudo.
 
-**Response.** We kept the manuscript in Portuguese with Portuguese section titles and treat full English
-translation as an optional suggestion. We audited first-use definitions of LLMs and RAG and standardized
-"informação do setor público" throughout. The taxonomy terminology is now used consistently (three-dimensional
-taxonomy) across abstract, introduction, results, discussion, and conclusion.
-
-**Changes.** Abstract/Resumo, Introduction, §4.6, Conclusion aligned; terminology audited (see final report §E
-for one residual item flagged for author verification).
-
----
-
-## Cross-cutting: transparency as an operational construct (A/B/C)
-
-**Comment.** The claim "no study measures transparency as a civic outcome" needs a transparent procedure.
-
-**Response.** We added an explicit **four-level determination rule** tied to the five transparency dimensions:
-(i) mention, (ii) acting on a dimension, (iii) proxy measurement, (iv) civic-outcome measurement. We recorded,
-per study, motivation → intended dimension → evaluated dimension → metric/proxy → civic outcome, in a matrix
-placed in the supplement. This lets us state that many studies **act on** a dimension (e.g., legal-language
-simplification acts on *comprehension*) and several measure **proxies**, while **none** reaches the
-**civic-outcome** level — without conflating "does not measure social control" with "does not contribute to
-transparency".
-
-**Changes.** New Method paragraph (`metodo_rsl.tex`, §Síntese); reinforced nuance in Results characterization
-(`resultados_rsl.tex`, "Contribuir para uma dimensão (nível ii) não equivale a demonstrar transparência como
-resultado (nível iv)").
+**C17 — A Discussão ficaria mais clara se os estudos fossem organizados pela taxonomia e discutidos a partir dela.**
+*Resposta.* Acolhemos parcialmente. A Discussão permanece organizada pelos achados (a lacuna motivação–avaliação; o desequilíbrio oferta/demanda; a reprodutibilidade e a dependência de modelos proprietários; a recepção pelo cidadão), estrutura que sustenta a contribuição central; a **taxonomia estrutura os Resultados (§4.6) e é referenciada na Discussão** como ponto de partida da agenda de pesquisa.
+*Mudanças.* Referência explícita à taxonomia no fecho da Discussão (`isys_rsl.tex`); vínculo com §4.6.
 
 ---
 
-## Validation round — terminological/conceptual changes (corpus was 29 at that point)
+## Editores
 
-> **Integrity note for that round.** At the time of the terminological/conceptual pass below, the corpus was
-> **29 studies**; those changes did not add or remove any study. **A subsequent, separately documented full-text
-> retrieval round then moved the corpus to 36** (see the top integrity note, the Reviewer A "19 reports" item,
-> and the "Additional full-text retrieval round" section at the end). The changes in this subsection remain valid
-> and are highlighted with `\rev{}`.
+**E1 — Clarificar construtos-chave, em especial transparência e OGD.**
+*Resposta.* Feito: transparência como construto sociotécnico de cinco dimensões e distinção de construtos próximos; escopo ampliado para informação do setor público, com OGD como caso paradigmático. Ver **A2, A3, C1, C2**.
 
-### Title and scope (Reviewers A & C — scope clarification)
+**E2 — Fortalecer o rigor e a transparência metodológica da revisão.**
+*Resposta.* Feito: PICOC a priori, string justificada pelo escopo, execução da SBC/SOL descrita, rastreio de exclusões, revisor único declarado como limitação, e recuperação adicional dos 19 relatos. Ver **A6, A7, A13, A15, A17, C6, C7**.
 
-**Comment.** The corpus is broader than Open Government Data in the strict sense; title and framing should match.
+**E3 — Explicar melhor os procedimentos de codificação e de avaliação de qualidade.**
+*Resposta.* Feito: síntese temática indutiva (Cruzes & Dybå), regra de codificação de modelo, tratamento de classificação múltipla, e apresentação dos escores com seu papel de ponderação. Ver **A8, A14, C4, C5**.
 
-**Response.** The conceptual clarification requested by the reviewers showed that the corpus spans a broader
-informational universe than OGD *stricto sensu*. OGD remains a **paradigmatic case** and an important component
-(keyword, Background concept, search-string term, portal-related category), but legislation, official documents,
-and service contents are also analyzed. We therefore updated the **title** to reflect the scope already retrieved
-by the original protocol. **The corpus was not expanded — the terminology now better describes the original corpus.**
+**E4 — Reforçar a fundamentação teórica em SI.**
+*Resposta.* Feito: leitura sociotécnica do fenômeno na Fundamentação e na Discussão, e reforço do enquadramento e das referências de SI. Ver **A11, A12**.
 
-**Changes.** Title → *"Generative AI for Public-Sector Information Access and Public Transparency: A Systematic
-Literature Review"* (full, short title, `pdftitle`); Abstract/Resumo opening reframed to public-sector information;
-Introduction objective and Conclusion opening aligned; keywords already included "Public-Sector Information".
+**E5 — Desenvolver mais claramente a taxonomia e suas evidências de apoio.**
+*Resposta.* Feito: taxonomia de três dimensões com tabela definicional, figura de relações e tabela consolidada que evidencia a classificação estudo a estudo. Ver **A9, C3, C15, C16**.
 
-### Taxonomy made orthogonal (Reviewers A & C)
-
-**Comment.** In Dimension 1, "Access" vs. "Service mediation" seemed distinguished mainly by the *object*,
-overlapping with Dimension 2.
-
-**Response.** We agree. We audited the axis (`03_taxonomy_validation.md`) and confirmed the overlap. We refactored
-**Dimension 1** into two truly orthogonal positions — **Supply/preparation (7)** and **Demand/access mediation (22)**
-— moving the dataset-vs-service distinction to **Dimension 2** (its proper axis). RQ1 still reports the three
-descriptive application types (7/11/11); they are no longer presented as a taxonomy dimension. No individual study
-was reclassified: the 7/22 counts come directly from the D1 column of the consolidated table.
-
-**Changes.** `resultados_rsl.tex` §4.6 text, **Table 8** (`tab:taxonomia`, Dim1 now two rows), **Figure 4**
-(`fig:taxonomia`, two positions + relations); Discussion distribution paragraph ("22 dos 29… sete"); Conclusion.
-
-### Related work residual (Reviewer C)
-
-**Comment.** The differentiation sentence still spoke of "oferta/demanda taxonomy" and "recorte legislativo".
-
-**Response/Changes.** Rewritten to: sociotechnical operationalization of transparency + **multidimensional taxonomy**
-+ broad public-sector-information scope as the differentiators (`isys_rsl.tex`, Related Work).
-
-### CE1, RAG, grey literature, terminology
-
-- **CE1** reworded to the two-axis intersection over *public-sector information / digital government* (no change to
-  which studies were selected) — `metodo_rsl.tex`.
-- **RAG** de-universalized: "…mechanisms of retrieval over updated repositories become particularly relevant; RAG is
-  one of the main architectures identified" (was "RAG is a requirement") — `isys_rsl.tex` §2.
-- **Grey literature**: new Threats item stating peer-reviewed-only synthesis and that the 0-civic-outcome finding is
-  bounded to the 36 included studies — `isys_rsl.tex`.
-- **Terminology/acronyms**: "Background" → "Fundamentação e Trabalhos Relacionados"; first-use definitions of
-  Inteligência Artificial (IA), Sistemas de Informação (SI); LLMs/OGD/RAG/PICOC/PRISMA/RSL verified.
-
-### Reports not retrieved (Reviewer A) — superseded
-
-**RESOLVED in a subsequent round** (see below and the Reviewer A "19 reports" item). An additional full-text
-retrieval round recovered 9 of the 19, of which 7 were included and 2 excluded after full-text assessment; the
-corpus moved to 36. Ten reports remain *not retrieved* and are carried as availability bias in
-`reports_not_retrieved_todo.md`.
+**E6 — Submeter carta-resposta (comentário a comentário) e PDF revisado com mudanças destacadas.**
+*Resposta.* Esta carta responde a cada comentário dos Revisores e dos Editores, indicando a alteração e sua localização. O PDF revisado acompanha todas as mudanças **destacadas em amarelo** (comando `\rev{}`), para comparação com a versão anterior. O protocolo, as strings por base, a lista de estudos e a planilha de extração permanecem no repositório de materiais suplementares.
 
 ---
 
-## Additional full-text retrieval round (Reviewer A) — corpus 29 → 36
-
-This round implements Reviewer A's recommendation on the 19 *reports not retrieved*.
-
-**What was done.** An additional retrieval round was run for all 19 reports, using — as applicable — publisher/DOI
-pages, institutional access, alternative versions indexed by scholarly search engines, ResearchGate/repositories,
-and direct author requests. **Nine** full texts were recovered and reassessed under the **unchanged** CI1–CI5 /
-CE1–CE5 criteria. **Seven were included** (Syahidi et al. 2025; Ryu et al. 2025; Kumar et al. 2024; Giarelis et
-al. 2026; Fang & Xu 2023; Tsourma et al. 2025; García-Montero et al. 2025 — consolidated-table IDs 30–36) and
-**two were excluded after full-text** (Baron 2025; Tahtali et al. 2026 — reasons above). **Ten** remain not
-retrieved.
-
-**PRISMA (international).** 46 sought → 10 not retrieved → 36 assessed → 2 excluded after full-text → 34 included.
-With the 2 SBC/SOL studies, the final corpus is **36**. (Identification/deduplication/title-abstract screening
-counts are unchanged, as the additional round acted only at the full-text-retrieval stage.)
-
-**What was recomputed from data (not mechanically substituted).** Models — at this round GPT/proprietary 19,
-open-weight 11, DialogFlow 2, not reported 4; **subsequently recoded** to proprietary 18 / open-weight 10 /
-multiple-comparative 2 / DialogFlow 2 / not reported 4 (see the RQ3 model-family recoding section below); empirical 28 / conceptual 8; hallucination explicitly discussed 24/36; taxonomy D1 (supply 9 /
-demand 27), D2 (LJ 9, OGD 12, services 9, sectoral 5, conceptual 1); geography (Europe 15, Asia 7, N. America 5,
-S. America 5, Oceania 1, Africa 0, multi-region 1, no national context 2); QA (range 2.0–5.0, **median 4.5
-unchanged**, twelve at 5.0, two below 2.5). The central finding is unchanged and re-verified: **none of the 36
-studies** evaluates transparency as a civic outcome.
-
-**Changes.** Abstract/Resumo, Results §Seleção + PRISMA narrative, Table 1, geography table, taxonomy Table 8 and
-figure, RQ1–RQ5 narratives, QA appendix (rows 30–36), consolidated table (rows 30–36), Discussion, Threats
-(availability bias), and Conclusion — all to N=36. Data files `busca_registros.csv`,
-`resultado_extracao_rsl.txt`, `referencias_corpus.bib`, and `reports_not_retrieved_todo.md` updated accordingly.
-
-**Status of prior human-action items (resolved in the pre-merge pass).** The PRISMA figure
-`imagens/fluxograma_prisma.png` was **replaced manually** with the corrected flow (46 sought → 10 not retrieved →
-36 assessed → 2 excluded → 34 included). The `[A CONFIRMAR]` bibliographic placeholders were resolved:
-García-Montero et al. is now dated **2026** (Springer CCIS chapter; TICEC 2025 event; pp. 63–77) with key
-`GarciaMontero2026`, and Giarelis et al. 2026 is now "Electronic Government (EGOV 2025), LNCS 15944, pp. 368–379".
-
----
-
-## RQ3 model-family coding — explicit rule and terminology (Reviewers A & C)
-
-**Comment (coding transparency / consistency).** The model-family variable was mutually exclusive but the "main
-model" reduction was never operationally defined, the aggregate label "família GPT" absorbed proprietary non-GPT
-systems (Gemini, Copilot), and several studies use more than one generative family.
-
-**Response.** We did **not** change eligibility, the corpus (still 36), or any other analysis. We only made the
-**descriptive RQ3 model-family coding explicit and reproducible**, operationalizing the previously implicit rule
-across all 36 studies (not a rule invented for one study):
-
-- A study is assigned to **one** category by the **generative** models central to its design. Auxiliary models
-  (embedding, re-ranking, retrieval, classifiers, LLM-as-judge, synthetic-data or preprocessing) do not determine
-  the category; a baseline that is a full experimental arm of a head-to-head comparison the conclusions depend on
-  is treated as co-primary.
-- Categories: **Proprietary · Open-weight · Multiple/comparative · DialogFlow · Not reported**. The aggregate
-  label "família GPT" was renamed **"Proprietário/Proprietary"** (individual GPT-3.5/4/4o mentions are unchanged).
-- **Multiple/comparative** is used **only** for symmetric cross-ownership-family designs (proprietary + open as
-  co-primary experimental conditions, no focal model). Two studies qualify: Rakhimova et al. 2025 (GPT-4o-mini vs.
-  seven open models on Kazakh legal QA) and García-Montero et al. 2026 (Gemini 2.5 Flash / GPT-4.1 Mini vs.
-  DeepSeek V3 / Llama 4 Maverick on the same 16 datasets). Studies with a clear focal generator — including
-  asymmetric pipelines (CLEAR: Llama interprets, GPT-4 generates → Proprietary) and same-family comparisons
-  (three open models → Open-weight; three proprietary → Proprietary) — were **not** moved to Multiple/comparative.
-
-**Recomputed distribution (from the 36 study-level decisions):** proprietary **18**, open-weight **10**,
-multiple/comparative **2**, DialogFlow **2**, not reported **4** (= 36). Net change vs. the previous 19/11/2/4:
-Rakhimova (was in the proprietary aggregate) and García-Montero/R022 (was open-weight) moved to
-multiple/comparative; Gan (#19) remains open-weight; #12/#17 remain proprietary.
-
-**Changes.** Documented rule added to Method (`metodo_rsl.tex`, §Extração); Table 1 relabelled with the new
-category; RQ3 narrative rewritten (proprietary 18, open 10, new multiple/comparative paragraph); Abstract/Resumo,
-Discussion §3 and reception paragraph, and Conclusion delabelled/recounted; extraction records for the two
-comparative studies annotated. No inter-rater validation is claimed; the single-reviewer limitation is preserved.
-This is an operational clarification of RQ3 coding, **not** a new taxonomy dimension.
+Agradecemos novamente aos Revisores e Editores. As revisões, em conjunto, tornaram os construtos mais precisos, a metodologia mais rastreável e a taxonomia efetivamente uma contribuição estruturada.
