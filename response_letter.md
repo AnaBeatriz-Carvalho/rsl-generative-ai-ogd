@@ -27,11 +27,11 @@ Agradecemos aos Editores e aos Revisores A e C pela leitura cuidadosa e pelos co
 *Mudanças.* RQ2 renomeada na Tabela de RQs e no campo de extração (`metodo_rsl.tex`); §RQ2 reescrita (`resultados_rsl.tex`, "Natureza e Domínio da Informação do Setor Público").
 
 **A5 — Se o desfecho é o impacto cívico, a fonte não são apenas artigos científicos; parte do estudo precisaria da literatura cinza.**
-*Resposta.* Concordamos com o ponto de fundo. Assumimos, por decisão de protocolo, a síntese apenas de estudos primários revisados por pares (CI2/CE3), e explicitamos que a conclusão sobre a ausência de desfecho cívico refere-se **estritamente aos 36 estudos incluídos**, não à totalidade da prática do campo — implantações e evidências de impacto fora da literatura científica podem não ter sido captadas.
+*Resposta.* Concordamos com o ponto de fundo. Assumimos, por decisão de protocolo, a síntese apenas de estudos primários revisados por pares (CI2/CE3), e explicitamos que a conclusão sobre a ausência de desfecho cívico refere-se **estritamente aos 36 estudos incluídos**, não à totalidade da prática do campo; implantações e evidências de impacto fora da literatura científica podem não ter sido captadas.
 *Mudanças.* Novo item **"Literatura cinza"** nas Ameaças à Validade (`isys_rsl.tex`).
 
 **A6 — A string (B1 AND (B2.1 OR B2.2)) retorna chatbots de e-gov/RAG fora do foco, gerando heterogeneidade; refinar os construtos e então a string.**
-*Resposta.* A heterogeneidade decorre, em parte, do escopo agora explicitado (informação do setor público, não só OGD): estudos sobre serviços e documentos são legítimos sob esse recorte. Por isso não estreitamos a string após a execução — isso comprometeria a reprodutibilidade do protocolo já aplicado —, mas passamos a explicar que os termos operacionalizam o escopo ampliado e derivam da PICOC definida a priori.
+*Resposta.* A heterogeneidade decorre, em parte, do escopo agora explicitado (informação do setor público, não só OGD): estudos sobre serviços e documentos são legítimos sob esse recorte. Por isso não estreitamos a string após a execução, o que comprometeria a reprodutibilidade do protocolo já aplicado; em vez disso, passamos a explicar que os termos operacionalizam o escopo ampliado e derivam da PICOC definida a priori.
 *Mudanças.* Parágrafo explicativo após a figura da string (`metodo_rsl.tex`); a string permanece a executada, agora justificada pelo escopo de A3.
 
 **A7 — A PICOC parece usada como justificativa a posteriori, não no planejamento.**
@@ -43,7 +43,7 @@ Agradecemos aos Editores e aos Revisores A e C pela leitura cuidadosa e pelos co
 *Mudanças.* §Síntese e §Extração (`metodo_rsl.tex`): procedimento temático, regra de modelo principal, tratamento de funções combinadas; a taxonomia (§4.6) explicita exclusividade por dimensão e acúmulo na função.
 
 **A9 — A taxonomia oferta/demanda é simplista; "acesso conversacional" e "mediação" parecem a mesma coisa variando o tipo de dado; é preciso maior fragmentação.**
-*Resposta.* Concordamos e reconstruímos a taxonomia em **três dimensões ortogonais**: (1) posição na cadeia informacional (oferta × demanda), (2) objeto informacional, (3) função da IA Generativa. É a Dimensão 2 (objeto), e não a posição, que distingue consulta a dados de mediação de serviços — exatamente a sobreposição apontada. Cada categoria tem definição, critério de inclusão e critério de diferenciação.
+*Resposta.* Concordamos e reconstruímos a taxonomia em **três dimensões ortogonais**: (1) posição na cadeia informacional (oferta × demanda), (2) objeto informacional, (3) função da IA Generativa. É a Dimensão 2 (objeto), e não a posição, que distingue consulta a dados de mediação de serviços, exatamente a sobreposição apontada. Cada categoria tem definição, critério de inclusão e critério de diferenciação.
 *Mudanças.* Nova subseção **§4.6** com **Tabela `tab:taxonomia`** e **Figura `fig:taxonomia`** (`resultados_rsl.tex`); resumo, Introdução e Conclusão descrevem a taxonomia como tridimensional.
 
 **A10 — Inferências na Discussão sem evidência: "deslocamento do dado estruturado para textual" (sem temporalidade); "alucinação em quase todos" (apontar quais).**
@@ -51,11 +51,11 @@ Agradecemos aos Editores e aos Revisores A e C pela leitura cuidadosa e pelos co
 *Mudanças.* Fecho da §RQ2 ("predominância… e não uma tendência histórica de substituição", `resultados_rsl.tex`); abertura da §RQ5 ("vinte e quatro dos trinta e seis"); Discussão §3 (`isys_rsl.tex`).
 
 **A11 — Falta articulação com teorias de SI que descrevam a transparência como fenômeno sociotécnico.**
-*Resposta.* Aprofundamos a leitura sociotécnica: além da definição de cinco dimensões (A2), a Discussão explicita que o fenômeno emerge da interação entre o artefato (LLM), a informação pública, as organizações, as práticas institucionais, a capacidade do cidadão e o resultado público — e que concentrar a avaliação no artefato é o que produz a lacuna identificada.
+*Resposta.* Aprofundamos a leitura sociotécnica: além da definição de cinco dimensões (A2), a Discussão explicita que o fenômeno emerge da interação entre o artefato (LLM), a informação pública, as organizações, as práticas institucionais, a capacidade do cidadão e o resultado público, e que concentrar a avaliação apenas no artefato é o que produz a lacuna identificada.
 *Mudanças.* §2.1 (construto sociotécnico) e parágrafo de fecho da Discussão (`isys_rsl.tex`, "Lidos sob a leitura sociotécnica…").
 
 **A12 — Muitas referências vêm de veículos de IA/IHC, distanciando o foco de SI/e-gov.**
-*Resposta.* Reforçamos o enquadramento em SI e a seção de Trabalhos Relacionados, contrastando a revisão com sínteses de SI/governo digital (Bastos et al.; Widiyaningtyas et al.; Savveli et al.) e incorporando referências de SI para os construtos (OGD, *accountability*, transparência). Ressalvamos, com honestidade, que a composição do corpus reflete onde o campo efetivamente publica; não substituímos referências do corpus artificialmente.
+*Resposta.* Reforçamos o enquadramento em SI e a seção de Trabalhos Relacionados, contrastando a revisão com sínteses de SI/governo digital (Bastos et al.; Widiyaningtyas et al.; Savveli et al.) e incorporando referências de SI para os construtos (OGD, *accountability*, transparência). Ressalvamos que a composição do corpus reflete onde o campo publica; não substituímos referências do corpus artificialmente.
 *Mudanças.* §2.3 Trabalhos Relacionados reescrita; referências de SI adicionadas na Fundamentação (`isys_rsl.tex`).
 
 **A13 — Não se detalha por que cada artigo retornado foi rejeitado, nem se apresenta a avaliação de qualidade.**
@@ -63,7 +63,7 @@ Agradecemos aos Editores e aos Revisores A e C pela leitura cuidadosa e pelos co
 *Mudanças.* §Seleção (`resultados_rsl.tex`, motivos + suplementar); novo **Apêndice A** com os escores AQ1–AQ5 estudo a estudo.
 
 **A14 — Não se detalha como as categorizações foram criadas: houve análise temática ou outro método?**
-*Resposta.* Explicitamos que foi **análise/síntese temática indutiva**, seguindo o procedimento de Cruzes & Dybå (2011), descrevendo o encadeamento comparação → agrupamento → categorias.
+*Resposta.* Explicitamos que foi **análise/síntese temática indutiva**, seguindo o procedimento de Cruzes & Dybå (2011), descrevendo o encadeamento de comparação, agrupamento e formação de categorias.
 *Mudanças.* §Síntese (`metodo_rsl.tex`), com citação a Cruzes & Dybå (2011).
 
 **A15 — A condução por um único autor deve constar como limitação (viés de julgamento), sobretudo dadas as fronteiras ambíguas de codificação.**
@@ -115,7 +115,7 @@ Agradecemos aos Editores e aos Revisores A e C pela leitura cuidadosa e pelos co
 *Mudanças.* §Estratégia de Busca (`metodo_rsl.tex`), parágrafo dedicado à execução na SBC/SOL.
 
 **C8 — Apresentar a distribuição geográfica dos estudos (país já extraído, mas ausente dos resultados).**
-*Resposta.* Concordamos. Definimos que o campo *país* registra o **contexto governamental empírico** (não a afiliação) e adicionamos uma síntese geográfica: **19 contextos nacionais** e um supranacional; EUA e China com 4 cada, Reino Unido 3; por região, **Europa 15, Ásia 7**, Américas do Norte e do Sul 5 cada, Oceania 1 e **nenhum contexto africano** — ligada às ameaças à validade externa.
+*Resposta.* Concordamos. Definimos que o campo *país* registra o **contexto governamental empírico** (não a afiliação) e adicionamos uma síntese geográfica: **19 contextos nacionais** e um supranacional; EUA e China com 4 cada, Reino Unido 3; por região, **Europa 15, Ásia 7**, Américas do Norte e do Sul 5 cada, Oceania 1 e **nenhum contexto africano**; essa distribuição é retomada nas ameaças à validade externa.
 *Mudanças.* Definição do campo *país* (`metodo_rsl.tex`); nova subseção **§Distribuição geográfica** com **Tabela `tab:geografia`** (`resultados_rsl.tex`).
 
 **C9 — Ampliar a síntese quantitativa descritiva (países, tipos de dados, modelos, métodos de avaliação, métricas, categorias).**
@@ -178,4 +178,4 @@ Agradecemos aos Editores e aos Revisores A e C pela leitura cuidadosa e pelos co
 
 ---
 
-Agradecemos novamente aos Revisores e Editores. As revisões, em conjunto, tornaram os construtos mais precisos, a metodologia mais rastreável e a taxonomia efetivamente uma contribuição estruturada.
+Agradecemos novamente aos Revisores e Editores. As revisões tornaram os construtos mais precisos, a metodologia mais rastreável e a taxonomia mais bem estruturada, e permanecemos à disposição para novos esclarecimentos.
