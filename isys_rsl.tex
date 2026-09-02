@@ -56,17 +56,24 @@
 \newcommand{\rev}[1]{\ifhl\sethlcolor{yellow}\hl{#1}\else#1\fi}
 
 % ---------------------------------------------------------------------
-% Metadados do PDF — na versão cega, remover qualquer identificação
-% (evita desk-reject por metadata que revele autoria).
+% Metadados do PDF.
+% pdftitle e pdfsubject valem nas duas versões: não identificam autoria
+% e garantem título/indexação corretos também na camera-ready.
+% pdfauthor, pdfkeywords e pdfcreator ficam vazios na versão cega
+% (evita desk-reject por metadata que revele autoria) e são preenchidos
+% apenas em \anonfalse.
 % ---------------------------------------------------------------------
-\ifanon
 \hypersetup{
-  pdfauthor    = {},
-  pdftitle     = {Generative AI for Public-Sector Information Access and Public Transparency: A Systematic Literature Review},
-  pdfsubject   = {Systematic Literature Review},
-  pdfkeywords  = {},
-  pdfcreator   = {},
-  pdfproducer  = {}
+  pdftitle   = {Generative AI for Public-Sector Information Access and Public Transparency: A Systematic Literature Review},
+  pdfsubject = {Systematic Literature Review}
+}
+\ifanon
+\hypersetup{ pdfauthor = {}, pdfkeywords = {}, pdfcreator = {} }
+\else
+\hypersetup{
+  pdfauthor   = {Ana Beatriz Carvalho Oliveira and Gilton Jos\'e Ferreira da Silva},
+  pdfkeywords = {Digital Government; Generative AI; Large Language Models; Open Government Data; Public-Sector Information; Public Transparency; Systematic Literature Review},
+  pdfcreator  = {XeLaTeX}
 }
 \fi
 
